@@ -1,3 +1,5 @@
+import { Menu } from "lucide-react";
+
 export const Navbar = () => {
   return (
     <header className="font-raleway flex align-center items-center justify-between">
@@ -20,7 +22,9 @@ export const Navbar = () => {
         </a>
       </div>
       <div className="sm:hidden">
-        <a href="" className="btn"></a>
+        <button className="btn btn-square">
+          <Menu />
+        </button>
       </div>
     </header>
   );
