@@ -1,3 +1,7 @@
 export const Navbar = () => {
-  return <header></header>;
+  return (
+    <header className="font-raleway">
+      <div className="font-bold">PartnerPair</div>
+    </header>
+  );
 };
