@@ -1,23 +1,36 @@
+import { Link } from "react-router-dom";
 import type { NavigationItemsProps } from "../../types/navigationItemsProps";
 
 export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
   return (
     <div className={forMobile ? "flex flex-col" : ""}>
-      <a href="" className="btn bg-transparent border-none hover:text-primary">
+      <a
+        href="#product"
+        className="btn bg-transparent border-none hover:text-primary"
+      >
         Product
       </a>
-      <a href="" className="btn bg-transparent border-none hover:text-primary">
+      <a
+        href="#pricing"
+        className="btn bg-transparent border-none hover:text-primary"
+      >
         Pricing
       </a>
-      <a href="" className="btn bg-transparent border-none hover:text-primary">
-        Blogs
-      </a>
-      <a href="" className="btn bg-transparent border-none hover:text-primary">
+      <Link
+        to={"/blog"}
+        className="btn bg-transparent border-none hover:text-primary"
+      >
+        Blog
+      </Link>
+      <Link
+        to={"/login"}
+        className="btn bg-transparent border-none hover:text-primary"
+      >
         Log In
-      </a>
-      <a href="" className="btn btn-primary border-none">
+      </Link>
+      <Link to={"/signup"} className="btn btn-primary border-none">
         Sign Up
-      </a>
+      </Link>
     </div>
   );
 };
