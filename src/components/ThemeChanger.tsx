@@ -1,9 +1,16 @@
-import { Sun, Moon, MonitorCog } from "lucide-react";
+import { Sun, Moon, SunMoon } from "lucide-react";
 import type { AppTheme } from "../types/AppTheme";
 import { useState, useLayoutEffect } from "react";
 
 export const ThemeChanger = () => {
-  const [theme, setTheme] = useState<AppTheme>("system");
+  const [theme, setTheme] = useState<AppTheme>(() => {
+    const existingThemePreference = localStorage.getItem("theme");
+    if (existingThemePreference === null) {
+      return "system";
+    } else {
+      return existingThemePreference as AppTheme;
+    }
+  });
 
   useLayoutEffect(() => {
     const root = document.documentElement;
@@ -15,6 +22,8 @@ export const ThemeChanger = () => {
     } else {
       root.setAttribute("data-theme", theme);
     }
+
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
@@ -26,7 +35,7 @@ export const ThemeChanger = () => {
           ) : theme === "dark" ? (
             <Moon size={20} />
           ) : (
-            <MonitorCog size={20} />
+            <SunMoon size={20} />
           )}
         </div>
         <ul
@@ -57,7 +66,7 @@ export const ThemeChanger = () => {
               setTheme("system");
             }}
           >
-            <MonitorCog size={20} />
+            <SunMoon size={20} />
             System
           </button>
         </ul>
