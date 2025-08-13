@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "../branding/Logo";
 import { NavigationItems } from "./NavigationItems";
+import { ThemeChanger } from "../ThemeChanger";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<Boolean>(false);
@@ -13,9 +14,11 @@ export const Navbar = () => {
   return (
     <header className="font-raleway flex align-center items-center justify-between">
       <Logo />
-      <div className="hidden sm:flex">
+      <div className="hidden sm:flex gap-4">
         <NavigationItems />
+        <ThemeChanger />
       </div>
+
       <div className="sm:hidden">
         <button className="btn btn-square" onClick={handleMenuButtonClick}>
           <Menu />
@@ -31,6 +34,7 @@ export const Navbar = () => {
             </button>
           </div>
           <NavigationItems forMobile={true} />
+          <ThemeChanger />
         </div>
       )}
     </header>
