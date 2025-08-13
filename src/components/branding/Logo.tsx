@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+
 export const Logo = () => {
-  return <div className="font-bold text-2xl">PartnerPair</div>;
+  return (
+    <Link to={"/"} className="font-bold text-2xl">
+      PartnerPair
+    </Link>
+  );
 };
