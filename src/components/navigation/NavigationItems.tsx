@@ -3,6 +3,8 @@ import type { NavigationItemsProps } from "../../types/navigationItemsProps";
 
 export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
   return (
+    // The menu items of the Navbar
+
     <div className={forMobile ? "flex flex-col" : ""}>
       <a
         href="#product"

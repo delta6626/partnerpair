@@ -3,8 +3,11 @@ import type { AppTheme } from "../types/AppTheme";
 import { useState, useLayoutEffect } from "react";
 
 export const ThemeChanger = () => {
+  // Load existing theme preference
+
   const [theme, setTheme] = useState<AppTheme>(() => {
     const existingThemePreference = localStorage.getItem("theme");
+
     if (existingThemePreference === null) {
       return "system";
     } else {
@@ -12,8 +15,11 @@ export const ThemeChanger = () => {
     }
   });
 
+  // Apply desired theme before the DOM is painted
+
   useLayoutEffect(() => {
     const root = document.documentElement;
+
     if (theme === "system") {
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -30,6 +36,8 @@ export const ThemeChanger = () => {
     <div className="">
       <div className="dropdown dropdown-bottom dropdown-end">
         <div tabIndex={0} role="button" className="btn btn-square">
+          {/* Icon for theme changer button */}
+
           {theme === "light" ? (
             <Sun size={20} />
           ) : theme === "dark" ? (
@@ -38,10 +46,13 @@ export const ThemeChanger = () => {
             <SunMoon size={20} />
           )}
         </div>
+
         <ul
           tabIndex={0}
           className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 shadow-sm"
         >
+          {/* Theme options  */}
+
           <button
             className="btn flex items-center justify-start"
             onClick={() => {
