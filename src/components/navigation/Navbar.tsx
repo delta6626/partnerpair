@@ -12,7 +12,7 @@ export const Navbar = () => {
   }
 
   return (
-    <header className="font-raleway flex align-center items-center justify-between">
+    <header className="font-inter flex align-center items-center justify-between">
       <Logo />
 
       <div className="hidden sm:flex gap-4">

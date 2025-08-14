@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-raleway: "Raleway", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @plugin "daisyui";
@@ -78,5 +78,5 @@
 }
 
 @utility btn {
-  @apply active:scale-95 transition-all ease-in-out duration-200 font-raleway shadow-none;
+  @apply active:scale-95 transition-all ease-in-out duration-200 font-inter shadow-none;
 }
