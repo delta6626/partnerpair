@@ -8,8 +8,8 @@ export const Signup = () => {
         <Navbar />
       </div>
 
-      <div className="pt-16 w-full flex flex-col items-center">
-        <h1 className="font-bold text-4xl">{SIGNUP.greeting}</h1>
+      <div className="w-full flex flex-col items-center">
+        <h1 className="font-bold text-4xl">{SIGNUP.greetingText}</h1>
         <form className="mt-16 w-2/8 fieldset">
           <div className="flex flex-col gap-2">
             <div className="flex flex-col">
@@ -42,10 +42,16 @@ export const Signup = () => {
                 placeholder="Confirm password"
               />
             </div>
-            <div className="mt-2">
-              <button className="btn btn-primary w-full">Continue</button>
+
+            <div className="mt-4">
+              <button className="btn btn-primary w-full">
+                {SIGNUP.signupButtonText}
+              </button>
+              <button className="btn mt-2 w-full">
+                {SIGNUP.signupWithGoogleButtonText}
+              </button>
             </div>
-            <div className="mt-2">
+            <div className="mt-4">
               <p>
                 By signing up, you agree to our Terms of Service and Privacy
                 Policy.
