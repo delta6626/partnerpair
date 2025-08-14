@@ -1,0 +1,49 @@
+import type { AppTheme } from "./AppTheme";
+import type { UserAvailability } from "./UserAvailability";
+import type { UserCommitmentLevel } from "./UserCommitmentLevel";
+import type { UserEducation } from "./UserEducation";
+import type { UserPreferredCompanyStage } from "./UserPreferredCompanyStage";
+import type { UserRole } from "./UserRole";
+
+export interface User {
+  basicInfo: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string | null;
+    location: string | null;
+    verified: boolean;
+    profileImageUrl: string | null;
+    profileCompleted: boolean;
+    createdAt: Date;
+    lastActiveAt: Date;
+  };
+
+  professionalInfo: {
+    headline: string | null;
+    bio: string | null;
+    skills: string[] | null;
+    roles: UserRole[] | null;
+    education: UserEducation[] | null;
+  };
+
+  matchingPreferences: {
+    lookingForSkills: string[] | null;
+    lookingForRoles: UserRole[] | null;
+    preferredLocation: string | null;
+    commitmentLevel: UserCommitmentLevel | null;
+    availability: UserAvailability | null;
+    preferredCompanyStage: UserPreferredCompanyStage[] | null;
+  };
+
+  socialLinks: {
+    linkedin: string | null;
+    twitter: string | null;
+    github: string | null;
+    website: string | null;
+  };
+
+  settings: {
+    preferredTheme: AppTheme;
+  };
+}
