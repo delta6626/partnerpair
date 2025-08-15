@@ -8,9 +8,11 @@ export const Signup = () => {
         <Navbar />
       </div>
 
-      <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+      <div className="w-full absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
         <div className="w-full flex flex-col items-center">
-          <h1 className="font-bold text-4xl">{SIGNUP.greetingText}</h1>
+          <h1 className="font-bold text-4xl text-center">
+            {SIGNUP.greetingText}
+          </h1>
           <form className="mt-16 fieldset">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col">
