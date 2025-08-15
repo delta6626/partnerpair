@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 
 export const SignupForm = () => {
@@ -7,6 +7,28 @@ export const SignupForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
+
+  const [formDataValid, setFormDataValid] = useState<boolean>(false);
+
+  function handleFirstNameChange(e: ChangeEvent<HTMLInputElement>) {
+    setFirstName(e.target.value);
+  }
+
+  function handleLastNameChange(e: ChangeEvent<HTMLInputElement>) {
+    setLastName(e.target.value);
+  }
+
+  function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e: ChangeEvent<HTMLInputElement>) {
+    setPassword(e.target.value);
+  }
+
+  function handleConfirmedPasswordChange(e: ChangeEvent<HTMLInputElement>) {
+    setConfirmedPassword(e.target.value);
+  }
 
   return (
     <form className="mt-16 fieldset">
@@ -19,9 +41,7 @@ export const SignupForm = () => {
               placeholder="First name"
               maxLength={SIGNUP.MAXIMUM_FIRST_NAME_LENGTH}
               value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
+              onChange={handleFirstNameChange}
             />
             <input
               type="text"
@@ -29,9 +49,7 @@ export const SignupForm = () => {
               placeholder="Last name"
               maxLength={SIGNUP.MAXIMUM_LAST_NAME_LENGTH}
               value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value);
-              }}
+              onChange={handleLastNameChange}
             />
           </div>
         </div>
@@ -43,9 +61,7 @@ export const SignupForm = () => {
             placeholder="Email"
             maxLength={SIGNUP.MAXIMUM_EMAIL_LENGTH}
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            onChange={handleEmailChange}
           />
         </div>
 
@@ -56,9 +72,7 @@ export const SignupForm = () => {
             placeholder="Password"
             maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={handlePasswordChange}
           />
         </div>
 
@@ -69,14 +83,16 @@ export const SignupForm = () => {
             placeholder="Confirm password"
             maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={confirmedPassword}
-            onChange={(e) => {
-              setConfirmedPassword(e.target.value);
-            }}
+            onChange={handleConfirmedPasswordChange}
           />
         </div>
 
         <div className="mt-4">
-          <button type="submit" className="btn btn-primary w-full">
+          <button
+            type="submit"
+            className="btn btn-primary w-full"
+            disabled={!formDataValid}
+          >
             {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
           <button className="btn mt-2 w-full">
