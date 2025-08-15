@@ -4,6 +4,7 @@ import type { UserCommitmentLevel } from "./UserCommitmentLevel";
 import type { UserEducation } from "./UserEducation";
 import type { UserPreferredCompanyStage } from "./UserPreferredCompanyStage";
 import type { UserRole } from "./UserRole";
+import type { UserTier } from "./UserTier";
 
 export interface User {
   basicInfo: {
@@ -13,6 +14,7 @@ export interface User {
     phone: string | null;
     location: string | null;
     verified: boolean;
+    tier: UserTier;
     profileImageUrl: string | null;
     profileCompleted: boolean;
     createdAt: Date;
