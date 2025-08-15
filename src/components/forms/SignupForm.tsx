@@ -72,14 +72,14 @@ export const SignupForm = () => {
 
         <div className="mt-4">
           <button type="submit" className="btn btn-primary w-full">
-            {SIGNUP.signupButtonText}
+            {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
           <button className="btn mt-2 w-full">
-            {SIGNUP.signupWithGoogleButtonText}
+            {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
           </button>
         </div>
         <div className="mt-4">
-          <p>{SIGNUP.tosText}</p>
+          <p>{SIGNUP.TOS_TEXT}</p>
         </div>
       </div>
     </form>
