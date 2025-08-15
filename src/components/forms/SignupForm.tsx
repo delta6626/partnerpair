@@ -1,4 +1,8 @@
-import { useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
+import { isNotEmpty } from "../../utils/isNotEmpty";
+import { isValidEmail } from "../../utils/isValidEmail";
+import { isPasswordValid } from "../../utils/isPasswordValid";
+import { passwordsMatch } from "../../utils/passwordsMatch";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormErrors } from "../../types/SignupFormErrors";
 
@@ -39,6 +43,49 @@ export const SignupForm = () => {
   ): void => {
     setConfirmedPassword(e.target.value);
   };
+
+  useEffect(() => {
+    const errors: SignupFormErrors = {
+      firstName: { error: false, errorMessage: "" },
+      lastName: { error: false, errorMessage: "" },
+      email: { error: false, errorMessage: "" },
+      password: { error: false, errorMessage: "" },
+      confirmedPassword: { error: false, errorMessage: "" },
+    };
+
+    if (!isNotEmpty(firstName)) {
+      errors.firstName = {
+        error: true,
+        errorMessage: "First name cannot be empty",
+      };
+    }
+    if (!isNotEmpty(lastName)) {
+      errors.lastName = {
+        error: true,
+        errorMessage: "Last name cannot be empty",
+      };
+    }
+    if (!isNotEmpty(email)) {
+      errors.email = { error: true, errorMessage: "Email cannot be empty" };
+    } else if (!isValidEmail(email)) {
+      errors.email = { error: true, errorMessage: "Email is invalid" };
+    }
+    if (!isPasswordValid(password)) {
+      errors.password = {
+        error: true,
+        errorMessage: "Password must be at least 8 characters",
+      };
+    }
+    if (!passwordsMatch(password, confirmedPassword)) {
+      errors.confirmedPassword = {
+        error: true,
+        errorMessage: "Passwords do not match",
+      };
+    }
+
+    setFormError(errors);
+    setFormDataValid(Object.values(errors).every((field) => !field.error));
+  }, [firstName, lastName, email, password, confirmedPassword]);
 
   return (
     <form className="mt-16 fieldset">
