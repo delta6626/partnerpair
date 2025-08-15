@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
+import type { SignupFormErrors } from "../../types/SignupFormErrors";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -8,6 +9,13 @@ export const SignupForm = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
 
+  const [formError, setFormError] = useState<SignupFormErrors>({
+    firstName: { error: false, errorMessage: "" },
+    lastName: { error: false, errorMessage: "" },
+    email: { error: false, errorMessage: "" },
+    password: { error: false, errorMessage: "" },
+    confirmedPassword: { error: false, errorMessage: "" },
+  });
   const [formDataValid, setFormDataValid] = useState<boolean>(false);
 
   function handleFirstNameChange(e: ChangeEvent<HTMLInputElement>) {
