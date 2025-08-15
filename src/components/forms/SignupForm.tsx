@@ -17,6 +17,7 @@ export const SignupForm = () => {
               type="text"
               className="input"
               placeholder="First name"
+              maxLength={SIGNUP.MAXIMUM_FIRST_NAME_LENGTH}
               value={firstName}
               onChange={(e) => {
                 setFirstName(e.target.value);
@@ -26,6 +27,7 @@ export const SignupForm = () => {
               type="text"
               className="input"
               placeholder="Last name"
+              maxLength={SIGNUP.MAXIMUM_LAST_NAME_LENGTH}
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -39,6 +41,7 @@ export const SignupForm = () => {
             type="email"
             className="input w-full"
             placeholder="Email"
+            maxLength={SIGNUP.MAXIMUM_EMAIL_LENGTH}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -51,6 +54,7 @@ export const SignupForm = () => {
             type="password"
             className="input w-full"
             placeholder="Password"
+            maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -63,6 +67,7 @@ export const SignupForm = () => {
             type="password"
             className="input w-full"
             placeholder="Confirm password"
+            maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={confirmedPassword}
             onChange={(e) => {
               setConfirmedPassword(e.target.value);
