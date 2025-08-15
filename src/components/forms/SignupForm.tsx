@@ -18,25 +18,27 @@ export const SignupForm = () => {
   });
   const [formDataValid, setFormDataValid] = useState<boolean>(false);
 
-  function handleFirstNameChange(e: ChangeEvent<HTMLInputElement>) {
+  const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setFirstName(e.target.value);
-  }
+  };
 
-  function handleLastNameChange(e: ChangeEvent<HTMLInputElement>) {
+  const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setLastName(e.target.value);
-  }
+  };
 
-  function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setEmail(e.target.value);
-  }
+  };
 
-  function handlePasswordChange(e: ChangeEvent<HTMLInputElement>) {
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setPassword(e.target.value);
-  }
+  };
 
-  function handleConfirmedPasswordChange(e: ChangeEvent<HTMLInputElement>) {
+  const handleConfirmedPasswordChange = (
+    e: ChangeEvent<HTMLInputElement>
+  ): void => {
     setConfirmedPassword(e.target.value);
-  }
+  };
 
   return (
     <form className="mt-16 fieldset">
