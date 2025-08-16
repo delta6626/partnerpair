@@ -3,6 +3,7 @@ import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
+import { createUserByEmail } from "../../sevices/authentication/authServices";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -56,8 +57,18 @@ export const SignupForm = () => {
     }
   };
 
-  const handleSignup = (e: FormEvent) => {
+  const handleSignup = async (e: FormEvent) => {
     e.preventDefault();
+    try {
+      const userCredentials = await createUserByEmail(email, password);
+      //console.log(userCredentials);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+      } else {
+        setErrorMessage("An unknown error has occured.");
+      }
+    }
   };
 
   const handleGoogleSignup = (e: FormEvent) => {

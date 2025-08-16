@@ -12,6 +12,6 @@ export const createUserByEmail = async (email: string, password: string) => {
 
     return userCredentials.user;
   } catch (error: any) {
-    console.log(handleFirebaseError(error).message);
+    return handleFirebaseError(error);
   }
 };
