@@ -2,6 +2,7 @@ import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
+import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -139,7 +140,11 @@ export const SignupForm = () => {
           >
             {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
-          <button className="btn mt-2 w-full" onClick={handleGoogleSignup}>
+          <button
+            className="btn btn-neutral mt-2 w-full"
+            onClick={handleGoogleSignup}
+          >
+            <GoogleIcon />
             {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
           </button>
         </div>
