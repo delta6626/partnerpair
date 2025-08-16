@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
+import { useSignupValidation } from "../../hooks/useSignupValidation";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -9,6 +10,23 @@ export const SignupForm = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
 
+  const [touched, setTouched] = useState<Record<SignupFormInputs, boolean>>({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
+
+  const { errorMessage, setErrorMessage } = useSignupValidation(
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmedPassword,
+    touched
+  );
+
   const handleInputFieldChange = (
     inputElement: SignupFormInputs,
     event: ChangeEvent<HTMLInputElement>
@@ -16,18 +34,23 @@ export const SignupForm = () => {
     switch (inputElement) {
       case "firstName":
         setFirstName(event.target.value);
+        setTouched((prev) => ({ ...prev, firstName: true }));
         break;
       case "lastName":
         setLastName(event.target.value);
+        setTouched((prev) => ({ ...prev, lastName: true }));
         break;
       case "email":
         setEmail(event.target.value);
+        setTouched((prev) => ({ ...prev, email: true }));
         break;
       case "password":
         setPassword(event.target.value);
+        setTouched((prev) => ({ ...prev, password: true }));
         break;
       case "confirmPassword":
         setConfirmedPassword(event.target.value);
+        setTouched((prev) => ({ ...prev, confirmPassword: true }));
         break;
     }
   };
@@ -98,6 +121,8 @@ export const SignupForm = () => {
             }}
           />
         </div>
+
+        <div className="">{errorMessage && <p>{errorMessage}</p>}</div>
 
         <div className="mt-4">
           <button type="submit" className="btn btn-primary w-full">
