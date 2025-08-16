@@ -122,9 +122,11 @@ export const SignupForm = () => {
           />
         </div>
 
-        <div className="">{errorMessage && <p>{errorMessage}</p>}</div>
+        <div className="min-h-6 text-error">
+          {errorMessage && <p>{errorMessage}</p>}
+        </div>
 
-        <div className="mt-4">
+        <div className="">
           <button
             type="submit"
             className="btn btn-primary w-full"
