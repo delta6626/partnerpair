@@ -18,7 +18,7 @@ export const SignupForm = () => {
     confirmPassword: false,
   });
 
-  const { errorMessage, setErrorMessage } = useSignupValidation(
+  const { errorMessage, setErrorMessage, formValid } = useSignupValidation(
     firstName,
     lastName,
     email,
@@ -125,7 +125,11 @@ export const SignupForm = () => {
         <div className="">{errorMessage && <p>{errorMessage}</p>}</div>
 
         <div className="mt-4">
-          <button type="submit" className="btn btn-primary w-full">
+          <button
+            type="submit"
+            className="btn btn-primary w-full"
+            disabled={!formValid}
+          >
             {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
           <button className="btn mt-2 w-full">

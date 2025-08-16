@@ -14,18 +14,22 @@ export const useSignupValidation = (
   touched: Record<SignupFormInputs, boolean>
 ) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   useEffect(() => {
     // Reset error message when all fields are valid
     if (
-      isValidLength(firstName, 5) &&
-      isValidLength(lastName, 5) &&
+      isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH) &&
+      isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH) &&
       isValidEmail(email) &&
       isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH) &&
       passwordsMatch(password, confirmedPassword)
     ) {
       setErrorMessage(null); // No errors
+      setFormValid(true);
       return;
+    } else {
+      setFormValid(false);
     }
 
     // Set appropriate error
@@ -57,5 +61,5 @@ export const useSignupValidation = (
     }
   }, [firstName, lastName, email, password, confirmedPassword, touched]);
 
-  return { errorMessage, setErrorMessage };
+  return { errorMessage, setErrorMessage, formValid };
 };
