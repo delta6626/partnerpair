@@ -55,6 +55,10 @@ export const SignupForm = () => {
     }
   };
 
+  const handleSignup = () => {};
+
+  const handleGoogleSignup = () => {};
+
   return (
     <form className="mt-16 fieldset">
       <div className="flex flex-col gap-2">
@@ -131,10 +135,11 @@ export const SignupForm = () => {
             type="submit"
             className="btn btn-primary w-full"
             disabled={!formValid}
+            onClick={handleSignup}
           >
             {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
-          <button className="btn mt-2 w-full">
+          <button className="btn mt-2 w-full" onClick={handleGoogleSignup}>
             {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
           </button>
         </div>
