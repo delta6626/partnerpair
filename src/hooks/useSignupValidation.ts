@@ -30,9 +30,15 @@ export const useSignupValidation = (
 
     // Set appropriate error
 
-    if (touched.firstName && !isValidLength(firstName, 5)) {
+    if (
+      touched.firstName &&
+      !isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH)
+    ) {
       setErrorMessage("First name must be at least 5 characters.");
-    } else if (touched.lastName && !isValidLength(lastName, 5)) {
+    } else if (
+      touched.lastName &&
+      !isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH)
+    ) {
       setErrorMessage("Last name must be at least 5 characters.");
     } else if (touched.email && !isValidEmail(email)) {
       setErrorMessage("Please enter a valid email address.");
