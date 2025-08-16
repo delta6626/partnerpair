@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
+import type { SignupFormInputs } from "../../types/SignupFormInputs";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -8,26 +9,27 @@ export const SignupForm = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
 
-  const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setLastName(e.target.value);
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setPassword(e.target.value);
-  };
-
-  const handleConfirmedPasswordChange = (
-    e: ChangeEvent<HTMLInputElement>
-  ): void => {
-    setConfirmedPassword(e.target.value);
+  const handleInputFieldChange = (
+    inputElement: SignupFormInputs,
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    switch (inputElement) {
+      case "firstName":
+        setFirstName(event.target.value);
+        break;
+      case "lastName":
+        setLastName(event.target.value);
+        break;
+      case "email":
+        setEmail(event.target.value);
+        break;
+      case "password":
+        setPassword(event.target.value);
+        break;
+      case "confirmPassword":
+        setConfirmedPassword(event.target.value);
+        break;
+    }
   };
 
   return (
@@ -41,7 +43,9 @@ export const SignupForm = () => {
               placeholder="First name"
               maxLength={SIGNUP.MAXIMUM_FIRST_NAME_LENGTH}
               value={firstName}
-              onChange={handleFirstNameChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                handleInputFieldChange("firstName", e);
+              }}
             />
             <input
               type="text"
@@ -49,7 +53,9 @@ export const SignupForm = () => {
               placeholder="Last name"
               maxLength={SIGNUP.MAXIMUM_LAST_NAME_LENGTH}
               value={lastName}
-              onChange={handleLastNameChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                handleInputFieldChange("lastName", e);
+              }}
             />
           </div>
         </div>
@@ -61,7 +67,9 @@ export const SignupForm = () => {
             placeholder="Email"
             maxLength={SIGNUP.MAXIMUM_EMAIL_LENGTH}
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleInputFieldChange("email", e);
+            }}
           />
         </div>
 
@@ -72,7 +80,9 @@ export const SignupForm = () => {
             placeholder="Password"
             maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleInputFieldChange("password", e);
+            }}
           />
         </div>
 
@@ -83,7 +93,9 @@ export const SignupForm = () => {
             placeholder="Confirm password"
             maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
             value={confirmedPassword}
-            onChange={handleConfirmedPasswordChange}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleInputFieldChange("confirmPassword", e);
+            }}
           />
         </div>
 
