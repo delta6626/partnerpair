@@ -11,4 +11,9 @@ export const SIGNUP = {
   MINIMUM_FIRST_NAME_LENGTH: 1,
   MINIMUM_LAST_NAME_LENGTH: 1,
   MINIMUM_PASSWORD_LENGTH: 8,
+  FIRST_NAME_LENGTH_ERROR: "Please enter your first name.",
+  LAST_NAME_LENGTH_ERROR: "Please enter your last name.",
+  EMAIL_INVALID_ERROR: "Please enter a valid email.",
+  PASSWORD_LENGTH_ERROR: "Password must at least be 8 characters.",
+  PASSWORDS_DO_NOT_MATCH_ERROR: "The passwords do not match.",
 };

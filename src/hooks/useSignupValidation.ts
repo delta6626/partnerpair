@@ -34,26 +34,24 @@ export const useSignupValidation = (
       touched.firstName &&
       !isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH)
     ) {
-      setErrorMessage("First name must be at least 5 characters.");
+      setErrorMessage(SIGNUP.FIRST_NAME_LENGTH_ERROR);
     } else if (
       touched.lastName &&
       !isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH)
     ) {
-      setErrorMessage("Last name must be at least 5 characters.");
+      setErrorMessage(SIGNUP.LAST_NAME_LENGTH_ERROR);
     } else if (touched.email && !isValidEmail(email)) {
-      setErrorMessage("Please enter a valid email address.");
+      setErrorMessage(SIGNUP.EMAIL_INVALID_ERROR);
     } else if (
       touched.password &&
       !isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH)
     ) {
-      setErrorMessage(
-        `Password must be at least ${SIGNUP.MINIMUM_PASSWORD_LENGTH} characters.`
-      );
+      setErrorMessage(SIGNUP.PASSWORD_LENGTH_ERROR);
     } else if (
       touched.confirmPassword &&
       !passwordsMatch(password, confirmedPassword)
     ) {
-      setErrorMessage("Passwords do not match.");
+      setErrorMessage(SIGNUP.PASSWORDS_DO_NOT_MATCH_ERROR);
     } else {
       setErrorMessage(null); // Clear the error if no issue
     }
