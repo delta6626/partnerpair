@@ -1,10 +1,5 @@
-import { useEffect, useState, type ChangeEvent } from "react";
-import { isNotEmpty } from "../../utils/isNotEmpty";
-import { isValidEmail } from "../../utils/isValidEmail";
-import { isPasswordValid } from "../../utils/isPasswordValid";
-import { passwordsMatch } from "../../utils/passwordsMatch";
+import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
-import type { SignupFormErrors } from "../../types/SignupFormErrors";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -12,15 +7,6 @@ export const SignupForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
-
-  const [formError, setFormError] = useState<SignupFormErrors>({
-    firstName: { error: false, errorMessage: "" },
-    lastName: { error: false, errorMessage: "" },
-    email: { error: false, errorMessage: "" },
-    password: { error: false, errorMessage: "" },
-    confirmedPassword: { error: false, errorMessage: "" },
-  });
-  const [formDataValid, setFormDataValid] = useState<boolean>(false);
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setFirstName(e.target.value);
@@ -43,49 +29,6 @@ export const SignupForm = () => {
   ): void => {
     setConfirmedPassword(e.target.value);
   };
-
-  useEffect(() => {
-    const errors: SignupFormErrors = {
-      firstName: { error: false, errorMessage: "" },
-      lastName: { error: false, errorMessage: "" },
-      email: { error: false, errorMessage: "" },
-      password: { error: false, errorMessage: "" },
-      confirmedPassword: { error: false, errorMessage: "" },
-    };
-
-    if (!isNotEmpty(firstName)) {
-      errors.firstName = {
-        error: true,
-        errorMessage: "First name cannot be empty",
-      };
-    }
-    if (!isNotEmpty(lastName)) {
-      errors.lastName = {
-        error: true,
-        errorMessage: "Last name cannot be empty",
-      };
-    }
-    if (!isNotEmpty(email)) {
-      errors.email = { error: true, errorMessage: "Email cannot be empty" };
-    } else if (!isValidEmail(email)) {
-      errors.email = { error: true, errorMessage: "Email is invalid" };
-    }
-    if (!isPasswordValid(password)) {
-      errors.password = {
-        error: true,
-        errorMessage: "Password must be at least 8 characters",
-      };
-    }
-    if (!passwordsMatch(password, confirmedPassword)) {
-      errors.confirmedPassword = {
-        error: true,
-        errorMessage: "Passwords do not match",
-      };
-    }
-
-    setFormError(errors);
-    setFormDataValid(Object.values(errors).every((field) => !field.error));
-  }, [firstName, lastName, email, password, confirmedPassword]);
 
   return (
     <form className="mt-16 fieldset">
@@ -145,11 +88,7 @@ export const SignupForm = () => {
         </div>
 
         <div className="mt-4">
-          <button
-            type="submit"
-            className="btn btn-primary w-full"
-            disabled={!formDataValid}
-          >
+          <button type="submit" className="btn btn-primary w-full">
             {SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
           <button className="btn mt-2 w-full">
