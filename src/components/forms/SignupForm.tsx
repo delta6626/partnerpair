@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
@@ -56,9 +56,13 @@ export const SignupForm = () => {
     }
   };
 
-  const handleSignup = () => {};
+  const handleSignup = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
-  const handleGoogleSignup = () => {};
+  const handleGoogleSignup = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <form className="mt-16 fieldset">
