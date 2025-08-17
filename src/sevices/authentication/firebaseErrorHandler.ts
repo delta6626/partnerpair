@@ -1,27 +1,28 @@
+import { SIGNUP } from "../../constants/SIGNUP";
+
 // Utility function for handling Firebase errors
 export const handleFirebaseError = (error: any): string => {
   switch (error.code) {
     case "auth/invalid-email":
-      return "Please enter a valid email address.";
+      return SIGNUP.EMAIL_INVALID_ERROR;
     case "auth/weak-password":
-      return "Password should be at least 6 characters long.";
+      return SIGNUP.PASSWORD_LENGTH_ERROR;
     case "auth/email-already-in-use":
-      return "This email address is already associated with an account.";
+      return SIGNUP.EMAIL_ALREADY_IN_USE;
     case "auth/too-many-requests":
-      return "Too many attempts. Please try again later.";
-
+      return SIGNUP.TOO_MANY_ATTEMPTS;
     case "auth/network-request-failed":
-      return "Network error. Please check your internet connection.";
+      return SIGNUP.NETWORK_ERROR;
     case "auth/account-exists-with-different-credential":
-      return "An account already exists with this email using a different sign-in method.";
+      return SIGNUP.ACCOUNT_EXISTS_WITH_DIFFERENT_SIGNIN_METHOD;
     case "auth/popup-blocked":
-      return "Your browser blocked the sign-in popup. Please allow popups and try again.";
+      return SIGNUP.POPUP_BLOCKED;
     case "auth/popup-closed-by-user":
-      return "Sign-in popup was closed before completing the sign-in.";
+      return SIGNUP.POPUP_CLOSED;
     case "auth/unauthorized-domain":
-      return "This app is not authorized for Google sign-in. Contact support.";
+      return SIGNUP.UNAUTHORIZED_DOMAIN;
     default:
       console.error("Unexpected error:", error);
-      return "An unexpected error occurred. Please try again later.";
+      return SIGNUP.UNKNOWN_ERROR;
   }
 };
