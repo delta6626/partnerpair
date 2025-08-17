@@ -4,9 +4,11 @@ import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail } from "../../sevices/authentication/authServices";
-import type { User } from "firebase/auth";
+import { useUserStore } from "../../store/useUserStore";
 
 export const SignupForm = () => {
+  const { setUser } = useUserStore();
+
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -76,7 +78,7 @@ export const SignupForm = () => {
     if (typeof result === "string") {
       setErrorMessage(result);
     } else {
-      // User creation successful
+      setUser(result);
     }
   };
 
