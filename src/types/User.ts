@@ -1,4 +1,5 @@
 import type { AppTheme } from "./AppTheme";
+import type { AuthMethod } from "./AuthMethod";
 import type { UserAvailability } from "./UserAvailability";
 import type { UserCommitmentLevel } from "./UserCommitmentLevel";
 import type { UserEducation } from "./UserEducation";
@@ -15,6 +16,7 @@ export interface User {
     location: string | null;
     verified: boolean;
     tier: UserTier;
+    authenticationMethod: AuthMethod;
     profileImageUrl: string | null;
     profileCompleted: boolean;
     createdAt: Date;
@@ -43,9 +45,5 @@ export interface User {
     twitter: string | null;
     github: string | null;
     website: string | null;
-  };
-
-  settings: {
-    preferredTheme: AppTheme;
   };
 }

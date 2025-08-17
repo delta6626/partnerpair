@@ -4,6 +4,7 @@ import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail } from "../../sevices/authentication/authServices";
+import type { User } from "../../types/User";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -11,6 +12,8 @@ export const SignupForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [touched, setTouched] = useState<Record<SignupFormInputs, boolean>>({
     firstName: false,
@@ -59,15 +62,21 @@ export const SignupForm = () => {
 
   const handleSignup = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      const userCredentials = await createUserByEmail(email, password);
-      //console.log(userCredentials);
-    } catch (error) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      } else {
-        setErrorMessage("An unknown error has occured.");
-      }
+    setLoading(true);
+
+    const result = await createUserByEmail(
+      email,
+      password,
+      firstName,
+      lastName
+    );
+
+    setLoading(false);
+
+    if (typeof result === "string") {
+      setErrorMessage(result);
+    } else {
+      console.log("user created");
     }
   };
 
@@ -150,14 +159,19 @@ export const SignupForm = () => {
           <button
             type="submit"
             className="btn btn-primary w-full"
-            disabled={!formValid}
+            disabled={!formValid || loading}
             onClick={handleSignup}
           >
-            {SIGNUP.SIGNUP_BUTTON_TEXT}
+            {loading ? (
+              <p className="loading loading-spinner"></p>
+            ) : (
+              SIGNUP.SIGNUP_BUTTON_TEXT
+            )}
           </button>
           <button
             className="btn btn-neutral mt-2 w-full"
             onClick={handleGoogleSignup}
+            disabled={loading}
           >
             <GoogleIcon />
             {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
