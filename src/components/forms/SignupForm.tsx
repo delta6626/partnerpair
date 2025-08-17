@@ -4,7 +4,7 @@ import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail } from "../../sevices/authentication/authServices";
-import type { User } from "../../types/User";
+import type { User } from "firebase/auth";
 
 export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -76,7 +76,7 @@ export const SignupForm = () => {
     if (typeof result === "string") {
       setErrorMessage(result);
     } else {
-      console.log("user created");
+      // User creation successful
     }
   };
 
