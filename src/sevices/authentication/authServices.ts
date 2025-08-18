@@ -100,7 +100,7 @@ export const getUserData = async () => {
   const user: string | UserAccount = await getAuthenticatedUser();
   let userId: string;
 
-  if (typeof user === "string") return;
+  if (typeof user === "string") return SIGNUP.UNAUTHENTICATED;
   else {
     userId = user.uid;
   }
