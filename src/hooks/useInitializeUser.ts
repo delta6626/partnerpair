@@ -22,6 +22,12 @@ export const useInitializeUser = () => {
         return;
       }
 
+      // If store already has a User, skip initialization
+      if (user && typeof user !== "string") {
+        setLoading(false);
+        return;
+      }
+
       let currentUser: User | string | null = user;
 
       // Try localStorage cache
