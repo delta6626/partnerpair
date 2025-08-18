@@ -2,11 +2,12 @@ import {
   createUserWithEmailAndPassword,
   deleteUser,
   onAuthStateChanged,
+  type User as UserAccount,
 } from "firebase/auth";
 import { firestore, auth, analytics } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, DocumentReference, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
 
 export const createUserByEmail = async (
@@ -83,7 +84,7 @@ const addUserToDatabase = async (user: User, userId: string) => {
 };
 
 export const getAuthenticatedUser = async () => {
-  return new Promise((resolve) => {
+  return new Promise<UserAccount | string>((resolve) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         resolve(user);
@@ -92,4 +93,26 @@ export const getAuthenticatedUser = async () => {
       }
     });
   });
+};
+
+export const getUserData = async () => {
+  // Get user id
+  const user: string | UserAccount = await getAuthenticatedUser();
+  let userId: string;
+
+  if (typeof user === "string") return;
+  else {
+    userId = user.uid;
+  }
+
+  // Get the user data from firestore
+
+  const userDocRef = doc(firestore, "users", userId);
+  try {
+    const userDataDocument = await getDoc(userDocRef);
+    const userData = userDataDocument.data() as User;
+    return userData;
+  } catch (error: any) {
+    return handleFirebaseError(error);
+  }
 };
