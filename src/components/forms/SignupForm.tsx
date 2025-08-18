@@ -42,6 +42,8 @@ export const SignupForm = () => {
     touched
   );
 
+  // Unified change event handler for all inputs
+
   const handleInputFieldChange = (
     inputElement: SignupFormInputs,
     event: ChangeEvent<HTMLInputElement>
@@ -74,6 +76,7 @@ export const SignupForm = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Authenticate the user and store them in Firestore.
     const result = await createUserByEmail(
       email,
       password,
@@ -93,6 +96,8 @@ export const SignupForm = () => {
   const handleGoogleSignup = (e: FormEvent) => {
     e.preventDefault();
   };
+
+  // Focus on the first form input field
 
   useEffect(() => {
     const input = inputRef.current;

@@ -1,3 +1,5 @@
+// All authentication-related constants
+
 export const SIGNUP = {
   GREETING_TEXT: "Hi, let's get you started.",
   SIGNUP_BUTTON_TEXT: "Continue",
