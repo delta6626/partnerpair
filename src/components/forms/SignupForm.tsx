@@ -1,4 +1,10 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+} from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
@@ -8,6 +14,8 @@ import { useUserStore } from "../../store/useUserStore";
 
 export const SignupForm = () => {
   const { setUser } = useUserStore();
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -86,12 +94,20 @@ export const SignupForm = () => {
     e.preventDefault();
   };
 
+  useEffect(() => {
+    const input = inputRef.current;
+    if (input) {
+      input.focus();
+    }
+  }, []);
+
   return (
     <form className="mt-16 fieldset">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col">
           <div className="flex gap-2">
             <input
+              ref={inputRef}
               type="text"
               className="input"
               placeholder="First name"
