@@ -11,20 +11,21 @@ import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail } from "../../sevices/authentication/authServices";
 import { useUserStore } from "../../store/useUserStore";
+import { useNavigate } from "react-router-dom";
 
 export const SignupForm = () => {
+  const navigate = useNavigate();
+
   const { setUser } = useUserStore();
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const [loading, setLoading] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
-
-  const [loading, setLoading] = useState<boolean>(false);
-
   const [touched, setTouched] = useState<Record<SignupFormInputs, boolean>>({
     firstName: false,
     lastName: false,
@@ -43,7 +44,6 @@ export const SignupForm = () => {
   );
 
   // Unified change event handler for all inputs
-
   const handleInputFieldChange = (
     inputElement: SignupFormInputs,
     event: ChangeEvent<HTMLInputElement>
@@ -91,6 +91,9 @@ export const SignupForm = () => {
     } else {
       setUser(result);
     }
+
+    // Proceed to email verification on success
+    navigate("/verify");
   };
 
   const handleGoogleSignup = (e: FormEvent) => {
@@ -98,7 +101,6 @@ export const SignupForm = () => {
   };
 
   // Focus on the first form input field
-
   useEffect(() => {
     const input = inputRef.current;
     if (input) {
