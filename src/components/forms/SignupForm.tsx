@@ -90,6 +90,7 @@ export const SignupForm = () => {
       setErrorMessage(result);
     } else {
       setUser(result);
+      localStorage.setItem("user", JSON.stringify(result));
     }
 
     // Proceed to email verification on success
