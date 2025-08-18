@@ -1,8 +1,13 @@
-import { createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  deleteUser,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { firestore, auth, analytics } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
 import { doc, setDoc } from "firebase/firestore";
+import { SIGNUP } from "../../constants/SIGNUP";
 
 export const createUserByEmail = async (
   email: string,
@@ -75,4 +80,16 @@ export const createUserByEmail = async (
 const addUserToDatabase = async (user: User, userId: string) => {
   await setDoc(doc(firestore, "users", userId), user);
   return user;
+};
+
+export const getAuthenticatedUser = async () => {
+  return new Promise((resolve) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        resolve(user);
+      } else {
+        resolve(SIGNUP.UNAUTHENTICATED);
+      }
+    });
+  });
 };

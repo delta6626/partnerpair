@@ -30,5 +30,6 @@ export const SIGNUP = {
   POPUP_CLOSED: "Sign-in popup was closed before completing the sign-in.",
   UNAUTHORIZED_DOMAIN:
     "This app is not authorized for Google sign-in. Contact support.",
+  UNAUTHENTICATED: "The user is unauthenticated",
   UNKNOWN_ERROR: "An unexpected error occured. Please try again later.",
 };
