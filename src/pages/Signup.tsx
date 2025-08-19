@@ -8,18 +8,18 @@ import { useNavigate } from "react-router-dom";
 export const Signup = () => {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const checkUser = async () => {
-  //     const user = await getAuthenticatedUser();
-  //     if (user == SIGNUP.UNAUTHENTICATED) {
-  //       return;
-  //     } else {
-  //       navigate("/verify");
-  //     }
-  //   };
+  useEffect(() => {
+    const checkUser = async () => {
+      const user = await getAuthenticatedUser();
+      if (user == SIGNUP.UNAUTHENTICATED) {
+        return;
+      } else {
+        navigate("/verify");
+      }
+    };
 
-  //   checkUser();
-  // }, []);
+    checkUser();
+  }, []);
 
   return (
     <div className="font-inter w-full h-[100vh] bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 flex flex-col">
