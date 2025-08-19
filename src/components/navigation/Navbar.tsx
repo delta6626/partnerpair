@@ -15,14 +15,14 @@ export const Navbar = () => {
     <header className="font-inter flex align-center items-center justify-between">
       <Logo />
 
-      <div className="hidden sm:flex gap-4">
+      <div className="hidden md:flex gap-4">
         <NavigationItems />
         <ThemeChanger />
       </div>
 
       {/* Hamburger menu icon for mobile devices */}
 
-      <div className="sm:hidden">
+      <div className="md:hidden">
         <button className="btn btn-square" onClick={handleMenuButtonClick}>
           <Menu />
         </button>
@@ -31,7 +31,7 @@ export const Navbar = () => {
       {/* Mobile menu */}
 
       {menuOpen && (
-        <div className="bg-base-300 px-8 py-4 fixed inset-0 sm:hidden z-10">
+        <div className="bg-base-300 px-8 py-4 fixed inset-0 md:hidden z-10">
           <div className="flex justify-between items-center">
             <Logo />
             <button className="btn btn-square" onClick={handleMenuButtonClick}>
