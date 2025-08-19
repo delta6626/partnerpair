@@ -5,9 +5,9 @@ export const AccountVerificationForm = () => {
   const { user } = useInitializeUser();
 
   return (
-    <div className="w-3xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 text-center">
-      <div className="">
-        <h1 className="font-bold text-4xl">
+    <div className="flex flex-grow items-center justify-center">
+      <div className="w-full max-w-lg">
+        <h1 className="font-bold text-3xl md:text-4xl text-center">
           {VERIFY.WELCOME_MESSAGE + ", " + user?.basicInfo.firstName + "."}
         </h1>
         <h4 className="text-lg text-left mt-16">
