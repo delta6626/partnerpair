@@ -110,7 +110,7 @@ export const SignupForm = () => {
   }, []);
 
   return (
-    <form className="w-full mt-16 fieldset">
+    <form className="w-full mt-12 fieldset">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col">
           <div className="flex gap-2">

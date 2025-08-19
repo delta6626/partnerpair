@@ -1,7 +1,7 @@
 export const VERIFY = {
-  WELCOME_MESSAGE: "Nice to meet you",
+  WELCOME_MESSAGE: "Verify your account",
   VERIFICATON_INSTRUCTIONS:
-    "We just need to verify your account. Click the Send Verification Email button and check your inbox for a link. Once you click the link, your account will be verified and this page will update automatically.",
+    "Thanks for joining PartnerPair. To verify your account, click Send Verification Email and then click the link in your inbox. This page will update once you’re verified.",
   SEND_VERIFICATION_MAIL: "Send verification mail",
   VERIFICAITON_MAIL_SENT: "Sent! Check your inbox.",
 };
