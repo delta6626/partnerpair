@@ -110,14 +110,14 @@ export const SignupForm = () => {
   }, []);
 
   return (
-    <form className="mt-16 fieldset">
+    <form className="w-full mt-16 fieldset">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col">
           <div className="flex gap-2">
             <input
               ref={inputRef}
               type="text"
-              className="input"
+              className="input w-full"
               placeholder="First name"
               maxLength={SIGNUP.MAXIMUM_FIRST_NAME_LENGTH}
               value={firstName}
@@ -127,7 +127,7 @@ export const SignupForm = () => {
             />
             <input
               type="text"
-              className="input"
+              className="input w-full"
               placeholder="Last name"
               maxLength={SIGNUP.MAXIMUM_LAST_NAME_LENGTH}
               value={lastName}
