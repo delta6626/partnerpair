@@ -6,4 +6,6 @@ export const VERIFY = {
   VERIFICAITON_MAIL_SENT: "Sent! Check your inbox.",
   CHECKING_FOR_UPDATES: "Checking for updates",
   POLL_INTERVAL: 10000,
+  DOCUMENT_UPDATE_FAILED:
+    "Your account has been verified, but we couldn’t update your profile. Please contact support.",
 };

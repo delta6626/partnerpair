@@ -4,11 +4,14 @@ import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { sendVerificationMail } from "../../sevices/authentication/authServices";
 import { useEmailVerified } from "../../hooks/useEmailVerified";
 import { useNavigate } from "react-router-dom";
+import { setVerificationStatus } from "../../sevices/userProfile/userProfileServices";
+import { useUserStore } from "../../store/useUserStore";
 
 export const AccountVerificationForm = () => {
   const navigate = useNavigate();
 
   const { user } = useInitializeUser();
+  const { setUser } = useUserStore();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [checkingForUpdate, setCheckingForUpdate] = useState<boolean>(false);
@@ -39,15 +42,31 @@ export const AccountVerificationForm = () => {
   };
 
   useEffect(() => {
-    if (emailVerified) {
-      setStatusMessage(null);
-      setCheckingForUpdate(false);
-      navigate("/dashboard");
-    }
+    if (!user) return;
 
-    if (typeof error === "string") {
-      setStatusMessage(error);
-    }
+    const handleVerification = async () => {
+      if (emailVerified) {
+        const result = await setVerificationStatus(true);
+
+        if (typeof result === "string") {
+          setStatusMessage(VERIFY.DOCUMENT_UPDATE_FAILED);
+        } else {
+          setUser({
+            ...user,
+            basicInfo: { ...user.basicInfo, verified: true },
+          });
+          setStatusMessage(null);
+          setCheckingForUpdate(false);
+          navigate("/dashboard");
+        }
+      }
+
+      if (typeof error === "string") {
+        setStatusMessage(error);
+      }
+    };
+
+    handleVerification();
   }, [emailVerified, error]);
 
   useEffect(() => {
