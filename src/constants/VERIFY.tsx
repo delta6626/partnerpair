@@ -4,4 +4,5 @@ export const VERIFY = {
     "Thanks for joining PartnerPair. To verify your account, click Send Verification Email and then click the link in your inbox. Be sure to check your spam or junk folder. This page will update once you’re verified.",
   SEND_VERIFICATION_MAIL: "Send verification mail",
   VERIFICAITON_MAIL_SENT: "Sent! Check your inbox.",
+  CHECKING_FOR_UPDATES: "Checking for updates",
 };

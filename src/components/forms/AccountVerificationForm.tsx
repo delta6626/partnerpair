@@ -8,7 +8,7 @@ export const AccountVerificationForm = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [emailSent, setEmailSent] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<string | null>();
+  const [statusMessage, setStatusMessage] = useState<string | null>();
 
   const handleAccountVerifcation = async () => {
     setLoading(true);
@@ -19,14 +19,14 @@ export const AccountVerificationForm = () => {
     console.log(sent);
 
     if (typeof sent === "string") {
-      setEmailError(sent);
+      setStatusMessage(sent);
       setEmailSent(false);
       return;
     }
 
     if (sent) {
-      setEmailError(null);
       setEmailSent(true);
+      setStatusMessage(VERIFY.CHECKING_FOR_UPDATES);
     }
   };
 
@@ -50,7 +50,13 @@ export const AccountVerificationForm = () => {
             VERIFY.SEND_VERIFICATION_MAIL
           )}
         </button>
-        <p className="min-h-6 text-error mt-2 text-center">{emailError}</p>
+        <p
+          className={`${
+            statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
+          } min-h-6 mt-2 text-center`}
+        >
+          {statusMessage}
+        </p>
       </div>
     </div>
   );
