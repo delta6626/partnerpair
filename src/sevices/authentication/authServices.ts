@@ -123,6 +123,7 @@ export const sendVerificationMail = async () => {
   if (!auth.currentUser) return false;
   try {
     await sendEmailVerification(auth.currentUser);
+    console.log(auth.currentUser);
     return true;
   } catch (error) {
     return handleFirebaseError(error);
