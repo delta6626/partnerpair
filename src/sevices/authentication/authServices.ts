@@ -96,17 +96,21 @@ export const getAuthenticatedUser = async () => {
   });
 };
 
-export const getUserData = async () => {
+export const getUserId = async () => {
   // Get user id
   const user: string | UserAccount = await getAuthenticatedUser();
-  let userId: string;
 
   if (typeof user === "string") return SIGNUP.UNAUTHENTICATED;
   else {
-    userId = user.uid;
+    return user.uid;
   }
+};
 
+export const getUserData = async () => {
   // Get the user data from firestore
+
+  const userId = await getUserId();
+  if (userId === SIGNUP.UNAUTHENTICATED) return SIGNUP.UNAUTHENTICATED;
 
   const userDocRef = doc(firestore, "users", userId);
   try {
