@@ -42,8 +42,7 @@ export const AccountVerificationForm = () => {
     if (emailVerified) {
       setStatusMessage(null);
       setCheckingForUpdate(false);
-      console.log("email verified");
-      return;
+      navigate("/dashboard");
     }
 
     if (typeof error === "string") {
