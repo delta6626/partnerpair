@@ -11,8 +11,10 @@ export const Signup = () => {
   useEffect(() => {
     const checkUser = async () => {
       const user = await getAuthenticatedUser();
-      if (user == SIGNUP.UNAUTHENTICATED) {
-        return;
+      if (typeof user === "string") return;
+
+      if (user.emailVerified) {
+        navigate("/dashboard");
       } else {
         navigate("/verify");
       }
