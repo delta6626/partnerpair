@@ -67,7 +67,7 @@ export const AccountVerificationForm = () => {
     };
 
     handleVerification();
-  }, [emailVerified, error]);
+  }, [emailVerified, error, user, navigate]);
 
   useEffect(() => {
     if (user?.basicInfo.verified) {
