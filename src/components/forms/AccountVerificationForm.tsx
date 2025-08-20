@@ -4,7 +4,7 @@ import { useInitializeUser } from "../../hooks/useInitializeUser";
 export const AccountVerificationForm = () => {
   const { user } = useInitializeUser();
 
-  function handleAccountVerifcation() {}
+  const handleAccountVerifcation = () => {};
 
   return (
     <div className="flex flex-grow items-center justify-center">
