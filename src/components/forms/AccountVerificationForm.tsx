@@ -12,6 +12,8 @@ export const AccountVerificationForm = () => {
   const [emailSent, setEmailSent] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState<string | null>();
 
+  const { emailVerified, error } = useEmailVerified(emailSent ? true : false);
+
   const handleAccountVerifcation = async () => {
     setLoading(true);
 

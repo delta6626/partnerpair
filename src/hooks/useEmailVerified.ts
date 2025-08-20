@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getVerificationStatus } from "../sevices/authentication/authServices";
 import { VERIFY } from "../constants/VERIFY";
 
-export const useEmailVerified = ({ initiate }: { initiate: boolean }) => {
+export const useEmailVerified = (initiate: boolean) => {
   const [emailVerified, setEmailVerified] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
