@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   deleteUser,
   onAuthStateChanged,
+  sendEmailVerification,
   type User as UserAccount,
 } from "firebase/auth";
 import { firestore, auth, analytics } from "../firebaseConfig";
@@ -9,6 +10,7 @@ import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
 import { doc, DocumentReference, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
+import { VERIFY } from "../../constants/VERIFY";
 
 export const createUserByEmail = async (
   email: string,
@@ -114,5 +116,15 @@ export const getUserData = async () => {
     return userData;
   } catch (error: any) {
     return handleFirebaseError(error);
+  }
+};
+
+export const sendVerificationMail = async () => {
+  if (!auth.currentUser) return false;
+  try {
+    await sendEmailVerification(auth.currentUser);
+    return true;
+  } catch (error) {
+    handleFirebaseError(error);
   }
 };
