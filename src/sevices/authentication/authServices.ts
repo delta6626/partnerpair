@@ -5,12 +5,11 @@ import {
   sendEmailVerification,
   type User as UserAccount,
 } from "firebase/auth";
-import { firestore, auth, analytics } from "../firebaseConfig";
+import { firestore, auth } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
-import { doc, DocumentReference, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
-import { VERIFY } from "../../constants/VERIFY";
 
 export const createUserByEmail = async (
   email: string,
