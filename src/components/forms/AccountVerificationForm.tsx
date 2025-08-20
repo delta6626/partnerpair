@@ -6,6 +6,7 @@ import { useEmailVerified } from "../../hooks/useEmailVerified";
 import { useNavigate } from "react-router-dom";
 import { setVerificationStatus } from "../../sevices/userProfile/userProfileServices";
 import { useUserStore } from "../../store/useUserStore";
+import { Loader } from "../Loader";
 
 export const AccountVerificationForm = () => {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ export const AccountVerificationForm = () => {
             VERIFY.SEND_VERIFICATION_MAIL
           )}
         </button>
-        <div className="">
+        <div className="flex flex-row items-center justify-center gap-4">
           <p
             className={`${
               statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
@@ -104,11 +105,7 @@ export const AccountVerificationForm = () => {
           >
             {statusMessage}
           </p>{" "}
-          {emailSent && checkingForUpdate ? (
-            <p className="loading loading-spinner"></p>
-          ) : (
-            ""
-          )}
+          {emailSent && checkingForUpdate ? <Loader /> : ""}
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { AccountVerificationForm } from "../components/forms/AccountVerificationForm";
+import { Loader } from "../components/Loader";
 import { Navbar } from "../components/navigation/Navbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
@@ -15,7 +16,9 @@ export const Verify = () => {
       </div>
 
       {loading ? (
-        <p className="loading loading-spinner"></p>
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader />
+        </div>
       ) : (
         <AccountVerificationForm />
       )}
