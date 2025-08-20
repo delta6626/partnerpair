@@ -12,6 +12,7 @@ import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail } from "../../sevices/authentication/authServices";
 import { useUserStore } from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Loader";
 
 export const SignupForm = () => {
   const navigate = useNavigate();
@@ -188,11 +189,7 @@ export const SignupForm = () => {
             disabled={!formValid || loading}
             onClick={handleSignup}
           >
-            {loading ? (
-              <p className="loading loading-spinner"></p>
-            ) : (
-              SIGNUP.SIGNUP_BUTTON_TEXT
-            )}
+            {loading ? <Loader /> : SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
           <button
             className="btn btn-neutral mt-2 w-full"
