@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VERIFY } from "../../constants/VERIFY";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { sendVerificationMail } from "../../sevices/authentication/authServices";
 import { useEmailVerified } from "../../hooks/useEmailVerified";
+import { useNavigate } from "react-router-dom";
 
 export const AccountVerificationForm = () => {
+  const navigate = useNavigate();
+
   const { user } = useInitializeUser();
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -35,6 +38,25 @@ export const AccountVerificationForm = () => {
     }
   };
 
+  useEffect(() => {
+    if (emailVerified) {
+      setStatusMessage(null);
+      setCheckingForUpdate(false);
+      console.log("email verified");
+      return;
+    }
+
+    if (typeof error === "string") {
+      setStatusMessage(error);
+    }
+  }, [emailVerified, error]);
+
+  useEffect(() => {
+    if (user?.basicInfo.verified) {
+      navigate("/dashboard");
+    }
+  }, []);
+
   return (
     <div className="flex flex-grow items-center justify-center">
       <div className="w-full max-w-md">
@@ -55,13 +77,20 @@ export const AccountVerificationForm = () => {
             VERIFY.SEND_VERIFICATION_MAIL
           )}
         </button>
-        <p
-          className={`${
-            statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
-          } min-h-6 mt-2 text-center`}
-        >
-          {statusMessage}
-        </p>
+        <div className="">
+          <p
+            className={`${
+              statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
+            } min-h-6 mt-2 text-center`}
+          >
+            {statusMessage}
+          </p>{" "}
+          {emailSent && checkingForUpdate ? (
+            <p className="loading loading-spinner"></p>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );
