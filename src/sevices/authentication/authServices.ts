@@ -129,3 +129,13 @@ export const sendVerificationMail = async () => {
     return handleFirebaseError(error);
   }
 };
+
+export const getVerificationStatus = async () => {
+  if (!auth.currentUser) return false;
+  try {
+    await auth.currentUser.reload();
+    return auth.currentUser.emailVerified;
+  } catch (error) {
+    return handleFirebaseError(error);
+  }
+};
