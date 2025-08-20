@@ -5,4 +5,5 @@ export const VERIFY = {
   SEND_VERIFICATION_MAIL: "Send verification mail",
   VERIFICAITON_MAIL_SENT: "Sent! Check your inbox.",
   CHECKING_FOR_UPDATES: "Checking for updates",
+  POLL_INTERVAL: 10000,
 };

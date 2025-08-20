@@ -2,11 +2,13 @@ import { useState } from "react";
 import { VERIFY } from "../../constants/VERIFY";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { sendVerificationMail } from "../../sevices/authentication/authServices";
+import { useEmailVerified } from "../../hooks/useEmailVerified";
 
 export const AccountVerificationForm = () => {
   const { user } = useInitializeUser();
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [checkingForUpdate, setCheckingForUpdate] = useState<boolean>(false);
   const [emailSent, setEmailSent] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState<string | null>();
 
@@ -27,6 +29,7 @@ export const AccountVerificationForm = () => {
     if (sent) {
       setEmailSent(true);
       setStatusMessage(VERIFY.CHECKING_FOR_UPDATES);
+      setCheckingForUpdate(true);
     }
   };
 
