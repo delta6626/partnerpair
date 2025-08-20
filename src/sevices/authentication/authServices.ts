@@ -125,6 +125,6 @@ export const sendVerificationMail = async () => {
     await sendEmailVerification(auth.currentUser);
     return true;
   } catch (error) {
-    handleFirebaseError(error);
+    return handleFirebaseError(error);
   }
 };
