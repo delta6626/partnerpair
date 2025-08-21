@@ -89,7 +89,8 @@ export const SignupForm = () => {
       email,
       password,
       firstName,
-      lastName
+      lastName,
+      dateOfBirth
     );
 
     setLoading(false);

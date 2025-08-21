@@ -15,7 +15,8 @@ export const createUserByEmail = async (
   email: string,
   password: string,
   firstName: string,
-  lastName: string
+  lastName: string,
+  dateOfBirth: string
 ) => {
   try {
     const userCredentials = await createUserWithEmailAndPassword(
@@ -28,6 +29,7 @@ export const createUserByEmail = async (
       basicInfo: {
         firstName: firstName,
         lastName: lastName,
+        dateOfBirth: dateOfBirth,
         email: email,
         phone: null,
         location: null,

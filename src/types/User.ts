@@ -11,6 +11,7 @@ export interface User {
   basicInfo: {
     firstName: string;
     lastName: string;
+    dateOfBirth: string;
     email: string;
     phone: string | null;
     location: string | null;
