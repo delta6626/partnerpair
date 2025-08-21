@@ -90,7 +90,7 @@ export const AccountVerificationForm = () => {
           disabled={emailSent}
         >
           {loading ? (
-            <p className="loading loading-spinner"></p>
+            <Loader />
           ) : emailSent ? (
             VERIFY.VERIFICAITON_MAIL_SENT
           ) : (
