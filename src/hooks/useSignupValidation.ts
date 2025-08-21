@@ -4,6 +4,7 @@ import { isValidLength } from "../utils/isValidLength";
 import { passwordsMatch } from "../utils/passwordsMatch";
 import { SIGNUP } from "../constants/SIGNUP";
 import type { SignupFormInputs } from "../types/SignupFormInputs";
+import { isValidAge } from "../utils/isValidAge";
 
 export const useSignupValidation = (
   firstName: string,
@@ -23,6 +24,7 @@ export const useSignupValidation = (
       isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH) &&
       isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH) &&
       isValidEmail(email) &&
+      isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE) &&
       isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH) &&
       passwordsMatch(password, confirmedPassword)
     ) {
@@ -47,6 +49,11 @@ export const useSignupValidation = (
       setErrorMessage(SIGNUP.LAST_NAME_LENGTH_ERROR);
     } else if (touched.email && !isValidEmail(email)) {
       setErrorMessage(SIGNUP.EMAIL_INVALID_ERROR);
+    } else if (
+      touched.dateOfBirth &&
+      !isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)
+    ) {
+      setErrorMessage(SIGNUP.DATE_OF_BIRTH_ERROR);
     } else if (
       touched.password &&
       !isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH)

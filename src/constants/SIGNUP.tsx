@@ -9,6 +9,8 @@ export const SIGNUP = {
   MAXIMUM_FIRST_NAME_LENGTH: 50,
   MAXIMUM_LAST_NAME_LENGTH: 50,
   MAXIMUM_EMAIL_LENGTH: 254,
+  MINIMUM_AGE: 16,
+  MAXIMUM_AGE: 100,
   MAXIMUM_PASSWORD_LENGTH: 128,
   MINIMUM_FIRST_NAME_LENGTH: 1,
   MINIMUM_LAST_NAME_LENGTH: 1,
@@ -16,6 +18,7 @@ export const SIGNUP = {
   FIRST_NAME_LENGTH_ERROR: "Please enter your first name.",
   LAST_NAME_LENGTH_ERROR: "Please enter your last name.",
   EMAIL_INVALID_ERROR: "Please enter a valid email address.",
+  DATE_OF_BIRTH_ERROR: "Please enter a valid age.",
   PASSWORD_LENGTH_ERROR: "Password must at least be 8 characters.",
   PASSWORDS_DO_NOT_MATCH_ERROR: "The passwords do not match.",
   EMAIL_ALREADY_IN_USE:
