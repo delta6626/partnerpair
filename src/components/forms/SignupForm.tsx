@@ -54,15 +54,15 @@ export const SignupForm = () => {
   ) => {
     switch (inputElement) {
       case "firstName":
-        setFirstName(event.target.value.trim());
+        setFirstName(event.target.value);
         setTouched((prev) => ({ ...prev, firstName: true }));
         break;
       case "lastName":
-        setLastName(event.target.value.trim());
+        setLastName(event.target.value);
         setTouched((prev) => ({ ...prev, lastName: true }));
         break;
       case "email":
-        setEmail(event.target.value.trim());
+        setEmail(event.target.value);
         setTouched((prev) => ({ ...prev, email: true }));
         break;
       case "dateOfBirth":
