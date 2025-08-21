@@ -25,12 +25,14 @@ export const SignupForm = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [dateOfBirth, setDateOfBirth] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
   const [touched, setTouched] = useState<Record<SignupFormInputs, boolean>>({
     firstName: false,
     lastName: false,
     email: false,
+    dateOfBirth: false,
     password: false,
     confirmPassword: false,
   });
@@ -39,6 +41,7 @@ export const SignupForm = () => {
     firstName,
     lastName,
     email,
+    dateOfBirth,
     password,
     confirmedPassword,
     touched
@@ -61,6 +64,10 @@ export const SignupForm = () => {
       case "email":
         setEmail(event.target.value);
         setTouched((prev) => ({ ...prev, email: true }));
+        break;
+      case "dateOfBirth":
+        setDateOfBirth(event.target.value);
+        setTouched((prev) => ({ ...prev, dateOfBirth: true }));
         break;
       case "password":
         setPassword(event.target.value);
@@ -148,6 +155,20 @@ export const SignupForm = () => {
             value={email}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               handleInputFieldChange("email", e);
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <input
+            type="date"
+            className="input w-full"
+            placeholder="Date of birth"
+            value={dateOfBirth}
+            min={"1900-01-01"}
+            max={new Date().toISOString().split("T")[0]}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              handleInputFieldChange("dateOfBirth", e);
             }}
           />
         </div>

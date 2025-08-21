@@ -9,6 +9,7 @@ export const useSignupValidation = (
   firstName: string,
   lastName: string,
   email: string,
+  dateOfBirth: string,
   password: string,
   confirmedPassword: string,
   touched: Record<SignupFormInputs, boolean>
