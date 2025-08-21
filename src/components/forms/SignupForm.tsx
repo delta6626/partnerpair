@@ -86,10 +86,10 @@ export const SignupForm = () => {
 
     // Authenticate the user and store them in Firestore.
     const result = await createUserByEmail(
-      email,
+      email.trim(),
       password,
-      firstName,
-      lastName,
+      firstName.trim(),
+      lastName.trim(),
       dateOfBirth
     );
 
