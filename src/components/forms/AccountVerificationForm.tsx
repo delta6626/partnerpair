@@ -97,7 +97,7 @@ export const AccountVerificationForm = () => {
             VERIFY.SEND_VERIFICATION_MAIL
           )}
         </button>
-        <div className="flex flex-row items-center justify-center gap-4">
+        <div className="flex flex-row items-center justify-center gap-2">
           <p
             className={`${
               statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
