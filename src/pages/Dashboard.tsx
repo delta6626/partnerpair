@@ -1,7 +1,7 @@
-import { useUserStore } from "../store/useUserStore";
+import { useInitializeUser } from "../hooks/useInitializeUser";
 
 export const Dashboard = () => {
-  const { user } = useUserStore();
+  const { user } = useInitializeUser();
 
   return (
     <div className="font-inter text-3xl font-bold">
