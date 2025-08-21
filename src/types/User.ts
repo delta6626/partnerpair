@@ -1,4 +1,3 @@
-import type { AppTheme } from "./AppTheme";
 import type { AuthMethod } from "./AuthMethod";
 import type { UserAvailability } from "./UserAvailability";
 import type { UserCommitmentLevel } from "./UserCommitmentLevel";
