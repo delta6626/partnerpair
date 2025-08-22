@@ -39,7 +39,9 @@ export const Navbar = () => {
             </button>
           </div>
           <NavigationItems forMobile={true} />
-          <ThemeChanger />
+          <div className="mt-2">
+            <ThemeChanger />
+          </div>
         </div>
       )}
     </header>
