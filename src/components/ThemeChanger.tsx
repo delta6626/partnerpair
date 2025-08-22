@@ -6,9 +6,13 @@ export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="">
-      <div className="dropdown dropdown-bottom dropdown-end">
-        <div tabIndex={0} role="button" className="btn btn-square">
+    <div className="w-full">
+      <div className="w-full dropdown dropdown-bottom dropdown-end">
+        <div
+          tabIndex={0}
+          role="button"
+          className={forMobile ? "btn w-full" : "btn btn-square"}
+        >
           {/* Icon for theme changer button */}
 
           {theme === "light" ? (
