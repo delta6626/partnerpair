@@ -6,8 +6,12 @@ export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="w-full">
-      <div className="w-full dropdown dropdown-bottom dropdown-end">
+    <div className={forMobile ? "w-full" : ""}>
+      <div
+        className={`dropdown dropdown-bottom dropdown-end ${
+          forMobile ? "w-full" : ""
+        }`}
+      >
         <div
           tabIndex={0}
           role="button"
