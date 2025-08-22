@@ -17,7 +17,7 @@ export const Navbar = () => {
 
       <div className="hidden md:flex gap-4">
         <NavigationItems />
-        <ThemeChanger />
+        <ThemeChanger forMobile={false} />
       </div>
 
       {/* Hamburger menu icon for mobile devices */}
@@ -40,7 +40,7 @@ export const Navbar = () => {
           </div>
           <NavigationItems forMobile={true} />
           <div className="mt-2">
-            <ThemeChanger />
+            <ThemeChanger forMobile={true} />
           </div>
         </div>
       )}
