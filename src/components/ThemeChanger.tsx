@@ -19,7 +19,18 @@ export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
         >
           {/* Icon for theme changer button */}
 
-          {theme === "light" ? (
+          {forMobile ? (
+            <>
+              {theme === "light" ? (
+                <Sun size={20} />
+              ) : theme === "dark" ? (
+                <Moon size={20} />
+              ) : (
+                <SunMoon size={20} />
+              )}
+              Change theme
+            </>
+          ) : theme === "light" ? (
             <Sun size={20} />
           ) : theme === "dark" ? (
             <Moon size={20} />
