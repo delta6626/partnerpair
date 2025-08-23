@@ -35,6 +35,7 @@ export const Signup = () => {
             <h1 className="font-bold text-3xl md:text-4xl text-center">
               {SIGNUP.GREETING_TEXT}
             </h1>
+
             <SignupForm />
           </div>
         </div>

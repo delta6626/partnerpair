@@ -1,3 +1,4 @@
+import { LoginForm } from "../components/forms/Loginform";
 import { Navbar } from "../components/navigation/Navbar";
 import { LOGIN } from "../constants/LOGIN";
 
@@ -14,6 +15,8 @@ export const Login = () => {
             <h1 className="font-bold text-3xl md:text-4xl text-center">
               {LOGIN.GREETING_TEXT}
             </h1>
+
+            <LoginForm />
           </div>
         </div>
       </div>
