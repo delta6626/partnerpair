@@ -1,3 +1,3 @@
 export const LOGIN = {
-  GREETING_TEXT: "Hey, it's good to have you back.",
+  GREETING_TEXT: "We're glad to have you back.",
 };
