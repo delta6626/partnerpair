@@ -6,6 +6,14 @@ export const Login = () => {
       <div className="py-4">
         <Navbar />
       </div>
+
+      <div className="flex-grow flex items-center justify-center">
+        <div className="w-full max-w-lg">
+          <div className="w-full flex flex-col items-center">
+            <h1 className="font-bold text-3xl md:text-4xl text-center"></h1>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
