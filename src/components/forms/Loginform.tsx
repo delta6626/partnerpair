@@ -7,6 +7,10 @@ export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const handleLogin = () => {};
+
+  const handleGoogleLogin = () => {};
+
   return (
     <form className="w-full mt-8 fieldset">
       <div className="flex flex-col gap-2">
@@ -31,10 +35,17 @@ export const LoginForm = () => {
       </div>
 
       <div className="">
-        <button type="submit" className="btn btn-primary w-full">
+        <button
+          type="submit"
+          className="btn btn-primary w-full"
+          onClick={handleLogin}
+        >
           {LOGIN.LOGIN_BUTTON_TEXT}
         </button>
-        <button className="btn btn-neutral w-full mt-2">
+        <button
+          className="btn btn-neutral w-full mt-2"
+          onClick={handleGoogleLogin}
+        >
           <GoogleIcon />
           {LOGIN.LOGIN_WITH_GOOGLE_BUTTON_TEXT}
         </button>
