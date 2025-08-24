@@ -3,11 +3,12 @@ import { SIGNUP } from "../../constants/SIGNUP";
 import { LOGIN } from "../../constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { useLoginValidation } from "../../hooks/useLoginValidation";
+import type { LoginFormInputs } from "../../types/LoginFormInputs";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [touched, setTouched] = useState({
+  const [touched, setTouched] = useState<Record<LoginFormInputs, boolean>>({
     email: false,
     password: false,
   });
