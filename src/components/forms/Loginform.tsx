@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { LOGIN } from "../../constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
+import { useLoginValidation } from "../../hooks/useLoginValidation";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [touched, setTouched] = useState({
+    email: false,
+    password: false,
+  });
+
+  const { errorMessage, setErrorMessage, formValid } = useLoginValidation(
+    email,
+    password
+  );
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
 
   const handleLogin = () => {};
 
@@ -20,6 +38,7 @@ export const LoginForm = () => {
           placeholder="Email"
           maxLength={SIGNUP.MAXIMUM_EMAIL_LENGTH}
           value={email}
+          onChange={handleEmailChange}
         />
         <input
           type="password"
@@ -27,6 +46,7 @@ export const LoginForm = () => {
           placeholder="Password"
           maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
           value={password}
+          onChange={handlePasswordChange}
         />
       </div>
 
