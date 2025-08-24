@@ -6,6 +6,7 @@ import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";
 
 export const LoginForm = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [touched, setTouched] = useState<Record<LoginFormInputs, boolean>>({
@@ -62,12 +63,14 @@ export const LoginForm = () => {
         <button
           type="submit"
           className="btn btn-primary w-full"
+          disabled={loading || !formValid}
           onClick={handleLogin}
         >
           {LOGIN.LOGIN_BUTTON_TEXT}
         </button>
         <button
           className="btn btn-neutral w-full mt-2"
+          disabled={loading}
           onClick={handleGoogleLogin}
         >
           <GoogleIcon />
