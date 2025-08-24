@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { LOGIN } from "../../constants/LOGIN";
+import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
@@ -32,6 +33,10 @@ export const LoginForm = () => {
       <div className="">
         <button type="submit" className="btn btn-primary w-full">
           {LOGIN.LOGIN_BUTTON_TEXT}
+        </button>
+        <button className="btn btn-neutral w-full mt-2">
+          <GoogleIcon />
+          {LOGIN.LOGIN_WITH_GOOGLE_BUTTON_TEXT}
         </button>
       </div>
     </form>
