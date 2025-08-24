@@ -15,15 +15,18 @@ export const LoginForm = () => {
 
   const { errorMessage, setErrorMessage, formValid } = useLoginValidation(
     email,
-    password
+    password,
+    touched
   );
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    setTouched((prev) => ({ ...prev, email: true }));
   };
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+    setTouched((prev) => ({ ...prev, password: true }));
   };
 
   const handleLogin = () => {};
