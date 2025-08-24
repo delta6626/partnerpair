@@ -9,7 +9,7 @@ export const useLoginValidation = (
   password: string,
   touched: Record<LoginFormInputs, boolean>
 ) => {
-  const [errrorMessage, setErrorMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formValid, setFormValid] = useState<boolean>(false);
 
   useEffect(() => {
@@ -25,20 +25,20 @@ export const useLoginValidation = (
     } else {
       setFormValid(false);
     }
+
+    // Set appropriate error if form is not valid
+
+    if (touched.email && !isValidEmail(email)) {
+      setErrorMessage(LOGIN.EMAIL_INVALID_ERROR);
+    } else if (
+      touched.password &&
+      !isValidLength(password, LOGIN.MINIMUM_PASSWORD_LENGTH)
+    ) {
+      setErrorMessage(LOGIN.PASSWORD_LENGTH_ERROR);
+    } else {
+      setErrorMessage(null);
+    }
   }, [email, password, touched]);
 
-  // Set appropriate error if form is not valid
-
-  if (touched.email && !isValidEmail(email)) {
-    setErrorMessage(LOGIN.EMAIL_INVALID_ERROR);
-  } else if (
-    touched.password &&
-    !isValidLength(password, LOGIN.MINIMUM_PASSWORD_LENGTH)
-  ) {
-    setErrorMessage(LOGIN.PASSWORD_LENGTH_ERROR);
-  } else {
-    setErrorMessage(null);
-  }
-
-  return { errrorMessage, setErrorMessage, formValid };
+  return { errorMessage, setErrorMessage, formValid };
 };

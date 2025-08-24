@@ -55,7 +55,7 @@ export const LoginForm = () => {
       </div>
 
       <div className="min-h-6 text-error">
-        {"errorMessage && <p>{errorMessage}</p>"}
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
 
       <div className="">
