@@ -21,6 +21,7 @@ export const LoginForm = () => {
           className="input w-full"
           placeholder="Password"
           maxLength={SIGNUP.MAXIMUM_PASSWORD_LENGTH}
+          value={password}
         />
       </div>
 
