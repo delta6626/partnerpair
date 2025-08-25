@@ -4,6 +4,8 @@ import { LOGIN } from "../../constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";
+import { loginUserByEmail } from "../../sevices/authentication/authServices";
+import { useInitializeUser } from "../../hooks/useInitializeUser";
 
 export const LoginForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -30,7 +32,16 @@ export const LoginForm = () => {
     setTouched((prev) => ({ ...prev, password: true }));
   };
 
-  const handleLogin = () => {};
+  const handleLogin = async () => {
+    setLoading(true);
+    const userCredentials = await loginUserByEmail(email, password);
+
+    // Error case
+    if (typeof userCredentials === "string") {
+      setErrorMessage(userCredentials);
+      return;
+    }
+  };
 
   const handleGoogleLogin = () => {};
 

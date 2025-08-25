@@ -5,6 +5,7 @@ import {
   sendEmailVerification,
   signInWithEmailAndPassword,
   type User as UserAccount,
+  type UserCredential,
 } from "firebase/auth";
 import { firestore, auth } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
@@ -90,7 +91,7 @@ export const loginUserByEmail = async (email: string, password: string) => {
       email,
       password
     );
-    return userCredentials.user.uid;
+    return userCredentials as UserCredential;
   } catch (error: any) {
     return handleFirebaseError(error);
   }
