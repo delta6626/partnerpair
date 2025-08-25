@@ -3,6 +3,7 @@ import {
   deleteUser,
   onAuthStateChanged,
   sendEmailVerification,
+  signInWithEmailAndPassword,
   type User as UserAccount,
 } from "firebase/auth";
 import { firestore, auth } from "../firebaseConfig";
@@ -76,6 +77,20 @@ export const createUserByEmail = async (
       await deleteUser(userCredentials.user);
       return handleFirebaseError(firestoreError);
     }
+  } catch (error: any) {
+    return handleFirebaseError(error);
+  }
+};
+
+export const loginUserByEmail = async (email: string, password: string) => {
+  // Log in the user and return their ID.
+  try {
+    const userCredentials = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    return userCredentials.user.uid;
   } catch (error: any) {
     return handleFirebaseError(error);
   }
