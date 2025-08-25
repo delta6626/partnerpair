@@ -1,3 +1,4 @@
+import { LOGIN } from "../../constants/LOGIN";
 import { SIGNUP } from "../../constants/SIGNUP";
 
 // Utility function for handling Firebase errors
@@ -21,6 +22,10 @@ export const handleFirebaseError = (error: any): string => {
       return SIGNUP.POPUP_CLOSED;
     case "auth/unauthorized-domain":
       return SIGNUP.UNAUTHORIZED_DOMAIN;
+    case "auth/user-disabled":
+      return LOGIN.USER_DISABLED;
+    case "auth/invalid-credential":
+      return LOGIN.INVALID_CREDENTIALS;
     default:
       console.error("Unexpected error:", error);
       return SIGNUP.UNKNOWN_ERROR;
