@@ -1,13 +1,22 @@
+import { Loader } from "../components/Loader";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 
 export const Dashboard = () => {
   useTheme();
-  const { user } = useInitializeUser();
+  const { user, loading } = useInitializeUser();
 
   return (
-    <div className="font-inter text-3xl font-bold">
-      {"Hello, " + user?.basicInfo.firstName}
+    <div className="">
+      {loading ? (
+        <div className="w-full h-full items-center justify-center">
+          <Loader />
+        </div>
+      ) : (
+        <div className="w-full h-full">
+          {"Hello, " + user?.basicInfo.firstName}
+        </div>
+      )}
     </div>
   );
 };
