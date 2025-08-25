@@ -6,6 +6,7 @@ import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";
 import { loginUserByEmail } from "../../sevices/authentication/authServices";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Loader";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export const LoginForm = () => {
   const handleLogin = async () => {
     setLoading(true);
     const userCredentials = await loginUserByEmail(email, password);
+    setLoading(false);
 
     // Error case
     if (typeof userCredentials === "string") {
@@ -86,7 +88,7 @@ export const LoginForm = () => {
           disabled={loading || !formValid}
           onClick={handleLogin}
         >
-          {LOGIN.LOGIN_BUTTON_TEXT}
+          {loading ? <Loader /> : LOGIN.LOGIN_BUTTON_TEXT}
         </button>
         <button
           className="btn btn-neutral w-full mt-2"
