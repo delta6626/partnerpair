@@ -5,9 +5,11 @@ import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";
 import { loginUserByEmail } from "../../sevices/authentication/authServices";
-import { useInitializeUser } from "../../hooks/useInitializeUser";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -40,6 +42,13 @@ export const LoginForm = () => {
     if (typeof userCredentials === "string") {
       setErrorMessage(userCredentials);
       return;
+    }
+
+    // User is authenticated. Check if they're verfied.
+    if (userCredentials.user.emailVerified) {
+      navigate("/dashboard");
+    } else {
+      navigate("/verify");
     }
   };
 
