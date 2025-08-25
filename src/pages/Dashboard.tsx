@@ -13,7 +13,7 @@ export const Dashboard = () => {
           <Loader />
         </div>
       ) : (
-        <div className="w-full h-full">
+        <div className="w-full h-[100vh] bg-base-300">
           {"Hello, " + user?.basicInfo.firstName}
         </div>
       )}
