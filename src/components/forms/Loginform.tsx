@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { LOGIN } from "../../constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
@@ -35,8 +35,10 @@ export const LoginForm = () => {
     setTouched((prev) => ({ ...prev, password: true }));
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: FormEvent) => {
+    e.preventDefault();
     setLoading(true);
+
     const userCredentials = await loginUserByEmail(email, password);
     setLoading(false);
 
