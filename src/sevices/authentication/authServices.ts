@@ -25,11 +25,7 @@ export const createUserByEmail = async (
   dateOfBirth: string
 ) => {
   try {
-    const userCredentials = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
 
     let user: User = {
       basicInfo: {
@@ -90,11 +86,7 @@ export const createUserByEmail = async (
 export const loginUserByEmail = async (email: string, password: string) => {
   // Log in the user and return their ID.
   try {
-    const userCredentials = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const userCredentials = await signInWithEmailAndPassword(auth, email, password);
     return userCredentials as UserCredential;
   } catch (error: any) {
     return handleFirebaseError(error);
@@ -169,26 +161,16 @@ export const signInWithGoogle = async () => {
   const provider: GoogleAuthProvider = new GoogleAuthProvider();
 
   try {
-    const userCredentials: UserCredential = await signInWithPopup(
-      auth,
-      provider
-    );
-    const extraInformation: AdditionalUserInfo | null =
-      getAdditionalUserInfo(userCredentials);
+    const userCredentials: UserCredential = await signInWithPopup(auth, provider);
+    const extraInformation: AdditionalUserInfo | null = getAdditionalUserInfo(userCredentials);
 
     if (extraInformation?.isNewUser) {
       let user: User = {
         basicInfo: {
-          firstName: userCredentials.user.displayName
-            ? userCredentials.user.displayName
-            : "PartnerPair User",
-          lastName: userCredentials.user.displayName
-            ? userCredentials.user.displayName
-            : "PartnerPair User",
+          firstName: userCredentials.user.displayName ? userCredentials.user.displayName : "PartnerPair User",
+          lastName: userCredentials.user.displayName ? userCredentials.user.displayName : "PartnerPair User",
           dateOfBirth: new Date().toISOString(),
-          email: userCredentials.user.email
-            ? userCredentials.user.email
-            : "No Email",
+          email: userCredentials.user.email ? userCredentials.user.email : "No Email",
           phone: null,
           location: null,
           verified: true,
