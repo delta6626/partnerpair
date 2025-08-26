@@ -15,14 +15,14 @@ import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GoogleAuthProvider } from "firebase/auth";
 
 export const createUserByEmail = async (
   email: string,
   password: string,
   firstName: string,
   lastName: string,
-  dateOfBirth: string,
+  dateOfBirth: string
 ) => {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
