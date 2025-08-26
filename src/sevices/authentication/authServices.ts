@@ -172,7 +172,7 @@ export const signInWithGoogle = async () => {
             ? splitUsername(userCredentials.user.displayName, 0)
             : "PartnerPair User",
           lastName: userCredentials.user.displayName
-            ? splitUsername(userCredentials.user.displayName, 0)
+            ? splitUsername(userCredentials.user.displayName, 1)
             : "PartnerPair User",
           dateOfBirth: new Date().toISOString(),
           email: userCredentials.user.email ? userCredentials.user.email : "No Email",
