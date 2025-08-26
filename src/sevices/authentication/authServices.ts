@@ -16,6 +16,7 @@ import type { User } from "../../types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";
+import { splitString } from "../../utils/splitString";
 
 export const createUserByEmail = async (
   email: string,
@@ -167,8 +168,12 @@ export const signInWithGoogle = async () => {
     if (extraInformation?.isNewUser) {
       let user: User = {
         basicInfo: {
-          firstName: userCredentials.user.displayName ? userCredentials.user.displayName : "PartnerPair User",
-          lastName: userCredentials.user.displayName ? userCredentials.user.displayName : "PartnerPair User",
+          firstName: userCredentials.user.displayName
+            ? splitString(userCredentials.user.displayName, 0)
+            : "PartnerPair User",
+          lastName: userCredentials.user.displayName
+            ? splitString(userCredentials.user.displayName, 1)
+            : "PartnerPair User",
           dateOfBirth: new Date().toISOString(),
           email: userCredentials.user.email ? userCredentials.user.email : "No Email",
           phone: null,
