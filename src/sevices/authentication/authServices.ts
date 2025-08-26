@@ -146,7 +146,7 @@ export const sendVerificationMail = async () => {
     await sendEmailVerification(auth.currentUser);
     console.log(auth.currentUser);
     return true;
-  } catch (error) {
+  } catch (error: any) {
     return handleFirebaseError(error);
   }
 };
@@ -156,7 +156,16 @@ export const getVerificationStatus = async () => {
   try {
     await auth.currentUser.reload();
     return auth.currentUser.emailVerified;
-  } catch (error) {
+  } catch (error: any) {
+    return handleFirebaseError(error);
+  }
+};
+
+export const signOut = async () => {
+  try {
+    await auth.signOut();
+    return SIGNUP.SIGNOUT_SUCCESS;
+  } catch (error: any) {
     return handleFirebaseError(error);
   }
 };

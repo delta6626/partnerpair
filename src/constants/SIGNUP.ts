@@ -35,4 +35,5 @@ export const SIGNUP = {
     "This app is not authorized for Google sign-in. Contact support.",
   UNAUTHENTICATED: "The user is unauthenticated",
   UNKNOWN_ERROR: "An unexpected error occured. Please try again later.",
+  SIGNOUT_SUCCESS: "You have been signed out of your account.",
 };
