@@ -7,6 +7,7 @@ import { createUserByEmail, signInWithGoogle } from "../../sevices/authenticatio
 import { useUserStore } from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import type { UserCredential } from "firebase/auth";
 
 export const SignupForm = () => {
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ export const SignupForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    const userCredentials = await signInWithGoogle();
+    const userCredentials: UserCredential | string = await signInWithGoogle();
     setLoading(false);
 
     // Error case
