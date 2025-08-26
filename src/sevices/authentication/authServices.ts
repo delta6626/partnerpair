@@ -1,9 +1,12 @@
 import {
   createUserWithEmailAndPassword,
   deleteUser,
+  getAdditionalUserInfo,
   onAuthStateChanged,
   sendEmailVerification,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  type AdditionalUserInfo,
   type User as UserAccount,
   type UserCredential,
 } from "firebase/auth";
@@ -12,6 +15,7 @@ import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
+import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
 export const createUserByEmail = async (
   email: string,
@@ -156,6 +160,83 @@ export const getVerificationStatus = async () => {
   try {
     await auth.currentUser.reload();
     return auth.currentUser.emailVerified;
+  } catch (error: any) {
+    return handleFirebaseError(error);
+  }
+};
+
+export const signInWithGoogle = async () => {
+  const provider: GoogleAuthProvider = new GoogleAuthProvider();
+
+  try {
+    const userCredentials: UserCredential = await signInWithPopup(
+      auth,
+      provider
+    );
+    const extraInformation: AdditionalUserInfo | null =
+      getAdditionalUserInfo(userCredentials);
+
+    if (extraInformation?.isNewUser) {
+      let user: User = {
+        basicInfo: {
+          firstName: userCredentials.user.displayName
+            ? userCredentials.user.displayName
+            : "PartnerPair User",
+          lastName: userCredentials.user.displayName
+            ? userCredentials.user.displayName
+            : "PartnerPair User",
+          dateOfBirth: new Date().toISOString(),
+          email: userCredentials.user.email
+            ? userCredentials.user.email
+            : "No Email",
+          phone: null,
+          location: null,
+          verified: true,
+          tier: "Basic",
+          authenticationMethod: "Google",
+          profileImageUrl: userCredentials.user.photoURL,
+          profileCompleted: false,
+          createdAt: new Date(),
+          lastActiveAt: new Date(),
+        },
+
+        professionalInfo: {
+          headline: null,
+          bio: null,
+          skills: [],
+          roles: [],
+          education: [],
+        },
+
+        matchingPreferences: {
+          lookingForSkills: [],
+          lookingForRoles: [],
+          preferredLocation: null,
+          commitmentLevel: null,
+          availability: null,
+          preferredCompanyStage: [],
+        },
+
+        socialLinks: {
+          linkedin: null,
+          twitter: null,
+          github: null,
+          website: null,
+        },
+      };
+
+      try {
+        // Attempt Firestore write
+        await addUserToDatabase(user, userCredentials.user.uid);
+        return userCredentials;
+      } catch (firestoreError: any) {
+        // Rollback: delete Auth user if Firestore fails
+        await deleteUser(userCredentials.user);
+        return handleFirebaseError(firestoreError);
+      }
+    } else {
+      return userCredentials;
+    }
   } catch (error: any) {
     return handleFirebaseError(error);
   }
