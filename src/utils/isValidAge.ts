@@ -1,8 +1,4 @@
-export const isValidAge = (
-  dateOfBirth: string,
-  minimumAge: number,
-  maximumAge: number
-): boolean => {
+export const isValidAge = (dateOfBirth: string, minimumAge: number, maximumAge: number): boolean => {
   if (dateOfBirth === "") return false;
 
   const birthDate = new Date(dateOfBirth);

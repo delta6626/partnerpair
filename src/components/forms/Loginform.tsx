@@ -19,11 +19,7 @@ export const LoginForm = () => {
     password: false,
   });
 
-  const { errorMessage, setErrorMessage, formValid } = useLoginValidation(
-    email,
-    password,
-    touched
-  );
+  const { errorMessage, setErrorMessage, formValid } = useLoginValidation(email, password, touched);
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -79,24 +75,13 @@ export const LoginForm = () => {
         />
       </div>
 
-      <div className="min-h-6 text-error">
-        {errorMessage && <p>{errorMessage}</p>}
-      </div>
+      <div className="min-h-6 text-error">{errorMessage && <p>{errorMessage}</p>}</div>
 
       <div className="">
-        <button
-          type="submit"
-          className="btn btn-primary w-full"
-          disabled={loading || !formValid}
-          onClick={handleLogin}
-        >
+        <button type="submit" className="btn btn-primary w-full" disabled={loading || !formValid} onClick={handleLogin}>
           {loading ? <Loader /> : LOGIN.LOGIN_BUTTON_TEXT}
         </button>
-        <button
-          className="btn btn-neutral w-full mt-2"
-          disabled={loading}
-          onClick={handleGoogleLogin}
-        >
+        <button className="btn btn-neutral w-full mt-2" disabled={loading} onClick={handleGoogleLogin}>
           <GoogleIcon />
           {LOGIN.LOGIN_WITH_GOOGLE_BUTTON_TEXT}
         </button>

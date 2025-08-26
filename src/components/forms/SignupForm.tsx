@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ChangeEvent,
-  type FormEvent,
-} from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
@@ -44,14 +38,11 @@ export const SignupForm = () => {
     dateOfBirth,
     password,
     confirmedPassword,
-    touched
+    touched,
   );
 
   // Unified change event handler for all inputs
-  const handleInputFieldChange = (
-    inputElement: SignupFormInputs,
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputFieldChange = (inputElement: SignupFormInputs, event: ChangeEvent<HTMLInputElement>) => {
     switch (inputElement) {
       case "firstName":
         setFirstName(event.target.value);
@@ -85,13 +76,7 @@ export const SignupForm = () => {
     setLoading(true);
 
     // Authenticate the user and store them in Firestore.
-    const result = await createUserByEmail(
-      email.trim(),
-      password,
-      firstName.trim(),
-      lastName.trim(),
-      dateOfBirth
-    );
+    const result = await createUserByEmail(email.trim(), password, firstName.trim(), lastName.trim(), dateOfBirth);
 
     setLoading(false);
 
@@ -200,9 +185,7 @@ export const SignupForm = () => {
           />
         </div>
 
-        <div className="min-h-6 text-error">
-          {errorMessage && <p>{errorMessage}</p>}
-        </div>
+        <div className="min-h-6 text-error">{errorMessage && <p>{errorMessage}</p>}</div>
 
         <div className="">
           <button
@@ -213,11 +196,7 @@ export const SignupForm = () => {
           >
             {loading ? <Loader /> : SIGNUP.SIGNUP_BUTTON_TEXT}
           </button>
-          <button
-            className="btn btn-neutral mt-2 w-full"
-            onClick={handleGoogleSignup}
-            disabled={loading}
-          >
+          <button className="btn btn-neutral mt-2 w-full" onClick={handleGoogleSignup} disabled={loading}>
             <GoogleIcon />
             {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
           </button>

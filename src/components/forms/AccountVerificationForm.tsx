@@ -84,25 +84,11 @@ export const AccountVerificationForm = () => {
           {VERIFY.WELCOME_MESSAGE + ", " + user?.basicInfo.firstName + "."}
         </h1>
         <h4 className="text-lg mt-8">{VERIFY.VERIFICATON_INSTRUCTIONS}</h4>
-        <button
-          className="btn btn-primary w-full mt-6"
-          onClick={handleAccountVerifcation}
-          disabled={emailSent}
-        >
-          {loading ? (
-            <Loader />
-          ) : emailSent ? (
-            VERIFY.VERIFICAITON_MAIL_SENT
-          ) : (
-            VERIFY.SEND_VERIFICATION_MAIL
-          )}
+        <button className="btn btn-primary w-full mt-6" onClick={handleAccountVerifcation} disabled={emailSent}>
+          {loading ? <Loader /> : emailSent ? VERIFY.VERIFICAITON_MAIL_SENT : VERIFY.SEND_VERIFICATION_MAIL}
         </button>
         <div className="flex flex-row items-center justify-center gap-2">
-          <p
-            className={`${
-              statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""
-            } min-h-6 mt-2 text-center`}
-          >
+          <p className={`${statusMessage != VERIFY.CHECKING_FOR_UPDATES ? "text-error" : ""} min-h-6 mt-2 text-center`}>
             {statusMessage}
           </p>{" "}
           {emailSent && checkingForUpdate ? <Loader /> : ""}

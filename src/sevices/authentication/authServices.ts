@@ -22,7 +22,7 @@ export const createUserByEmail = async (
   password: string,
   firstName: string,
   lastName: string,
-  dateOfBirth: string
+  dateOfBirth: string,
 ) => {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);

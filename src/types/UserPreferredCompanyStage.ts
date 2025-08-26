@@ -1,6 +1,1 @@
-export type UserPreferredCompanyStage =
-  | "Idea"
-  | "Building MVP"
-  | "Just Launched"
-  | "Growing"
-  | "Established";
+export type UserPreferredCompanyStage = "Idea" | "Building MVP" | "Just Launched" | "Growing" | "Established";

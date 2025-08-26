@@ -7,27 +7,13 @@ export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
 
   return (
     <div className={forMobile ? "w-full" : ""}>
-      <div
-        className={`dropdown dropdown-bottom dropdown-end ${
-          forMobile ? "w-full" : ""
-        }`}
-      >
-        <div
-          tabIndex={0}
-          role="button"
-          className={forMobile ? "btn w-full" : "btn btn-square"}
-        >
+      <div className={`dropdown dropdown-bottom dropdown-end ${forMobile ? "w-full" : ""}`}>
+        <div tabIndex={0} role="button" className={forMobile ? "btn w-full" : "btn btn-square"}>
           {/* Icon for theme changer button */}
 
           {forMobile ? (
             <>
-              {theme === "light" ? (
-                <Sun size={20} />
-              ) : theme === "dark" ? (
-                <Moon size={20} />
-              ) : (
-                <SunMoon size={20} />
-              )}
+              {theme === "light" ? <Sun size={20} /> : theme === "dark" ? <Moon size={20} /> : <SunMoon size={20} />}
               Change theme
             </>
           ) : theme === "light" ? (
@@ -39,10 +25,7 @@ export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
           )}
         </div>
 
-        <ul
-          tabIndex={0}
-          className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 shadow-sm"
-        >
+        <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 shadow-sm">
           {/* Theme options  */}
 
           <button
