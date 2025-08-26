@@ -4,9 +4,10 @@ import { LOGIN } from "../../constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";
-import { loginUserByEmail } from "../../sevices/authentication/authServices";
+import { loginUserByEmail, signInWithGoogle } from "../../sevices/authentication/authServices";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import type { UserCredential } from "firebase/auth";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -52,7 +53,22 @@ export const LoginForm = () => {
     }
   };
 
-  const handleGoogleLogin = () => {};
+  const handleGoogleLogin = async (e: FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const userCredentials: UserCredential | string = await signInWithGoogle();
+    setLoading(false);
+
+    // Error case
+    if (typeof userCredentials === "string") {
+      setErrorMessage(userCredentials);
+      return;
+    }
+
+    // User successfully signed in and verfied
+    navigate("/dashboard");
+  };
 
   return (
     <form className="w-full mt-8 fieldset">
