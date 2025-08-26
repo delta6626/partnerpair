@@ -26,7 +26,7 @@ export const Dashboard = () => {
       ) : (
         <div className="w-full h-[100vh] bg-base-300">
           {"Hello, " + user?.basicInfo.firstName}
-          <button onClick={handleSignOut}></button>
+          <button className="btn btn-primary" onClick={handleSignOut}></button>
         </div>
       )}
     </div>
