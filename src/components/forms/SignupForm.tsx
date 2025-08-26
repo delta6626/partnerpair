@@ -3,7 +3,7 @@ import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
-import { createUserByEmail } from "../../sevices/authentication/authServices";
+import { createUserByEmail, signInWithGoogle } from "../../sevices/authentication/authServices";
 import { useUserStore } from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
@@ -38,7 +38,7 @@ export const SignupForm = () => {
     dateOfBirth,
     password,
     confirmedPassword,
-    touched,
+    touched
   );
 
   // Unified change event handler for all inputs
@@ -91,8 +91,21 @@ export const SignupForm = () => {
     navigate("/verify");
   };
 
-  const handleGoogleSignup = (e: FormEvent) => {
+  const handleGoogleSignup = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    const userCredentials = await signInWithGoogle();
+    setLoading(false);
+
+    // Error case
+    if (typeof userCredentials === "string") {
+      setErrorMessage(userCredentials);
+      return;
+    }
+
+    // User successfully signed in and verfied
+    navigate("/dashboard");
   };
 
   // Focus on the first form input field
