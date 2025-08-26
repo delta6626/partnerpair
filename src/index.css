@@ -84,3 +84,12 @@
 p {
   @apply text-sm;
 }
+
+@keyframes fade458 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}

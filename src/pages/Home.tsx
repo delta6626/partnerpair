@@ -1,3 +1,4 @@
+import Loader from "../components/Loader";
 import { Navbar } from "../components/navigation/Navbar";
 
 export const Home = () => {
