@@ -16,7 +16,7 @@ import type { User } from "../../types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";
-import { splitUsername } from "../../utils/splitUserName";
+import { splitUsername } from "../../utils/splitUsername";
 
 export const createUserByEmail = async (
   email: string,
