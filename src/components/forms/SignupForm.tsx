@@ -105,6 +105,9 @@ export const SignupForm = () => {
       return;
     }
 
+    // Remove stale data from local storage, if any.
+    localStorage.removeItem("user");
+
     // User successfully signed in and verfied
     navigate("/dashboard");
   };
