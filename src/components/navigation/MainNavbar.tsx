@@ -5,7 +5,7 @@ import { MainNavbarNavigationItems } from "./MainNavbarNavigationItems";
 
 export const MainNavbar = () => {
   return (
-    <div className="flex itesm-center justify-between">
+    <div className="flex items-center justify-between">
       <div className="">
         <Logo />
       </div>
