@@ -1,4 +1,5 @@
 import { Loader } from "../components/Loader";
+import { MainNavbar } from "../components/navigation/MainNavbar";
 import { SIGNUP } from "../constants/SIGNUP";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
@@ -24,11 +25,10 @@ export const Dashboard = () => {
           <Loader />
         </div>
       ) : (
-        <div className="w-full h-[100vh] bg-base-300">
-          {"Hello, " + user?.basicInfo.firstName}
-          <button className="btn btn-primary" onClick={handleSignOut}>
-            SIGN OUT
-          </button>
+        <div className="w-full h-[100vh] bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
+          <div className="py-4">
+            <MainNavbar />
+          </div>
         </div>
       )}
     </div>
