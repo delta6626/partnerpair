@@ -21,7 +21,7 @@ export const Dashboard = () => {
   return (
     <div className="">
       {loading ? (
-        <div className="w-full h-full items-center justify-center">
+        <div className="w-full h-[100vh] items-center justify-center">
           <Loader />
         </div>
       ) : (
