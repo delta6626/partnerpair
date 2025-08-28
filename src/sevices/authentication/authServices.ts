@@ -182,7 +182,7 @@ export const signInWithGoogle = async () => {
           verified: true,
           tier: "Basic",
           authenticationMethod: "Google",
-          profileImageUrl: userCredentials.user.photoURL,
+          profileImageUrl: SETTINGS.PROFILE_PHOTOS.DEFAULT_PROFILE_PHOTO,
           profileCompleted: false,
           createdAt: new Date(),
           lastActiveAt: new Date(),
