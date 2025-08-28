@@ -66,9 +66,7 @@ export const ProfileManager = () => {
 
       <div className="">
         <p className="mt-4">Profile photo</p>
-        <div className="">
-          <img className="w-10 h-10 rounded-[50%]" src={profilePhotoURL ? profilePhotoURL : ""}></img>
-        </div>
+        <div className=""></div>
       </div>
     </div>
   );
