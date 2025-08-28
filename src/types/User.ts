@@ -17,7 +17,7 @@ export interface User {
     verified: boolean;
     tier: UserTier;
     authenticationMethod: AuthMethod;
-    profileImageUrl: string | null;
+    profileImageUrl: string;
     profileCompleted: boolean;
     createdAt: Date;
     lastActiveAt: Date;

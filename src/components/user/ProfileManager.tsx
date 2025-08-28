@@ -1,6 +1,7 @@
 import { UserCircle2 } from "lucide-react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { useState, type ChangeEvent } from "react";
+import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 
 export const ProfileManager = () => {
   const { user } = useInitializeUser();
@@ -8,7 +9,7 @@ export const ProfileManager = () => {
   const [firstName, setFirstName] = useState(user?.basicInfo.firstName);
   const [lastName, setLastName] = useState(user?.basicInfo.lastName);
   const [email, setEmail] = useState(user?.basicInfo.email);
-  const [profilePhotoURL, setProfilePhotoURL] = useState(user?.basicInfo.profileImageUrl);
+  const [currentProfilePhoto, setCurrentProfilePhoto] = useState(user?.basicInfo.profileImageUrl);
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);
@@ -66,7 +67,12 @@ export const ProfileManager = () => {
 
       <div className="">
         <p className="mt-4">Profile photo</p>
-        <div className=""></div>
+        <div className="mt-2">
+          <ProfilePhotoSelector
+            currentProfilePhoto={currentProfilePhoto ? currentProfilePhoto : ""}
+            setCurrentProfilePhoto={setCurrentProfilePhoto}
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { SETTINGS } from "../../constants/SETTINGS";
+import { ProfilePhotoHolder } from "./ProfilePhotoHolder";
 
-export const ProfilePhotoSelector = () => {
+export const ProfilePhotoSelector = ({
+  currentProfilePhoto,
+  setCurrentProfilePhoto,
+}: {
+  currentProfilePhoto: string;
+  setCurrentProfilePhoto: React.Dispatch<React.SetStateAction<string | undefined>>;
+}) => {
   const [profilePhotos] = useState([
     SETTINGS.PROFILE_PHOTOS.DEFAULT_PROFILE_PHOTO,
     SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_1,
@@ -15,5 +22,11 @@ export const ProfilePhotoSelector = () => {
     SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_9,
   ]);
 
-  return <div className=""></div>;
+  return (
+    <div className="flex flex-wrap gap-4">
+      {profilePhotos.map((profilePhoto) => {
+        return <ProfilePhotoHolder profilePhoto={profilePhoto} currentProfilePhoto={currentProfilePhoto} />;
+      })}
+    </div>
+  );
 };

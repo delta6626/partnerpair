@@ -1,5 +1,3 @@
-import { Check } from "lucide-react";
-
 export const ProfilePhotoHolder = ({
   profilePhoto,
   currentProfilePhoto,
@@ -8,9 +6,13 @@ export const ProfilePhotoHolder = ({
   currentProfilePhoto: string;
 }) => {
   return (
-    <div>
-      <img src={profilePhoto} />
-      <Check size={20} className={currentProfilePhoto !== profilePhoto ? "hidden" : ""} />
+    <div className="">
+      <div className="relative w-12 h-12">
+        <img
+          className={`w-12 h-12 rounded-full ${currentProfilePhoto === profilePhoto ? "border-2 border-primary" : ""}`}
+          src={profilePhoto}
+        />
+      </div>
     </div>
   );
 };
