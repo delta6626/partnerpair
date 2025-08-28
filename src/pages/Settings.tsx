@@ -1,5 +1,6 @@
 import Loader from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
+import { SETTINGS } from "../constants/SETTINGS";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 
@@ -21,7 +22,7 @@ export const Settings = () => {
 
           <div className="w-full py-10">
             <h1 className="font-bold text-3xl">Settings</h1>
-            <p>Manage your account preferences and profile settings</p>
+            <p>{SETTINGS.SUBTITLE_TEXT}</p>
           </div>
         </div>
       )}
