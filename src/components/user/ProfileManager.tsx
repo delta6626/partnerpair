@@ -8,6 +8,7 @@ export const ProfileManager = () => {
   const [firstName, setFirstName] = useState(user?.basicInfo.firstName);
   const [lastName, setLastName] = useState(user?.basicInfo.lastName);
   const [email, setEmail] = useState(user?.basicInfo.email);
+  const [profilePhotoURL, setProfilePhotoURL] = useState(user?.basicInfo.profileImageUrl);
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);

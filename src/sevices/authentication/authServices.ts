@@ -40,7 +40,7 @@ export const createUserByEmail = async (
         verified: false,
         tier: "Basic",
         authenticationMethod: "Email",
-        profileImageUrl: SETTINGS.PROFILE_PICTURES.DEFAULT_PROFILE_PICTURE,
+        profileImageUrl: SETTINGS.PROFILE_PHOTOS.DEFAULT_PROFILE_PHOTO,
         profileCompleted: false,
         createdAt: new Date(),
         lastActiveAt: new Date(),
