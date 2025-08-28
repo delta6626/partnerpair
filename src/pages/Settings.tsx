@@ -7,7 +7,7 @@ import { useTheme } from "../hooks/useTheme";
 
 export const Settings = () => {
   useTheme();
-  const { user, loading } = useInitializeUser();
+  const { loading } = useInitializeUser();
 
   return (
     <div className="">
@@ -26,7 +26,7 @@ export const Settings = () => {
             <p>{SETTINGS.SUBTITLE_TEXT}</p>
           </div>
 
-          <div className="w-full">
+          <div className="w-full border-1 border-accent rounded-3xl p-4">
             <ProfileManager />
           </div>
         </div>
