@@ -21,13 +21,15 @@ export const Settings = () => {
             <MainNavbar />
           </div>
 
-          <div className="w-full py-10">
-            <h1 className="font-bold text-3xl">Settings</h1>
-            <p>{SETTINGS.SUBTITLE_TEXT}</p>
-          </div>
+          <div className="flex flex-col items-center">
+            <div className="py-10 text-center">
+              <h1 className="font-bold text-3xl">Settings</h1>
+              <p>{SETTINGS.SUBTITLE_TEXT}</p>
+            </div>
 
-          <div className="w-fit border-1 border-accent rounded-3xl p-4">
-            <ProfileManager />
+            <div className="w-fit border-1 border-accent rounded-3xl p-4">
+              <ProfileManager />
+            </div>
           </div>
         </div>
       )}
