@@ -9,18 +9,7 @@ export const ProfilePhotoSelector = ({
   currentProfilePhoto: string;
   setCurrentProfilePhoto: React.Dispatch<React.SetStateAction<string | undefined>>;
 }) => {
-  const [profilePhotos] = useState([
-    SETTINGS.PROFILE_PHOTOS.DEFAULT_PROFILE_PHOTO,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_1,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_2,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_3,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_4,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_5,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_6,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_7,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_8,
-    SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_9,
-  ]);
+  const [profilePhotos] = useState(Object.values(SETTINGS.PROFILE_PHOTOS));
 
   return (
     <div className="flex flex-wrap gap-4">
