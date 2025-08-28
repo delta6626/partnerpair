@@ -25,7 +25,13 @@ export const ProfilePhotoSelector = ({
   return (
     <div className="flex flex-wrap gap-4">
       {profilePhotos.map((profilePhoto) => {
-        return <ProfilePhotoHolder profilePhoto={profilePhoto} currentProfilePhoto={currentProfilePhoto} />;
+        return (
+          <ProfilePhotoHolder
+            profilePhoto={profilePhoto}
+            currentProfilePhoto={currentProfilePhoto}
+            setCurrentProfilePhoto={setCurrentProfilePhoto}
+          />
+        );
       })}
     </div>
   );
