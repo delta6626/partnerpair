@@ -18,6 +18,11 @@ export const ProfileManager = () => {
           <input type="text" className="mt-2 input w-96" placeholder="Last name" />
         </div>
       </div>
+
+      <div className="">
+        <p className="mt-4">Email</p>
+        <input type="email" className="mt-2 input w-194" placeholder="Email" />
+      </div>
     </div>
   );
 };

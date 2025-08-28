@@ -26,7 +26,7 @@ export const Settings = () => {
             <p>{SETTINGS.SUBTITLE_TEXT}</p>
           </div>
 
-          <div className="w-full border-1 border-accent rounded-3xl p-4">
+          <div className="w-fit border-1 border-accent rounded-3xl p-4">
             <ProfileManager />
           </div>
         </div>
