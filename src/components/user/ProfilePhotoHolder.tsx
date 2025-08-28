@@ -15,7 +15,9 @@ export const ProfilePhotoHolder = ({
     <div className="">
       <div className="relative w-12 h-12" onClick={handleProfilePhotoClick}>
         <img
-          className={`w-12 h-12 rounded-full ${currentProfilePhoto === profilePhoto ? "border-2 border-primary" : ""}`}
+          className={`w-12 h-12 rounded-full ${
+            currentProfilePhoto === profilePhoto ? "outline-2 outline-primary" : ""
+          }`}
           src={profilePhoto}
         />
       </div>
