@@ -8,6 +8,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Browse } from "./pages/Browse";
 import { Messages } from "./pages/Messages";
 import { Forum } from "./pages/Forum";
+import { Settings } from "./pages/Settings";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/messages" element={<Messages />}></Route>
         <Route path="/forum" element={<Forum />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/settings" element={<Settings />}></Route>
       </Routes>
     </BrowserRouter>
   );
