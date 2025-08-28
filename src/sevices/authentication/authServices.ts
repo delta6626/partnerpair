@@ -17,6 +17,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";
 import { splitUsername } from "../../utils/splitUsername";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const createUserByEmail = async (
   email: string,
@@ -39,7 +40,7 @@ export const createUserByEmail = async (
         verified: false,
         tier: "Basic",
         authenticationMethod: "Email",
-        profileImageUrl: null,
+        profileImageUrl: SETTINGS.PROFILE_PICTURES.DEFAULT_PROFILE_PICTURE,
         profileCompleted: false,
         createdAt: new Date(),
         lastActiveAt: new Date(),
