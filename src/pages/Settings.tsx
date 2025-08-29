@@ -17,7 +17,7 @@ export const Settings = () => {
   useEffect(() => {
     if (!user) return;
     setTempUser(user);
-  }, []);
+  }, [user]);
 
   return (
     <div className="">
