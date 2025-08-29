@@ -4,6 +4,6 @@ import type { TempUserStore } from "../types/TempUserStore";
 
 export const useTempUserStore = create<TempUserStore>((set) => ({
   tempUser: null,
-  setTempUser: (tempUser: User) => set({ tempUser }),
+  setTempUser: (user: User) => set({ tempUser: user }),
   resetTempUser: () => set({ tempUser: null }),
 }));

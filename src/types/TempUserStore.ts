@@ -1,7 +1,7 @@
-import type { User } from "./User";
+import type { User } from "../types/User";
 
 export type TempUserStore = {
   tempUser: User | null;
-  setTempUser: (tempUser: User) => void;
+  setTempUser: (user: User) => void;
   resetTempUser: () => void;
 };
