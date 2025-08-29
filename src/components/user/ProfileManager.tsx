@@ -1,26 +1,23 @@
 import { UserCircle2 } from "lucide-react";
-import { useInitializeUser } from "../../hooks/useInitializeUser";
-import { useState, type ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const ProfileManager = () => {
-  const { user } = useInitializeUser();
+  const { tempUser, setTempUser } = useTempUserStore();
 
-  const [firstName, setFirstName] = useState(user?.basicInfo.firstName);
-  const [lastName, setLastName] = useState(user?.basicInfo.lastName);
-  const [email, setEmail] = useState(user?.basicInfo.email);
-  const [currentProfilePhoto, setCurrentProfilePhoto] = useState(user?.basicInfo.profileImageUrl);
+  if (!tempUser) return;
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFirstName(e.target.value);
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, firstName: e.target.value } });
   };
 
   const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setLastName(e.target.value);
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, lastName: e.target.value } });
   };
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, email: e.target.value } });
   };
 
   return (
@@ -37,7 +34,7 @@ export const ProfileManager = () => {
             type="text"
             className="mt-2 input w-96"
             placeholder="First name"
-            value={firstName}
+            value={tempUser?.basicInfo.firstName}
             onChange={handleFirstNameChange}
           />
         </div>
@@ -47,7 +44,7 @@ export const ProfileManager = () => {
             type="text"
             className="mt-2 input w-96"
             placeholder="Last name"
-            value={lastName}
+            value={tempUser?.basicInfo.lastName}
             onChange={handleLastNameChange}
           />
         </div>
@@ -59,8 +56,8 @@ export const ProfileManager = () => {
           type="email"
           className="mt-2 input w-194"
           placeholder="Email"
-          value={email}
-          disabled={user?.basicInfo.authenticationMethod === "Google"}
+          value={tempUser?.basicInfo.email}
+          disabled={tempUser?.basicInfo.authenticationMethod === "Google"}
           onChange={handleEmailChange}
         />
       </div>
@@ -68,10 +65,7 @@ export const ProfileManager = () => {
       <div className="">
         <p className="mt-4">Profile photo</p>
         <div className="mt-2">
-          <ProfilePhotoSelector
-            currentProfilePhoto={currentProfilePhoto ? currentProfilePhoto : ""}
-            setCurrentProfilePhoto={setCurrentProfilePhoto}
-          />
+          <ProfilePhotoSelector />
         </div>
       </div>
     </div>

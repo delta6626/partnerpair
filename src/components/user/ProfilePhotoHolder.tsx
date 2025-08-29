@@ -1,14 +1,13 @@
-export const ProfilePhotoHolder = ({
-  profilePhoto,
-  currentProfilePhoto,
-  setCurrentProfilePhoto,
-}: {
-  profilePhoto: string;
-  currentProfilePhoto: string;
-  setCurrentProfilePhoto: React.Dispatch<React.SetStateAction<string | undefined>>;
-}) => {
+import { useTempUserStore } from "../../store/useTempUserStore";
+
+export const ProfilePhotoHolder = ({ profilePhoto }: { profilePhoto: string }) => {
+  const { tempUser, setTempUser } = useTempUserStore();
+
+  if (!tempUser) return;
+
   const handleProfilePhotoClick = () => {
-    setCurrentProfilePhoto(profilePhoto);
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, profileImageUrl: profilePhoto } });
+    console.log(tempUser);
   };
 
   return (
@@ -16,7 +15,7 @@ export const ProfilePhotoHolder = ({
       <div className="relative w-12 h-12" onClick={handleProfilePhotoClick}>
         <img
           className={`w-12 h-12 rounded-full ${
-            currentProfilePhoto === profilePhoto ? "outline-2 outline-primary" : ""
+            profilePhoto === tempUser?.basicInfo.profileImageUrl ? "outline-2 outline-primary" : ""
           }`}
           src={profilePhoto}
         />
