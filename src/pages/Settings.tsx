@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import Loader from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { ProfileManager } from "../components/user/ProfileManager";
 import { SETTINGS } from "../constants/SETTINGS";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import { useTempUserStore } from "../store/useTempUserStore";
 
 export const Settings = () => {
   useTheme();
-  const { loading } = useInitializeUser();
+
+  const { user, loading } = useInitializeUser();
+  const { setTempUser } = useTempUserStore();
+
+  // Set temp user to user on page render
+  useEffect(() => {
+    if (!user) return;
+    setTempUser(user);
+  }, []);
 
   return (
     <div className="">
