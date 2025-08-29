@@ -85,7 +85,6 @@ export const SignupForm = () => {
       setErrorMessage(result);
     } else {
       setUser(result);
-      localStorage.setItem("user", JSON.stringify(result));
     }
 
     // Proceed to email verification on success
@@ -104,9 +103,6 @@ export const SignupForm = () => {
       setErrorMessage(userCredentials);
       return;
     }
-
-    // Remove stale data from local storage, if any.
-    localStorage.removeItem("user");
 
     // User successfully signed in and verfied
     navigate("/dashboard");

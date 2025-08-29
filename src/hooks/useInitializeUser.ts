@@ -27,20 +27,13 @@ export const useInitializeUser = () => {
 
       let currentUser: User | string | null = user;
 
-      // Try localStorage cache
-      if (!currentUser) {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) currentUser = JSON.parse(storedUser) as User;
-      }
-
       // Fallback to Firestore
       if (!currentUser) {
         currentUser = (await getUserData()) as User;
       }
 
-      // Update store and cache
+      // Update store
       setUser(currentUser);
-      localStorage.setItem("user", JSON.stringify(currentUser));
 
       setLoading(false);
     };

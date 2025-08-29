@@ -56,7 +56,6 @@ export const AccountVerificationForm = () => {
             ...user,
             basicInfo: { ...user.basicInfo, verified: true },
           });
-          localStorage.setItem("user", JSON.stringify(user));
           setStatusMessage(null);
           setCheckingForUpdate(false);
           navigate("/dashboard");

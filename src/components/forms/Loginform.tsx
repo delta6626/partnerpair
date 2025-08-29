@@ -45,9 +45,6 @@ export const LoginForm = () => {
       return;
     }
 
-    // Remove stale data from local storage, if any.
-    localStorage.removeItem("user");
-
     // Check if authenticated user is verfied.
     if (userCredentials.user.emailVerified) {
       navigate("/dashboard");
@@ -68,9 +65,6 @@ export const LoginForm = () => {
       setErrorMessage(userCredentials);
       return;
     }
-
-    // Remove stale data from local storage, if any.
-    localStorage.removeItem("user");
 
     // User successfully signed in and verfied
     navigate("/dashboard");
