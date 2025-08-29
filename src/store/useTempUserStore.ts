@@ -1,11 +1,9 @@
 import { create } from "zustand";
 import type { User } from "../types/User";
-import type { UserStore } from "../types/UserStore";
+import type { TempUserStore } from "../types/TempUserStore";
 
-export const useTempUserStore = create<UserStore>((set) => ({
-  user: null,
-
-  setUser: (user: User) => set({ user }),
-
-  resetUser: () => set({ user: null }),
+export const useTempUserStore = create<TempUserStore>((set) => ({
+  tempUser: null,
+  setTempUser: (tempUser: User) => set({ tempUser }),
+  resetTempUser: () => set({ tempUser: null }),
 }));
