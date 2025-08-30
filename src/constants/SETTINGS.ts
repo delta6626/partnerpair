@@ -1,5 +1,6 @@
 export const SETTINGS = {
   SUBTITLE_TEXT: "Manage your account preferences and profile settings.",
+  UPDATE_BUTTON_TEXT: "Update",
   PROFILE_PHOTOS: {
     PROFILE_PHOTO_1:
       "https://api.dicebear.com/9.x/micah/svg?seed=Ali&backgroundType=solid,gradientLinear&mouth=laughing,pucker,smile,smirk&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf",

@@ -39,7 +39,7 @@ export const Settings = () => {
               </div>
 
               <div className="">
-                <button className="btn btn-primary">Update</button>
+                <button className="btn btn-primary">{SETTINGS.UPDATE_BUTTON_TEXT}</button>
               </div>
             </div>
 
