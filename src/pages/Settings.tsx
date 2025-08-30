@@ -46,7 +46,7 @@ export const Settings = () => {
               </div>
             </div>
 
-            <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
+            <div className="">
               <ProfileManager />
             </div>
           </div>
