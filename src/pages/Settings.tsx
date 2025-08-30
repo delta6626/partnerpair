@@ -31,10 +31,16 @@ export const Settings = () => {
             <MainNavbar />
           </div>
 
-          <div className="flex flex-col items-center">
-            <div className="py-10 text-center">
-              <h1 className="font-bold text-3xl">Settings</h1>
-              <p>{SETTINGS.SUBTITLE_TEXT}</p>
+          <div className="w-full flex flex-col items-center">
+            <div className="w-200 py-10 flex items-center justify-between">
+              <div className="">
+                <h1 className="font-bold text-3xl">Settings</h1>
+                <p>{SETTINGS.SUBTITLE_TEXT}</p>
+              </div>
+
+              <div className="">
+                <button className="btn btn-primary">Update</button>
+              </div>
             </div>
 
             <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
