@@ -6,12 +6,13 @@ import { SETTINGS } from "../constants/SETTINGS";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { useTempUserStore } from "../store/useTempUserStore";
+import equal from "fast-deep-equal";
 
 export const Settings = () => {
   useTheme();
 
   const { user, loading } = useInitializeUser();
-  const { setTempUser } = useTempUserStore();
+  const { tempUser, setTempUser } = useTempUserStore();
 
   // Set temp user to user on page render
   useEffect(() => {
@@ -39,7 +40,9 @@ export const Settings = () => {
               </div>
 
               <div className="">
-                <button className="btn btn-primary">{SETTINGS.UPDATE_BUTTON_TEXT}</button>
+                <button className="btn btn-primary" disabled={equal(user, tempUser)}>
+                  {SETTINGS.UPDATE_BUTTON_TEXT}
+                </button>
               </div>
             </div>
 
