@@ -28,21 +28,21 @@ export const ProfileManager = () => {
       </div>
 
       <div className="flex flex-row gap-2">
-        <div className="">
+        <div className="w-full">
           <p className="mt-4">First name</p>
           <input
             type="text"
-            className="mt-2 input w-96"
+            className="mt-2 input w-full"
             placeholder="First name"
             value={tempUser?.basicInfo.firstName}
             onChange={handleFirstNameChange}
           />
         </div>
-        <div className="">
+        <div className="w-full">
           <p className="mt-4">Last name</p>
           <input
             type="text"
-            className="mt-2 input w-96"
+            className="mt-2 input w-full"
             placeholder="Last name"
             value={tempUser?.basicInfo.lastName}
             onChange={handleLastNameChange}
@@ -50,11 +50,11 @@ export const ProfileManager = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="w-full">
         <p className="mt-4">Email</p>
         <input
           type="email"
-          className="mt-2 input w-194"
+          className="mt-2 input w-full"
           placeholder="Email"
           value={tempUser?.basicInfo.email}
           disabled={tempUser?.basicInfo.authenticationMethod === "Google"}
