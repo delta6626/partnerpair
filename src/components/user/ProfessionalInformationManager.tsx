@@ -11,7 +11,12 @@ export const ProfessionalInformationManager = () => {
 
       <div className="w-full">
         <p className="mt-4">Headline</p>
-        <input type="text" className="mt-2 input w-full" placeholder="Your professional tagline or headline" />
+        <input
+          type="text"
+          className="mt-2 input w-full"
+          placeholder="Your professional tagline or headline"
+          maxLength={SETTINGS.MAX_HEADLINE_LENGTH}
+        />
       </div>
 
       <div className="w-full">
