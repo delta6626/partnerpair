@@ -1,4 +1,5 @@
 import { IdCard } from "lucide-react";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const ProfessionalInformationManager = () => {
   return (
@@ -16,8 +17,9 @@ export const ProfessionalInformationManager = () => {
       <div className="w-full">
         <p className="mt-4">Bio</p>
         <textarea
-          className="mt-2 input w-full resize-none"
+          className="mt-2 textarea w-full"
           placeholder="Your background, skills, or interests"
+          maxLength={SETTINGS.MAX_BIO_LENGTH}
         ></textarea>
       </div>
     </div>
