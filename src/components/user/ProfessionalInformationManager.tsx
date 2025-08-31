@@ -12,6 +12,14 @@ export const ProfessionalInformationManager = () => {
         <p className="mt-4">Headline</p>
         <input type="text" className="mt-2 input w-full" placeholder="Your professional tagline or headline" />
       </div>
+
+      <div className="w-full">
+        <p className="mt-4">Bio</p>
+        <textarea
+          className="mt-2 input w-full resize-none"
+          placeholder="Your background, skills, or interests"
+        ></textarea>
+      </div>
     </div>
   );
 };
