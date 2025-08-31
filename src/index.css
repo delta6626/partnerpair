@@ -5,6 +5,8 @@
   --font-inter: "Inter", sans-serif;
 }
 
+@plugin "tailwind-scrollbar";
+
 @plugin "daisyui";
 
 @plugin "daisyui" {
