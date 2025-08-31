@@ -7,6 +7,11 @@ export const ProfessionalInformationManager = () => {
         <IdCard />
         <h1 className="text-lg">Professional Information</h1>
       </div>
+
+      <div className="w-full">
+        <p className="mt-4">Headline</p>
+        <input type="text" className="mt-2 input w-full" placeholder="Your professional tagline or headline" />
+      </div>
     </div>
   );
 };
