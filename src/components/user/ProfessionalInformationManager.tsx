@@ -27,6 +27,10 @@ export const ProfessionalInformationManager = () => {
           maxLength={SETTINGS.MAX_BIO_LENGTH}
         ></textarea>
       </div>
+
+      <div className="w-full">
+        <p className="mt-4">Skills</p>
+      </div>
     </div>
   );
 };
