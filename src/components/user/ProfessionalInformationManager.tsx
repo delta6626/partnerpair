@@ -1,5 +1,6 @@
 import { IdCard } from "lucide-react";
 import { SETTINGS } from "../../constants/SETTINGS";
+import { SkillsManager } from "./SkillsManager";
 
 export const ProfessionalInformationManager = () => {
   return (
@@ -30,6 +31,7 @@ export const ProfessionalInformationManager = () => {
 
       <div className="w-full">
         <p className="mt-4">Skills</p>
+        <SkillsManager />
       </div>
     </div>
   );
