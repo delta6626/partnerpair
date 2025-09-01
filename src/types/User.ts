@@ -26,18 +26,18 @@ export interface User {
   professionalInfo: {
     headline: string | null;
     bio: string | null;
-    skills: string[] | null;
-    roles: UserRole[] | null;
-    education: UserEducation[] | null;
+    skills: string[];
+    roles: UserRole[];
+    education: UserEducation[];
   };
 
   matchingPreferences: {
-    lookingForSkills: string[] | null;
-    lookingForRoles: UserRole[] | null;
+    lookingForSkills: string[];
+    lookingForRoles: UserRole[];
     preferredLocation: string | null;
     commitmentLevel: UserCommitmentLevel | null;
     availability: UserAvailability | null;
-    preferredCompanyStage: UserPreferredCompanyStage[] | null;
+    preferredCompanyStage: UserPreferredCompanyStage[];
   };
 
   socialLinks: {
