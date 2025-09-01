@@ -23,7 +23,7 @@ export const ProfessionalInformationManager = () => {
       <div className="w-full">
         <p className="mt-4">Bio</p>
         <textarea
-          className="mt-2 textarea w-full"
+          className="mt-2 textarea w-full max-h-100"
           placeholder="Your background, skills, or interests"
           maxLength={SETTINGS.MAX_BIO_LENGTH}
         ></textarea>
