@@ -22,7 +22,7 @@ export const SkillsManager = () => {
       </div>
 
       <div className="mt-2">
-        <div className="w-full flex flex-wrap">
+        <div className="w-full flex flex-wrap gap-2">
           {tempUser.professionalInfo.skills?.length !== 0 ? (
             tempUser.professionalInfo.skills?.map((skill, id) => {
               return <SkillHolder key={id} skillName={skill} />;
