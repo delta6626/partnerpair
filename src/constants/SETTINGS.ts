@@ -90,4 +90,5 @@ export const SETTINGS = {
   },
   MAX_HEADLINE_LENGTH: 100,
   MAX_BIO_LENGTH: 1000,
+  MAX_SKILL_COUNT: 10,
 };
