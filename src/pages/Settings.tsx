@@ -47,7 +47,7 @@ export const Settings = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 mb-100">
               <ProfileManager />
               <ProfessionalInformationManager />
             </div>

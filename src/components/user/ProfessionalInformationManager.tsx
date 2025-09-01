@@ -32,7 +32,7 @@ export const ProfessionalInformationManager = () => {
       <div className="w-full">
         <div className="mt-4 flex items-center justify-between">
           <p className="">Skills</p>
-          <button className="btn">Add Skill</button>
+          <button className="btn btn-primary">Add Skill</button>
         </div>
         <div className="mt-2">
           <SkillsManager />
