@@ -30,13 +30,7 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <div className="mt-4 flex items-center justify-between">
-          <p className="">Skills</p>
-          <button className="btn btn-primary">{SETTINGS.ADD_SKILL_BUTTON_TEXT}</button>
-        </div>
-        <div className="mt-2">
-          <SkillsManager />
-        </div>
+        <SkillsManager />
       </div>
     </div>
   );

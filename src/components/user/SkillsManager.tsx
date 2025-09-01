@@ -10,14 +10,22 @@ export const SkillsManager = () => {
   }
 
   return (
-    <div className="w-full flex flex-wrap">
-      {tempUser.professionalInfo.skills?.length !== 0 ? (
-        tempUser.professionalInfo.skills?.map((skill, id) => {
-          return <SkillHolder key={id} skillName={skill} />;
-        })
-      ) : (
-        <p className="w-full text-center text-accent">{SETTINGS.NO_SKILLS_PARAGRAPH_TEXT}</p>
-      )}
-    </div>
+    <>
+      <div className="mt-4 flex items-center justify-between">
+        <p className="">Skills</p>
+        <button className="btn btn-primary">{SETTINGS.ADD_SKILL_BUTTON_TEXT}</button>
+      </div>
+      <div className="mt-2">
+        <div className="w-full flex flex-wrap">
+          {tempUser.professionalInfo.skills?.length !== 0 ? (
+            tempUser.professionalInfo.skills?.map((skill, id) => {
+              return <SkillHolder key={id} skillName={skill} />;
+            })
+          ) : (
+            <p className="w-full text-center text-accent">{SETTINGS.NO_SKILLS_PARAGRAPH_TEXT}</p>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
