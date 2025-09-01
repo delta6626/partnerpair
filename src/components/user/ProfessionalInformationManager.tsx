@@ -31,7 +31,9 @@ export const ProfessionalInformationManager = () => {
 
       <div className="w-full">
         <p className="mt-4">Skills</p>
-        <SkillsManager />
+        <div className="mt-2">
+          <SkillsManager />
+        </div>
       </div>
     </div>
   );
