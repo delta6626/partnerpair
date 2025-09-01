@@ -13,8 +13,14 @@ export const SkillsManager = () => {
     <>
       <div className="mt-4 flex items-center justify-between">
         <p className="">Skills</p>
-        <button className="btn btn-primary">{SETTINGS.ADD_SKILL_BUTTON_TEXT}</button>
+        <button
+          className="btn btn-primary"
+          disabled={tempUser.professionalInfo.skills?.length === SETTINGS.MAX_SKILL_COUNT}
+        >
+          {SETTINGS.ADD_SKILL_BUTTON_TEXT}
+        </button>
       </div>
+
       <div className="mt-2">
         <div className="w-full flex flex-wrap">
           {tempUser.professionalInfo.skills?.length !== 0 ? (
