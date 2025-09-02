@@ -1,7 +1,7 @@
 export const MODALS = {
   ADD_SKILL_MODAL: {
     ID: "addSkillModal",
-    TITLE: "Add a new Skill",
-    DESCRIPTION: "Add a new skill to your profile to showcase your expertise.",
+    TITLE: "Add new skill",
+    DESCRIPTION: "Enhance your profile by adding a new skill.",
   },
 };
