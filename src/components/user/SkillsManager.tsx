@@ -1,5 +1,7 @@
+import { MODALS } from "../../constants/MODALS";
 import { SETTINGS } from "../../constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { AddSkillModal } from "../modals/AddSkillModal";
 import { SkillHolder } from "./SkillHolder";
 
 export const SkillsManager = () => {
@@ -9,13 +11,21 @@ export const SkillsManager = () => {
     return;
   }
 
+  const handleAddSkillButtonClick = () => {
+    const addSkillModal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
+    addSkillModal?.showModal();
+  };
+
   return (
     <>
+      <AddSkillModal />
+
       <div className="mt-4 flex items-center justify-between">
         <p className="">Skills</p>
         <button
           className="btn btn-primary"
           disabled={tempUser.professionalInfo.skills?.length === SETTINGS.MAX_SKILL_COUNT}
+          onClick={handleAddSkillButtonClick}
         >
           {SETTINGS.ADD_SKILL_BUTTON_TEXT}
         </button>
