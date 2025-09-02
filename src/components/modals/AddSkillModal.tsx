@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { MODAL_ACTIONS } from "../../constants/MODAL_ACTIONS";
 import { MODALS } from "../../constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
@@ -13,13 +13,11 @@ export const AddSkillModal = () => {
 
   const handleSkillChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSkill(e.target.value);
-
-    if (skill != "") {
+    if (e.target.value === "") {
+      setError(true);
+    } else {
       setError(false);
-      return;
     }
-
-    setError(true);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -39,7 +37,13 @@ export const AddSkillModal = () => {
             placeholder={MODALS.ADD_SKILL_MODAL.PLACEHOLDER}
             onChange={handleSkillChange}
           />
-          <div className="flex mt-2 gap-2">
+
+          {/* Error message */}
+          <div className="min-h-6 flex items-center self-start text-error">
+            {error === true && <p>{MODALS.ADD_SKILL_MODAL.ERROR}</p>}
+          </div>
+
+          <div className="flex gap-2">
             <button type="button" className="btn">
               {MODAL_ACTIONS.ACTION_CANCEL}
             </button>
