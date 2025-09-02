@@ -3,5 +3,6 @@ export const MODALS = {
     ID: "addSkillModal",
     TITLE: "Add new skill",
     DESCRIPTION: "Enhance your profile by adding a new skill.",
+    PLACEHOLDER: "Enter a skill",
   },
 };
