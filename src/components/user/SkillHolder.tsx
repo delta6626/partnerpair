@@ -1,7 +1,17 @@
 import { XIcon } from "lucide-react";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const SkillHolder = ({ skillName }: { skillName: string }) => {
-  const handleSkillDeletion = () => {};
+  const { tempUser, setTempUser } = useTempUserStore();
+
+  if (!tempUser) {
+    return;
+  }
+
+  const handleSkillDeletion = () => {
+    const filteredSkills = tempUser.professionalInfo.skills.filter((skill) => skill != skillName);
+    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, skills: filteredSkills } });
+  };
 
   return (
     <div className="inline-flex items-center px-4 py-3 rounded-full bg-base-200 font-medium text-sm gap-2">
