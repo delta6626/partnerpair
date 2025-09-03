@@ -4,6 +4,6 @@ export const MODALS = {
     TITLE: "Add new skill",
     DESCRIPTION: "Enhance your profile by adding a new skill.",
     PLACEHOLDER: "Enter a skill",
-    ERROR: "Please enter a valid skill",
+    ERROR: "Please enter a skill",
   },
 };
