@@ -55,6 +55,7 @@ export const AddSkillModal = () => {
           <input
             type="text"
             className="w-full input"
+            value={skill}
             placeholder={MODALS.ADD_SKILL_MODAL.PLACEHOLDER}
             maxLength={MODALS.ADD_SKILL_MODAL.SKILL_MAX_LENGTH}
             onChange={handleSkillChange}
