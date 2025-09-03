@@ -22,6 +22,22 @@ export const AddSkillModal = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const skillLowercase = skill.toLowerCase();
+    const exists = tempUser.professionalInfo.skills.some((s) => s.toLowerCase() === skillLowercase);
+
+    if (exists) {
+      setError(true);
+      setSkill("");
+    } else {
+      setTempUser({
+        ...tempUser,
+        professionalInfo: { ...tempUser.professionalInfo, skills: [...tempUser.professionalInfo.skills, skill] },
+      });
+
+      setSkill("");
+      closeModal();
+    }
   };
 
   const closeModal = () => {
