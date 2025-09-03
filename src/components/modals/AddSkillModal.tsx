@@ -26,8 +26,8 @@ export const AddSkillModal = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const skillLowercase = skill.toLowerCase();
-    const exists = tempUser.professionalInfo.skills.some((s) => s.toLowerCase() === skillLowercase);
+    const skillTrimmedLowercase = skill.trim().toLowerCase();
+    const exists = tempUser.professionalInfo.skills.some((s) => s.toLowerCase() === skillTrimmedLowercase);
 
     // Redundant check to ensure skill never exceeds max
     if (tempUser.professionalInfo.skills.length === SETTINGS.MAX_SKILL_COUNT) return;
