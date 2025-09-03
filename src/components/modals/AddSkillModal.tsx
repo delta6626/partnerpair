@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { MODAL_ACTIONS } from "../../constants/MODAL_ACTIONS";
 import { MODALS } from "../../constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
