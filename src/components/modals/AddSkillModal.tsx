@@ -24,6 +24,11 @@ export const AddSkillModal = () => {
     e.preventDefault();
   };
 
+  const closeModal = () => {
+    const modal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement;
+    modal.close();
+  };
+
   return (
     <dialog id={MODALS.ADD_SKILL_MODAL.ID} className="modal">
       <div className="modal-box bg-base-300">
@@ -45,10 +50,10 @@ export const AddSkillModal = () => {
           </div>
 
           <div className="flex gap-2">
-            <button type="button" className="btn">
+            <button type="button" className="btn" onClick={closeModal}>
               {MODAL_ACTIONS.ACTION_CANCEL}
             </button>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" disabled={skill.length === 0}>
               {MODAL_ACTIONS.ACTION_ADD}
             </button>
           </div>
