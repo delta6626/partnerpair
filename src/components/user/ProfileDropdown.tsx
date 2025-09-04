@@ -1,11 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/useUserStore";
 import { LogOut, Settings } from "lucide-react";
+import { signOut } from "../../sevices/authentication/authServices";
+import { SIGNUP } from "../../constants/SIGNUP";
+import { useState } from "react";
+import Loader from "../Loader";
 
 export const ProfileDropdown = () => {
+  const navigate = useNavigate();
   const { user } = useUserStore();
+  const [loading, setLoading] = useState(false);
 
-  const handleSignOut = () => {};
+  const handleSignOut = async () => {
+    setLoading(true);
+    const status = await signOut();
+    setLoading(false);
+
+    if (status === SIGNUP.SIGNOUT_SUCCESS) {
+      navigate("/login");
+    } else {
+      return; // Handle error case.
+    }
+  };
 
   return (
     <div className="dropdown dropdown-bottom dropdown-center">
@@ -17,7 +33,7 @@ export const ProfileDropdown = () => {
         </Link>
         <hr className="text-accent"></hr>
         <button className="btn" onClick={handleSignOut}>
-          <LogOut size={20} />
+          {loading ? <Loader /> : <LogOut size={20} />}
           Sign out
         </button>
       </ul>
