@@ -5,6 +5,8 @@ import { LogOut, Settings } from "lucide-react";
 export const ProfileDropdown = () => {
   const { user } = useUserStore();
 
+  const handleSignOut = () => {};
+
   return (
     <div className="dropdown dropdown-bottom dropdown-center">
       <img tabIndex={0} role="button" src={user?.basicInfo.profileImageUrl} className="btn btn-square rounded-full" />
@@ -14,7 +16,7 @@ export const ProfileDropdown = () => {
           Settings
         </Link>
         <hr className="text-accent"></hr>
-        <button className="btn">
+        <button className="btn" onClick={handleSignOut}>
           <LogOut size={20} />
           Sign out
         </button>
