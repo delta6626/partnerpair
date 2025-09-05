@@ -1,7 +1,7 @@
 import { MODALS } from "../../constants/MODALS";
 import { SETTINGS } from "../../constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { AddSkillModal } from "../modals/AddSkillModal";
+import { AddRoleModal } from "../modals/AddRoleModal";
 
 export const RolesManager = () => {
   const { tempUser } = useTempUserStore();
@@ -13,7 +13,7 @@ export const RolesManager = () => {
 
   return (
     <>
-      <AddSkillModal />
+      <AddRoleModal />
 
       <div className="mt-4 flex items-center justify-between">
         <p className="">Roles You Play</p>
