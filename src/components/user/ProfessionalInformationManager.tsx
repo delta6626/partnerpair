@@ -21,10 +21,10 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <p className="mt-4">Bio</p>
+        <p className="mt-4">Why You’d Be a Great Co-Founder</p>
         <textarea
           className="mt-2 textarea w-full max-h-100"
-          placeholder="Your background, skills, or interests"
+          placeholder="Explain your skills, experience, and vision that make you an ideal co-founder"
           maxLength={SETTINGS.MAX_BIO_LENGTH}
         ></textarea>
       </div>
