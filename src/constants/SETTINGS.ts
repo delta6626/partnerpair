@@ -89,6 +89,6 @@ export const SETTINGS = {
       "https://api.dicebear.com/9.x/micah/svg?seed=Malik&backgroundType=solid,gradientLinear&mouth=laughing,pucker,smile,smirk&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf",
   },
   MAX_HEADLINE_LENGTH: 100,
-  MAX_BIO_LENGTH: 1000,
+  MAX_BIO_LENGTH: 1500,
   MAX_SKILL_COUNT: 10,
 };
