@@ -8,10 +8,4 @@ export const MODALS = {
     NO_VALUE_ERROR: "Please enter a skill.",
     SKILL_EXISTS_ERROR: "You have already added this skill before.",
   },
-
-  ADD_ROLE_MODAL: {
-    ID: "addRoleModal",
-    TITLE: "Add new role",
-    DESCRIPTION: "Pick your key startup roles",
-  },
 };

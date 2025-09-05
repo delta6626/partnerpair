@@ -1,30 +1,28 @@
-import { MODALS } from "../../constants/MODALS";
 import { SETTINGS } from "../../constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { AddRoleModal } from "../modals/AddRoleModal";
+import { RoleHolder } from "./RoleHolder";
 
 export const RolesManager = () => {
   const { tempUser } = useTempUserStore();
-
-  const handleAddRolesButtonClick = () => {
-    const modal = document.getElementById(MODALS.ADD_ROLE_MODAL.ID) as HTMLDialogElement;
-    modal.showModal();
-  };
+  const hasRoles = tempUser?.professionalInfo.roles.length != 0;
 
   return (
     <>
-      <AddRoleModal />
-
       <div className="mt-4 flex items-center justify-between">
         <p className="">Roles You Play</p>
-        <button
-          className="btn btn-primary"
-          disabled={tempUser?.professionalInfo.roles.length === SETTINGS.MAX_ROLE_COUNT}
-          onClick={handleAddRolesButtonClick}
-        >
-          Add role
-        </button>
       </div>
+
+      <div className="mt-4">
+        {hasRoles ? (
+          tempUser?.professionalInfo.roles.map((role) => {
+            return <RoleHolder roleName={role} isSelector={false} />;
+          })
+        ) : (
+          <p className="text-accent text-center">{SETTINGS.NO_ROLES_PARAGRAPH_TEXT}</p>
+        )}
+      </div>
+
+      <hr className="text-accent mt-2" />
     </>
   );
 };

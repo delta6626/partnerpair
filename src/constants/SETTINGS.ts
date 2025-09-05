@@ -3,6 +3,7 @@ export const SETTINGS = {
   UPDATE_BUTTON_TEXT: "Update",
   ADD_SKILL_BUTTON_TEXT: "Add skill",
   NO_SKILLS_PARAGRAPH_TEXT: "You do not have any skills added.",
+  NO_ROLES_PARAGRAPH_TEXT: "You have not selected any roles.",
   PROFILE_PHOTOS: {
     PROFILE_PHOTO_1:
       "https://api.dicebear.com/9.x/micah/svg?seed=Ali&backgroundType=solid,gradientLinear&mouth=laughing,pucker,smile,smirk&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf",
