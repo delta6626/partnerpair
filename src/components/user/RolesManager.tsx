@@ -22,7 +22,7 @@ export const RolesManager = () => {
           disabled={tempUser?.professionalInfo.roles.length === SETTINGS.MAX_ROLE_COUNT}
           onClick={handleAddRolesButtonClick}
         >
-          Add roles
+          Add role
         </button>
       </div>
     </>
