@@ -25,7 +25,7 @@ export interface User {
 
   professionalInfo: {
     headline: string | null;
-    bio: string | null;
+    bio: string | null; // Description of why the user would make a good co-founder.
     skills: string[];
     roles: UserRole[];
     education: UserEducation[];
