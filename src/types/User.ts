@@ -29,6 +29,10 @@ export interface User {
     skills: string[];
     roles: UserRole[];
     education: UserEducation[];
+    hasStartup: boolean | null;
+    hasStartupIdea: boolean | null;
+    startupStage: UserPreferredCompanyStage;
+    wantsToCofound: boolean | null;
   };
 
   matchingPreferences: {

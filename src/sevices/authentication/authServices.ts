@@ -52,6 +52,10 @@ export const createUserByEmail = async (
         skills: [],
         roles: [],
         education: [],
+        hasStartup: false,
+        hasStartupIdea: false,
+        startupStage: null,
+        wantsToCofound: false,
       },
 
       matchingPreferences: {
@@ -194,6 +198,10 @@ export const signInWithGoogle = async () => {
           skills: [],
           roles: [],
           education: [],
+          hasStartup: false,
+          hasStartupIdea: false,
+          startupStage: null,
+          wantsToCofound: false,
         },
 
         matchingPreferences: {
