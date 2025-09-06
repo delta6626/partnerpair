@@ -14,7 +14,7 @@ export const SkillHolder = ({ skillName }: { skillName: string }) => {
   };
 
   return (
-    <div className="inline-flex items-center px-4 py-3 rounded-full bg-base-200 font-medium text-sm gap-2">
+    <div className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2">
       {skillName}
       <button
         className="text-accent hover:text-error focus:text-error ease-in-out duration-200"
