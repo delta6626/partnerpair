@@ -1,14 +1,28 @@
 import { XIcon } from "lucide-react";
 import type { UserRole } from "../../types/UserRole";
+import { useTempUserStore } from "../../store/useTempUserStore";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const RoleHolder = ({ roleName, isSelector }: { roleName: UserRole; isSelector: boolean }) => {
-  const handleRoleAddition = () => {};
+  const { tempUser, setTempUser } = useTempUserStore();
+
+  if (!tempUser) return;
+
+  const handleRoleAddition = () => {
+    if (tempUser?.professionalInfo?.roles.includes(roleName)) return;
+
+    setTempUser({
+      ...tempUser,
+      professionalInfo: { ...tempUser?.professionalInfo, roles: [...tempUser?.professionalInfo.roles, roleName] },
+    });
+  };
   const handleRoleDeletion = () => {};
 
   return (
-    <div
-      className="inline-flex items-center px-4 py-3 rounded-full bg-base-300 border-1 border-accent select-none font-medium text-sm gap-2 hover:bg-base-200"
+    <button
+      className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
       onClick={handleRoleAddition}
+      disabled={isSelector && tempUser?.professionalInfo.roles.length === SETTINGS.MAX_ROLE_COUNT}
     >
       {roleName}
       {!isSelector ? (
@@ -21,6 +35,6 @@ export const RoleHolder = ({ roleName, isSelector }: { roleName: UserRole; isSel
       ) : (
         ""
       )}
-    </div>
+    </button>
   );
 };
