@@ -1,5 +1,6 @@
 export const SETTINGS = {
   SUBTITLE_TEXT: "Manage your account preferences and profile settings.",
+  RESET_BUTTON_TEXT: "Reset",
   UPDATE_BUTTON_TEXT: "Update",
   ADD_SKILL_BUTTON_TEXT: "Add skill",
   NO_SKILLS_PARAGRAPH_TEXT: "You do not have any skills added.",

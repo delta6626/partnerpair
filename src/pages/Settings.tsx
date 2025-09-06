@@ -15,6 +15,12 @@ export const Settings = () => {
   const { user, loading } = useInitializeUser();
   const { tempUser, setTempUser } = useTempUserStore();
 
+  if (!user) return;
+
+  const handleResetButtonClick = () => {
+    setTempUser(user);
+  };
+
   // Set temp user to user on page render
   useEffect(() => {
     if (!user) return;
@@ -40,7 +46,11 @@ export const Settings = () => {
                 <p>{SETTINGS.SUBTITLE_TEXT}</p>
               </div>
 
-              <div className="">
+              <div className="flex gap-2">
+                <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleResetButtonClick}>
+                  {SETTINGS.RESET_BUTTON_TEXT}
+                </button>
+
                 <button className="btn btn-primary" disabled={equal(user, tempUser)}>
                   {SETTINGS.UPDATE_BUTTON_TEXT}
                 </button>
