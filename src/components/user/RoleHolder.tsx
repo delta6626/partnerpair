@@ -16,7 +16,18 @@ export const RoleHolder = ({ roleName, isSelector }: { roleName: UserRole; isSel
       professionalInfo: { ...tempUser?.professionalInfo, roles: [...tempUser?.professionalInfo.roles, roleName] },
     });
   };
-  const handleRoleDeletion = () => {};
+
+  const handleRoleDeletion = () => {
+    if (!tempUser?.professionalInfo?.roles.includes(roleName)) return;
+
+    setTempUser({
+      ...tempUser,
+      professionalInfo: {
+        ...tempUser?.professionalInfo,
+        roles: tempUser?.professionalInfo.roles.filter((role) => role !== roleName),
+      },
+    });
+  };
 
   return (
     <button
