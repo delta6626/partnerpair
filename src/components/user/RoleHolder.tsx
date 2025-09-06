@@ -7,7 +7,7 @@ export const RoleHolder = ({ roleName, isSelector }: { roleName: UserRole; isSel
 
   return (
     <div
-      className="inline-flex items-center px-4 py-3 rounded-full bg-base-200 font-medium text-sm gap-2"
+      className="inline-flex items-center px-4 py-3 rounded-full bg-base-300 border-1 border-accent select-none font-medium text-sm gap-2 hover:bg-base-200"
       onClick={handleRoleAddition}
     >
       {roleName}
