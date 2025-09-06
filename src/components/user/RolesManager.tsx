@@ -13,7 +13,7 @@ export const RolesManager = () => {
         <p className="">Roles You Play</p>
       </div>
 
-      <div className="mt-2 w-full flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         {hasRoles ? (
           tempUser?.professionalInfo.roles.map((role) => {
             return <RoleHolder roleName={role} isSelector={false} />;
