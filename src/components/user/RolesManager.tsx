@@ -19,7 +19,7 @@ export const RolesManager = () => {
             return <RoleHolder roleName={role} isSelector={false} />;
           })
         ) : (
-          <p className="text-accent text-center">{SETTINGS.NO_ROLES_PARAGRAPH_TEXT}</p>
+          <p className="w-full text-accent text-center">{SETTINGS.NO_ROLES_PARAGRAPH_TEXT}</p>
         )}
       </div>
       <hr className="text-accent mt-4 mb-4" />
