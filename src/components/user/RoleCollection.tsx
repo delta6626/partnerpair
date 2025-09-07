@@ -43,7 +43,7 @@ export const RoleCollection = () => {
   return (
     <div className="w-full flex flex-wrap gap-2">
       {possibleRoles.map((role) => {
-        return <RoleHolder roleName={role} isSelector={true}></RoleHolder>;
+        return <RoleHolder key={role} roleName={role} isSelector={true}></RoleHolder>;
       })}
     </div>
   );
