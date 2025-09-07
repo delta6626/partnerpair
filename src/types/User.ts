@@ -31,6 +31,7 @@ export interface User {
     education: UserEducation[];
     hasStartup: boolean | null;
     hasStartupIdea: boolean | null;
+    startupDescription: string | null;
     startupStage: UserPreferredCompanyStage;
     wantsToCofound: boolean | null;
   };
