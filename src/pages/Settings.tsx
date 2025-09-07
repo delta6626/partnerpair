@@ -29,7 +29,7 @@ export const Settings = () => {
   return (
     <div className="">
       {loading ? (
-        <div className="w-full min-h-[100vh] items-center justify-center">
+        <div className="w-full min-h-[100vh] flex items-center justify-center">
           <Loader />
         </div>
       ) : (
