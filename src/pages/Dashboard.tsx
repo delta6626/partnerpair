@@ -1,22 +1,11 @@
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
-import { SIGNUP } from "../constants/SIGNUP";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
-import { signOut } from "../sevices/authentication/authServices";
 
 export const Dashboard = () => {
   useTheme();
-  const { user, loading } = useInitializeUser();
-
-  const handleSignOut = async () => {
-    const signOutStatus = await signOut();
-    if (signOutStatus === SIGNUP.SIGNOUT_SUCCESS) {
-      return;
-    } else {
-      console.log(signOutStatus);
-    }
-  };
+  const { loading } = useInitializeUser();
 
   return (
     <div className="">
