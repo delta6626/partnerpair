@@ -15,9 +15,8 @@ export const Settings = () => {
   const { user, loading } = useInitializeUser();
   const { tempUser, setTempUser } = useTempUserStore();
 
-  if (!user) return;
-
   const handleResetButtonClick = () => {
+    if (!user) return;
     setTempUser(user);
   };
 
