@@ -14,9 +14,13 @@ export const StartupInformationManager = () => {
     setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartup: false } });
   };
 
-  const handleUserHasIdea = () => {};
+  const handleUserHasIdea = () => {
+    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: true } });
+  };
 
-  const handleUserDoesNotHaveIdea = () => {};
+  const handleUserDoesNotHaveIdea = () => {
+    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: false } });
+  };
 
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
