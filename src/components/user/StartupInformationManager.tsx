@@ -7,7 +7,10 @@ export const StartupInformationManager = () => {
   if (!tempUser) return;
 
   const handleUserHasStartup = () => {
-    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartup: true } });
+    setTempUser({
+      ...tempUser,
+      professionalInfo: { ...tempUser.professionalInfo, hasStartup: true, hasStartupIdea: false },
+    });
   };
 
   const handleUserDoesNotHaveStartup = () => {
@@ -15,7 +18,10 @@ export const StartupInformationManager = () => {
   };
 
   const handleUserHasIdea = () => {
-    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: true } });
+    setTempUser({
+      ...tempUser,
+      professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: true, hasStartup: false },
+    });
   };
 
   const handleUserDoesNotHaveIdea = () => {
@@ -38,7 +44,7 @@ export const StartupInformationManager = () => {
               <input
                 type="radio"
                 className="radio radio-primary"
-                checked={tempUser?.professionalInfo.hasStartup === true ? true : false}
+                checked={tempUser?.professionalInfo.hasStartup === true}
                 onChange={handleUserHasStartup}
               />
             </div>
@@ -62,7 +68,7 @@ export const StartupInformationManager = () => {
               <input
                 type="radio"
                 className="radio radio-primary"
-                checked={tempUser?.professionalInfo.hasStartup === true ? true : false}
+                checked={tempUser?.professionalInfo.hasStartupIdea === true}
                 onChange={handleUserHasIdea}
               />
             </div>
@@ -71,7 +77,7 @@ export const StartupInformationManager = () => {
               <input
                 type="radio"
                 className="radio radio-primary"
-                checked={tempUser.professionalInfo.hasStartup === false}
+                checked={tempUser.professionalInfo.hasStartupIdea === false}
                 onChange={handleUserDoesNotHaveIdea}
               />
             </div>
