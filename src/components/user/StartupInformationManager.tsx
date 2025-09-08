@@ -1,29 +1,9 @@
 export const StartupInformationManager = () => {
   return (
-    <>
-      <div className="mt-4 flex items-center">
-        <p className="">Your Startup Background</p>
+    <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
+      <div className="flex items-center gap-2">
+        <h1 className="text-lg">Statup Information</h1>
       </div>
-
-      <div className="mt-4">
-        <div className="flex items-center justify-between">
-          <p>Do you have a startup?</p>
-          <div className="flex gap-4">
-            <div className="">
-              <label htmlFor="radio1" className="mr-2">
-                Yes
-              </label>
-              <input type="radio" name="radio1" className="radio radio-primary" />
-            </div>
-            <div className="">
-              <label htmlFor="radio2" className="mr-2">
-                No
-              </label>
-              <input type="radio" name="radio2" className="radio radio-primary" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 };

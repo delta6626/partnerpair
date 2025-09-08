@@ -8,6 +8,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useTempUserStore } from "../store/useTempUserStore";
 import equal from "fast-deep-equal";
 import { ProfessionalInformationManager } from "../components/user/ProfessionalInformationManager";
+import { StartupInformationManager } from "../components/user/StartupInformationManager";
 
 export const Settings = () => {
   useTheme();
@@ -59,6 +60,7 @@ export const Settings = () => {
             <div className="flex flex-col gap-4 mb-100">
               <ProfileManager />
               <ProfessionalInformationManager />
+              <StartupInformationManager />
             </div>
           </div>
         </div>

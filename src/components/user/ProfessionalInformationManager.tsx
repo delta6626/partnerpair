@@ -2,7 +2,6 @@ import { IdCard } from "lucide-react";
 import { SETTINGS } from "../../constants/SETTINGS";
 import { SkillsManager } from "./SkillsManager";
 import { RolesManager } from "./RolesManager";
-import { StartupInformationManager } from "./StartupInformationManager";
 
 export const ProfessionalInformationManager = () => {
   return (
@@ -34,7 +33,6 @@ export const ProfessionalInformationManager = () => {
       <div className="w-full">
         <SkillsManager />
         <RolesManager />
-        <StartupInformationManager />
       </div>
     </div>
   );
