@@ -83,6 +83,10 @@ export const StartupInformationManager = () => {
             </div>
           </div>
         </div>
+
+        <div className="mt-2 flex items-center justify-between">
+          <p>Do you want to join a startup as a co-founder?</p>
+        </div>
       </div>
     </div>
   );
