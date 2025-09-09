@@ -1,6 +1,7 @@
 import { Rocket } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../constants/SETTINGS";
+import type { ChangeEvent } from "react";
 
 export const StartupInformationManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -58,6 +59,16 @@ export const StartupInformationManager = () => {
       professionalInfo: {
         ...tempUser.professionalInfo,
         wantsToCofound: false,
+      },
+    });
+  };
+
+  const handleStartupDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setTempUser({
+      ...tempUser,
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        startupDescription: e.target.value,
       },
     });
   };
@@ -153,6 +164,7 @@ export const StartupInformationManager = () => {
             placeholder="Give a short overview of your product, market, and long-term goals."
             maxLength={SETTINGS.MAX_STARTUP_DESCRIPTION_LENGTH}
             value={tempUser.professionalInfo.startupDescription}
+            onChange={handleStartupDescriptionChange}
           ></textarea>
         </div>
       </div>
