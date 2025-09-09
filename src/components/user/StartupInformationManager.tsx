@@ -139,6 +139,10 @@ export const StartupInformationManager = () => {
             </div>
           </div>
         </div>
+
+        <div className="mt-4">
+          <p>Tell potential cofounders what your startup is all about</p>
+        </div>
       </div>
     </div>
   );
