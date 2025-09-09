@@ -47,7 +47,7 @@ export const StartupInformationManager = () => {
         hasStartupIdea: false,
         hasStartup: false,
         wantsToCofound: true,
-        startupDescription: null,
+        startupDescription: "",
       },
     });
   };
@@ -152,6 +152,7 @@ export const StartupInformationManager = () => {
             className="mt-2 textarea w-full max-h-100"
             placeholder="Give a short overview of your product, market, and long-term goals."
             maxLength={SETTINGS.MAX_STARTUP_DESCRIPTION_LENGTH}
+            value={tempUser.professionalInfo.startupDescription}
           ></textarea>
         </div>
       </div>
