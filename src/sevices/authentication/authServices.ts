@@ -47,14 +47,14 @@ export const createUserByEmail = async (
       },
 
       professionalInfo: {
-        headline: null,
-        bio: null,
+        headline: "",
+        bio: "",
         skills: [],
         roles: [],
         education: [],
         hasStartup: null,
         hasStartupIdea: null,
-        startupDescription: null,
+        startupDescription: "",
         startupStage: null,
         wantsToCofound: null,
       },
@@ -69,10 +69,10 @@ export const createUserByEmail = async (
       },
 
       socialLinks: {
-        linkedin: null,
-        twitter: null,
-        github: null,
-        website: null,
+        linkedin: "",
+        twitter: "",
+        github: "",
+        website: "",
       },
     };
 
@@ -194,14 +194,14 @@ export const signInWithGoogle = async () => {
         },
 
         professionalInfo: {
-          headline: null,
-          bio: null,
+          headline: "",
+          bio: "",
           skills: [],
           roles: [],
           education: [],
           hasStartup: null,
           hasStartupIdea: null,
-          startupDescription: null,
+          startupDescription: "",
           startupStage: null,
           wantsToCofound: null,
         },
@@ -216,10 +216,10 @@ export const signInWithGoogle = async () => {
         },
 
         socialLinks: {
-          linkedin: null,
-          twitter: null,
-          github: null,
-          website: null,
+          linkedin: "",
+          twitter: "",
+          github: "",
+          website: "",
         },
       };
 

@@ -24,14 +24,14 @@ export interface User {
   };
 
   professionalInfo: {
-    headline: string | null;
-    bio: string | null; // Description of why the user would make a good co-founder.
+    headline: string;
+    bio: string; // Description of why the user would make a good co-founder.
     skills: string[];
     roles: UserRole[];
     education: UserEducation[];
     hasStartup: boolean | null;
     hasStartupIdea: boolean | null;
-    startupDescription: string | null;
+    startupDescription: string;
     startupStage: UserPreferredCompanyStage;
     wantsToCofound: boolean | null;
   };
@@ -46,9 +46,9 @@ export interface User {
   };
 
   socialLinks: {
-    linkedin: string | null;
-    twitter: string | null;
-    github: string | null;
-    website: string | null;
+    linkedin: string;
+    twitter: string;
+    github: string;
+    website: string;
   };
 }
