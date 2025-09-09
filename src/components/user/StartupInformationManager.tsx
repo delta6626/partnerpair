@@ -9,7 +9,12 @@ export const StartupInformationManager = () => {
   const handleUserHasStartup = () => {
     setTempUser({
       ...tempUser,
-      professionalInfo: { ...tempUser.professionalInfo, hasStartup: true, hasStartupIdea: false },
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        hasStartup: true,
+        hasStartupIdea: false,
+        wantsToCofound: false,
+      },
     });
   };
 
@@ -20,7 +25,12 @@ export const StartupInformationManager = () => {
   const handleUserHasIdea = () => {
     setTempUser({
       ...tempUser,
-      professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: true, hasStartup: false },
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        hasStartupIdea: true,
+        hasStartup: false,
+        wantsToCofound: false,
+      },
     });
   };
 
@@ -28,9 +38,27 @@ export const StartupInformationManager = () => {
     setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: false } });
   };
 
-  const handleUserWantsToCofound = () => {};
+  const handleUserWantsToCofound = () => {
+    setTempUser({
+      ...tempUser,
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        hasStartupIdea: false,
+        hasStartup: false,
+        wantsToCofound: true,
+      },
+    });
+  };
 
-  const handleUserDoesNotWantToCofound = () => {};
+  const handleUserDoesNotWantToCofound = () => {
+    setTempUser({
+      ...tempUser,
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        wantsToCofound: false,
+      },
+    });
+  };
 
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
