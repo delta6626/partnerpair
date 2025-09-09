@@ -28,6 +28,10 @@ export const StartupInformationManager = () => {
     setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: false } });
   };
 
+  const handleUserWantsToCofound = () => {};
+
+  const handleUserDoesNotWantToCofound = () => {};
+
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
       <div className="flex items-center gap-2">
@@ -86,6 +90,26 @@ export const StartupInformationManager = () => {
 
         <div className="mt-2 flex items-center justify-between">
           <p>Do you want to join a startup as a co-founder?</p>
+          <div className="flex gap-4 ">
+            <div className="flex gap-2">
+              <p>Yes</p>
+              <input
+                type="radio"
+                className="radio radio-primary"
+                checked={tempUser?.professionalInfo.wantsToCofound === true}
+                onChange={handleUserWantsToCofound}
+              />
+            </div>
+            <div className="flex gap-2">
+              <p>No</p>
+              <input
+                type="radio"
+                className="radio radio-primary"
+                checked={tempUser.professionalInfo.wantsToCofound === false}
+                onChange={handleUserDoesNotWantToCofound}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
