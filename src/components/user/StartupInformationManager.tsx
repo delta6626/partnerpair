@@ -1,5 +1,6 @@
 import { Rocket } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const StartupInformationManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -142,6 +143,11 @@ export const StartupInformationManager = () => {
 
         <div className="mt-4">
           <p>Tell potential cofounders what your startup is all about</p>
+          <textarea
+            className="mt-2 textarea w-full max-h-100"
+            placeholder="Give a short overview of your product, market, and long-term goals."
+            maxLength={SETTINGS.MAX_STARTUP_DESCRIPTION_LENGTH}
+          ></textarea>
         </div>
       </div>
     </div>
