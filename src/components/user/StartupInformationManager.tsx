@@ -142,7 +142,11 @@ export const StartupInformationManager = () => {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div
+          className={`mt-4 ${
+            tempUser.professionalInfo.hasStartup || tempUser.professionalInfo.hasStartupIdea ? "visible" : "hidden"
+          }`}
+        >
           <p>Tell potential cofounders what your startup is all about</p>
           <textarea
             className="mt-2 textarea w-full max-h-100"
