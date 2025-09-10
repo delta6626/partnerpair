@@ -7,6 +7,25 @@ export const SocialLinksManager = () => {
         <Globe />
         <h1 className="text-lg">Social Profiles</h1>
       </div>
+
+      <div className="mt-4">
+        <div className="flex items-center justify-between">
+          <p>LinkedIn</p>
+          <input type="text" className="mt-2 input w-full max-w-140" />
+        </div>
+        <div className="mt-2 flex items-center justify-between">
+          <p>Twitter / X</p>
+          <input type="text" className="mt-2 input w-full max-w-140" />
+        </div>
+        <div className="mt-2 flex items-center justify-between">
+          <p>GitHub</p>
+          <input type="text" className="mt-2 input w-full max-w-140" />
+        </div>
+        <div className="mt-2 flex items-center justify-between">
+          <p>Personal Website</p>
+          <input type="text" className="mt-2 input w-full max-w-140" />
+        </div>
+      </div>
     </div>
   );
 };
