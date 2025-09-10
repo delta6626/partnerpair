@@ -1,6 +1,11 @@
 import { Globe } from "lucide-react";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const SocialLinksManager = () => {
+  const { tempUser } = useTempUserStore();
+
+  if (!tempUser) return;
+
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
       <div className="flex items-center gap-2">
