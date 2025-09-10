@@ -11,19 +11,23 @@ export const SocialLinksManager = () => {
       <div className="mt-4">
         <div className="flex items-center justify-between gap-12">
           <p>LinkedIn</p>
-          <input type="text" className="mt-2 input w-full max-w-120" />
+          <input
+            type="text"
+            className="mt-2 input w-full max-w-120"
+            placeholder="https://www.linkedin.com/in/username"
+          />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
           <p>Twitter / X</p>
-          <input type="text" className="mt-2 input w-full max-w-120" />
+          <input type="text" className="mt-2 input w-full max-w-120" placeholder="https://x.com/username" />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
           <p>GitHub</p>
-          <input type="text" className="mt-2 input w-full max-w-120" />
+          <input type="text" className="mt-2 input w-full max-w-120" placeholder="https://github.com/username" />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
           <p>Personal Website</p>
-          <input type="text" className="mt-2 input w-full max-w-120" />
+          <input type="text" className="mt-2 input w-full max-w-120" placeholder="https://yourdomain.com" />
         </div>
       </div>
     </div>
