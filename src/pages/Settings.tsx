@@ -9,6 +9,7 @@ import { useTempUserStore } from "../store/useTempUserStore";
 import equal from "fast-deep-equal";
 import { ProfessionalInformationManager } from "../components/user/ProfessionalInformationManager";
 import { StartupInformationManager } from "../components/user/StartupInformationManager";
+import { SocialLinksManager } from "../components/user/SocialLinksManager";
 
 export const Settings = () => {
   useTheme();
@@ -61,6 +62,7 @@ export const Settings = () => {
               <ProfileManager />
               <ProfessionalInformationManager />
               <StartupInformationManager />
+              <SocialLinksManager />
             </div>
           </div>
         </div>
