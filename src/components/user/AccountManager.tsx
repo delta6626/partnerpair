@@ -18,8 +18,8 @@ export const AccountManager = () => {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p>App theme</p>
-        <select className="select" value={theme} onChange={handleThemeChange}>
+        <p>Theme preference</p>
+        <select className="select max-w-40" value={theme} onChange={handleThemeChange}>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
           <option value="system">System</option>
