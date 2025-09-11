@@ -10,6 +10,7 @@ import equal from "fast-deep-equal";
 import { ProfessionalInformationManager } from "../components/user/ProfessionalInformationManager";
 import { StartupInformationManager } from "../components/user/StartupInformationManager";
 import { SocialLinksManager } from "../components/user/SocialLinksManager";
+import { AccountManager } from "../components/user/AccountManager";
 
 export const Settings = () => {
   useTheme();
@@ -63,6 +64,7 @@ export const Settings = () => {
               <ProfessionalInformationManager />
               <StartupInformationManager />
               <SocialLinksManager />
+              <AccountManager />
             </div>
           </div>
         </div>
