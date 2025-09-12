@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useUserStore } from "../../store/useUserStore";
 import { Settings } from "lucide-react";
+import { SignOut } from "./SignOut";
 
 export const ProfileDropdown = () => {
   const { user } = useUserStore();
@@ -14,6 +15,7 @@ export const ProfileDropdown = () => {
           Settings
         </Link>
         <hr className="text-accent"></hr>
+        <SignOut />
       </ul>
     </div>
   );
