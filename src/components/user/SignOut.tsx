@@ -1,12 +1,24 @@
 import { useState } from "react";
 import Loader from "../Loader";
 import { LogOut } from "lucide-react";
+import { signOut } from "../../sevices/authentication/authServices";
+import { SIGNUP } from "../../constants/SIGNUP";
+import { useNavigate } from "react-router-dom";
 
 export const SignOut = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSignOut = () => {
-    return;
+  const handleSignOut = async () => {
+    setLoading(true);
+    const status = await signOut();
+    setLoading(false);
+
+    if (status === SIGNUP.SIGNOUT_SUCCESS) {
+      navigate("/login");
+    } else {
+      return; // Handle error case.
+    }
   };
 
   return (
