@@ -3,6 +3,7 @@ import { useTheme } from "../../hooks/useTheme";
 import type { ChangeEvent } from "react";
 import type { AppTheme } from "../../types/AppTheme";
 import { SignOut } from "./SignOut";
+import { DeleteAccount } from "./DeleteAccount";
 
 export const AccountManager = () => {
   const { theme, setTheme } = useTheme();
@@ -34,6 +35,7 @@ export const AccountManager = () => {
 
       <div className="mt-2 flex items-center justify-between">
         <p>Delete account</p>
+        <DeleteAccount />
       </div>
     </div>
   );
