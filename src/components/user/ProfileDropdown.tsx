@@ -15,7 +15,7 @@ export const ProfileDropdown = () => {
           Settings
         </Link>
         <hr className="text-accent"></hr>
-        <SignOut />
+        <SignOut applyMinimumWidth={false} />
       </ul>
     </div>
   );

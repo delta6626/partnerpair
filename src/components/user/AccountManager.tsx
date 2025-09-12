@@ -30,7 +30,7 @@ export const AccountManager = () => {
 
       <div className="mt-2 flex items-center justify-between">
         <p>Sign out</p>
-        <SignOut />
+        <SignOut applyMinimumWidth={true} />
       </div>
 
       <div className="mt-2 flex items-center justify-between">
