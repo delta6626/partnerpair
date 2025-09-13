@@ -76,15 +76,18 @@ export const Settings = () => {
               </div>
 
               <div className="flex gap-2">
-                <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleResetButtonClick}>
+                <button
+                  className="btn btn-primary w-20"
+                  disabled={equal(user, tempUser)}
+                  onClick={handleResetButtonClick}
+                >
                   {SETTINGS.RESET_BUTTON_TEXT}
                 </button>
 
-                <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleProfileUpdate}>
+                <button className="btn btn-primary w-20" disabled={equal(user, tempUser)} onClick={handleProfileUpdate}>
                   {updating ? (
                     <div className="flex items-center justify-center">
                       <Loader />
-                      <span className="invisible">{SETTINGS.UPDATE_BUTTON_TEXT}</span>
                     </div>
                   ) : (
                     SETTINGS.UPDATE_BUTTON_TEXT
