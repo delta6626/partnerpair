@@ -22,7 +22,7 @@ export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) =
   };
 
   return (
-    <button className={applyMinimumWidth ? "btn min-w-45 bg-base-100" : "btn"} onClick={handleSignOut}>
+    <button className={applyMinimumWidth ? "btn min-w-45" : "btn"} onClick={handleSignOut}>
       {loading ? <Loader /> : <LogOut size={20} />}
       Sign out
     </button>
