@@ -11,19 +11,33 @@ import { ProfessionalInformationManager } from "../components/user/ProfessionalI
 import { StartupInformationManager } from "../components/user/StartupInformationManager";
 import { SocialLinksManager } from "../components/user/SocialLinksManager";
 import { AccountManager } from "../components/user/AccountManager";
+import { updateUserProfile } from "../sevices/userProfile/userProfileServices";
+import { useUserStore } from "../store/useUserStore";
 
 export const Settings = () => {
   useTheme();
 
   const { user, loading } = useInitializeUser();
   const { tempUser, setTempUser } = useTempUserStore();
+  const { setUser } = useUserStore();
+
+  if (!tempUser) return;
 
   const handleResetButtonClick = () => {
     if (!user) return;
     setTempUser(user);
   };
 
-  const handleProfileUpdate = () => {};
+  const handleProfileUpdate = async () => {
+    const userProfileUpdated = await updateUserProfile(tempUser);
+    if (typeof userProfileUpdated === "string") {
+      // TODO: handle error case
+      return;
+    }
+
+    // set user to temp user on success and open success modal
+    setUser(tempUser);
+  };
 
   // Set temp user to user on page render
   useEffect(() => {
