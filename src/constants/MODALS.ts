@@ -8,4 +8,10 @@ export const MODALS = {
     NO_VALUE_ERROR: "Please enter a skill.",
     SKILL_EXISTS_ERROR: "You have already added this skill before.",
   },
+
+  PROFILE_UPDATE_SUCCESS_MODAL: {
+    ID: "profileUpdateSuccessModal",
+    TITLE: "Profile Updated",
+    DESCRIPTION: "Your profile changes have been saved successfully.",
+  },
 };
