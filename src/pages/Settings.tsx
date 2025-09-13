@@ -81,7 +81,14 @@ export const Settings = () => {
                 </button>
 
                 <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleProfileUpdate}>
-                  {updating ? <Loader /> : SETTINGS.UPDATE_BUTTON_TEXT}
+                  {updating ? (
+                    <div className="flex items-center justify-center">
+                      <Loader />
+                      <span className="invisible">{SETTINGS.UPDATE_BUTTON_TEXT}</span>
+                    </div>
+                  ) : (
+                    SETTINGS.UPDATE_BUTTON_TEXT
+                  )}
                 </button>
               </div>
             </div>
