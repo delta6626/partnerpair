@@ -13,6 +13,8 @@ import { SocialLinksManager } from "../components/user/SocialLinksManager";
 import { AccountManager } from "../components/user/AccountManager";
 import { updateUserProfile } from "../sevices/userProfile/userProfileServices";
 import { useUserStore } from "../store/useUserStore";
+import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
+import { MODALS } from "../constants/MODALS";
 
 export const Settings = () => {
   useTheme();
@@ -37,6 +39,8 @@ export const Settings = () => {
 
     // set user to temp user on success and open success modal
     setUser(tempUser);
+    const modal = document.getElementById(MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID) as HTMLDialogElement;
+    modal.showModal();
   };
 
   // Set temp user to user on page render
@@ -47,6 +51,7 @@ export const Settings = () => {
 
   return (
     <div className="">
+      <ProfileUpdateSuccessfulModal />
       {loading ? (
         <div className="w-full min-h-[100vh] flex items-center justify-center">
           <Loader />
