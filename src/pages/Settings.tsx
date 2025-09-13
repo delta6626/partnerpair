@@ -17,6 +17,7 @@ import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdate
 import { MODALS } from "../constants/MODALS";
 
 export const Settings = () => {
+  console.log(1);
   useTheme();
 
   const { user, loading } = useInitializeUser();
@@ -25,14 +26,13 @@ export const Settings = () => {
 
   const [updating, setUpdating] = useState<boolean>(false);
 
-  if (!tempUser) return;
-
   const handleResetButtonClick = () => {
     if (!user) return;
     setTempUser(user);
   };
 
   const handleProfileUpdate = async () => {
+    if (!tempUser) return;
     setUpdating(true);
 
     const userProfileUpdated = await updateUserProfile(tempUser);
@@ -81,7 +81,7 @@ export const Settings = () => {
                 </button>
 
                 <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleProfileUpdate}>
-                  {SETTINGS.UPDATE_BUTTON_TEXT}
+                  {updating ? <Loader /> : SETTINGS.UPDATE_BUTTON_TEXT}
                 </button>
               </div>
             </div>
