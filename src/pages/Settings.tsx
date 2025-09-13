@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { ProfileManager } from "../components/user/ProfileManager";
@@ -23,6 +23,8 @@ export const Settings = () => {
   const { tempUser, setTempUser } = useTempUserStore();
   const { setUser } = useUserStore();
 
+  const [updating, setUpdating] = useState<boolean>(false);
+
   if (!tempUser) return;
 
   const handleResetButtonClick = () => {
@@ -31,6 +33,8 @@ export const Settings = () => {
   };
 
   const handleProfileUpdate = async () => {
+    setUpdating(true);
+
     const userProfileUpdated = await updateUserProfile(tempUser);
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case
@@ -41,6 +45,8 @@ export const Settings = () => {
     setUser(tempUser);
     const modal = document.getElementById(MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID) as HTMLDialogElement;
     modal.showModal();
+
+    setUpdating(false);
   };
 
   // Set temp user to user on page render
