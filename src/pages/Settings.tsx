@@ -23,6 +23,8 @@ export const Settings = () => {
     setTempUser(user);
   };
 
+  const handleProfileUpdate = () => {};
+
   // Set temp user to user on page render
   useEffect(() => {
     if (!user) return;
@@ -53,7 +55,7 @@ export const Settings = () => {
                   {SETTINGS.RESET_BUTTON_TEXT}
                 </button>
 
-                <button className="btn btn-primary" disabled={equal(user, tempUser)}>
+                <button className="btn btn-primary" disabled={equal(user, tempUser)} onClick={handleProfileUpdate}>
                   {SETTINGS.UPDATE_BUTTON_TEXT}
                 </button>
               </div>
