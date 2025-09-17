@@ -188,7 +188,7 @@ export const StartupInformationManager = () => {
         </div>
 
         <div
-          className={`mt-4 ${
+          className={`mt-2 ${
             tempUser.professionalInfo.hasStartup || tempUser.professionalInfo.hasStartupIdea ? "visible" : "hidden"
           }`}
         >
