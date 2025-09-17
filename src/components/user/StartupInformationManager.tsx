@@ -159,7 +159,13 @@ export const StartupInformationManager = () => {
           } flex items-center justify-between`}
         >
           <p>What stage is your startup in?</p>
-          <select className="select max-w-45" value={tempUser.professionalInfo.startupStage}></select>
+          <select className="select max-w-45" value={tempUser.professionalInfo.startupStage}>
+            <option value="idea">Idea</option>
+            <option value="buildingMVP">Building MVP</option>
+            <option value="justLaunched">Just Launched</option>
+            <option value="growing">Growing</option>
+            <option value="established">Established</option>
+          </select>
         </div>
 
         <div
