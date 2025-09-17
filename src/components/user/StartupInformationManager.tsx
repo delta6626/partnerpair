@@ -2,6 +2,7 @@ import { Rocket } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../constants/SETTINGS";
 import type { ChangeEvent } from "react";
+import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 
 export const StartupInformationManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -59,6 +60,16 @@ export const StartupInformationManager = () => {
       professionalInfo: {
         ...tempUser.professionalInfo,
         wantsToCofound: false,
+      },
+    });
+  };
+
+  const handleStartupStageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setTempUser({
+      ...tempUser,
+      professionalInfo: {
+        ...tempUser.professionalInfo,
+        startupStage: e.target.value as UserPreferredCompanyStage,
       },
     });
   };
@@ -159,7 +170,11 @@ export const StartupInformationManager = () => {
           } flex items-center justify-between`}
         >
           <p>What stage is your startup in?</p>
-          <select className="select max-w-45" value={tempUser.professionalInfo.startupStage ?? ""}>
+          <select
+            className="select max-w-45"
+            value={tempUser.professionalInfo.startupStage ?? ""}
+            onChange={handleStartupStageChange}
+          >
             <option value="" disabled>
               Select an option
             </option>
