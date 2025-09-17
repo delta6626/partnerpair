@@ -49,6 +49,7 @@ export const StartupInformationManager = () => {
         hasStartupIdea: false,
         hasStartup: false,
         wantsToCofound: true,
+        startupStage: null,
         startupDescription: "",
       },
     });
