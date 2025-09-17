@@ -55,7 +55,7 @@ export const createUserByEmail = async (
         hasStartup: null,
         hasStartupIdea: null,
         startupDescription: "",
-        startupStage: null,
+        startupStage: "Idea",
         wantsToCofound: null,
       },
 
@@ -202,7 +202,7 @@ export const signInWithGoogle = async () => {
           hasStartup: null,
           hasStartupIdea: null,
           startupDescription: "",
-          startupStage: null,
+          startupStage: "Idea",
           wantsToCofound: null,
         },
 
