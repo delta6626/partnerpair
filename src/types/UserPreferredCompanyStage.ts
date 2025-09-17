@@ -1,1 +1,1 @@
-export type UserPreferredCompanyStage = "idea" | "buildingMVP" | "justLaunched" | "growing" | "established";
+export type UserPreferredCompanyStage = "idea" | "buildingMVP" | "justLaunched" | "growing" | "established" | null;
