@@ -156,9 +156,10 @@ export const StartupInformationManager = () => {
         <div
           className={`mt-4 ${
             tempUser.professionalInfo.hasStartup || tempUser.professionalInfo.hasStartupIdea ? "visible" : "hidden"
-          }`}
+          } flex items-center justify-between`}
         >
           <p>What stage is your startup in?</p>
+          <select className="select max-w-45"></select>
         </div>
 
         <div
