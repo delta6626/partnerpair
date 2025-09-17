@@ -4,14 +4,17 @@ import { LogOut } from "lucide-react";
 import { signOut } from "../../sevices/authentication/authServices";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../../store/useUserStore";
 
 export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) => {
   const navigate = useNavigate();
+  const { resetUser } = useUserStore();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSignOut = async () => {
     setLoading(true);
     const status = await signOut();
+    resetUser();
     setLoading(false);
 
     if (status === SIGNUP.SIGNOUT_SUCCESS) {
