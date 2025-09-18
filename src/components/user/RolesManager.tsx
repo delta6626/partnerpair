@@ -42,7 +42,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
         } border border-accent`}
       >
         <div className="collapse-title text-sm" onClick={handleCollapseClick}>
-          Expand Roles
+          View All Roles
         </div>
         <div className="collapse-content">
           <RoleCollection forCurrentUser={forCurrentUser} />
