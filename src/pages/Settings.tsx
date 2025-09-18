@@ -15,6 +15,7 @@ import { updateUserProfile } from "../sevices/userProfile/userProfileServices";
 import { useUserStore } from "../store/useUserStore";
 import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
 import { MODALS } from "../constants/MODALS";
+import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 
 export const Settings = () => {
   console.log(1);
@@ -104,6 +105,7 @@ export const Settings = () => {
               <ProfileManager />
               <ProfessionalInformationManager />
               <StartupInformationManager />
+              <MatchingPreferenceManager />
               <SocialLinksManager />
               <AccountManager />
             </div>
