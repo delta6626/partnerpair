@@ -3,28 +3,60 @@ import type { UserRole } from "../../types/UserRole";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../constants/SETTINGS";
 
-export const RoleHolder = ({ roleName, isSelector }: { roleName: UserRole; isSelector: boolean }) => {
+export const RoleHolder = ({
+  roleName,
+  isSelector,
+  forCurrentUser,
+}: {
+  roleName: UserRole;
+  isSelector: boolean;
+  forCurrentUser: boolean;
+}) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
   if (!tempUser) return;
 
   const handleRoleAddition = () => {
-    if (tempUser?.professionalInfo?.roles.includes(roleName)) return;
+    if (forCurrentUser) {
+      if (tempUser?.professionalInfo?.roles.includes(roleName)) return;
+      setTempUser({
+        ...tempUser,
+        professionalInfo: { ...tempUser?.professionalInfo, roles: [...tempUser?.professionalInfo.roles, roleName] },
+      });
 
+      return;
+    }
+
+    if (tempUser?.matchingPreferences.lookingForRoles.includes(roleName)) return;
     setTempUser({
       ...tempUser,
-      professionalInfo: { ...tempUser?.professionalInfo, roles: [...tempUser?.professionalInfo.roles, roleName] },
+      matchingPreferences: {
+        ...tempUser.matchingPreferences,
+        lookingForRoles: [...tempUser?.matchingPreferences.lookingForRoles, roleName],
+      },
     });
   };
 
   const handleRoleDeletion = () => {
-    if (!tempUser?.professionalInfo?.roles.includes(roleName)) return;
+    if (forCurrentUser) {
+      if (!tempUser?.professionalInfo?.roles.includes(roleName)) return;
+      setTempUser({
+        ...tempUser,
+        professionalInfo: {
+          ...tempUser?.professionalInfo,
+          roles: tempUser?.professionalInfo.roles.filter((role) => role !== roleName),
+        },
+      });
 
+      return;
+    }
+
+    if (!tempUser?.matchingPreferences.lookingForRoles.includes(roleName)) return;
     setTempUser({
       ...tempUser,
-      professionalInfo: {
-        ...tempUser?.professionalInfo,
-        roles: tempUser?.professionalInfo.roles.filter((role) => role !== roleName),
+      matchingPreferences: {
+        ...tempUser?.matchingPreferences,
+        lookingForRoles: tempUser?.matchingPreferences.lookingForRoles.filter((role) => role !== roleName),
       },
     });
   };

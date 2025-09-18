@@ -1,7 +1,7 @@
 import type { UserRole } from "../../types/UserRole";
 import { RoleHolder } from "./RoleHolder";
 
-export const RoleCollection = () => {
+export const RoleCollection = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const possibleRoles: UserRole[] = [
     "CEO",
     "COO",
@@ -43,7 +43,7 @@ export const RoleCollection = () => {
   return (
     <div className="w-full flex flex-wrap gap-2">
       {possibleRoles.map((role) => {
-        return <RoleHolder key={role} roleName={role} isSelector={true}></RoleHolder>;
+        return <RoleHolder key={role} roleName={role} isSelector={true} forCurrentUser={forCurrentUser}></RoleHolder>;
       })}
     </div>
   );
