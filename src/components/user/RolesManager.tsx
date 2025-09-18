@@ -3,7 +3,7 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 import { RoleHolder } from "./RoleHolder";
 import { RoleCollection } from "./RoleCollection";
 
-export const RolesManager = () => {
+export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser } = useTempUserStore();
   const hasRoles = tempUser?.professionalInfo.roles.length != 0;
 

@@ -10,7 +10,7 @@ export const MatchingPreferenceManager = () => {
       </div>
 
       <div className="w-full">
-        <RolesManager />
+        <RolesManager forCurrentUser={false} />
       </div>
     </div>
   );
