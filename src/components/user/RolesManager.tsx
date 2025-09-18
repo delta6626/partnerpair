@@ -23,7 +23,12 @@ export const RolesManager = () => {
         )}
       </div>
       <hr className="text-accent mt-4 mb-4" />
-      <RoleCollection />
+      <div tabIndex={0} className="collapse collapse-arrow border border-accent">
+        <div className="collapse-title">Expand Roles</div>
+        <div className="collapse-content">
+          <RoleCollection />
+        </div>
+      </div>
     </>
   );
 };
