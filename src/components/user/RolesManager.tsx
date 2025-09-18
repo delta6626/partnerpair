@@ -21,7 +21,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
         <p className="">{forCurrentUser ? "Roles You Play" : "Roles You Are Looking For"}</p>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-2 flex flex-wrap gap-2">
         {hasRoles && forCurrentUser ? (
           tempUser?.professionalInfo.roles.map((role) => {
             return <RoleHolder roleName={role} isSelector={false} forCurrentUser={true} />;
@@ -37,7 +37,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
 
       <div
         tabIndex={0}
-        className={`mt-4 mb-4 collapse collapse-arrow ${
+        className={`mt-2 collapse collapse-arrow ${
           collapseOpen ? "collapse-open" : "collapse-close"
         } border border-accent`}
       >
