@@ -5,17 +5,23 @@ import { RoleCollection } from "./RoleCollection";
 
 export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser } = useTempUserStore();
-  const hasRoles = tempUser?.professionalInfo.roles.length != 0;
+  const hasRoles = forCurrentUser
+    ? tempUser?.professionalInfo.roles.length != 0
+    : tempUser?.matchingPreferences.lookingForRoles.length != 0;
 
   return (
     <>
       <div className="mt-4 flex items-center justify-between">
-        <p className="">Roles You Play</p>
+        <p className="">{forCurrentUser ? "Roles You Play" : "Roles You Are Looking For"}</p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        {hasRoles ? (
+        {hasRoles && forCurrentUser ? (
           tempUser?.professionalInfo.roles.map((role) => {
+            return <RoleHolder roleName={role} isSelector={false} />;
+          })
+        ) : hasRoles && !forCurrentUser ? (
+          tempUser?.matchingPreferences.lookingForRoles.map((role) => {
             return <RoleHolder roleName={role} isSelector={false} />;
           })
         ) : (
