@@ -1,4 +1,5 @@
 import { Handshake } from "lucide-react";
+import { RolesManager } from "./RolesManager";
 
 export const MatchingPreferenceManager = () => {
   return (
@@ -6,6 +7,10 @@ export const MatchingPreferenceManager = () => {
       <div className="flex items-center gap-2">
         <Handshake />
         <h1 className="text-lg">Matching Preferences</h1>
+      </div>
+
+      <div className="w-full">
+        <RolesManager />
       </div>
     </div>
   );
