@@ -28,6 +28,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
           <p className="w-full text-accent text-center">{SETTINGS.NO_ROLES_PARAGRAPH_TEXT}</p>
         )}
       </div>
+
       <div tabIndex={0} className="mt-4 mb-4 collapse collapse-arrow border border-accent">
         <div className="collapse-title text-sm">Expand Roles</div>
         <div className="collapse-content">
