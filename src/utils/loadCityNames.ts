@@ -1,5 +1,5 @@
 export const loadCityNames = async () => {
-  const URL = "https://cdn.jsdelivr.net/gh/delta6626/all-countries-and-cities-json@master/countries.min.json";
+  const URL = "https://cdn.jsdelivr.net/gh/delta6626/all-countries-and-cities-json@latest/countries.min.json";
   try {
     const response = await fetch(URL);
     if (!response.ok) throw new Error("An error occured fetching the data.");
