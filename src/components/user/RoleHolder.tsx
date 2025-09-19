@@ -74,12 +74,12 @@ export const RoleHolder = ({
     >
       {roleName}
       {!isSelector ? (
-        <button
+        <div
           className="text-accent hover:text-error focus:text-error ease-in-out duration-200"
           onClick={handleRoleDeletion}
         >
           <XIcon size={20} />
-        </button>
+        </div>
       ) : (
         ""
       )}
