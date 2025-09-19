@@ -1,18 +1,27 @@
 import { Globe } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import type { ChangeEvent } from "react";
 
 export const SocialLinksManager = () => {
-  const { tempUser } = useTempUserStore();
+  const { tempUser, setTempUser } = useTempUserStore();
 
   if (!tempUser) return;
 
-  const handleLinkedInChange = () => {};
+  const handleLinkedInChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTempUser({ ...tempUser, socialLinks: { ...tempUser.socialLinks, linkedin: e.target.value } });
+  };
 
-  const handleTwitterChange = () => {};
+  const handleTwitterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTempUser({ ...tempUser, socialLinks: { ...tempUser.socialLinks, twitter: e.target.value } });
+  };
 
-  const handleGithubChange = () => {};
+  const handleGithubChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTempUser({ ...tempUser, socialLinks: { ...tempUser.socialLinks, github: e.target.value } });
+  };
 
-  const handleWebsiteChange = () => {};
+  const handleWebsiteChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTempUser({ ...tempUser, socialLinks: { ...tempUser.socialLinks, website: e.target.value } });
+  };
 
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
