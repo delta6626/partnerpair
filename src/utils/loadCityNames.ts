@@ -4,8 +4,8 @@ export const loadCityNames = async () => {
     const response = await fetch(URL);
     if (!response.ok) throw new Error("An error occured fetching the data.");
     const data = await response.json();
-    return data;
+    return data as string[];
   } catch (error) {
-    return error;
+    return error as string;
   }
 };
