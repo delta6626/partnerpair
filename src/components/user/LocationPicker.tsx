@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { loadCityNames } from "../../utils/loadCityNames";
+import { trimAllSpaces } from "../../utils/trimAllSpaces";
 
 export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const citiesRef = useRef<string[]>([]);
@@ -20,18 +21,6 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
 
     fetchCities();
   }, []);
-
-  useEffect(() => {
-    if (searchTerm.length >= 4) {
-      // Filter cities only when the user has typed at least 2 characters
-      const matches = citiesRef.current.filter((city) => city.toLowerCase().startsWith(searchTerm.toLowerCase()));
-      setFilteredCities(matches);
-      setDropdownOpen(matches.length > 0); // open dropdown only if there are matches
-    } else {
-      setFilteredCities([]);
-      setDropdownOpen(false);
-    }
-  }, [searchTerm]);
 
   return (
     <div className="mt-4 flex flex-col items-start justify-between">
