@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { loadCityNames } from "../../utils/loadCityNames";
 import { trimAllSpaces } from "../../utils/trimAllSpaces";
 
@@ -22,6 +22,20 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
     fetchCities();
   }, []);
 
+  const handleSearchTermChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleInputFocus = () => {
+    if (searchTerm.length >= 4 && filteredCities.length > 0) setDropdownOpen(true);
+  };
+
+  const handleInputBlur = () => {
+    setTimeout(() => {
+      setDropdownOpen(false);
+    }, 150);
+  };
+
   return (
     <div className="mt-4 flex items-center justify-between">
       <p className="mb-2">{forCurrentUser ? "Your Location" : "Preferred Cofounder Locations"}</p>
@@ -30,13 +44,9 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         className="input"
         placeholder="Search a city"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onFocus={() => {
-          if (searchTerm.length >= 4 && filteredCities.length > 0) setDropdownOpen(true);
-        }}
-        onBlur={() => {
-          setTimeout(() => setDropdownOpen(false), 150);
-        }}
+        onChange={handleSearchTermChange}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
       />
       {dropdownOpen && (
         <ul className="h-200 overflow-scroll bg-base-300 max-h-200 max-w-100 mt-1">
