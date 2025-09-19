@@ -23,6 +23,21 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
     fetchCities();
   }, []);
 
+  useEffect(() => {
+    const normalizedSearch = trimAllSpaces(searchTerm).toLowerCase();
+
+    if (normalizedSearch.length >= SETTINGS.MINIMUM_RENDER_CHARACTER_COUNT) {
+      const matches = citiesRef.current.filter((city) =>
+        trimAllSpaces(city).toLowerCase().startsWith(normalizedSearch)
+      );
+      setFilteredCities(matches);
+      setDropdownOpen(matches.length > 0);
+    } else {
+      setFilteredCities([]);
+      setDropdownOpen(false);
+    }
+  }, [searchTerm]);
+
   const handleSearchTermChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
