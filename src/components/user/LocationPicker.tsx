@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { loadCityNames } from "../../utils/loadCityNames";
 import { trimAllSpaces } from "../../utils/trimAllSpaces";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const citiesRef = useRef<string[]>([]);
@@ -27,7 +28,8 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
   };
 
   const handleInputFocus = () => {
-    if (searchTerm.length >= 4 && filteredCities.length > 0) setDropdownOpen(true);
+    if (searchTerm.length >= SETTINGS.MINIMUM_RENDER_CHARACTER_COUNT && filteredCities.length > 0)
+      setDropdownOpen(true);
   };
 
   const handleInputBlur = () => {
