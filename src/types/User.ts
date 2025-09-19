@@ -13,7 +13,7 @@ export interface User {
     dateOfBirth: string;
     email: string;
     phone: string | null;
-    location: string | null;
+    location: string;
     verified: boolean;
     tier: UserTier;
     authenticationMethod: AuthMethod;
@@ -39,7 +39,7 @@ export interface User {
   matchingPreferences: {
     lookingForSkills: string[];
     lookingForRoles: UserRole[];
-    preferredLocation: string | null;
+    preferredLocation: string;
     commitmentLevel: UserCommitmentLevel | null;
     availability: UserAvailability | null;
     preferredCompanyStage: UserPreferredCompanyStage[];
