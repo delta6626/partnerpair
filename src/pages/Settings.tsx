@@ -18,7 +18,6 @@ import { MODALS } from "../constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 
 export const Settings = () => {
-  console.log(1);
   useTheme();
 
   const { user, loading } = useInitializeUser();
