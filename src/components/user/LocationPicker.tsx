@@ -57,6 +57,8 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         matchingPreferences: { ...tempUser.matchingPreferences, preferredLocation: city },
       });
     }
+
+    document.documentElement.focus();
   };
 
   return (
