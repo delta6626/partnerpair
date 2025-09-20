@@ -53,13 +53,15 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
           onChange={handleSearchTermChange}
         />
 
-        <ul className="dropdown-content bg-base-200 rounded-box z-1 mt-2 max-h-50 overflow-y-scroll">
-          {filteredCities.map((city) => (
-            <button key={city} className="btn">
-              {city}
-            </button>
-          ))}
-        </ul>
+        {filteredCities.length > 0 && (
+          <ul className="dropdown-content bg-base-200 rounded-box z-1 mt-2 max-h-50 overflow-y-scroll">
+            {filteredCities.map((city) => (
+              <button key={city} className="btn">
+                {city}
+              </button>
+            ))}
+          </ul>
+        )}
 
         {error && <p className="text-red-500 mt-2">Failed to load cities.</p>}
       </div>
