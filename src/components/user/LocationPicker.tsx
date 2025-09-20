@@ -54,7 +54,7 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         />
 
         {filteredCities.length > 0 && (
-          <ul className="dropdown-content bg-base-200 rounded-box z-1 mt-2 max-h-50 overflow-y-scroll">
+          <ul className="dropdown-content bg-base-200 rounded-box scrollbar-thin z-1 mt-2 max-h-50 overflow-y-scroll">
             {filteredCities.map((city) => (
               <button key={city} className="btn">
                 {city}
