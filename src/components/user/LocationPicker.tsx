@@ -2,12 +2,15 @@ import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { loadCityNames } from "../../utils/loadCityNames";
 import { trimAllSpaces } from "../../utils/trimAllSpaces";
 import { SETTINGS } from "../../constants/SETTINGS";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const citiesRef = useRef<string[]>([]);
   const [error, setError] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredCities, setFilteredCities] = useState<string[]>([]);
+
+  const { tempUser, setTempUser } = useTempUserStore();
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -39,6 +42,23 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
     setSearchTerm(e.target.value);
   };
 
+  const handleLocationSelect = (city: string) => {
+    if (!tempUser) return;
+    setSearchTerm(city);
+
+    if (forCurrentUser) {
+      setTempUser({
+        ...tempUser,
+        basicInfo: { ...tempUser.basicInfo, location: city },
+      });
+    } else {
+      setTempUser({
+        ...tempUser,
+        matchingPreferences: { ...tempUser.matchingPreferences, preferredLocation: city },
+      });
+    }
+  };
+
   return (
     <div className="mt-4 flex items-center justify-between">
       <p className="mb-2">{forCurrentUser ? "Your Location" : "Preferred Cofounder Locations"}</p>
@@ -46,7 +66,7 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         <input
           tabIndex={0}
           role="button"
-          className="input w-60"
+          className="input w-80"
           type="text"
           placeholder="Search a city"
           value={searchTerm}
@@ -54,9 +74,15 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         />
 
         {filteredCities.length > 0 && (
-          <ul className="dropdown-content bg-base-200 rounded-box scrollbar-thin z-1 mt-2 max-h-50 overflow-y-scroll">
+          <ul className="p-2 w-80 dropdown-content bg-base-200 rounded-box scrollbar-thin z-1 mt-2 max-h-50 overflow-y-scroll">
             {filteredCities.map((city) => (
-              <button key={city} className="btn">
+              <button
+                key={city}
+                className="btn w-full flex items-center justify-start"
+                onClick={() => {
+                  handleLocationSelect(city);
+                }}
+              >
                 {city}
               </button>
             ))}
