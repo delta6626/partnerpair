@@ -6,7 +6,6 @@ import { SETTINGS } from "../../constants/SETTINGS";
 export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const citiesRef = useRef<string[]>([]);
   const [error, setError] = useState<boolean>(false);
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredCities, setFilteredCities] = useState<string[]>([]);
 
@@ -31,10 +30,8 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         trimAllSpaces(city).toLowerCase().startsWith(normalizedSearch)
       );
       setFilteredCities(matches);
-      setDropdownOpen(matches.length > 0);
     } else {
       setFilteredCities([]);
-      setDropdownOpen(false);
     }
   }, [searchTerm]);
 
@@ -42,39 +39,30 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
     setSearchTerm(e.target.value);
   };
 
-  const handleInputFocus = () => {
-    if (searchTerm.length >= SETTINGS.MINIMUM_RENDER_CHARACTER_COUNT && filteredCities.length > 0)
-      setDropdownOpen(true);
-  };
-
-  const handleInputBlur = () => {
-    setTimeout(() => {
-      setDropdownOpen(false);
-    }, 150);
-  };
-
   return (
     <div className="mt-4 flex items-center justify-between">
       <p className="mb-2">{forCurrentUser ? "Your Location" : "Preferred Cofounder Locations"}</p>
-      <input
-        type="text"
-        className="input"
-        placeholder="Search a city"
-        value={searchTerm}
-        onChange={handleSearchTermChange}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-      />
-      {dropdownOpen && (
-        <ul className="h-200 overflow-scroll bg-base-300 max-h-200 max-w-100 mt-1">
+      <div className="dropdown">
+        <input
+          tabIndex={0}
+          role="button"
+          className="input w-60"
+          type="text"
+          placeholder="Search a city"
+          value={searchTerm}
+          onChange={handleSearchTermChange}
+        />
+
+        <ul className="dropdown-content bg-base-200 rounded-box z-1 mt-2 max-h-50 overflow-y-scroll">
           {filteredCities.map((city) => (
-            <li key={city} className="p-1 hover:bg-base-200 cursor-pointer">
+            <button key={city} className="btn">
               {city}
-            </li>
+            </button>
           ))}
         </ul>
-      )}
-      {error && <p className="text-red-500 mt-2">Failed to load cities.</p>}
+
+        {error && <p className="text-red-500 mt-2">Failed to load cities.</p>}
+      </div>
     </div>
   );
 };
