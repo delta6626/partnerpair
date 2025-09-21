@@ -71,8 +71,7 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
   };
 
   return (
-    <div className="mt-4 flex items-center justify-between">
-      <p className="mb-2">{forCurrentUser ? "Your Location" : "Preferred Cofounder Locations"}</p>
+    <div className="flex items-center justify-between">
       <div className="dropdown">
         <input
           tabIndex={0}
