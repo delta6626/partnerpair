@@ -4,7 +4,7 @@ import { trimAllSpaces } from "../../utils/trimAllSpaces";
 import { SETTINGS } from "../../constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 
-export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
+export const LocationPicker = ({ forCurrentUser, fullWidth }: { forCurrentUser: boolean; fullWidth: boolean }) => {
   const citiesRef = useRef<string[]>([]);
   const [error, setError] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -76,7 +76,7 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         <input
           tabIndex={0}
           role="button"
-          className="input w-80"
+          className={`input ${fullWidth ? "w-full" : "w-80"}`}
           type="text"
           placeholder="Search a city"
           value={searchTerm}

@@ -11,7 +11,7 @@ export const MatchingPreferenceManager = () => {
       </div>
 
       <div className="w-full">
-        <LocationPicker forCurrentUser={false} />
+        <LocationPicker forCurrentUser={false} fullWidth={false} />
         <RolesManager forCurrentUser={false} />
       </div>
     </div>
