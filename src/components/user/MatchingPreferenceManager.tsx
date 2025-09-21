@@ -11,7 +11,10 @@ export const MatchingPreferenceManager = () => {
       </div>
 
       <div className="w-full">
-        <LocationPicker forCurrentUser={false} fullWidth={false} />
+        <div className="mt-4 flex items-center justify-between">
+          <p>Preferred Cofounder Location</p>
+          <LocationPicker forCurrentUser={false} fullWidth={false} />
+        </div>
         <RolesManager forCurrentUser={false} />
       </div>
     </div>
