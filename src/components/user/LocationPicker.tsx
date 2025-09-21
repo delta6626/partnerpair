@@ -26,6 +26,15 @@ export const LocationPicker = ({ forCurrentUser, fullWidth }: { forCurrentUser: 
   }, []);
 
   useEffect(() => {
+    if (!tempUser) return;
+    if (forCurrentUser) {
+      setSearchTerm(tempUser.basicInfo.location);
+    } else {
+      setSearchTerm(tempUser.matchingPreferences.preferredLocation);
+    }
+  }, [tempUser]);
+
+  useEffect(() => {
     const normalizedSearch = trimAllSpaces(searchTerm).toLowerCase();
 
     if (normalizedSearch.length >= SETTINGS.MINIMUM_RENDER_CHARACTER_COUNT) {
