@@ -2,6 +2,7 @@ import { UserCircle2 } from "lucide-react";
 import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { LocationPicker } from "./LocationPicker";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -50,16 +51,22 @@ export const ProfileManager = () => {
         </div>
       </div>
 
-      <div className="w-full">
-        <p className="mt-4">Email</p>
-        <input
-          type="email"
-          className="mt-2 input w-full"
-          placeholder="Email"
-          value={tempUser?.basicInfo.email}
-          disabled={tempUser?.basicInfo.authenticationMethod === "Google"}
-          onChange={handleEmailChange}
-        />
+      <div className="flex flex-row gap-2">
+        <div className="w-full">
+          <p className="mt-4">Email</p>
+          <input
+            type="email"
+            className="mt-2 input w-full"
+            placeholder="Email"
+            value={tempUser?.basicInfo.email}
+            disabled={tempUser?.basicInfo.authenticationMethod === "Google"}
+            onChange={handleEmailChange}
+          />
+        </div>
+        <div className="w-full">
+          <p className="mt-4">Your Location</p>
+          <LocationPicker forCurrentUser={true} />
+        </div>
       </div>
 
       <div className="">
