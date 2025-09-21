@@ -27,6 +27,7 @@ export const LocationPicker = ({ forCurrentUser, fullWidth }: { forCurrentUser: 
 
   useEffect(() => {
     if (!tempUser) return;
+
     if (forCurrentUser) {
       setSearchTerm(tempUser.basicInfo.location);
     } else {
