@@ -72,7 +72,7 @@ export const LocationPicker = ({ forCurrentUser, fullWidth }: { forCurrentUser: 
 
   return (
     <div className="flex items-center justify-between">
-      <div className="dropdown">
+      <div className="dropdown w-full">
         <input
           tabIndex={0}
           role="button"
