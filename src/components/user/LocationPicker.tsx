@@ -40,6 +40,10 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
 
   const handleSearchTermChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+
+    if (e.target.value === "") {
+      updateUserLocation("");
+    }
   };
 
   const handleLocationSelect = (city: string) => {
