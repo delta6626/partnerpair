@@ -45,6 +45,13 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
   const handleLocationSelect = (city: string) => {
     if (!tempUser) return;
     setSearchTerm(city);
+    updateUserLocation(city);
+
+    document.documentElement.focus();
+  };
+
+  const updateUserLocation = (city: string) => {
+    if (!tempUser) return;
 
     if (forCurrentUser) {
       setTempUser({
@@ -57,8 +64,6 @@ export const LocationPicker = ({ forCurrentUser }: { forCurrentUser: boolean }) 
         matchingPreferences: { ...tempUser.matchingPreferences, preferredLocation: city },
       });
     }
-
-    document.documentElement.focus();
   };
 
   return (
