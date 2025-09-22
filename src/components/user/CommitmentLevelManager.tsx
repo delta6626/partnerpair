@@ -10,5 +10,9 @@ export const CommitmentLevelManager = () => {
     "More than 60 hours per week",
   ];
 
-  return <div className=""></div>;
+  return (
+    <div className="mt-4 flex items-center justify-between">
+      <p>Preferred Cofounder Commitment Level</p>
+    </div>
+  );
 };
