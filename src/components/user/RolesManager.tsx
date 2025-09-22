@@ -18,7 +18,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
   return (
     <>
       <div className="mt-4 flex items-center justify-between">
-        <p className="">{forCurrentUser ? "Roles You Play" : "Roles You Are Looking For"}</p>
+        <p className="">{forCurrentUser ? "Roles You Play" : "Preferred Cofounder Roles"}</p>
       </div>
 
       <div className="mt-2 flex flex-wrap gap-2">
