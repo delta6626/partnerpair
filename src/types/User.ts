@@ -40,7 +40,7 @@ export interface User {
     lookingForSkills: string[];
     lookingForRoles: UserRole[];
     preferredLocation: string;
-    commitmentLevel: UserCommitmentLevel | null;
+    commitmentLevel: UserCommitmentLevel;
     availability: UserAvailability | null;
     preferredCompanyStage: UserPreferredCompanyStage[];
   };
