@@ -17,9 +17,21 @@ export const CommitmentLevelManager = ({ forCurrentUser }: { forCurrentUser: boo
   const handleCommitmentLevelChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (!tempUser) return;
 
+    if (forCurrentUser) {
+      setTempUser({
+        ...tempUser,
+        professionalInfo: { ...tempUser.professionalInfo, commitmentLevel: e.target.value as UserCommitmentLevel },
+      });
+
+      return;
+    }
+
     setTempUser({
       ...tempUser,
-      matchingPreferences: { ...tempUser?.matchingPreferences, commitmentLevel: e.target.value as UserCommitmentLevel },
+      matchingPreferences: {
+        ...tempUser.matchingPreferences,
+        commitmentLevel: e.target.value as UserCommitmentLevel,
+      },
     });
   };
 
