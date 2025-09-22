@@ -4,6 +4,7 @@ import { SkillsManager } from "./SkillsManager";
 import { RolesManager } from "./RolesManager";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { ChangeEvent } from "react";
+import { CommitmentLevelManager } from "./CommitmentLevelManager";
 
 export const ProfessionalInformationManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -63,6 +64,7 @@ export const ProfessionalInformationManager = () => {
       <div className="w-full">
         <SkillsManager />
         <RolesManager forCurrentUser={true} />
+        <CommitmentLevelManager forCurrentUser={true} />
       </div>
     </div>
   );
