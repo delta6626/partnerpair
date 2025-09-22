@@ -1,6 +1,7 @@
 import { Handshake } from "lucide-react";
 import { RolesManager } from "./RolesManager";
 import { LocationPicker } from "./LocationPicker";
+import { CommitmentLevelManager } from "./CommitmentLevelManager";
 
 export const MatchingPreferenceManager = () => {
   return (
@@ -16,6 +17,7 @@ export const MatchingPreferenceManager = () => {
           <LocationPicker forCurrentUser={false} fullWidth={false} />
         </div>
         <RolesManager forCurrentUser={false} />
+        <CommitmentLevelManager />
       </div>
     </div>
   );
