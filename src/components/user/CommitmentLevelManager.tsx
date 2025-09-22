@@ -1,3 +1,4 @@
+import type { ChangeEvent } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserCommitmentLevel } from "../../types/UserCommitmentLevel";
 
@@ -13,10 +14,23 @@ export const CommitmentLevelManager = () => {
     "More than 60 hours per week",
   ];
 
+  const handleCommitmentLevelChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (!tempUser) return;
+
+    setTempUser({
+      ...tempUser,
+      matchingPreferences: { ...tempUser?.matchingPreferences, commitmentLevel: e.target.value as UserCommitmentLevel },
+    });
+  };
+
   return (
     <div className="mt-4 flex items-center justify-between">
       <p>Preferred Cofounder Commitment Level</p>
-      <select className="select" value={tempUser?.matchingPreferences.commitmentLevel ?? ""}>
+      <select
+        className="select"
+        value={tempUser?.matchingPreferences.commitmentLevel ?? ""}
+        onChange={handleCommitmentLevelChange}
+      >
         <option value="" disabled>
           Select an option
         </option>
