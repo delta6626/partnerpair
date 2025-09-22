@@ -25,12 +25,8 @@ export const CommitmentLevelManager = ({ forCurrentUser }: { forCurrentUser: boo
 
   return (
     <div className="mt-4 flex items-center justify-between">
-      <p>Preferred Cofounder Commitment Level</p>
-      <select
-        className="select"
-        value={tempUser?.matchingPreferences.commitmentLevel ?? ""}
-        onChange={handleCommitmentLevelChange}
-      >
+      <p>{forCurrentUser ? "Your Commitment Level" : "Preferred Cofounder Commitment Level"}</p>
+      <select className="select" onChange={handleCommitmentLevelChange}>
         <option value="" disabled>
           Select an option
         </option>
