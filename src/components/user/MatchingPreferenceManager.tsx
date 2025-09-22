@@ -17,7 +17,7 @@ export const MatchingPreferenceManager = () => {
           <LocationPicker forCurrentUser={false} fullWidth={false} />
         </div>
         <RolesManager forCurrentUser={false} />
-        <CommitmentLevelManager />
+        <CommitmentLevelManager forCurrentUser={false} />
       </div>
     </div>
   );

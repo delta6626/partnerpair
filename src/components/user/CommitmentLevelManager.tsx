@@ -2,7 +2,7 @@ import type { ChangeEvent } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserCommitmentLevel } from "../../types/UserCommitmentLevel";
 
-export const CommitmentLevelManager = () => {
+export const CommitmentLevelManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
   const possibleCommitmentLevels: UserCommitmentLevel[] = [
