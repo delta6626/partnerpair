@@ -28,6 +28,7 @@ export interface User {
     bio: string; // Description of why the user would make a good co-founder.
     skills: string[];
     roles: UserRole[];
+    commitmentLevel: UserCommitmentLevel;
     education: UserEducation[];
     hasStartup: boolean | null;
     hasStartupIdea: boolean | null;
