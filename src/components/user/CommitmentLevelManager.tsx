@@ -1,6 +1,9 @@
+import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserCommitmentLevel } from "../../types/UserCommitmentLevel";
 
 export const CommitmentLevelManager = () => {
+  const { tempUser, setTempUser } = useTempUserStore();
+
   const possibleCommitmentLevels: UserCommitmentLevel[] = [
     "10 to 20 hours per week",
     "20 to 30 hours per week",
@@ -13,6 +16,19 @@ export const CommitmentLevelManager = () => {
   return (
     <div className="mt-4 flex items-center justify-between">
       <p>Preferred Cofounder Commitment Level</p>
+      <select className="select" value={tempUser?.matchingPreferences.commitmentLevel ?? ""}>
+        <option value="" disabled>
+          Select an option
+        </option>
+
+        {possibleCommitmentLevels.map((commitmentLevel, id) => {
+          return (
+            <option key={id} value={commitmentLevel as string}>
+              {commitmentLevel}
+            </option>
+          );
+        })}
+      </select>
     </div>
   );
 };
