@@ -1,6 +1,9 @@
+import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserAvailability } from "../../types/UserAvailability";
 
 export const AvailabilityManager = () => {
+  const { tempUser, setTempUser } = useTempUserStore();
+
   const possibleAvailabilities: UserAvailability[] = [
     "Available immediately",
     "Available within a week",
@@ -12,7 +15,7 @@ export const AvailabilityManager = () => {
   return (
     <div className="mt-4 w-full flex items-center justify-between">
       <p>When would you like cofounders to be available?</p>
-      <select className="select"></select>
+      <select className="select" value={tempUser?.matchingPreferences.availability as string}></select>
     </div>
   );
 };
