@@ -29,6 +29,7 @@ export interface User {
     skills: string[];
     roles: UserRole[];
     commitmentLevel: UserCommitmentLevel;
+    availability: UserAvailability;
     education: UserEducation[];
     hasStartup: boolean | null;
     hasStartupIdea: boolean | null;
@@ -42,7 +43,7 @@ export interface User {
     lookingForRoles: UserRole[];
     preferredLocation: string;
     commitmentLevel: UserCommitmentLevel;
-    availability: UserAvailability | null;
+    availability: UserAvailability;
     preferredCompanyStage: UserPreferredCompanyStage[];
   };
 

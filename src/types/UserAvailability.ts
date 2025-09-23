@@ -4,4 +4,4 @@ export type UserAvailability =
   | "Available within 2 weeks"
   | "Available within a month"
   | "Available after a month"
-  | "Unsure";
+  | null;
