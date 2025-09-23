@@ -26,7 +26,7 @@ export const AvailabilityManager = () => {
       <p>When would you like cofounders to be available?</p>
       <select
         className="select"
-        value={tempUser?.matchingPreferences.availability as string}
+        value={tempUser?.matchingPreferences.availability ?? ""}
         onChange={handleAvailabilityChange}
       >
         <option value={""} disabled>
