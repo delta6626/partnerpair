@@ -19,7 +19,7 @@ export const MatchingPreferenceManager = () => {
         </div>
         <RolesManager forCurrentUser={false} />
         <CommitmentLevelManager forCurrentUser={false} />
-        <AvailabilityManager />
+        <AvailabilityManager forCurrentUser={false} />
       </div>
     </div>
   );

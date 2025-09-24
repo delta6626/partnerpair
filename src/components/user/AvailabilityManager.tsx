@@ -2,7 +2,7 @@ import type { ChangeEvent } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserAvailability } from "../../types/UserAvailability";
 
-export const AvailabilityManager = () => {
+export const AvailabilityManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
   const possibleAvailabilities: UserAvailability[] = [
