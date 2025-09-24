@@ -15,9 +15,22 @@ export const AvailabilityManager = ({ forCurrentUser }: { forCurrentUser: boolea
 
   const handleAvailabilityChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (!tempUser) return;
+
+    if (forCurrentUser) {
+      setTempUser({
+        ...tempUser,
+        professionalInfo: { ...tempUser.professionalInfo, availability: e.target.value as UserAvailability },
+      });
+
+      return;
+    }
+
     setTempUser({
       ...tempUser,
-      matchingPreferences: { ...tempUser.matchingPreferences, availability: e.target.value as UserAvailability },
+      matchingPreferences: {
+        ...tempUser.matchingPreferences,
+        availability: e.target.value as UserAvailability,
+      },
     });
   };
 
