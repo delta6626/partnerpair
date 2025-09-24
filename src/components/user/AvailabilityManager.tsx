@@ -26,7 +26,11 @@ export const AvailabilityManager = ({ forCurrentUser }: { forCurrentUser: boolea
       <p>{forCurrentUser ? "Your Availability" : "When would you like cofounders to be available?"}</p>
       <select
         className="select"
-        value={tempUser?.matchingPreferences.availability ?? ""}
+        value={
+          forCurrentUser
+            ? tempUser?.professionalInfo.availability ?? ""
+            : tempUser?.matchingPreferences.availability ?? ""
+        }
         onChange={handleAvailabilityChange}
       >
         <option value={""} disabled>
