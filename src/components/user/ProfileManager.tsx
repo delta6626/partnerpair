@@ -64,7 +64,7 @@ export const ProfileManager = () => {
           />
         </div>
         <div className="w-full">
-          <p className="mt-4">Your Location</p>
+          <p className="mt-4">Location</p>
           <div className="mt-2">
             <LocationPicker forCurrentUser={true} fullWidth={true} />
           </div>
