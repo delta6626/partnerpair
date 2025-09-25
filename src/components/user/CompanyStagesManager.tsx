@@ -20,7 +20,10 @@ export const CompanyStagesManager = () => {
         {tempUser?.matchingPreferences.preferredCompanyStage.length != 0 ? (
           tempUser?.matchingPreferences.preferredCompanyStage.map((companyStage) => {
             return (
-              <button className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2">
+              <button
+                key={companyStage}
+                className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
+              >
                 {companyStage}
               </button>
             );
