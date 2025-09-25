@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 
 export const CompanyStagesManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
+  const [collapseOpen, setCollapseOpen] = useState<boolean>(false);
 
   const possibleStages: UserPreferredCompanyStage[] = [
     "Idea",
@@ -11,6 +13,10 @@ export const CompanyStagesManager = () => {
     "Growing",
     "Established",
   ];
+
+  const handleCollapseClick = () => {
+    setCollapseOpen(!collapseOpen);
+  };
 
   return (
     <div className="w-full mt-4">
@@ -35,17 +41,29 @@ export const CompanyStagesManager = () => {
         )}
       </div>
 
-      <div className="">
-        {possibleStages.map((stage) => {
-          return (
-            <button
-              className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
-              key={stage}
-            >
-              {stage}
-            </button>
-          );
-        })}
+      <div
+        tabIndex={0}
+        className={`mt-2 collapse collapse-arrow ${
+          collapseOpen ? "collapse-open" : "collapse-close"
+        } border border-accent`}
+      >
+        <div className="collapse-title text-sm" onClick={handleCollapseClick}>
+          View All Stages
+        </div>
+        <div className="collapse-content">
+          <div className="flex flex-wrap gap-2">
+            {possibleStages.map((stage) => {
+              return (
+                <button
+                  className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
+                  key={stage}
+                >
+                  {stage}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
