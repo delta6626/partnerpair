@@ -34,6 +34,19 @@ export const CompanyStagesManager = () => {
           </div>
         )}
       </div>
+
+      <div className="">
+        {possibleStages.map((stage) => {
+          return (
+            <button
+              className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
+              key={stage}
+            >
+              {stage}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
