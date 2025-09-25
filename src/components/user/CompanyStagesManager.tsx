@@ -1,6 +1,6 @@
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 
-export const CompanyStageManager = () => {
+export const CompanyStagesManager = () => {
   const possibleStages: UserPreferredCompanyStage[] = [
     "Idea",
     "Building MVP",
