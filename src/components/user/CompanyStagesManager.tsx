@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
+import { SETTINGS } from "../../constants/SETTINGS";
 
 export const CompanyStagesManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -57,6 +58,9 @@ export const CompanyStagesManager = () => {
                 <button
                   className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
                   key={stage}
+                  disabled={
+                    tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH
+                  }
                 >
                   {stage}
                 </button>
