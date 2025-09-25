@@ -53,7 +53,7 @@ export const CompanyStagesManager = () => {
     <div className="w-full mt-4">
       <p>Preferred Company Stages</p>
 
-      <div className="mt-2">
+      <div className="mt-2 flex flex-wrap gap-2">
         {tempUser?.matchingPreferences.preferredCompanyStage.length != 0 ? (
           tempUser?.matchingPreferences.preferredCompanyStage.map((companyStage) => {
             return (
