@@ -4,8 +4,11 @@ import { LocationPicker } from "./LocationPicker";
 import { CommitmentLevelManager } from "./CommitmentLevelManager";
 import { AvailabilityManager } from "./AvailabilityManager";
 import { CompanyStagesManager } from "./CompanyStagesManager";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const MatchingPreferenceManager = () => {
+  const { tempUser } = useTempUserStore();
+
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
       <div className="flex items-center gap-2">
@@ -21,7 +24,7 @@ export const MatchingPreferenceManager = () => {
         <RolesManager forCurrentUser={false} />
         <CommitmentLevelManager forCurrentUser={false} />
         <AvailabilityManager forCurrentUser={false} />
-        <CompanyStagesManager />
+        {tempUser?.professionalInfo.wantsToCofound ? <CompanyStagesManager /> : null}
       </div>
     </div>
   );
