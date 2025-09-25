@@ -36,7 +36,6 @@ export const CompanyStagesManager = () => {
 
   const handleStageDeletion = (stage: UserPreferredCompanyStage) => {
     if (!tempUser) return;
-    if (tempUser.matchingPreferences.preferredCompanyStage.includes(stage)) return;
 
     setTempUser({
       ...tempUser,
