@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 import { SETTINGS } from "../../constants/SETTINGS";
+import { XIcon } from "lucide-react";
 
 export const CompanyStagesManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -19,21 +20,22 @@ export const CompanyStagesManager = () => {
     setCollapseOpen(!collapseOpen);
   };
 
-  const handleStageAddition = (stage: string) => {
+  const handleStageAddition = (stage: UserPreferredCompanyStage) => {
     if (!tempUser) return;
     if (tempUser.matchingPreferences.preferredCompanyStage.length >= SETTINGS.MAX_COMPANY_STAGES_LENGTH) return;
-    if (tempUser.matchingPreferences.preferredCompanyStage.includes(stage as UserPreferredCompanyStage)) return;
+    if (tempUser.matchingPreferences.preferredCompanyStage.includes(stage)) return;
 
     setTempUser({
       ...tempUser,
       matchingPreferences: {
         ...tempUser.matchingPreferences,
-        preferredCompanyStage: [
-          ...tempUser.matchingPreferences.preferredCompanyStage,
-          stage as UserPreferredCompanyStage,
-        ],
+        preferredCompanyStage: [...tempUser.matchingPreferences.preferredCompanyStage, stage],
       },
     });
+  };
+
+  const handleStageDeletion = (stage: UserPreferredCompanyStage) => {
+    if (!tempUser) return;
   };
 
   return (
@@ -49,6 +51,14 @@ export const CompanyStagesManager = () => {
                 className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
               >
                 {companyStage}
+                <div
+                  className="text-accent hover:text-error focus:text-error ease-in-out duration-200"
+                  onClick={() => {
+                    handleStageDeletion(companyStage);
+                  }}
+                >
+                  <XIcon size={20} />
+                </div>
               </button>
             );
           })
@@ -79,7 +89,7 @@ export const CompanyStagesManager = () => {
                     tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH
                   }
                   onClick={() => {
-                    handleStageAddition(stage as string);
+                    handleStageAddition(stage);
                   }}
                 >
                   {stage}
