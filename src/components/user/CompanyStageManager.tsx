@@ -1,6 +1,6 @@
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 
-export const CompanyStageManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
+export const CompanyStageManager = () => {
   const possibleStages: UserPreferredCompanyStage[] = [
     "Idea",
     "Building MVP",
@@ -11,7 +11,7 @@ export const CompanyStageManager = ({ forCurrentUser }: { forCurrentUser: boolea
 
   return (
     <div className="w-full flex items-center justify-between">
-      <p>{forCurrentUser ? "What stage is your startup in?" : "Preferred company stage"}</p>
+      <p></p>
       <select className="select max-w-45">
         <option value={""} disabled>
           Select an option
