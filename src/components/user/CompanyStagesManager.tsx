@@ -86,7 +86,7 @@ export const CompanyStagesManager = () => {
         } border border-accent`}
       >
         <div className="collapse-title text-sm" onClick={handleCollapseClick}>
-          View All Stages
+          View all stages
         </div>
         <div className="collapse-content">
           <div className="flex flex-wrap gap-2">
