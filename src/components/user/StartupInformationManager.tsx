@@ -34,6 +34,10 @@ export const StartupInformationManager = () => {
         hasStartup: false,
         wantsToCofound: false,
       },
+      matchingPreferences: {
+        ...tempUser.matchingPreferences,
+        preferredCompanyStage: [],
+      },
     });
   };
 
