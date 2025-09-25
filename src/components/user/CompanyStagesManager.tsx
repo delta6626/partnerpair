@@ -10,13 +10,8 @@ export const CompanyStagesManager = () => {
   ];
 
   return (
-    <div className="w-full flex items-center justify-between">
+    <div className="w-full">
       <p></p>
-      <select className="select max-w-45">
-        <option value={""} disabled>
-          Select an option
-        </option>
-      </select>
     </div>
   );
 };

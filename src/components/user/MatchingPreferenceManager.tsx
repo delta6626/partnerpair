@@ -3,6 +3,7 @@ import { RolesManager } from "./RolesManager";
 import { LocationPicker } from "./LocationPicker";
 import { CommitmentLevelManager } from "./CommitmentLevelManager";
 import { AvailabilityManager } from "./AvailabilityManager";
+import { CompanyStagesManager } from "./CompanyStagesManager";
 
 export const MatchingPreferenceManager = () => {
   return (
@@ -20,6 +21,7 @@ export const MatchingPreferenceManager = () => {
         <RolesManager forCurrentUser={false} />
         <CommitmentLevelManager forCurrentUser={false} />
         <AvailabilityManager forCurrentUser={false} />
+        <CompanyStagesManager />
       </div>
     </div>
   );
