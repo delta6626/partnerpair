@@ -24,6 +24,8 @@ export const CompanyStagesManager = () => {
     if (!tempUser) return;
     if (tempUser.matchingPreferences.preferredCompanyStage.length >= SETTINGS.MAX_COMPANY_STAGES_LENGTH) return;
     if (tempUser.matchingPreferences.preferredCompanyStage.includes(stage)) return;
+    // User needs to be willing to cofound before they can seelect preferred company stages
+    if (!tempUser.professionalInfo.wantsToCofound) return;
 
     setTempUser({
       ...tempUser,
@@ -96,7 +98,8 @@ export const CompanyStagesManager = () => {
                   className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
                   key={stage}
                   disabled={
-                    tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH
+                    tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH ||
+                    !tempUser?.professionalInfo.wantsToCofound
                   }
                   onClick={() => {
                     handleStageAddition(stage);
