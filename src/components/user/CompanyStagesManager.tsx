@@ -19,6 +19,23 @@ export const CompanyStagesManager = () => {
     setCollapseOpen(!collapseOpen);
   };
 
+  const handleStageAddition = (stage: string) => {
+    if (!tempUser) return;
+    if (tempUser.matchingPreferences.preferredCompanyStage.length >= SETTINGS.MAX_COMPANY_STAGES_LENGTH) return;
+    if (tempUser.matchingPreferences.preferredCompanyStage.includes(stage as UserPreferredCompanyStage)) return;
+
+    setTempUser({
+      ...tempUser,
+      matchingPreferences: {
+        ...tempUser.matchingPreferences,
+        preferredCompanyStage: [
+          ...tempUser.matchingPreferences.preferredCompanyStage,
+          stage as UserPreferredCompanyStage,
+        ],
+      },
+    });
+  };
+
   return (
     <div className="w-full mt-4">
       <p>Preferred Company Stages</p>
@@ -61,6 +78,9 @@ export const CompanyStagesManager = () => {
                   disabled={
                     tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH
                   }
+                  onClick={() => {
+                    handleStageAddition(stage as string);
+                  }}
                 >
                   {stage}
                 </button>
