@@ -9,5 +9,10 @@ export const CompanyStageManager = ({ forCurrentUser }: { forCurrentUser: boolea
     "Established",
   ];
 
-  return <div className=""></div>;
+  return (
+    <div className="w-full flex items-center justify-between">
+      <p>{forCurrentUser ? "What stage is your startup in?" : "Preferred company stage"}</p>
+      <select className="select max-w-45"></select>
+    </div>
+  );
 };
