@@ -3,6 +3,7 @@ import { MODAL_ACTIONS } from "../../constants/MODAL_ACTIONS";
 import { MODALS } from "../../constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../constants/SETTINGS";
+import { titleString } from "../../utils/titleString";
 
 export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -47,12 +48,14 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
       return;
     }
 
+    const formattedSkill = titleString(newSkill);
+
     if (forCurrentUser) {
       setTempUser({
         ...tempUser,
         professionalInfo: {
           ...tempUser.professionalInfo,
-          skills: [...skills, newSkill],
+          skills: [...skills, formattedSkill],
         },
       });
     } else {
@@ -60,7 +63,7 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
         ...tempUser,
         matchingPreferences: {
           ...tempUser.matchingPreferences,
-          lookingForSkills: [...skills, newSkill],
+          lookingForSkills: [...skills, formattedSkill],
         },
       });
     }
