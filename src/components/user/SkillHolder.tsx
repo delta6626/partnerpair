@@ -1,16 +1,35 @@
 import { XIcon } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 
-export const SkillHolder = ({ skillName }: { skillName: string }) => {
+export const SkillHolder = ({ skillName, forCurrentUser }: { skillName: string; forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
-  if (!tempUser) {
-    return;
-  }
+  if (!tempUser) return null;
+
+  const skills = forCurrentUser
+    ? tempUser.professionalInfo.skills ?? []
+    : tempUser.matchingPreferences.lookingForSkills ?? [];
 
   const handleSkillDeletion = () => {
-    const filteredSkills = tempUser.professionalInfo.skills.filter((skill) => skill != skillName);
-    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, skills: filteredSkills } });
+    const updatedSkills = skills.filter((skill) => skill !== skillName);
+
+    setTempUser(
+      forCurrentUser
+        ? {
+            ...tempUser,
+            professionalInfo: {
+              ...tempUser.professionalInfo,
+              skills: updatedSkills,
+            },
+          }
+        : {
+            ...tempUser,
+            matchingPreferences: {
+              ...tempUser.matchingPreferences,
+              lookingForSkills: updatedSkills,
+            },
+          }
+    );
   };
 
   return (
@@ -20,7 +39,7 @@ export const SkillHolder = ({ skillName }: { skillName: string }) => {
         className="text-accent hover:text-error focus:text-error ease-in-out duration-200"
         onClick={handleSkillDeletion}
       >
-        <XIcon className="" size={20} />
+        <XIcon size={20} />
       </button>
     </div>
   );

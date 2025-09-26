@@ -40,7 +40,7 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
       <div className="mt-2">
         <div className="w-full flex flex-wrap gap-2">
           {skills.length > 0 ? (
-            skills.map((skill) => <SkillHolder key={skill} skillName={skill} />)
+            skills.map((skill) => <SkillHolder key={skill} skillName={skill} forCurrentUser={forCurrentUser} />)
           ) : (
             <p className="w-full text-center text-accent">{SETTINGS.NO_SKILLS_PARAGRAPH_TEXT}</p>
           )}
