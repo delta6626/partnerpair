@@ -63,7 +63,7 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <SkillsManager />
+        <SkillsManager forCurrentUser={true} />
         <RolesManager forCurrentUser={true} />
         <CommitmentLevelManager forCurrentUser={true} />
         <AvailabilityManager forCurrentUser={true} />
