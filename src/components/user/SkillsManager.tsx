@@ -4,7 +4,7 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 import { AddSkillModal } from "../modals/AddSkillModal";
 import { SkillHolder } from "./SkillHolder";
 
-export const SkillsManager = () => {
+export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser } = useTempUserStore();
 
   if (!tempUser) {
