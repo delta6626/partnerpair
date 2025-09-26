@@ -3,7 +3,7 @@ export const SETTINGS = {
   RESET_BUTTON_TEXT: "Reset",
   UPDATE_BUTTON_TEXT: "Update",
   ADD_SKILL_BUTTON_TEXT: "Add skill",
-  NO_SKILLS_PARAGRAPH_TEXT: "You do not have any skills added.",
+  NO_SKILLS_PARAGRAPH_TEXT: "You have not added any skills.",
   NO_ROLES_PARAGRAPH_TEXT: "You have not selected any roles.",
   PROFILE_PHOTOS: {
     PROFILE_PHOTO_1:
