@@ -12,8 +12,12 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
   }
 
   const handleAddSkillButtonClick = () => {
-    const addSkillModal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
-    addSkillModal?.showModal();
+    if (forCurrentUser) {
+      const addSkillModal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
+      addSkillModal?.showModal();
+    } else {
+      return;
+    }
   };
 
   return (
