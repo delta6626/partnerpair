@@ -8,8 +8,12 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
   const { tempUser } = useTempUserStore();
 
   if (!tempUser) {
-    return;
+    return null;
   }
+
+  const skills = forCurrentUser
+    ? tempUser.professionalInfo.skills ?? []
+    : tempUser.matchingPreferences.lookingForSkills ?? [];
 
   const handleAddSkillButtonClick = () => {
     const addSkillModal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
@@ -21,14 +25,10 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
       <AddSkillModal forCurrentUser={forCurrentUser} />
 
       <div className="mt-4 flex items-center justify-between">
-        <p className="">{forCurrentUser ? "Skills" : "Preferred Cofounder Skills"}</p>
+        <p>{forCurrentUser ? "Skills" : "Preferred Cofounder Skills"}</p>
         <button
           className="btn btn-primary"
-          disabled={
-            forCurrentUser
-              ? tempUser.professionalInfo.skills?.length === SETTINGS.MAX_SKILL_COUNT
-              : tempUser.matchingPreferences.lookingForSkills.length === SETTINGS.MAX_SKILL_COUNT
-          }
+          disabled={skills.length === SETTINGS.MAX_SKILL_COUNT}
           onClick={handleAddSkillButtonClick}
         >
           {SETTINGS.ADD_SKILL_BUTTON_TEXT}
@@ -37,10 +37,8 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
 
       <div className="mt-2">
         <div className="w-full flex flex-wrap gap-2">
-          {tempUser.professionalInfo.skills?.length !== 0 ? (
-            tempUser.professionalInfo.skills?.map((skill) => {
-              return <SkillHolder key={skill} skillName={skill} />;
-            })
+          {skills.length > 0 ? (
+            skills.map((skill) => <SkillHolder key={skill} skillName={skill} />)
           ) : (
             <p className="w-full text-center text-accent">{SETTINGS.NO_SKILLS_PARAGRAPH_TEXT}</p>
           )}
