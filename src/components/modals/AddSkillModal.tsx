@@ -4,7 +4,7 @@ import { MODALS } from "../../constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../constants/SETTINGS";
 
-export const AddSkillModal = () => {
+export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
   const [skill, setSkill] = useState<string>("");

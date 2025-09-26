@@ -22,7 +22,7 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
 
   return (
     <>
-      <AddSkillModal />
+      <AddSkillModal forCurrentUser={forCurrentUser} />
 
       <div className="mt-4 flex items-center justify-between">
         <p className="">{forCurrentUser ? "Skills" : "Preferred Cofounder Skills"}</p>
