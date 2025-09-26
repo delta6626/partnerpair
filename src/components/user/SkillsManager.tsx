@@ -24,7 +24,11 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
         <p className="">{forCurrentUser ? "Skills" : "Preferred Cofounder Skills"}</p>
         <button
           className="btn btn-primary"
-          disabled={tempUser.professionalInfo.skills?.length === SETTINGS.MAX_SKILL_COUNT}
+          disabled={
+            forCurrentUser
+              ? tempUser.professionalInfo.skills?.length === SETTINGS.MAX_SKILL_COUNT
+              : tempUser.matchingPreferences.lookingForSkills.length === SETTINGS.MAX_SKILL_COUNT
+          }
           onClick={handleAddSkillButtonClick}
         >
           {SETTINGS.ADD_SKILL_BUTTON_TEXT}
