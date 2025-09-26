@@ -7,49 +7,72 @@ import { SETTINGS } from "../../constants/SETTINGS";
 export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();
 
-  const [skill, setSkill] = useState<string>("");
-  const [error, setError] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [skill, setSkill] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  if (!tempUser) return;
+  if (!tempUser) return null;
+
+  const skills = forCurrentUser
+    ? tempUser.professionalInfo.skills ?? []
+    : tempUser.matchingPreferences.lookingForSkills ?? [];
 
   const handleSkillChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSkill(e.target.value);
-    if (e.target.value === "") {
-      setErrorMessage(MODALS.ADD_SKILL_MODAL.NO_VALUE_ERROR);
+    const value = e.target.value;
+    setSkill(value);
+
+    if (!value.trim()) {
       setError(true);
+      setErrorMessage(MODALS.ADD_SKILL_MODAL.NO_VALUE_ERROR);
     } else {
       setError(false);
+      setErrorMessage("");
     }
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const skillTrimmedLowercase = skill.trim().toLowerCase();
-    const exists = tempUser.professionalInfo.skills.some((s) => s.toLowerCase() === skillTrimmedLowercase);
+    const newSkill = skill.trim();
+    if (!newSkill) return;
 
-    // Redundant check to ensure skill never exceeds max
-    if (tempUser.professionalInfo.skills.length === SETTINGS.MAX_SKILL_COUNT) return;
+    const exists = skills.some((s) => s.toLowerCase() === newSkill.toLowerCase());
+
+    if (skills.length >= SETTINGS.MAX_SKILL_COUNT) return;
 
     if (exists) {
-      setErrorMessage(MODALS.ADD_SKILL_MODAL.SKILL_EXISTS_ERROR);
       setError(true);
+      setErrorMessage(MODALS.ADD_SKILL_MODAL.SKILL_EXISTS_ERROR);
       setSkill("");
-    } else {
-      setError(false);
+      return;
+    }
+
+    if (forCurrentUser) {
       setTempUser({
         ...tempUser,
-        professionalInfo: { ...tempUser.professionalInfo, skills: [...tempUser.professionalInfo.skills, skill] },
+        professionalInfo: {
+          ...tempUser.professionalInfo,
+          skills: [...skills, newSkill],
+        },
       });
-      setSkill("");
-      closeModal();
+    } else {
+      setTempUser({
+        ...tempUser,
+        matchingPreferences: {
+          ...tempUser.matchingPreferences,
+          lookingForSkills: [...skills, newSkill],
+        },
+      });
     }
+
+    setSkill("");
+    setError(false);
+    closeModal();
   };
 
   const closeModal = () => {
-    const modal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement;
-    modal.close();
+    const modal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
+    modal?.close();
   };
 
   return (
@@ -73,15 +96,13 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
           />
 
           {/* Error message */}
-          <div className="min-h-6 flex items-center self-start text-error">
-            {error === true && <p>{errorMessage}</p>}
-          </div>
+          <div className="min-h-6 flex items-center self-start text-error">{error && <p>{errorMessage}</p>}</div>
 
           <div className="flex gap-2">
             <button type="button" className="btn" onClick={closeModal}>
               {MODAL_ACTIONS.ACTION_CANCEL}
             </button>
-            <button type="submit" className="btn btn-primary" disabled={skill.length === 0}>
+            <button type="submit" className="btn btn-primary" disabled={!skill.trim()}>
               {MODAL_ACTIONS.ACTION_ADD}
             </button>
           </div>
