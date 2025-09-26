@@ -3,6 +3,7 @@ export const MODALS = {
     ID: "addSkillModal",
     TITLE: "Add new skill",
     DESCRIPTION: "Enhance your profile by adding a new skill.",
+    DESCRIPTION_NOT_FOR_CURRENT_USER: "List skills you want in a cofounder",
     PLACEHOLDER: "Enter a skill",
     SKILL_MAX_LENGTH: 50,
     NO_VALUE_ERROR: "Please enter a skill.",

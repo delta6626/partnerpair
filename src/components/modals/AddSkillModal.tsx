@@ -56,7 +56,11 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
     <dialog id={MODALS.ADD_SKILL_MODAL.ID} className="modal">
       <div className="modal-box bg-base-300">
         <h1 className="text-lg font-medium">{MODALS.ADD_SKILL_MODAL.TITLE}</h1>
-        <p className="text-accent">{MODALS.ADD_SKILL_MODAL.DESCRIPTION}</p>
+        <p className="text-accent">
+          {forCurrentUser
+            ? MODALS.ADD_SKILL_MODAL.DESCRIPTION
+            : MODALS.ADD_SKILL_MODAL.DESCRIPTION_NOT_FOR_CURRENT_USER}
+        </p>
 
         <form className="w-full mt-4 flex flex-col items-end" onSubmit={handleSubmit}>
           <input
