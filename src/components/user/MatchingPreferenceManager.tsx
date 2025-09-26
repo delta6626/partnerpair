@@ -5,6 +5,7 @@ import { CommitmentLevelManager } from "./CommitmentLevelManager";
 import { AvailabilityManager } from "./AvailabilityManager";
 import { CompanyStagesManager } from "./CompanyStagesManager";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { SkillsManager } from "./SkillsManager";
 
 export const MatchingPreferenceManager = () => {
   const { tempUser } = useTempUserStore();
@@ -17,6 +18,7 @@ export const MatchingPreferenceManager = () => {
       </div>
 
       <div className="w-full">
+        <SkillsManager forCurrentUser={false} />
         <div className="mt-4 flex items-center justify-between">
           <p>Preferred Cofounder Location</p>
           <LocationPicker forCurrentUser={false} fullWidth={false} />
