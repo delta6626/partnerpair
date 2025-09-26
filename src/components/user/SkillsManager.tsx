@@ -16,8 +16,10 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
     : tempUser.matchingPreferences.lookingForSkills ?? [];
 
   const handleAddSkillButtonClick = () => {
-    const addSkillModal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
-    addSkillModal?.showModal();
+    const addSkillModal = forCurrentUser
+      ? (document.getElementById(MODALS.ADD_SKILL_MODAL.ID_CURRENT) as HTMLDialogElement)
+      : (document.getElementById(MODALS.ADD_SKILL_MODAL.ID_MATCHING) as HTMLDialogElement);
+    addSkillModal.showModal();
   };
 
   return (

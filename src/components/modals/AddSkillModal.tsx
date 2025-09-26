@@ -71,18 +71,21 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
   };
 
   const closeModal = () => {
-    const modal = document.getElementById(MODALS.ADD_SKILL_MODAL.ID) as HTMLDialogElement | null;
-    modal?.close();
+    const modal = forCurrentUser
+      ? (document.getElementById(MODALS.ADD_SKILL_MODAL.ID_CURRENT) as HTMLDialogElement)
+      : (document.getElementById(MODALS.ADD_SKILL_MODAL.ID_MATCHING) as HTMLDialogElement);
+    modal.close();
   };
 
   return (
-    <dialog id={MODALS.ADD_SKILL_MODAL.ID} className="modal">
+    <dialog
+      id={forCurrentUser ? MODALS.ADD_SKILL_MODAL.ID_CURRENT : MODALS.ADD_SKILL_MODAL.ID_MATCHING}
+      className="modal"
+    >
       <div className="modal-box bg-base-300">
         <h1 className="text-lg font-medium">{MODALS.ADD_SKILL_MODAL.TITLE}</h1>
         <p className="text-accent">
-          {forCurrentUser
-            ? MODALS.ADD_SKILL_MODAL.DESCRIPTION
-            : MODALS.ADD_SKILL_MODAL.DESCRIPTION_NOT_FOR_CURRENT_USER}
+          {forCurrentUser ? MODALS.ADD_SKILL_MODAL.DESCRIPTION_CURRENT : MODALS.ADD_SKILL_MODAL.DESCRIPTION_MATCHING}
         </p>
 
         <form className="w-full mt-4 flex flex-col items-end" onSubmit={handleSubmit}>
