@@ -3,6 +3,8 @@ import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { LocationPicker } from "./LocationPicker";
+import { isValidAge } from "../../utils/isValidAge";
+import { SIGNUP } from "../../constants/SIGNUP";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -22,7 +24,9 @@ export const ProfileManager = () => {
   };
 
   const handleDateOfBirthChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: e.target.value } });
+    const date = e.target.value;
+    if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return;
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
   };
 
   return (
