@@ -71,6 +71,19 @@ export const ProfileManager = () => {
         </div>
       </div>
 
+      <div className="flex flex-row gap-2">
+        <div className="w-full">
+          <p className="mt-4">Date of Birth</p>
+          <input
+            type="date"
+            className="input w-full"
+            placeholder="Date of birth"
+            min={"1900-01-01"}
+            max={new Date().toISOString().split("T")[0]}
+          />
+        </div>
+      </div>
+
       <div className="">
         <p className="mt-4">Profile photo</p>
         <div className="mt-2">
