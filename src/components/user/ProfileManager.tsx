@@ -78,6 +78,7 @@ export const ProfileManager = () => {
             type="date"
             className="mt-2 input w-full"
             placeholder="Date of birth"
+            value={tempUser.basicInfo.dateOfBirth}
             min={"1900-01-01"}
             max={new Date().toISOString().split("T")[0]}
           />
