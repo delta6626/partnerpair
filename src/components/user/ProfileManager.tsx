@@ -10,15 +10,19 @@ export const ProfileManager = () => {
   if (!tempUser) return;
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, firstName: e.target.value } });
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, firstName: e.target.value } });
   };
 
   const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, lastName: e.target.value } });
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, lastName: e.target.value } });
   };
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser?.basicInfo, email: e.target.value } });
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, email: e.target.value } });
+  };
+
+  const handleDateOfBirthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: e.target.value } });
   };
 
   return (
@@ -81,6 +85,7 @@ export const ProfileManager = () => {
             value={tempUser.basicInfo.dateOfBirth}
             min={"1900-01-01"}
             max={new Date().toISOString().split("T")[0]}
+            onChange={handleDateOfBirthChange}
           />
         </div>
       </div>
