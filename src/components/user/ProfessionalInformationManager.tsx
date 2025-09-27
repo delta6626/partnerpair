@@ -52,7 +52,7 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <p className="mt-4">Why You’d Be a Great Co-Founder</p>
+        <p className="mt-4">What makes you a great cofounder?</p>
         <textarea
           className="mt-2 textarea w-full max-h-100"
           placeholder="Explain your skills, experience, and vision that make you an ideal co-founder"
