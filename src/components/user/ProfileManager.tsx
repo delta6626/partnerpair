@@ -31,6 +31,7 @@ export const ProfileManager = () => {
   };
 
   const handlePhoneNumberChange = (phoneNumber: PhoneNumber) => {
+    if (phoneNumber === undefined) return;
     setTempUser({
       ...tempUser,
       basicInfo: { ...tempUser.basicInfo, phone: phoneNumber },
