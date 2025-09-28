@@ -12,7 +12,7 @@ export interface User {
     lastName: string;
     dateOfBirth: string;
     email: string;
-    phone: string | null;
+    phone: string;
     location: string;
     verified: boolean;
     tier: UserTier;
