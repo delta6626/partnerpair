@@ -5,6 +5,7 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 import { LocationPicker } from "./LocationPicker";
 import { isValidAge } from "../../utils/isValidAge";
 import { SIGNUP } from "../../constants/SIGNUP";
+import PhoneInput from "react-phone-number-input/input";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -91,6 +92,10 @@ export const ProfileManager = () => {
             max={new Date().toISOString().split("T")[0]}
             onChange={handleDateOfBirthChange}
           />
+        </div>
+        <div className="w-full">
+          <p className="mt-4"></p>
+          <PhoneInput value={tempUser.basicInfo.phone} />
         </div>
       </div>
 
