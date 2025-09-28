@@ -103,6 +103,7 @@ export const ProfileManager = () => {
         <div className="w-full">
           <p className="mt-4">Phone</p>
           <PhoneInput
+            placeHolder="Phone number"
             className="mt-2 input w-full"
             value={tempUser.basicInfo.phone as PhoneNumber}
             onChange={(value) => {
