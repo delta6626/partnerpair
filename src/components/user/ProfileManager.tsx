@@ -1,14 +1,15 @@
 import { UserCircle2 } from "lucide-react";
-import { type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { LocationPicker } from "./LocationPicker";
 import { isValidAge } from "../../utils/isValidAge";
 import { SIGNUP } from "../../constants/SIGNUP";
-import PhoneInput from "react-phone-number-input/input";
+import PhoneInput, { type Value as PhoneNumber } from "react-phone-number-input/input";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
+  const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>();
 
   if (!tempUser) return;
 
@@ -29,6 +30,8 @@ export const ProfileManager = () => {
     if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return;
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
   };
+
+  const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {};
 
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-4">
@@ -95,7 +98,7 @@ export const ProfileManager = () => {
         </div>
         <div className="w-full">
           <p className="mt-4"></p>
-          <PhoneInput value={tempUser.basicInfo.phone} />
+          <PhoneInput value={phoneNumber} onChange={setPhoneNumber} />
         </div>
       </div>
 
