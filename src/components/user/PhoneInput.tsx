@@ -35,7 +35,7 @@ export const PhoneInput = () => {
                 <button className="flex items-center gap-2 px-2 py-1" onClick={() => setCountry(parsed.iso2)}>
                   <FlagImage iso2={parsed.iso2} style={{ width: "20px" }} />
                   <span>{parsed.name}</span>
-                  <span className="text-gray-500">+{parsed.dialCode}</span>
+                  <span className="text-accent">+{parsed.dialCode}</span>
                 </button>
               </li>
             );
