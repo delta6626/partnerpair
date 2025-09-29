@@ -19,7 +19,7 @@ export const PhoneInput = () => {
     <div className="flex w-full items-center gap-2">
       {/* Country dropdown */}
       <div className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className="btn flex items-center gap-2 px-2 min-w-[70px]">
+        <div tabIndex={0} role="button" className="btn flex items-center gap-2 px-4 min-w-[100px]">
           <FlagImage iso2={country.iso2} style={{ width: "20px" }} />
           <span>+{country.dialCode}</span>
         </div>
