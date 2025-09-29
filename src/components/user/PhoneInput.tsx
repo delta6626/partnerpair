@@ -1,15 +1,17 @@
-import { useState } from "react";
 import { defaultCountries, FlagImage, parseCountry, usePhoneInput } from "react-international-phone";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const PhoneInput = () => {
-  const [value, setValue] = useState("");
+  const { tempUser, setTempUser } = useTempUserStore();
+
+  if (!tempUser) return;
 
   const { inputValue, handlePhoneValueChange, inputRef, country, setCountry } = usePhoneInput({
     defaultCountry: "us",
-    value,
+    value: tempUser.basicInfo.phone,
     countries: defaultCountries,
     onChange: (data) => {
-      setValue(data.phone);
+      setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, phone: data.phone } });
     },
   });
 
