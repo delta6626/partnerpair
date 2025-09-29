@@ -22,9 +22,9 @@ export const PhoneInput = () => {
           <span>+{country.dialCode}</span>
         </div>
 
-        <ul
+        <div
           tabIndex={0}
-          className="dropdown-content menu bg-base-200 rounded-box z-10 w-64 mt-2 max-h-64 overflow-y-auto shadow"
+          className="dropdown-content menu bg-base-200 rounded-box z-10 w-64 mt-2 max-h-64 flex flex-row overflow-y-auto overflow-x-hidden"
         >
           {defaultCountries.map((c) => {
             const parsed = parseCountry(c);
@@ -38,7 +38,7 @@ export const PhoneInput = () => {
               </li>
             );
           })}
-        </ul>
+        </div>
       </div>
 
       {/* Phone number input */}
