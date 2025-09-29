@@ -5,6 +5,7 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 import { LocationPicker } from "./LocationPicker";
 import { isValidAge } from "../../utils/isValidAge";
 import { SIGNUP } from "../../constants/SIGNUP";
+import { PhoneInput } from "./PhoneInput";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -94,6 +95,9 @@ export const ProfileManager = () => {
         </div>
         <div className="w-full">
           <p className="mt-4">Phone</p>
+          <div className="mt-2">
+            <PhoneInput />
+          </div>
         </div>
       </div>
 
