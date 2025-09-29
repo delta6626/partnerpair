@@ -5,7 +5,6 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 import { LocationPicker } from "./LocationPicker";
 import { isValidAge } from "../../utils/isValidAge";
 import { SIGNUP } from "../../constants/SIGNUP";
-import PhoneInput, { type Value as PhoneNumber } from "react-phone-number-input/input";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -28,14 +27,6 @@ export const ProfileManager = () => {
     const date = e.target.value;
     if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return;
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
-  };
-
-  const handlePhoneNumberChange = (phoneNumber: PhoneNumber) => {
-    if (phoneNumber === undefined) return;
-    setTempUser({
-      ...tempUser,
-      basicInfo: { ...tempUser.basicInfo, phone: phoneNumber },
-    });
   };
 
   return (
@@ -103,14 +94,6 @@ export const ProfileManager = () => {
         </div>
         <div className="w-full">
           <p className="mt-4">Phone</p>
-          <PhoneInput
-            placeholder="Phone number"
-            className="mt-2 input w-full"
-            value={tempUser.basicInfo.phone as PhoneNumber}
-            onChange={(value) => {
-              handlePhoneNumberChange(value as PhoneNumber);
-            }}
-          />
         </div>
       </div>
 

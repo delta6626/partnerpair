@@ -5,7 +5,6 @@ import type { UserEducation } from "./UserEducation";
 import type { UserPreferredCompanyStage } from "./UserPreferredCompanyStage";
 import type { UserRole } from "./UserRole";
 import type { UserTier } from "./UserTier";
-import type { Value as PhoneNumber } from "react-phone-number-input";
 
 export interface User {
   basicInfo: {
@@ -13,7 +12,7 @@ export interface User {
     lastName: string;
     dateOfBirth: string;
     email: string;
-    phone: PhoneNumber | "";
+    phone: "";
     location: string;
     verified: boolean;
     tier: UserTier;
