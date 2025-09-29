@@ -8,7 +8,7 @@ export const ProfilePhotoSelector = () => {
   return (
     <div className="flex flex-wrap gap-4 w-full">
       {profilePhotos.map((profilePhoto) => {
-        return <ProfilePhotoHolder profilePhoto={profilePhoto} />;
+        return <ProfilePhotoHolder key={profilePhoto} profilePhoto={profilePhoto} />;
       })}
     </div>
   );
