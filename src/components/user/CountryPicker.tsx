@@ -6,9 +6,9 @@ export const CountryPicker = () => {
 
   return (
     <div className="flex w-full items-center gap-2">
-      <div className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className="btn flex items-center gap-2 px-4 min-w-[100px]">
-          {tempUser?.basicInfo.location ?? "Select your country"}
+      <div className="dropdown dropdown-bottom w-full">
+        <div tabIndex={0} role="button" className="btn flex items-center gap-2 px-4">
+          {tempUser?.basicInfo.location === "" ? "Select your country" : tempUser?.basicInfo.location}
         </div>
 
         <div
