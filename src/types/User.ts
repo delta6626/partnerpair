@@ -41,7 +41,6 @@ export interface User {
   matchingPreferences: {
     lookingForSkills: string[];
     lookingForRoles: UserRole[];
-    preferredLocation: string;
     commitmentLevel: UserCommitmentLevel;
     availability: UserAvailability;
     preferredCompanyStage: UserPreferredCompanyStage[];
