@@ -18,7 +18,7 @@ export const CountryPicker = () => {
           role="button"
           className="btn bg-base-100 border border-accent flex items-center justify-start gap-2"
         >
-          <ChevronDown />
+          <ChevronDown size={20} />
           {tempUser?.basicInfo.location === "" ? "Select your country" : tempUser?.basicInfo.location}
         </div>
 
