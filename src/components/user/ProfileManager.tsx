@@ -2,7 +2,6 @@ import { UserCircle2 } from "lucide-react";
 import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { LocationPicker } from "./LocationPicker";
 import { isValidAge } from "../../utils/isValidAge";
 import { SIGNUP } from "../../constants/SIGNUP";
 import { PhoneInput } from "./PhoneInput";

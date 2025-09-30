@@ -1,6 +1,5 @@
 import { Handshake } from "lucide-react";
 import { RolesManager } from "./RolesManager";
-import { LocationPicker } from "./LocationPicker";
 import { CommitmentLevelManager } from "./CommitmentLevelManager";
 import { AvailabilityManager } from "./AvailabilityManager";
 import { CompanyStagesManager } from "./CompanyStagesManager";
