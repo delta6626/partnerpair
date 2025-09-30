@@ -64,7 +64,6 @@ export const createUserByEmail = async (
       matchingPreferences: {
         lookingForSkills: [],
         lookingForRoles: [],
-        preferredLocation: "",
         commitmentLevel: null,
         availability: null,
         preferredCompanyStage: [],
@@ -213,7 +212,6 @@ export const signInWithGoogle = async () => {
         matchingPreferences: {
           lookingForSkills: [],
           lookingForRoles: [],
-          preferredLocation: "",
           commitmentLevel: null,
           availability: null,
           preferredCompanyStage: [],
