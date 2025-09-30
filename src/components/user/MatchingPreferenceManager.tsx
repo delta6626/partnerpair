@@ -19,10 +19,6 @@ export const MatchingPreferenceManager = () => {
 
       <div className="w-full">
         <SkillsManager forCurrentUser={false} />
-        <div className="mt-4 flex items-center justify-between">
-          <p>Where do you want cofounders to be located?</p>
-          <LocationPicker forCurrentUser={false} fullWidth={false} />
-        </div>
         <RolesManager forCurrentUser={false} />
         <CommitmentLevelManager forCurrentUser={false} />
         <AvailabilityManager forCurrentUser={false} />
