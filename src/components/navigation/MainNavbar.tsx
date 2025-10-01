@@ -3,7 +3,7 @@ import { NotificationOverview } from "../notifications/NotificationOverview";
 import { MainNavbarNavigationItems } from "./MainNavbarNavigationItems";
 import { ProfileDropdown } from "../user/ProfileDropdown";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
-import { AlertCircle } from "lucide-react";
+import { Info } from "lucide-react";
 
 export const MainNavbar = () => {
   const { user } = useInitializeUser();
@@ -22,11 +22,7 @@ export const MainNavbar = () => {
         <NotificationOverview />
         <div className="flex flex-row items-end">
           <ProfileDropdown />
-          {user?.basicInfo.profileCompleted ? (
-            ""
-          ) : (
-            <AlertCircle size={20} className="bg-error rounded-full text-white" />
-          )}
+          {user?.basicInfo.profileCompleted ? "" : <Info size={20} className="bg-error rounded-full text-white" />}
         </div>
       </div>
     </div>
