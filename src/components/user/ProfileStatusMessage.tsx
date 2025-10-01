@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
-import { X } from "lucide-react";
+import { AlertCircle, X } from "lucide-react";
 
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
@@ -14,7 +14,10 @@ export const ProfileStatusMessage = () => {
     <div className="">
       {!user?.basicInfo.profileCompleted && visible ? (
         <div className="flex items-center justify-between bg-error rounded-2xl p-4 text-error-content">
-          <p>Complete your profile</p>
+          <div className="flex gap-2">
+            <AlertCircle size={20} />
+            <p>Complete your profile</p>
+          </div>
           <button className="cursor-pointer" onClick={handleDismiss}>
             <X size={20} />
           </button>
