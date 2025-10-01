@@ -16,7 +16,9 @@ export const MainNavbar = () => {
 
       <div className="flex gap-2">
         <NotificationOverview />
-        <ProfileDropdown />
+        <div className="">
+          <ProfileDropdown />
+        </div>
       </div>
     </div>
   );
