@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState<boolean>(true);
 
   const handleDismiss = () => {
     setVisible(false);
