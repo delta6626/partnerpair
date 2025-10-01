@@ -16,6 +16,7 @@ import { useUserStore } from "../store/useUserStore";
 import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
 import { MODALS } from "../constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
+import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 
 export const Settings = () => {
   useTheme();
@@ -70,6 +71,8 @@ export const Settings = () => {
 
           <div className="w-full flex flex-col items-center">
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
+              <ProfileStatusMessage />
+
               <div className="">
                 <h1 className="font-bold text-3xl">Settings</h1>
                 <p>{SETTINGS.SUBTITLE_TEXT}</p>
