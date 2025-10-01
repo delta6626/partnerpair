@@ -1,49 +1,31 @@
-import { defaultCountries, FlagImage, parseCountry } from "react-international-phone";
+import { defaultCountries, parseCountry } from "react-international-phone";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { ChevronDown } from "lucide-react";
+import type { ChangeEvent } from "react";
 
 export const CountryPicker = () => {
   const { tempUser, setTempUser } = useTempUserStore();
 
-  const handleLocationChange = (countryName: string) => {
+  const handleLocationChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (!tempUser) return;
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, location: countryName } });
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, location: e.target.value } });
   };
 
   return (
     <div className="flex w-full items-center gap-2">
-      <div className="dropdown dropdown-bottom w-full">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn bg-base-100 border border-accent flex items-center justify-start gap-2 active:scale-100"
-        >
-          <ChevronDown size={20} />
-          {tempUser?.basicInfo.location === "" ? "Select your country" : tempUser?.basicInfo.location}
-        </div>
+      <select className="select w-full" value={tempUser?.basicInfo.location ?? ""} onChange={handleLocationChange}>
+        <option value={""} disabled>
+          Select your country
+        </option>
 
-        <div
-          tabIndex={0}
-          className="dropdown-content menu bg-base-100 rounded-box z-10 w-full mt-2 max-h-80 grid grid-cols-1 overflow-y-auto"
-        >
-          {defaultCountries.map((country) => {
-            const parsedCountry = parseCountry(country);
-            return (
-              <li key={parsedCountry.iso2}>
-                <button
-                  className="flex items-center gap-2 px-2 py-1"
-                  onClick={() => {
-                    handleLocationChange(parsedCountry.name);
-                  }}
-                >
-                  <FlagImage iso2={parsedCountry.iso2} style={{ width: "20px" }} />
-                  <p>{parsedCountry.name}</p>
-                </button>
-              </li>
-            );
-          })}
-        </div>
-      </div>
+        {defaultCountries.map((country) => {
+          const parsedCountry = parseCountry(country);
+          return (
+            <option key={parsedCountry.iso2} value={parsedCountry.name}>
+              {parsedCountry.name}
+            </option>
+          );
+        })}
+      </select>
     </div>
   );
 };
