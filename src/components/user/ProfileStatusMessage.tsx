@@ -4,8 +4,14 @@ export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
 
   return (
-    <div className="bg-error rounded-md p-4 text-error-content">
-      <p>Complete your profile</p>
+    <div className="">
+      {user?.basicInfo.profileCompleted ? (
+        ""
+      ) : (
+        <div className="bg-error rounded-md p-4 text-error-content">
+          <p>Complete your profile</p>
+        </div>
+      )}
     </div>
   );
 };
