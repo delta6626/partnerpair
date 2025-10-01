@@ -16,7 +16,7 @@ export const CountryPicker = () => {
         <div
           tabIndex={0}
           role="button"
-          className="btn bg-base-100 border border-accent flex items-center justify-start gap-2 active:scale-100 focus:ring-2"
+          className="btn bg-base-100 border border-accent flex items-center justify-start gap-2 active:scale-100"
         >
           <ChevronDown size={20} />
           {tempUser?.basicInfo.location === "" ? "Select your country" : tempUser?.basicInfo.location}
