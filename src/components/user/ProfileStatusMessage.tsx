@@ -15,7 +15,7 @@ export const ProfileStatusMessage = () => {
       {!user?.basicInfo.profileCompleted && visible ? (
         <div className="flex items-center justify-between bg-error rounded-2xl p-4 text-error-content">
           <p>Complete your profile</p>
-          <button onClick={handleDismiss}>
+          <button className="cursor-pointer" onClick={handleDismiss}>
             <X size={20} />
           </button>
         </div>
