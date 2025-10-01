@@ -6,12 +6,18 @@ export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
   const [visible, setVisible] = useState(true);
 
+  const handleDismiss = () => {
+    setVisible(false);
+  };
+
   return (
     <div className="">
       {!user?.basicInfo.profileCompleted && visible ? (
-        <div className="flex items-center justify-between bg-error rounded-md p-4 text-error-content">
+        <div className="flex items-center justify-between bg-error rounded-2xl p-4 text-error-content">
           <p>Complete your profile</p>
-          <X size={20} />
+          <button onClick={handleDismiss}>
+            <X size={20} />
+          </button>
         </div>
       ) : (
         ""
