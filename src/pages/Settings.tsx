@@ -70,9 +70,9 @@ export const Settings = () => {
           </div>
 
           <div className="w-full flex flex-col items-center">
-            <div className="w-full max-w-200 py-10 flex items-center justify-between">
-              <ProfileStatusMessage />
+            <ProfileStatusMessage />
 
+            <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
                 <h1 className="font-bold text-3xl">Settings</h1>
                 <p>{SETTINGS.SUBTITLE_TEXT}</p>
