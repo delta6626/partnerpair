@@ -70,7 +70,9 @@ export const Settings = () => {
           </div>
 
           <div className="w-full flex flex-col items-center">
-            <ProfileStatusMessage />
+            <div className="w-full max-w-200">
+              <ProfileStatusMessage />
+            </div>
 
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
