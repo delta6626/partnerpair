@@ -9,4 +9,6 @@ export const basicUserDataValid = (user: User) => {
   if (!isValidLength(user.basicInfo.lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH)) return false;
   if (!isValidAge(user.basicInfo.dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return false;
   if (!isValidEmail(user.basicInfo.email)) return false;
+
+  return true;
 };
