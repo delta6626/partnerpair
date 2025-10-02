@@ -17,6 +17,7 @@ import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdate
 import { MODALS } from "../constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
+import { basicUserDataValid } from "../utils/basicUserDataValid";
 
 export const Settings = () => {
   useTheme();
@@ -91,7 +92,7 @@ export const Settings = () => {
 
                 <button
                   className="btn btn-primary w-20"
-                  disabled={equal(user, tempUser) || updating}
+                  disabled={!tempUser || equal(user, tempUser) || !basicUserDataValid(tempUser) || updating}
                   onClick={handleProfileUpdate}
                 >
                   {updating ? (
