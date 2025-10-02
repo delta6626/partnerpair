@@ -13,7 +13,7 @@ export const ProfileStatusMessage = () => {
   return (
     <div className="">
       {!user?.basicInfo.profileCompleted && visible ? (
-        <div className="flex items-center justify-between bg-error rounded-2xl p-4 text-error-content">
+        <div className="bg-warning text-warning-content flex items-center justify-between rounded-2xl p-4">
           <div className="flex gap-2">
             <AlertCircle size={20} />
             <p>Complete your profile</p>
