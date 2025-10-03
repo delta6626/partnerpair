@@ -22,4 +22,9 @@ export const profileComplete = (user: User) => {
   if (user.professionalInfo.wantsToCofound) {
     if (user.matchingPreferences.preferredCompanyStage.length === 0) return false;
   }
+
+  if (user.matchingPreferences.lookingForSkills.length === 0) return false;
+  if (user.matchingPreferences.lookingForRoles.length === 0) return false;
+  if (user.matchingPreferences.commitmentLevel === null) return false;
+  if (user.matchingPreferences.availability === null) return false;
 };
