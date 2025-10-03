@@ -28,4 +28,12 @@ export const profileComplete = (user: User) => {
   if (user.matchingPreferences.lookingForRoles.length === 0) return false;
   if (user.matchingPreferences.commitmentLevel === null) return false;
   if (user.matchingPreferences.availability === null) return false;
+
+  if (
+    user.socialLinks.github === "" &&
+    user.socialLinks.linkedin === "" &&
+    user.socialLinks.twitter === "" &&
+    user.socialLinks.website == ""
+  )
+    return false;
 };
