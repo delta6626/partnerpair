@@ -36,4 +36,6 @@ export const profileComplete = (user: User) => {
     user.socialLinks.website == ""
   )
     return false;
+
+  return true;
 };
