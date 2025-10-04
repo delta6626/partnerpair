@@ -24,13 +24,15 @@ export const ProfileStatusMessage = () => {
     <div className="">
       {!user?.basicInfo.profileCompleted && visible ? (
         <div className="bg-warning text-warning-content flex items-center justify-between rounded-2xl p-4">
-          <div className="flex gap-2">
-            <AlertCircle size={20} />
-            <p>Complete your profile</p>
+          <div className="">
+            <div className="flex items-center gap-2">
+              <AlertCircle size={20} />
+              <h1 className="">Profile Incomplete</h1>
+            </div>
+            <button className="cursor-pointer" onClick={handleDismiss}>
+              <X size={20} />
+            </button>
           </div>
-          <button className="cursor-pointer" onClick={handleDismiss}>
-            <X size={20} />
-          </button>
         </div>
       ) : (
         ""
