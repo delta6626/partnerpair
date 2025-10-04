@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { AlertCircle, X } from "lucide-react";
+import { profileComplete } from "../../utils/profileComplete";
 
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
   const [visible, setVisible] = useState<boolean>(true);
+  const [message, setMessage] = useState<string>("");
 
   const handleDismiss = () => {
     setVisible(false);
   };
+
+  useEffect(() => {
+    if (!user) return;
+    const profileStatus = profileComplete(user);
+    if (typeof profileStatus === "boolean" && profileStatus === true) return;
+    const messageText = profileStatus[1] as string;
+    setMessage(messageText);
+  }, [user]);
 
   return (
     <div className="">
