@@ -33,6 +33,7 @@ export const ProfileStatusMessage = () => {
               <X size={20} />
             </button>
           </div>
+          <p>{message}</p>
         </div>
       ) : (
         ""
