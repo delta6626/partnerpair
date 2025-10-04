@@ -19,6 +19,7 @@ import { MatchingPreferenceManager } from "../components/user/MatchingPreference
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../utils/basicUserDataValid";
 import { profileComplete } from "../utils/profileComplete";
+import type { User } from "../types/User";
 
 export const Settings = () => {
   useTheme();
@@ -39,10 +40,11 @@ export const Settings = () => {
     setUpdating(true);
 
     const profileStatus = profileComplete(tempUser);
-
-    const userProfileUpdated = await updateUserProfile(
-      profileStatus === true ? { ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } } : tempUser
-    );
+    const updatedUser: User = {
+      ...tempUser,
+      basicInfo: { ...tempUser.basicInfo, profileCompleted: profileStatus === true ? true : false },
+    };
+    const userProfileUpdated = await updateUserProfile(updatedUser);
 
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case
@@ -50,9 +52,7 @@ export const Settings = () => {
     }
 
     // set user to temp user on success and open success modal
-    setUser(
-      profileStatus === true ? { ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } } : tempUser
-    );
+    setUser(updatedUser);
 
     const modal = document.getElementById(MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID) as HTMLDialogElement;
     modal.showModal();
