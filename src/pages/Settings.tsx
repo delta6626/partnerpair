@@ -40,11 +40,10 @@ export const Settings = () => {
 
     const profileStatus = profileComplete(tempUser);
 
-    if (typeof profileStatus === "boolean" && profileStatus === true) {
-      setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } });
-    }
+    const userProfileUpdated = await updateUserProfile(
+      profileStatus === true ? { ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } } : tempUser
+    );
 
-    const userProfileUpdated = await updateUserProfile(tempUser);
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case
       return;
