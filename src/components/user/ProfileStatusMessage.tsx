@@ -23,8 +23,8 @@ export const ProfileStatusMessage = () => {
   return (
     <div className="">
       {!user?.basicInfo.profileCompleted && visible ? (
-        <div className="bg-warning text-warning-content flex items-center justify-between rounded-2xl p-4">
-          <div className="">
+        <div className="bg-warning text-warning-content rounded-2xl p-4">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <AlertCircle size={20} />
               <h1 className="">Profile Incomplete</h1>
