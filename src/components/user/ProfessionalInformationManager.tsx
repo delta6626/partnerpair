@@ -27,7 +27,7 @@ export const ProfessionalInformationManager = () => {
       ...tempUser,
       professionalInfo: {
         ...tempUser.professionalInfo,
-        headline: e.target.value,
+        bio: e.target.value,
       },
     });
   };
