@@ -1,33 +1,35 @@
+import { SETTINGS } from "../constants/SETTINGS";
 import type { User } from "../types/User";
 
 export const profileComplete = (user: User) => {
-  if (user.basicInfo.phone === "") return false;
-  if (user.professionalInfo.headline === "") return false;
-  if (user.professionalInfo.bio === "") return false;
-  if (user.professionalInfo.skills.length === 0) return false;
-  if (user.professionalInfo.roles.length === 0) return false;
-  if (user.professionalInfo.commitmentLevel === null) return false;
-  if (user.professionalInfo.availability === null) return false;
+  if (user.basicInfo.phone === "") return [false, SETTINGS.COMPLETE_BASIC_PROFILE];
+  if (user.professionalInfo.headline === "") return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
+  if (user.professionalInfo.bio === "") return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
+  if (user.professionalInfo.skills.length === 0) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
+  if (user.professionalInfo.roles.length === 0) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
+  if (user.professionalInfo.commitmentLevel === null) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
+  if (user.professionalInfo.availability === null) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
 
   if (
     user.professionalInfo.hasStartup === null &&
     user.professionalInfo.hasStartupIdea === null &&
     user.professionalInfo.wantsToCofound === null
   )
-    return false;
+    return [false, SETTINGS.COMPLETE_STARTUP_INFORMATION];
 
   if (
     (user.professionalInfo.hasStartup || user.professionalInfo.hasStartupIdea) &&
     (!user.professionalInfo.startupDescription || !user.professionalInfo.startupStage)
   )
-    return false;
+    return [false, SETTINGS.COMPLETE_STARTUP_INFORMATION];
 
-  if (user.professionalInfo.wantsToCofound && user.matchingPreferences.preferredCompanyStage.length === 0) return false;
+  if (user.professionalInfo.wantsToCofound && user.matchingPreferences.preferredCompanyStage.length === 0)
+    return [false, SETTINGS.COMPLETE_MATCHING_PREFERENCES];
 
-  if (user.matchingPreferences.lookingForSkills.length === 0) return false;
-  if (user.matchingPreferences.lookingForRoles.length === 0) return false;
-  if (user.matchingPreferences.commitmentLevel === null) return false;
-  if (user.matchingPreferences.availability === null) return false;
+  if (user.matchingPreferences.lookingForSkills.length === 0) return [false, SETTINGS.COMPLETE_MATCHING_PREFERENCES];
+  if (user.matchingPreferences.lookingForRoles.length === 0) return [false, SETTINGS.COMPLETE_MATCHING_PREFERENCES];
+  if (user.matchingPreferences.commitmentLevel === null) return [false, SETTINGS.COMPLETE_MATCHING_PREFERENCES];
+  if (user.matchingPreferences.availability === null) return [false, SETTINGS.COMPLETE_MATCHING_PREFERENCES];
 
   if (
     user.socialLinks.github === "" &&
@@ -35,7 +37,7 @@ export const profileComplete = (user: User) => {
     user.socialLinks.twitter === "" &&
     user.socialLinks.website == ""
   )
-    return false;
+    return [false, SETTINGS.COMPLETE_SOCIAL_PROFILES];
 
   return true;
 };
