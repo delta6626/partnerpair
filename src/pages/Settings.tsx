@@ -18,6 +18,7 @@ import { MODALS } from "../constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../utils/basicUserDataValid";
+import { profileComplete } from "../utils/profileComplete";
 
 export const Settings = () => {
   useTheme();
@@ -36,6 +37,12 @@ export const Settings = () => {
   const handleProfileUpdate = async () => {
     if (!tempUser) return;
     setUpdating(true);
+
+    const profileStatus = profileComplete(tempUser);
+
+    if (typeof profileStatus === "boolean" && profileStatus === true) {
+      setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } });
+    }
 
     const userProfileUpdated = await updateUserProfile(tempUser);
     if (typeof userProfileUpdated === "string") {
