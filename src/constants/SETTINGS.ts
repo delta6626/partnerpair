@@ -97,4 +97,9 @@ export const SETTINGS = {
   MAX_ROLE_COUNT: 5,
   MINIMUM_RENDER_CHARACTER_COUNT: 4,
   MAX_COMPANY_STAGES_LENGTH: 5,
+  COMPLETE_BASIC_PROFILE: "Complete your basic profile information.",
+  COMPLETE_PROFESSIONAL_INFORMATION: "Complete your professional information.",
+  COMPLETE_STARTUP_INFORMATION: "Complete your startup information.",
+  COMPLETE_MATCHING_PREFERENCES: "Complete your matching preferences.",
+  COMPLETE_SOCIAL_PROFILES: "Complete your social profiles.",
 };
