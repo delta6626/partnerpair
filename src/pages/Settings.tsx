@@ -50,7 +50,10 @@ export const Settings = () => {
     }
 
     // set user to temp user on success and open success modal
-    setUser(tempUser);
+    setUser(
+      profileStatus === true ? { ...tempUser, basicInfo: { ...tempUser.basicInfo, profileCompleted: true } } : tempUser
+    );
+
     const modal = document.getElementById(MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID) as HTMLDialogElement;
     modal.showModal();
 
