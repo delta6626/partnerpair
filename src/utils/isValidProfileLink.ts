@@ -1,1 +1,1 @@
-export const isValidProfileLink = (profileLink: string) => {};
+export const isValidProfileLink = (type: string, profileLink: string) => {};
