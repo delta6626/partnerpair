@@ -9,5 +9,6 @@ export const isValidProfileLink = (type: SocialProfile, profileLink: string) => 
   };
   const pattern: RegExp = patterns[type];
 
+  if (profileLink === "") return true;
   return pattern.test(profileLink.trim());
 };
