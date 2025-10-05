@@ -5,6 +5,9 @@ export const isValidProfileLink = (type: SocialProfile, profileLink: string) => 
     linkedin: /^https:\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+\/?$/,
     twitter: /^https:\/\/github\.com\/[A-Za-z0-9_-]+\/?$/,
     github: /^https:\/\/x\.com\/[A-Za-z0-9_-]+\/?$/,
-    website: /^https:\/\/[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+([\/?#].*)?$/, // Any valid domains
+    website: /^https:\/\/[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+([\/?#].*)?$/, // Any valid domain
   };
+  const pattern: RegExp = patterns[type];
+
+  return pattern.test(profileLink.trim());
 };
