@@ -2,6 +2,7 @@ import { SETTINGS } from "../constants/SETTINGS";
 import type { User } from "../types/User";
 
 export const profileComplete = (user: User) => {
+  if (user.basicInfo.dateOfBirth === "") return [false, SETTINGS.COMPLETE_BASIC_PROFILE];
   if (user.basicInfo.phone === "") return [false, SETTINGS.COMPLETE_BASIC_PROFILE];
   if (user.professionalInfo.headline === "") return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
   if (user.professionalInfo.bio === "") return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
