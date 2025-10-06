@@ -13,7 +13,7 @@ export const useSignupValidation = (
   dateOfBirth: string,
   password: string,
   confirmedPassword: string,
-  touched: Record<SignupFormInputs, boolean>,
+  touched: Record<SignupFormInputs, boolean>
 ) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formValid, setFormValid] = useState<boolean>(false);
@@ -24,7 +24,7 @@ export const useSignupValidation = (
       isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH) &&
       isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH) &&
       isValidEmail(email) &&
-      isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE) &&
+      isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE, false) &&
       isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH) &&
       passwordsMatch(password, confirmedPassword)
     ) {
@@ -43,7 +43,7 @@ export const useSignupValidation = (
       setErrorMessage(SIGNUP.LAST_NAME_LENGTH_ERROR);
     } else if (touched.email && !isValidEmail(email)) {
       setErrorMessage(SIGNUP.EMAIL_INVALID_ERROR);
-    } else if (touched.dateOfBirth && !isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) {
+    } else if (touched.dateOfBirth && !isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE, false)) {
       setErrorMessage(SIGNUP.DATE_OF_BIRTH_ERROR);
     } else if (touched.password && !isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH)) {
       setErrorMessage(SIGNUP.PASSWORD_LENGTH_ERROR);
