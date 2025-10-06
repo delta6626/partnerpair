@@ -4,8 +4,7 @@ export const isValidAge = (
   maximumAge: number,
   allowEmpty: boolean
 ): boolean => {
-  if (!allowEmpty && dateOfBirth === "") return false;
-  if (allowEmpty && dateOfBirth === "") return true;
+  if (dateOfBirth === "") return allowEmpty;
 
   const birthDate = new Date(dateOfBirth);
   const currentDate = new Date();
