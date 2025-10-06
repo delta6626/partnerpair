@@ -24,7 +24,7 @@ export const useSignupValidation = (
       isValidLength(firstName, SIGNUP.MINIMUM_FIRST_NAME_LENGTH) &&
       isValidLength(lastName, SIGNUP.MINIMUM_LAST_NAME_LENGTH) &&
       isValidEmail(email) &&
-      isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE, false) &&
+      isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE) &&
       isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH) &&
       passwordsMatch(password, confirmedPassword)
     ) {
@@ -43,7 +43,7 @@ export const useSignupValidation = (
       setErrorMessage(SIGNUP.LAST_NAME_LENGTH_ERROR);
     } else if (touched.email && !isValidEmail(email)) {
       setErrorMessage(SIGNUP.EMAIL_INVALID_ERROR);
-    } else if (touched.dateOfBirth && !isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE, false)) {
+    } else if (touched.dateOfBirth && !isValidAge(dateOfBirth, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) {
       setErrorMessage(SIGNUP.DATE_OF_BIRTH_ERROR);
     } else if (touched.password && !isValidLength(password, SIGNUP.MINIMUM_PASSWORD_LENGTH)) {
       setErrorMessage(SIGNUP.PASSWORD_LENGTH_ERROR);

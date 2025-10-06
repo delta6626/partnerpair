@@ -26,7 +26,7 @@ export const ProfileManager = () => {
 
   const handleDateOfBirthChange = (e: ChangeEvent<HTMLInputElement>) => {
     const date = e.target.value;
-    if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE, false)) return;
+    if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return;
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
   };
 
