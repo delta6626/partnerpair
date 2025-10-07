@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { UpgradeTierButton } from "../user/UpgradeTierButton";
 
 export const MainNavbarNavigationItems = () => {
   return (
     <div className="">
+      <UpgradeTierButton />
       <Link to={"/dashboard"} className="btn bg-transparent border-none hover:text-primary">
         Dashboard
       </Link>
