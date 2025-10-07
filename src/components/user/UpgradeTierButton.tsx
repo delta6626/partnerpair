@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+
 export const UpgradeTierButton = () => {
-  return <button className="">Upgrade</button>;
+  return (
+    <Link to={""} className="">
+      Get Pro
+    </Link>
+  );
 };
