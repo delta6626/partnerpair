@@ -21,7 +21,7 @@ function App() {
         <Route path="/verify" element={<Verify />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/browse" element={<Browse />}></Route>
-        <Route path="/user" element={<ViewUserProfile />}></Route>
+        <Route path="/user/:id" element={<ViewUserProfile />}></Route>
         <Route path="/messages" element={<Messages />}></Route>
         <Route path="/forum" element={<Forum />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
