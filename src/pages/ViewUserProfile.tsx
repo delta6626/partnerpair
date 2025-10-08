@@ -8,9 +8,9 @@ import { getProfileData } from "../utils/getProfileData";
 export const ViewUserProfile = () => {
   useTheme();
 
-  const { id } = useParams();
+  const { id } = useParams(); // Use later while actually making the API call.
   const { loading } = useInitializeUser();
-  const user = getProfileData("Pro");
+  const user = getProfileData("Pro"); // Mock data from stub
 
   return (
     <div className="">
