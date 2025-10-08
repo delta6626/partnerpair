@@ -24,7 +24,9 @@ export const ViewUserProfile = () => {
             <MainNavbar />
           </div>
 
-          <div className="w-full max-w-200 py-10 flex items-center justify-between"></div>
+          <div className="w-full flex flex-col items-center py-10">
+            <div className="w-full max-w-200"></div>
+          </div>
         </div>
       )}
     </div>
