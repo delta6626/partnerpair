@@ -1,6 +1,8 @@
 import type { UserTier } from "../types/UserTier";
 
-export const getProfileData = (userSubscriptionStatus: UserTier) => {
+// A stub that mimicks an API call to fetch a user from the server.
+
+export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
   const user1 = {
     basicInfo: {
       firstName: "Alice",
@@ -82,7 +84,7 @@ export const getProfileData = (userSubscriptionStatus: UserTier) => {
     },
   };
 
-  if (userSubscriptionStatus === "Pro") {
+  if (currentUserSubscriptionStatus === "Pro") {
     return user1;
   } else {
     return user2;
