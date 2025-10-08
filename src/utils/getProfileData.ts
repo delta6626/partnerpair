@@ -1,3 +1,4 @@
+import { SETTINGS } from "../constants/SETTINGS";
 import type { UserTier } from "../types/UserTier";
 
 // A stub that mimicks an API call to fetch a user from the server.
@@ -12,7 +13,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       location: "San Francisco, CA",
       verified: true,
       tier: "Pro",
-      profileImageUrl: "",
+      profileImageUrl: SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_16,
       connectedToCurrentUser: true,
       createdAt: new Date("2023-07-20"),
       lastActiveAt: new Date("2025-10-05T09:10:00Z"),
@@ -56,7 +57,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       location: "New York, NY",
       verified: true,
       tier: "Basic",
-      profileImageUrl: "",
+      profileImageUrl: SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_7,
       connectedToCurrentUser: false,
       createdAt: new Date("2024-03-12"),
     },
