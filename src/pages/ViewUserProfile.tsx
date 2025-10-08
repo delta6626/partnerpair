@@ -3,12 +3,14 @@ import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
+import { getProfileData } from "../utils/getProfileData";
 
 export const ViewUserProfile = () => {
   useTheme();
 
   const { id } = useParams();
   const { loading } = useInitializeUser();
+  const user = getProfileData("Pro");
 
   return (
     <div className="">
