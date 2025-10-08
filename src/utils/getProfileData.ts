@@ -11,6 +11,7 @@ export const getProfileData = (userSubscriptionStatus: UserTier) => {
       verified: true,
       tier: "Pro",
       profileImageUrl: "",
+      connectedToCurrentUser: true,
       createdAt: new Date("2023-07-20"),
       lastActiveAt: new Date("2025-10-05T09:10:00Z"),
     },
@@ -42,6 +43,42 @@ export const getProfileData = (userSubscriptionStatus: UserTier) => {
       twitter: "https://twitter.com/alice_ai",
       github: "https://github.com/alicenguyen",
       website: "https://alicenguyen.ai",
+    },
+  };
+
+  const user2 = {
+    basicInfo: {
+      firstName: "Marcus",
+      lastName: "Lee",
+      dateOfBirth: "1989-11-02",
+      location: "New York, NY",
+      verified: true,
+      tier: "Basic",
+      profileImageUrl: "",
+      connectedToCurrentUser: false,
+      createdAt: new Date("2024-03-12"),
+    },
+
+    professionalInfo: {
+      headline: "Product Manager & Business Strategist",
+      bio: "Driven by data and design. I specialize in turning early-stage ideas into scalable products. Seeking a technical partner with strong AI and automation expertise.",
+      skills: ["Product Management", "Market Research", "Agile", "Business Development"],
+      roles: ["CEO", "COO"],
+      commitmentLevel: "60-70 hours per week",
+      availability: "Available in 1 month",
+      hasStartup: false,
+      hasStartupIdea: false,
+      startupDescription: "",
+      startupStage: "",
+      wantsToCofound: true,
+    },
+
+    matchingPreferences: {
+      lookingForSkills: ["Machine Learning", "Backend Development", "UI/UX Design"],
+      lookingForRoles: ["CTO", "Technical Co-founder"],
+      commitmentLevel: "50-40 hours per week",
+      availability: "Available immediately",
+      preferredCompanyStage: ["Idea", "MVP"],
     },
   };
 };
