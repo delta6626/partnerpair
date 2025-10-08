@@ -1,3 +1,47 @@
 import type { UserTier } from "../types/UserTier";
 
-export const getProfileData = (userSubscriptionStatus: UserTier) => {};
+export const getProfileData = (userSubscriptionStatus: UserTier) => {
+  const user1 = {
+    basicInfo: {
+      firstName: "Alice",
+      lastName: "Nguyen",
+      dateOfBirth: "1993-04-15",
+      phone: "+1-555-238-9456",
+      location: "San Francisco, CA",
+      verified: true,
+      tier: "Pro",
+      profileImageUrl: "",
+      createdAt: new Date("2023-07-20"),
+      lastActiveAt: new Date("2025-10-05T09:10:00Z"),
+    },
+
+    professionalInfo: {
+      headline: "AI Engineer & Startup Founder",
+      bio: "Passionate about building AI products that empower small businesses. Looking for a co-founder with strong marketing and business skills.",
+      skills: ["Python", "TensorFlow", "NLP", "Product Design"],
+      roles: ["Technical Co-founder", "CTO"],
+      commitmentLevel: "20-30 hours per week",
+      availability: "Available immediately",
+      hasStartup: true,
+      hasStartupIdea: true,
+      startupDescription: "An AI-driven SaaS platform that helps SMEs automate content generation.",
+      startupStage: "MVP",
+      wantsToCofound: false,
+    },
+
+    matchingPreferences: {
+      lookingForSkills: ["Growth Marketing", "Fundraising", "Business Strategy"],
+      lookingForRoles: ["CEO", "COO"],
+      commitmentLevel: "10-20 hours per week",
+      availability: "Available immediately",
+      preferredCompanyStage: [],
+    },
+
+    socialLinks: {
+      linkedin: "https://linkedin.com/in/alicenguyen",
+      twitter: "https://twitter.com/alice_ai",
+      github: "https://github.com/alicenguyen",
+      website: "https://alicenguyen.ai",
+    },
+  };
+};
