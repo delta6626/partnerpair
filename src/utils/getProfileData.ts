@@ -81,4 +81,10 @@ export const getProfileData = (userSubscriptionStatus: UserTier) => {
       preferredCompanyStage: ["Idea", "MVP"],
     },
   };
+
+  if (userSubscriptionStatus === "Pro") {
+    return user1;
+  } else {
+    return user2;
+  }
 };
