@@ -31,7 +31,9 @@ export const ViewUserProfile = () => {
                   <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
                 </div>
                 <div className="flex-grow-1">
-                  <h1>{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
+                  <div className="">
+                    <h1 className="text-2xl font-medium">{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
+                  </div>
                 </div>
               </div>
             </div>
