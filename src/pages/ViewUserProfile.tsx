@@ -28,18 +28,19 @@ export const ViewUserProfile = () => {
           <div className="w-full flex flex-col items-center py-10">
             <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-4">
               <div className="flex gap-4">
-                <div className="">
+                <div className="min-w-36">
                   <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
                 </div>
 
-                <div className="flex-grow-1">
+                <div className="">
                   <div className="flex items-center gap-2">
                     <h1 className="text-2xl font-medium">{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
                     {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
                   </div>
 
                   <div className="">
-                    <p className="text-accent">{user.basicInfo.location}</p>
+                    <p className="text-accent">{user.professionalInfo.headline}</p>
+                    <p className="mt-2">{user.professionalInfo.bio}</p>
                   </div>
                 </div>
               </div>
