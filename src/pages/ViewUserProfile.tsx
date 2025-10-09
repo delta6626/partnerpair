@@ -37,6 +37,10 @@ export const ViewUserProfile = () => {
                     <h1 className="text-2xl font-medium">{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
                     <CircleStar className="text-primary" size={20} />
                   </div>
+
+                  <div className="">
+                    <p className="text-accent">{user.basicInfo.location}</p>
+                  </div>
                 </div>
               </div>
             </div>
