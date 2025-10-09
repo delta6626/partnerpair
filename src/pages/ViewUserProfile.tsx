@@ -4,6 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
+import { CircleStar } from "lucide-react";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -30,9 +31,11 @@ export const ViewUserProfile = () => {
                 <div className="">
                   <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
                 </div>
+
                 <div className="flex-grow-1">
-                  <div className="">
+                  <div className="flex items-center gap-2">
                     <h1 className="text-2xl font-medium">{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
+                    <CircleStar className="text-primary" size={20} />
                   </div>
                 </div>
               </div>
