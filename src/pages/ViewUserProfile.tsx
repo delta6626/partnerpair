@@ -35,7 +35,7 @@ export const ViewUserProfile = () => {
                 <div className="flex-grow-1">
                   <div className="flex items-center gap-2">
                     <h1 className="text-2xl font-medium">{user.basicInfo.firstName + " " + user.basicInfo.lastName}</h1>
-                    <CircleStar className="text-primary" size={20} />
+                    {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
                   </div>
 
                   <div className="">
