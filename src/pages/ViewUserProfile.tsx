@@ -25,7 +25,11 @@ export const ViewUserProfile = () => {
           </div>
 
           <div className="w-full flex flex-col items-center py-10">
-            <div className="w-full max-w-200"></div>
+            <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-4">
+              <div className="">
+                <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
+              </div>
+            </div>
           </div>
         </div>
       )}
