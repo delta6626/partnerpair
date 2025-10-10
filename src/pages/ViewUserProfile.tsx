@@ -42,7 +42,7 @@ export const ViewUserProfile = () => {
                     </div>
 
                     <div className="">
-                      <button className="btn btn-primary">
+                      <button className={`btn ${!user.basicInfo.connectedToCurrentUser ? "btn-primary" : "btn-error"}`}>
                         {user.basicInfo.connectedToCurrentUser ? "Disconnect" : "Connect"}
                       </button>
                     </div>
