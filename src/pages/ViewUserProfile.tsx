@@ -40,6 +40,14 @@ export const ViewUserProfile = () => {
                       </h1>
                       {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
                     </div>
+
+                    <div className="">
+                      {user.basicInfo.connectedToCurrentUser ? (
+                        <button className="btn btn-primary">Add User</button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
 
                   <div className="">
