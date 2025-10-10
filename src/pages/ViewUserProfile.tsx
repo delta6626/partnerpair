@@ -33,7 +33,7 @@ export const ViewUserProfile = () => {
                 </div>
 
                 <div className="">
-                  <div className="">
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <h1 className="text-2xl font-medium">
                         {user.basicInfo.firstName + " " + user.basicInfo.lastName}
