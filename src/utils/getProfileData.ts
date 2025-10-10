@@ -14,7 +14,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       verified: true,
       tier: "Pro",
       profileImageUrl: SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_16,
-      connectedToCurrentUser: true,
+      connectedToCurrentUser: false,
       createdAt: "11-10-25",
       lastActiveAt: "2 hours ago",
     },
