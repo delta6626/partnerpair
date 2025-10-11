@@ -46,7 +46,7 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="">
+                      <div className="flex items-center gap-4">
                         <p>{user.basicInfo.location}</p>
                         <p>{user.basicInfo.phone}</p>
                       </div>
