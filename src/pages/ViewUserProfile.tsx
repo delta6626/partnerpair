@@ -68,6 +68,10 @@ export const ViewUserProfile = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="mt-4">
+                <h1>Skills</h1>
+              </div>
             </div>
           </div>
         </div>
