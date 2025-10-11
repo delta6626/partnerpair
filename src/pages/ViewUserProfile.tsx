@@ -63,7 +63,7 @@ export const ViewUserProfile = () => {
                     </div>
                   </div>
 
-                  <div className="mt-2">
+                  <div className="mt-4">
                     <p className="">{user.professionalInfo.bio}</p>
                   </div>
                 </div>
