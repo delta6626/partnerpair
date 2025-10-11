@@ -46,22 +46,24 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-center">
-                        <p className="flex gap-2">
-                          <MapPin size={20} /> {user.basicInfo.location}
-                        </p>
-                        <p className="flex gap-2">
-                          <Phone size={20} /> {user.basicInfo.phone}
-                        </p>
-                      </div>
+                      <div className="flex gap-4">
+                        <div className="mt-4 flex flex-col gap-4">
+                          <p className="flex gap-2">
+                            <MapPin size={20} /> {user.basicInfo.location}
+                          </p>
+                          <p className="flex gap-2">
+                            <Clock size={20} /> {user.professionalInfo.commitmentLevel}
+                          </p>
+                        </div>
 
-                      <div className="mt-4 flex flex-wrap items-center">
-                        <p className="flex gap-2">
-                          <Clock size={20} /> {user.professionalInfo.commitmentLevel}
-                        </p>
-                        <p className="flex gap-2">
-                          <Zap size={20} /> {user.professionalInfo.availability}
-                        </p>
+                        <div className="mt-4 flex flex-col gap-4">
+                          <p className="flex gap-2">
+                            <Phone size={20} /> {user.basicInfo.phone}
+                          </p>
+                          <p className="flex gap-2">
+                            <Zap size={20} /> {user.professionalInfo.availability}
+                          </p>
+                        </div>
                       </div>
                     </div>
 
