@@ -4,7 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
-import { CircleStar, MapPin, Phone } from "lucide-react";
+import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -46,12 +46,21 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-center gap-8">
+                      <div className="mt-4 flex flex-wrap items-center">
                         <p className="flex gap-2">
                           <MapPin size={20} /> {user.basicInfo.location}
                         </p>
                         <p className="flex gap-2">
                           <Phone size={20} /> {user.basicInfo.phone}
+                        </p>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap items-center">
+                        <p className="flex gap-2">
+                          <Clock size={20} /> {user.professionalInfo.commitmentLevel}
+                        </p>
+                        <p className="flex gap-2">
+                          <Zap size={20} /> {user.professionalInfo.availability}
                         </p>
                       </div>
                     </div>
