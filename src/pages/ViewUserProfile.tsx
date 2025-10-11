@@ -33,7 +33,7 @@ export const ViewUserProfile = () => {
                 </div>
 
                 <div className="">
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between">
                     <div className="">
                       <div className="flex items-center gap-2">
                         <h1 className="text-2xl font-medium">
@@ -46,7 +46,7 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="flex items-center gap-4">
+                      <div className="text-accent mt-2 flex items-center gap-4">
                         <p className="flex items-center gap-1">
                           <MapPin size={20} /> {user.basicInfo.location}
                         </p>
@@ -63,7 +63,7 @@ export const ViewUserProfile = () => {
                     </div>
                   </div>
 
-                  <div className="">
+                  <div className="mt-2">
                     <p className="">{user.professionalInfo.bio}</p>
                   </div>
                 </div>
