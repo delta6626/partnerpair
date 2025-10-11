@@ -32,8 +32,8 @@ export const ViewUserProfile = () => {
                   <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
                 </div>
 
-                <div className="">
-                  <div className="flex justify-between">
+                <div className="w-full">
+                  <div className="flexs justify-between">
                     <div className="">
                       <div className="flex items-center gap-2">
                         <h1 className="text-2xl font-medium">
