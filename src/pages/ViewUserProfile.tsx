@@ -4,7 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
-import { CircleStar, MapPin } from "lucide-react";
+import { CircleStar, MapPin, Phone } from "lucide-react";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -50,7 +50,9 @@ export const ViewUserProfile = () => {
                         <p className="flex items-center gap-1">
                           <MapPin size={20} /> {user.basicInfo.location}
                         </p>
-                        <p>{user.basicInfo.phone}</p>
+                        <p className="flex items-center gap-1">
+                          <Phone size={20} /> {user.basicInfo.phone}
+                        </p>
                       </div>
                     </div>
 
