@@ -46,19 +46,13 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="mt-4 flex flex-wrap items-center gap-2">
-                        <button className="btn rounded-full">
+                      <div className="mt-4 flex flex-wrap items-center gap-8">
+                        <p className="flex gap-2">
                           <MapPin size={20} /> {user.basicInfo.location}
-                        </button>
-                        <button className="btn rounded-full">
+                        </p>
+                        <p className="flex gap-2">
                           <Phone size={20} /> {user.basicInfo.phone}
-                        </button>
-                        <button className="btn rounded-full">
-                          <MapPin size={20} /> {user.professionalInfo.commitmentLevel}
-                        </button>
-                        <button className="btn rounded-full">
-                          <Phone size={20} /> {user.professionalInfo.availability}
-                        </button>
+                        </p>
                       </div>
                     </div>
 
