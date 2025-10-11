@@ -39,6 +39,9 @@ export const ViewUserProfile = () => {
                         {user.basicInfo.firstName + " " + user.basicInfo.lastName}
                       </h1>
                       {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
+                      <div className="">
+                        <p className="text-accent">{user.professionalInfo.headline}</p>
+                      </div>
                     </div>
 
                     <div className="">
@@ -49,7 +52,6 @@ export const ViewUserProfile = () => {
                   </div>
 
                   <div className="">
-                    <p className="text-accent">{user.professionalInfo.headline}</p>
                     <p className="mt-2">{user.professionalInfo.bio}</p>
                   </div>
                 </div>
