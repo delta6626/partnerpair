@@ -39,7 +39,13 @@ export const ViewUserProfile = () => {
                         <h1 className="text-2xl font-medium">
                           {user.basicInfo.firstName + " " + user.basicInfo.lastName}
                         </h1>
-                        {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
+                        {user.basicInfo.tier === "Pro" ? (
+                          <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
+                            <CircleStar className="text-primary" size={20} />
+                          </div>
+                        ) : (
+                          ""
+                        )}
                       </div>
 
                       <div className="">
@@ -77,6 +83,7 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
+                <h1 className="text-lg">About Me</h1>
                 <p className="">{user.professionalInfo.bio}</p>
               </div>
             </div>
