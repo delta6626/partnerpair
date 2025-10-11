@@ -46,8 +46,8 @@ export const ViewUserProfile = () => {
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
 
-                      <div className="flex gap-4">
-                        <div className="mt-4 flex flex-col gap-4">
+                      <div className="flex gap-4 mt-4">
+                        <div className="flex flex-col gap-2">
                           <p className="flex gap-2">
                             <MapPin size={20} /> {user.basicInfo.location}
                           </p>
@@ -56,7 +56,7 @@ export const ViewUserProfile = () => {
                           </p>
                         </div>
 
-                        <div className="mt-4 flex flex-col gap-4">
+                        <div className="flex flex-col gap-2">
                           <p className="flex gap-2">
                             <Phone size={20} /> {user.basicInfo.phone}
                           </p>
