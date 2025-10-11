@@ -54,6 +54,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       firstName: "Marcus",
       lastName: "Lee",
       dateOfBirth: "1989-11-02",
+      phone: "",
       location: "New York, NY",
       verified: true,
       tier: "Basic",

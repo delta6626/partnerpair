@@ -45,6 +45,11 @@ export const ViewUserProfile = () => {
                       <div className="">
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
+
+                      <div className="">
+                        <p>{user.basicInfo.location}</p>
+                        <p>{user.basicInfo.phone}</p>
+                      </div>
                     </div>
 
                     <div className="">
