@@ -34,11 +34,14 @@ export const ViewUserProfile = () => {
 
                 <div className="">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <h1 className="text-2xl font-medium">
-                        {user.basicInfo.firstName + " " + user.basicInfo.lastName}
-                      </h1>
-                      {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
+                    <div className="">
+                      <div className="flex items-center gap-2">
+                        <h1 className="text-2xl font-medium">
+                          {user.basicInfo.firstName + " " + user.basicInfo.lastName}
+                        </h1>
+                        {user.basicInfo.tier === "Pro" ? <CircleStar className="text-primary" size={20} /> : ""}
+                      </div>
+
                       <div className="">
                         <p className="text-accent">{user.professionalInfo.headline}</p>
                       </div>
