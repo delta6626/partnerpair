@@ -49,19 +49,19 @@ export const ViewUserProfile = () => {
                       <div className="flex gap-4 mt-4">
                         <div className="flex flex-col gap-2">
                           <p className="flex gap-2">
-                            <MapPin size={20} /> {user.basicInfo.location}
+                            <MapPin size={20} className="text-accent" /> {user.basicInfo.location}
                           </p>
                           <p className="flex gap-2">
-                            <Clock size={20} /> {user.professionalInfo.commitmentLevel}
+                            <Clock size={20} className="text-accent" /> {user.professionalInfo.commitmentLevel}
                           </p>
                         </div>
 
                         <div className="flex flex-col gap-2">
                           <p className="flex gap-2">
-                            <Phone size={20} /> {user.basicInfo.phone}
+                            <Phone size={20} className="text-accent" /> {user.basicInfo.phone}
                           </p>
                           <p className="flex gap-2">
-                            <Zap size={20} /> {user.professionalInfo.availability}
+                            <Zap size={20} className="text-accent" /> {user.professionalInfo.availability}
                           </p>
                         </div>
                       </div>
