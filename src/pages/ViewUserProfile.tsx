@@ -86,6 +86,10 @@ export const ViewUserProfile = () => {
                 <h1 className="text-lg font-medium">About Me</h1>
                 <p className="mt-2">{user.professionalInfo.bio}</p>
               </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">Skills</h1>
+              </div>
             </div>
           </div>
         </div>
