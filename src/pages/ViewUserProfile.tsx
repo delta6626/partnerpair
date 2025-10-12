@@ -90,7 +90,7 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Skills</h1>
-                <div className="mt-2">
+                <div className="mt-2 w-full flex flex-wrap gap-2">
                   {user.professionalInfo.skills.map((skill) => {
                     return <GenericChip key={skill} chipText={skill} />;
                   })}
