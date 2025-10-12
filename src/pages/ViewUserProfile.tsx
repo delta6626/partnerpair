@@ -5,6 +5,7 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { GenericChip } from "../components/user/GenericChip";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -89,6 +90,11 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Skills</h1>
+                <div className="mt-2">
+                  {user.professionalInfo.skills.map((skill) => {
+                    return <GenericChip key={skill} chipText={skill} />;
+                  })}
+                </div>
               </div>
             </div>
           </div>
