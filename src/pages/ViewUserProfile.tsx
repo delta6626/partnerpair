@@ -83,7 +83,7 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
-                <h1 className="text-lg font-medium">About Me</h1>
+                <h1 className="text-lg font-medium">About</h1>
                 <p className="mt-2">{user.professionalInfo.bio}</p>
               </div>
 
