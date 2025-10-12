@@ -34,7 +34,7 @@ export const ProfileManager = () => {
     <div className="max-w-200 border-1 border-accent rounded-3xl p-8">
       <div className="flex items-center gap-2">
         <UserCircle2 />
-        <h1 className="text-lg">Basic Profile</h1>
+        <h1 className="text-lg font-medium">Basic Profile</h1>
       </div>
 
       <div className="flex flex-row gap-2">
