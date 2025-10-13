@@ -1,6 +1,6 @@
 import { GenericChip } from "./GenericChip";
 
-export const GenericChipCollection = ({ listItems }: { listItems: string[] }) => {
+export const GenericChipCollection = ({ listItems, fallbackText }: { listItems: string[]; fallbackText: string }) => {
   return (
     <div className="">
       {listItems.length != 0
