@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChip } from "../components/ProfileViewer/GenericChip";
+import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -89,23 +90,19 @@ export const ViewUserProfile = () => {
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Skills</h1>
                 <div className="mt-2 w-full flex flex-wrap gap-2">
-                  {user.professionalInfo.skills.length != 0 ? (
-                    user.professionalInfo.skills.map((skill) => {
-                      return <GenericChip key={skill} chipText={skill} />;
-                    })
-                  ) : (
-                    <p className="w-full text-center text-accent">
-                      {user.basicInfo.firstName + " " + "has not added any skills yet."}
-                    </p>
-                  )}
+                  <GenericChipCollection
+                    listItems={user.professionalInfo.skills}
+                    fallbackText={user.basicInfo.firstName + " has not added any skills yet."}
+                  />
                 </div>
               </div>
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Roles</h1>
                 <div className="mt-2 w-full flex flex-wrap gap-2">
-                  {user.professionalInfo.roles.map((role) => {
-                    return <GenericChip key={role} chipText={role} />;
-                  })}
+                  <GenericChipCollection
+                    listItems={user.professionalInfo.roles}
+                    fallbackText={user.basicInfo.firstName + " has not added any roles yet."}
+                  />
                 </div>
               </div>
             </div>
