@@ -99,6 +99,11 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Roles</h1>
+                <div className="mt-2 w-full flex flex-wrap gap-2">
+                  {user.professionalInfo.roles.map((role) => {
+                    return <GenericChip key={role} chipText={role} />;
+                  })}
+                </div>
               </div>
             </div>
           </div>
