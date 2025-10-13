@@ -5,7 +5,7 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
-import { GenericChip } from "../components/user/GenericChip";
+import { GenericChip } from "../components/ProfileViewer/GenericChip";
 
 export const ViewUserProfile = () => {
   useTheme();
