@@ -96,6 +96,10 @@ export const ViewUserProfile = () => {
                   })}
                 </div>
               </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">Roles</h1>
+              </div>
             </div>
           </div>
         </div>
