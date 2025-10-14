@@ -6,7 +6,6 @@ import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
-import { StartupInformation } from "../components/ProfileViewer/StartupInformation";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -109,7 +108,6 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Startup</h1>
-                <StartupInformation />
               </div>
             </div>
           </div>
