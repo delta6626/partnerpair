@@ -108,6 +108,14 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Startup</h1>
+                {user.professionalInfo.wantsToCofound ? (
+                  <div>
+                    <p>I want to join someone else's startup as a co-founder</p>
+                    <input type={"checkbox"} checked={user.professionalInfo.wantsToCofound} />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
