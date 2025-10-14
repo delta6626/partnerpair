@@ -114,6 +114,7 @@ export const ViewUserProfile = () => {
                     <h1 className="text-lg font-medium">My Startup</h1>
                   )}
                 </div>
+
                 {user.professionalInfo.wantsToCofound ? (
                   <div className="mt-2 flex justify-between">
                     <p>I want to join someone else's startup as a co-founder</p>
