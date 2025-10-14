@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
+import { GenericChip } from "../components/ProfileViewer/GenericChip";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -127,7 +128,9 @@ export const ViewUserProfile = () => {
                 ) : (
                   <div className="mt-2">
                     <p>{user.professionalInfo.startupDescription}</p>
-                    <p className="mt-2">Startup stage: {user.professionalInfo.startupStage}</p>
+                    <div className="mt-2">
+                      <GenericChip chipText={user.professionalInfo.startupStage} />
+                    </div>
                   </div>
                 )}
               </div>
