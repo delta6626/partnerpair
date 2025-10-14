@@ -30,7 +30,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       hasStartupIdea: true,
       startupDescription: "An AI-driven SaaS platform that helps SMEs automate content generation.",
       startupStage: "MVP",
-      wantsToCofound: false,
+      wantsToCofound: true,
     },
 
     matchingPreferences: {

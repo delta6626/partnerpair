@@ -111,7 +111,11 @@ export const ViewUserProfile = () => {
                 {user.professionalInfo.wantsToCofound ? (
                   <div>
                     <p>I want to join someone else's startup as a co-founder</p>
-                    <input type={"checkbox"} checked={user.professionalInfo.wantsToCofound} />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-sm"
+                      checked={user.professionalInfo.wantsToCofound}
+                    />
                   </div>
                 ) : (
                   ""
