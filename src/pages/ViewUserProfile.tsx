@@ -4,7 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
-import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { CircleStar, Clock, Divide, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
 
 export const ViewUserProfile = () => {
@@ -118,7 +118,9 @@ export const ViewUserProfile = () => {
                     />
                   </div>
                 ) : (
-                  ""
+                  <div className="">
+                    <p>{user.professionalInfo.startupDescription}</p>
+                  </div>
                 )}
               </div>
             </div>
