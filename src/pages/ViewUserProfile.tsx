@@ -83,11 +83,11 @@ export const ViewUserProfile = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <h1 className="text-lg font-medium">About</h1>
+                <h1 className="text-lg font-medium">About Me</h1>
                 <p className="mt-2">{user.professionalInfo.bio}</p>
               </div>
               <div className="mt-4">
-                <h1 className="text-lg font-medium">Skills</h1>
+                <h1 className="text-lg font-medium">My Skills</h1>
                 <div className="mt-2">
                   <GenericChipCollection
                     listItems={user.professionalInfo.skills}
@@ -97,7 +97,7 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
-                <h1 className="text-lg font-medium">Roles</h1>
+                <h1 className="text-lg font-medium">Roles I Play</h1>
                 <div className="mt-2">
                   <GenericChipCollection
                     listItems={user.professionalInfo.roles}
@@ -107,7 +107,7 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
-                <h1 className="text-lg font-medium">Startup</h1>
+                <h1 className="text-lg font-medium">My Startup</h1>
                 {user.professionalInfo.wantsToCofound ? (
                   <div className="mt-2 flex justify-between">
                     <p>I want to join someone else's startup as a co-founder</p>
