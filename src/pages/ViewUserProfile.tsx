@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
 import { CircleStar, Clock, Divide, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
+import { GenericChip } from "../components/ProfileViewer/GenericChip";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -107,7 +108,13 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
-                <h1 className="text-lg font-medium">My Startup</h1>
+                <div className="">
+                  {user.professionalInfo.wantsToCofound ? (
+                    <h1 className="text-lg font-medium">Startup</h1>
+                  ) : (
+                    <h1 className="text-lg font-medium">My Startup</h1>
+                  )}
+                </div>
                 {user.professionalInfo.wantsToCofound ? (
                   <div className="mt-2 flex justify-between">
                     <p>I want to join someone else's startup as a co-founder</p>
