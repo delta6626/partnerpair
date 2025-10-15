@@ -127,7 +127,11 @@ export const ViewUserProfile = () => {
                   </div>
                 ) : (
                   <div className="mt-2">
-                    <p>{user.professionalInfo.startupDescription}</p>
+                    {user.professionalInfo.startupDescription.length === 0 ? (
+                      <p className="text-accent">{user.basicInfo.firstName + " is still working on this section."}</p>
+                    ) : (
+                      <p>{user.professionalInfo.startupDescription}</p>
+                    )}
                     <div className="mt-2">
                       <GenericChip chipText={user.professionalInfo.startupStage} />
                     </div>
