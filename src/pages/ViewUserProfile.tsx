@@ -133,7 +133,11 @@ export const ViewUserProfile = () => {
                       <p>{user.professionalInfo.startupDescription}</p>
                     )}
                     <div className="mt-2">
-                      <GenericChip chipText={user.professionalInfo.startupStage} />
+                      {user.professionalInfo.startupStage ? (
+                        <GenericChip chipText={user.professionalInfo.startupStage} />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 )}
