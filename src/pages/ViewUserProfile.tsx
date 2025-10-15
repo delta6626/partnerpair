@@ -83,18 +83,10 @@ export const ViewUserProfile = () => {
                   </div>
                 </div>
               </div>
+
               <div className="mt-4">
                 <h1 className="text-lg font-medium">About Me</h1>
                 <p className="mt-2">{user.professionalInfo.bio}</p>
-              </div>
-              <div className="mt-4">
-                <h1 className="text-lg font-medium">My Skills</h1>
-                <div className="mt-2">
-                  <GenericChipCollection
-                    listItems={user.professionalInfo.skills}
-                    fallbackText={user.basicInfo.firstName + " has not added any skills yet."}
-                  />
-                </div>
               </div>
 
               <div className="mt-4">
@@ -103,6 +95,16 @@ export const ViewUserProfile = () => {
                   <GenericChipCollection
                     listItems={user.professionalInfo.roles}
                     fallbackText={user.basicInfo.firstName + " has not added any roles yet."}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">My Skills</h1>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.professionalInfo.skills}
+                    fallbackText={user.basicInfo.firstName + " has not added any skills yet."}
                   />
                 </div>
               </div>
