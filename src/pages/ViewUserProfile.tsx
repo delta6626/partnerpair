@@ -145,7 +145,12 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Skills I am Looking For</h1>
-                <div className="mt-2"></div>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.matchingPreferences.lookingForSkills}
+                    fallbackText={user.basicInfo.firstName + " has not added any preferred skills yet."}
+                  />
+                </div>
               </div>
             </div>
           </div>
