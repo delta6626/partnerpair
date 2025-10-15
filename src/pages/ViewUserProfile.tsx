@@ -144,7 +144,8 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
-                <h1 className="text-lg font-medium">My Match Preferences</h1>
+                <h1 className="text-lg font-medium">Skills I am Looking For</h1>
+                <div className="mt-2"></div>
               </div>
             </div>
           </div>
