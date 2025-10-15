@@ -146,6 +146,16 @@ export const ViewUserProfile = () => {
               </div>
 
               <div className="mt-4">
+                <h1 className="text-lg font-medium">Roles I am Looking For</h1>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.matchingPreferences.lookingForRoles}
+                    fallbackText={user.basicInfo.firstName + " has not added any preferred roles yet."}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4">
                 <h1 className="text-lg font-medium">Skills I am Looking For</h1>
                 <div className="mt-2">
                   <GenericChipCollection
