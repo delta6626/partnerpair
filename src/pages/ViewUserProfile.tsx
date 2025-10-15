@@ -142,6 +142,10 @@ export const ViewUserProfile = () => {
                   </div>
                 )}
               </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">My Match Preferences</h1>
+              </div>
             </div>
           </div>
         </div>
