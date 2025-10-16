@@ -85,6 +85,13 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       availability: "Available immediately",
       preferredCompanyStage: ["Idea", "MVP"],
     },
+
+    socialLinks: {
+      linkedin: "",
+      twitter: "",
+      github: "",
+      website: "",
+    },
   };
 
   if (currentUserSubscriptionStatus === "Pro") {
