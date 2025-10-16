@@ -167,13 +167,14 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">My Socials</h1>
-                <div className="mt-2">
+                <div className="mt-2 flex flex-wrap gap-2">
                   {Object.keys(user.socialLinks).map((linkItem) => {
                     return (
                       <GenericChip
                         chipText={linkItem[0].toUpperCase() + linkItem.slice(1)}
                         onClick={() => {
-                          console.log(1);
+                          const url = user.socialLinks[linkItem as keyof typeof user.socialLinks];
+                          if (url) window.open(url, "_blank");
                         }}
                       ></GenericChip>
                     );
