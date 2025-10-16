@@ -164,6 +164,11 @@ export const ViewUserProfile = () => {
                   />
                 </div>
               </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">My Social Links</h1>
+                <div className="mt-2"></div>
+              </div>
             </div>
           </div>
         </div>
