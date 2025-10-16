@@ -167,7 +167,18 @@ export const ViewUserProfile = () => {
 
               <div className="mt-4">
                 <h1 className="text-lg font-medium">My Socials</h1>
-                <div className="mt-2">{}</div>
+                <div className="mt-2">
+                  {Object.keys(user.socialLinks).map((linkItem) => {
+                    return (
+                      <GenericChip
+                        chipText={linkItem[0].toUpperCase() + linkItem.slice(1)}
+                        onClick={() => {
+                          console.log(1);
+                        }}
+                      ></GenericChip>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
