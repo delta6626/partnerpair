@@ -22,7 +22,7 @@ export const ViewUserProfile = () => {
           <Loader />
         </div>
       ) : (
-        <div className="w-full h-[100vh] font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
+        <div className="w-full min-h-[100vh] font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
           <div className="py-4">
             <MainNavbar />
           </div>
@@ -83,18 +83,10 @@ export const ViewUserProfile = () => {
                   </div>
                 </div>
               </div>
+
               <div className="mt-4">
                 <h1 className="text-lg font-medium">About Me</h1>
                 <p className="mt-2">{user.professionalInfo.bio}</p>
-              </div>
-              <div className="mt-4">
-                <h1 className="text-lg font-medium">My Skills</h1>
-                <div className="mt-2">
-                  <GenericChipCollection
-                    listItems={user.professionalInfo.skills}
-                    fallbackText={user.basicInfo.firstName + " has not added any skills yet."}
-                  />
-                </div>
               </div>
 
               <div className="mt-4">
@@ -103,6 +95,16 @@ export const ViewUserProfile = () => {
                   <GenericChipCollection
                     listItems={user.professionalInfo.roles}
                     fallbackText={user.basicInfo.firstName + " has not added any roles yet."}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">My Skills</h1>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.professionalInfo.skills}
+                    fallbackText={user.basicInfo.firstName + " has not added any skills yet."}
                   />
                 </div>
               </div>
@@ -127,12 +129,40 @@ export const ViewUserProfile = () => {
                   </div>
                 ) : (
                   <div className="mt-2">
-                    <p>{user.professionalInfo.startupDescription}</p>
+                    {user.professionalInfo.startupDescription.length === 0 ? (
+                      <p className="text-accent">{user.basicInfo.firstName + " is still working on this section."}</p>
+                    ) : (
+                      <p>{user.professionalInfo.startupDescription}</p>
+                    )}
                     <div className="mt-2">
-                      <GenericChip chipText={user.professionalInfo.startupStage} />
+                      {user.professionalInfo.startupStage ? (
+                        <GenericChip chipText={user.professionalInfo.startupStage} />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 )}
+              </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">Roles I am Looking For</h1>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.matchingPreferences.lookingForRoles}
+                    fallbackText={user.basicInfo.firstName + " has not added any preferred roles yet."}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <h1 className="text-lg font-medium">Skills I am Looking For</h1>
+                <div className="mt-2">
+                  <GenericChipCollection
+                    listItems={user.matchingPreferences.lookingForSkills}
+                    fallbackText={user.basicInfo.firstName + " has not added any preferred skills yet."}
+                  />
+                </div>
               </div>
             </div>
           </div>

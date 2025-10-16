@@ -28,7 +28,8 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       availability: "Available immediately",
       hasStartup: true,
       hasStartupIdea: true,
-      startupDescription: "An AI-driven SaaS platform that helps SMEs automate content generation.",
+      startupDescription:
+        "An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation.",
       startupStage: "MVP",
       wantsToCofound: false,
     },
