@@ -4,7 +4,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import Loader from "../components/Loader";
 import { getProfileData } from "../utils/getProfileData";
-import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
 import { GenericChip } from "../components/ProfileViewer/GenericChip";
 
@@ -176,7 +176,9 @@ export const ViewUserProfile = () => {
                           const url = user.socialLinks[linkItem as keyof typeof user.socialLinks];
                           if (url) window.open(url, "_blank");
                         }}
-                      ></GenericChip>
+                      >
+                        <ExternalLink size={20} />
+                      </GenericChip>
                     );
                   })}
                 </div>
