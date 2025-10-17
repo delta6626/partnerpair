@@ -19,7 +19,7 @@ export interface User {
     authenticationMethod: AuthMethod;
     profileImageUrl: string;
     profileCompleted: boolean;
-    profileStars: number;
+    profileViews: number;
     createdAt: Date;
     lastActiveAt: Date;
   };
