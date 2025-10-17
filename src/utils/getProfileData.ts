@@ -27,7 +27,6 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       commitmentLevel: "20-30 hours per week",
       availability: "Available immediately",
       hasStartup: true,
-      hasStartupIdea: true,
       startupDescription:
         "An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation. An AI-driven SaaS platform that helps SMEs automate content generation.",
       startupStage: "MVP",
@@ -72,7 +71,6 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       commitmentLevel: "60-70 hours per week",
       availability: "Available in 1 month",
       hasStartup: false,
-      hasStartupIdea: false,
       startupDescription: "",
       startupStage: "",
       wantsToCofound: true,
