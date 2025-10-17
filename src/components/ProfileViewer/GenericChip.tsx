@@ -1,11 +1,13 @@
-import type { MouseEventHandler } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 
 export const GenericChip = ({
   chipText,
   onClick,
+  children,
 }: {
   chipText: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  children?: ReactNode;
 }) => {
   return (
     <div
@@ -13,6 +15,7 @@ export const GenericChip = ({
       onClick={onClick}
     >
       {chipText}
+      {children}
     </div>
   );
 };
