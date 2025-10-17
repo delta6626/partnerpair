@@ -19,6 +19,7 @@ export interface User {
     authenticationMethod: AuthMethod;
     profileImageUrl: string;
     profileCompleted: boolean;
+    profileStars: number;
     createdAt: Date;
     lastActiveAt: Date;
   };
