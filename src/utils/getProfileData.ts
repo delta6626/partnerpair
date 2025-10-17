@@ -43,7 +43,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
     },
 
     socialLinks: {
-      linkedin: "https://linkedin.com/in/alicenguyen",
+      linkedIn: "https://linkedin.com/in/alicenguyen",
       twitter: "https://twitter.com/alice_ai",
       github: "https://github.com/alicenguyen",
       website: "https://alicenguyen.ai",
@@ -87,7 +87,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
     },
 
     socialLinks: {
-      linkedin: "",
+      linkedIn: "",
       twitter: "",
       github: "",
       website: "",
