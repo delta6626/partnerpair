@@ -100,29 +100,6 @@ export const StartupInformationManager = () => {
         </div>
 
         <div className="mt-2 flex items-center justify-between">
-          <div className="flex gap-4 ">
-            <div className="flex gap-2">
-              <p>Yes</p>
-              <input
-                type="radio"
-                className="radio radio-primary"
-                checked={tempUser?.professionalInfo.hasStartupIdea === true}
-                onChange={handleUserHasIdea}
-              />
-            </div>
-            <div className="flex gap-2">
-              <p>No</p>
-              <input
-                type="radio"
-                className="radio radio-primary"
-                checked={tempUser.professionalInfo.hasStartupIdea === false}
-                onChange={handleUserDoesNotHaveIdea}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-2 flex items-center justify-between">
           <p>Do you want to join someone else's startup as a co-founder?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
@@ -148,7 +125,7 @@ export const StartupInformationManager = () => {
 
         <div
           className={`mt-4 ${
-            tempUser.professionalInfo.hasStartup || tempUser.professionalInfo.hasStartupIdea ? "visible" : "hidden"
+            tempUser.professionalInfo.hasStartup ? "visible" : "hidden"
           } flex items-center justify-between`}
         >
           <p>What stage is your startup in?</p>
@@ -168,11 +145,7 @@ export const StartupInformationManager = () => {
           </select>
         </div>
 
-        <div
-          className={`mt-2 ${
-            tempUser.professionalInfo.hasStartup || tempUser.professionalInfo.hasStartupIdea ? "visible" : "hidden"
-          }`}
-        >
+        <div className={`mt-2 ${tempUser.professionalInfo.hasStartup ? "visible" : "hidden"}`}>
           <p>Tell potential cofounders what your startup is all about</p>
           <textarea
             className="mt-2 textarea w-full max-h-100"
