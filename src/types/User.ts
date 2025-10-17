@@ -32,7 +32,6 @@ export interface User {
     availability: UserAvailability;
     education: UserEducation[];
     hasStartup: boolean | null;
-    hasStartupIdea: boolean | null;
     startupDescription: string;
     startupStage: UserPreferredCompanyStage;
     wantsToCofound: boolean | null;

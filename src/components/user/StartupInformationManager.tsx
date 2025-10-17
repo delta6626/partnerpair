@@ -15,7 +15,6 @@ export const StartupInformationManager = () => {
       professionalInfo: {
         ...tempUser.professionalInfo,
         hasStartup: true,
-        hasStartupIdea: false,
         wantsToCofound: false,
       },
     });
@@ -50,7 +49,6 @@ export const StartupInformationManager = () => {
       ...tempUser,
       professionalInfo: {
         ...tempUser.professionalInfo,
-        hasStartupIdea: false,
         hasStartup: false,
         wantsToCofound: true,
         startupStage: null,
