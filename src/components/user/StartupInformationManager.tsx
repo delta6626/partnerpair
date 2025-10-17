@@ -24,26 +24,6 @@ export const StartupInformationManager = () => {
     setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartup: false } });
   };
 
-  const handleUserHasIdea = () => {
-    setTempUser({
-      ...tempUser,
-      professionalInfo: {
-        ...tempUser.professionalInfo,
-        hasStartupIdea: true,
-        hasStartup: false,
-        wantsToCofound: false,
-      },
-      matchingPreferences: {
-        ...tempUser.matchingPreferences,
-        preferredCompanyStage: [],
-      },
-    });
-  };
-
-  const handleUserDoesNotHaveIdea = () => {
-    setTempUser({ ...tempUser, professionalInfo: { ...tempUser.professionalInfo, hasStartupIdea: false } });
-  };
-
   const handleUserWantsToCofound = () => {
     setTempUser({
       ...tempUser,
@@ -120,7 +100,6 @@ export const StartupInformationManager = () => {
         </div>
 
         <div className="mt-2 flex items-center justify-between">
-          <p>Do you have an idea for a startup?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
               <p>Yes</p>
