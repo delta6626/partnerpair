@@ -128,6 +128,8 @@ export const ViewUserProfile = () => {
                         checked={user.professionalInfo.wantsToCofound}
                       />
                     </div>
+
+                    <div className="mt-2 flex justify-between"></div>
                   </div>
                 ) : (
                   <div className="mt-2">
