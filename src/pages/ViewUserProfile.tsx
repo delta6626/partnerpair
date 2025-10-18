@@ -148,6 +148,12 @@ export const ViewUserProfile = () => {
               {user.professionalInfo.wantsToCofound ? (
                 <div className="mt-4">
                   <h1 className="text-lg font-medium">My Preferred Startup Stages</h1>
+                  <div className="mt-2">
+                    <GenericChipCollection
+                      listItems={user.matchingPreferences.preferredCompanyStage}
+                      fallbackText={user.basicInfo.firstName + " has not added any preferred stages yet."}
+                    />
+                  </div>
                 </div>
               ) : (
                 ""
