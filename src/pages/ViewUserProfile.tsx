@@ -119,17 +119,13 @@ export const ViewUserProfile = () => {
                 </div>
 
                 {user.professionalInfo.wantsToCofound ? (
-                  <div className="">
-                    <div className="mt-2 flex justify-between">
-                      <p>I want to join someone else's startup as a co-founder</p>
-                      <input
-                        type="checkbox"
-                        className="checkbox checkbox-primary checkbox-sm"
-                        checked={user.professionalInfo.wantsToCofound}
-                      />
-                    </div>
-
-                    <div className="mt-2 flex justify-between"></div>
+                  <div className="mt-2 flex justify-between">
+                    <p>I want to join someone else's startup as a co-founder</p>
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-sm"
+                      checked={user.professionalInfo.wantsToCofound}
+                    />
                   </div>
                 ) : (
                   <div className="mt-2">
