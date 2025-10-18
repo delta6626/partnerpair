@@ -145,6 +145,8 @@ export const ViewUserProfile = () => {
                 )}
               </div>
 
+              {user.professionalInfo.wantsToCofound ? <div></div> : ""}
+
               <div className="mt-4">
                 <h1 className="text-lg font-medium">Roles I am Looking For</h1>
                 <div className="mt-2">
