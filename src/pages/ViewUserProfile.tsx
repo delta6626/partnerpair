@@ -13,7 +13,7 @@ export const ViewUserProfile = () => {
 
   const { id } = useParams(); // Use later while actually making the API call.
   const { loading } = useInitializeUser();
-  const user = getProfileData("Pro"); // Mock data from stub
+  const user = getProfileData("Basic"); // Mock data from stub
 
   return (
     <div className="">
