@@ -5,7 +5,7 @@ import { NavigationItems } from "./NavigationItems";
 import { ThemeChanger } from "../ThemeChanger";
 
 export const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState<Boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   function handleMenuButtonClick(): void {
     setMenuOpen(!menuOpen);
