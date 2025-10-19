@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Loader from "../components/Loader";
+import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { ProfileManager } from "../components/user/ProfileManager";
 import { SETTINGS } from "../constants/SETTINGS";
