@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { LoginFormInputs } from "../../shared/types/LoginFormInputs";
-import { isValidEmail } from "../utils/isValidEmail";
-import { isValidLength } from "../utils/isValidLength";
+import { isValidEmail } from "../../shared/utils/isValidEmail";
+import { isValidLength } from "../../shared/utils/isValidLength";
 import { LOGIN } from "../../shared/constants/LOGIN";
 
 export const useLoginValidation = (email: string, password: string, touched: Record<LoginFormInputs, boolean>) => {

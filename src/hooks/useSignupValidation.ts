@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { isValidEmail } from "../utils/isValidEmail";
-import { isValidLength } from "../utils/isValidLength";
-import { passwordsMatch } from "../utils/passwordsMatch";
+import { isValidEmail } from "../../shared/utils/isValidEmail";
+import { isValidLength } from "../../shared/utils/isValidLength";
+import { passwordsMatch } from "../../shared/utils/passwordsMatch";
 import { SIGNUP } from "../../shared/constants/SIGNUP";
 import type { SignupFormInputs } from "../../shared/types/SignupFormInputs";
-import { isValidAge } from "../utils/isValidAge";
+import { isValidAge } from "../../shared/utils/isValidAge";
 
 export const useSignupValidation = (
   firstName: string,

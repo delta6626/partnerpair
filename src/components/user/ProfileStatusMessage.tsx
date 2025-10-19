@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { AlertCircle, X } from "lucide-react";
-import { profileComplete } from "../../utils/profileComplete";
+import { profileComplete } from "../../../shared/utils/profileComplete";
 
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();

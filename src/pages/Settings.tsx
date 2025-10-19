@@ -17,8 +17,8 @@ import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdate
 import { MODALS } from "../../shared/constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
-import { basicUserDataValid } from "../utils/basicUserDataValid";
-import { profileComplete } from "../utils/profileComplete";
+import { basicUserDataValid } from "../../shared/utils/basicUserDataValid";
+import { profileComplete } from "../../shared/utils/profileComplete";
 import type { User } from "../../shared/types/User";
 
 export const Settings = () => {

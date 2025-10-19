@@ -3,7 +3,7 @@ import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { MODALS } from "../../../shared/constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
-import { titleString } from "../../utils/titleString";
+import { titleString } from "../../../shared/utils/titleString";
 
 export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();

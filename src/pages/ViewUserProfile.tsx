@@ -3,7 +3,7 @@ import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useTheme } from "../hooks/useTheme";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { Loader } from "../components/Loader";
-import { getProfileData } from "../utils/getProfileData";
+import { getProfileData } from "../../shared/utils/getProfileData";
 import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
 import { GenericChip } from "../components/ProfileViewer/GenericChip";

@@ -1,5 +1,5 @@
-import { SETTINGS } from "../../shared/constants/SETTINGS";
-import type { User } from "../../shared/types/User";
+import { SETTINGS } from "../constants/SETTINGS";
+import type { User } from "../types/User";
 
 export const profileComplete = (user: User) => {
   if (user.basicInfo.dateOfBirth === "") return [false, SETTINGS.COMPLETE_BASIC_PROFILE];

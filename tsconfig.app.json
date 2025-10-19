@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "shared/constants", "shared/types"]
+  "include": ["src", "shared/constants", "shared/types", "shared/utils"]
 }
