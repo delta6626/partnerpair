@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { VERIFY } from "../../constants/VERIFY";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
-import { sendVerificationMail } from "../../sevices/authentication/authServices";
+import { sendVerificationMail } from "../../services/authentication/authServices";
 import { useEmailVerified } from "../../hooks/useEmailVerified";
 import { useNavigate } from "react-router-dom";
-import { setVerificationStatus } from "../../sevices/userProfile/userProfileServices";
+import { setVerificationStatus } from "../../services/userProfile/userProfileServices";
 import { useUserStore } from "../../store/useUserStore";
 import { Loader } from "../Loader";
 

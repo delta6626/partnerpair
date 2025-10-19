@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getVerificationStatus } from "../sevices/authentication/authServices";
+import { getVerificationStatus } from "../services/authentication/authServices";
 import { VERIFY } from "../constants/VERIFY";
 
 export const useEmailVerified = (initiate: boolean) => {

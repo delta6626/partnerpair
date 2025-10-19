@@ -3,7 +3,7 @@ import { SIGNUP } from "../../constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
-import { createUserByEmail, signInWithGoogle } from "../../sevices/authentication/authServices";
+import { createUserByEmail, signInWithGoogle } from "../../services/authentication/authServices";
 import { useUserStore } from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";

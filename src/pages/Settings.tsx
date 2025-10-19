@@ -11,7 +11,7 @@ import { ProfessionalInformationManager } from "../components/user/ProfessionalI
 import { StartupInformationManager } from "../components/user/StartupInformationManager";
 import { SocialLinksManager } from "../components/user/SocialLinksManager";
 import { AccountManager } from "../components/user/AccountManager";
-import { updateUserProfile } from "../sevices/userProfile/userProfileServices";
+import { updateUserProfile } from "../services/userProfile/userProfileServices";
 import { useUserStore } from "../store/useUserStore";
 import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
 import { MODALS } from "../constants/MODALS";

@@ -3,7 +3,7 @@ import { LoginForm } from "../components/forms/Loginform";
 import { Navbar } from "../components/navigation/Navbar";
 import { LOGIN } from "../constants/LOGIN";
 import { useEffect } from "react";
-import { getAuthenticatedUser } from "../sevices/authentication/authServices";
+import { getAuthenticatedUser } from "../services/authentication/authServices";
 
 export const Login = () => {
   const navigate = useNavigate();
