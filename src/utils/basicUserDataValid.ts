@@ -1,4 +1,4 @@
-import { SIGNUP } from "../constants/SIGNUP";
+import { SIGNUP } from "../../shared/constants/SIGNUP";
 import type { User } from "../types/User";
 import { isValidEmail } from "./isValidEmail";
 import { isValidLength } from "./isValidLength";

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 import { getAuthenticatedUser, getUserData } from "../services/authentication/authServices";
-import { SIGNUP } from "../constants/SIGNUP";
+import { SIGNUP } from "../../shared/constants/SIGNUP";
 import type { User } from "../types/User";
 
 export const useInitializeUser = () => {

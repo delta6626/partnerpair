@@ -1,5 +1,5 @@
 import { IdCard } from "lucide-react";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { SkillsManager } from "./SkillsManager";
 import { RolesManager } from "./RolesManager";
 import { useTempUserStore } from "../../store/useTempUserStore";

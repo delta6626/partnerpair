@@ -1,5 +1,5 @@
-import { MODALS } from "../../constants/MODALS";
-import { MODAL_ACTIONS } from "../../constants/MODAL_ACTIONS";
+import { MODALS } from "../../../shared/constants/MODALS";
+import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 
 export const ProfileUpdateSuccessfulModal = () => {
   const closeModal = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getVerificationStatus } from "../services/authentication/authServices";
-import { VERIFY } from "../constants/VERIFY";
+import { VERIFY } from "../../shared/constants/VERIFY";
 
 export const useEmailVerified = (initiate: boolean) => {
   const [emailVerified, setEmailVerified] = useState<boolean>(false);

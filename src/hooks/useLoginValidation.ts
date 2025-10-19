@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { LoginFormInputs } from "../types/LoginFormInputs";
 import { isValidEmail } from "../utils/isValidEmail";
 import { isValidLength } from "../utils/isValidLength";
-import { LOGIN } from "../constants/LOGIN";
+import { LOGIN } from "../../shared/constants/LOGIN";
 
 export const useLoginValidation = (email: string, password: string, touched: Record<LoginFormInputs, boolean>) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);

@@ -14,10 +14,10 @@ import { firestore, auth } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
 import type { User } from "../../types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { SIGNUP } from "../../constants/SIGNUP";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";
 import { splitUsername } from "../../utils/splitUsername";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const createUserByEmail = async (
   email: string,

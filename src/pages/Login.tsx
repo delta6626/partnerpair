@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { LoginForm } from "../components/forms/Loginform";
 import { Navbar } from "../components/navigation/Navbar";
-import { LOGIN } from "../constants/LOGIN";
+import { LOGIN } from "../../shared/constants/LOGIN";
 import { useEffect } from "react";
 import { getAuthenticatedUser } from "../services/authentication/authServices";
 

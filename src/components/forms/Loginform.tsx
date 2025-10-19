@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { SIGNUP } from "../../constants/SIGNUP";
-import { LOGIN } from "../../constants/LOGIN";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
+import { LOGIN } from "../../../shared/constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { useLoginValidation } from "../../hooks/useLoginValidation";
 import type { LoginFormInputs } from "../../types/LoginFormInputs";

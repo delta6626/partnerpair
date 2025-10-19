@@ -1,4 +1,4 @@
-import { SIGNUP } from "../../constants/SIGNUP";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore } from "../firebaseConfig";

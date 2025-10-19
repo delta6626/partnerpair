@@ -1,6 +1,6 @@
 import { Rocket } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import type { ChangeEvent } from "react";
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
 

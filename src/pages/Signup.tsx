@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SignupForm } from "../components/forms/SignupForm";
 import { Navbar } from "../components/navigation/Navbar";
-import { SIGNUP } from "../constants/SIGNUP";
+import { SIGNUP } from "../../shared/constants/SIGNUP";
 import { getAuthenticatedUser } from "../services/authentication/authServices";
 import { useNavigate } from "react-router-dom";
 

@@ -1,8 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { MODAL_ACTIONS } from "../../constants/MODAL_ACTIONS";
-import { MODALS } from "../../constants/MODALS";
+import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
+import { MODALS } from "../../../shared/constants/MODALS";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { titleString } from "../../utils/titleString";
 
 export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) => {

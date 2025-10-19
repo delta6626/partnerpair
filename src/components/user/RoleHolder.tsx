@@ -1,7 +1,7 @@
 import { XIcon } from "lucide-react";
 import type { UserRole } from "../../types/UserRole";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const RoleHolder = ({
   roleName,

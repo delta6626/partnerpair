@@ -1,5 +1,5 @@
-import { LOGIN } from "../../constants/LOGIN";
-import { SIGNUP } from "../../constants/SIGNUP";
+import { LOGIN } from "../../../shared/constants/LOGIN";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 
 // Utility function for handling Firebase errors
 export const handleFirebaseError = (error: any): string => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { VERIFY } from "../../constants/VERIFY";
+import { VERIFY } from "../../../shared/constants/VERIFY";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { sendVerificationMail } from "../../services/authentication/authServices";
 import { useEmailVerified } from "../../hooks/useEmailVerified";

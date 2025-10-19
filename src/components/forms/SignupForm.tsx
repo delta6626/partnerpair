@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
-import { SIGNUP } from "../../constants/SIGNUP";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import type { SignupFormInputs } from "../../types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";

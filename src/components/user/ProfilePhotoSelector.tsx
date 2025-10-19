@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { ProfilePhotoHolder } from "./ProfilePhotoHolder";
 
 export const ProfilePhotoSelector = () => {

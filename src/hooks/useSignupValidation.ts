@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { isValidEmail } from "../utils/isValidEmail";
 import { isValidLength } from "../utils/isValidLength";
 import { passwordsMatch } from "../utils/passwordsMatch";
-import { SIGNUP } from "../constants/SIGNUP";
+import { SIGNUP } from "../../shared/constants/SIGNUP";
 import type { SignupFormInputs } from "../types/SignupFormInputs";
 import { isValidAge } from "../utils/isValidAge";
 

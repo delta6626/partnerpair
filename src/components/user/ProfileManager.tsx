@@ -3,7 +3,7 @@ import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { isValidAge } from "../../utils/isValidAge";
-import { SIGNUP } from "../../constants/SIGNUP";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { PhoneInput } from "./PhoneInput";
 import { CountryPicker } from "./CountryPicker";
 

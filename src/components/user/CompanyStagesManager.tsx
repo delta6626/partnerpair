@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { XIcon } from "lucide-react";
 
 export const CompanyStagesManager = () => {

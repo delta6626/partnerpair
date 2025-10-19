@@ -1,5 +1,5 @@
-import { MODALS } from "../../constants/MODALS";
-import { SETTINGS } from "../../constants/SETTINGS";
+import { MODALS } from "../../../shared/constants/MODALS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { AddSkillModal } from "../modals/AddSkillModal";
 import { SkillHolder } from "./SkillHolder";
