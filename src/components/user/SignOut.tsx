@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Loader from "../Loader";
+import { Loader } from "../Loader";
 import { LogOut } from "lucide-react";
 import { signOut } from "../../services/authentication/authServices";
 import { SIGNUP } from "../../constants/SIGNUP";
