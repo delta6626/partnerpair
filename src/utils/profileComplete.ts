@@ -11,15 +11,11 @@ export const profileComplete = (user: User) => {
   if (user.professionalInfo.commitmentLevel === null) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
   if (user.professionalInfo.availability === null) return [false, SETTINGS.COMPLETE_PROFESSIONAL_INFORMATION];
 
-  if (
-    user.professionalInfo.hasStartup === null &&
-    user.professionalInfo.hasStartupIdea === null &&
-    user.professionalInfo.wantsToCofound === null
-  )
+  if (user.professionalInfo.hasStartup === null && user.professionalInfo.wantsToCofound === null)
     return [false, SETTINGS.COMPLETE_STARTUP_INFORMATION];
 
   if (
-    (user.professionalInfo.hasStartup || user.professionalInfo.hasStartupIdea) &&
+    user.professionalInfo.hasStartup &&
     (!user.professionalInfo.startupDescription || !user.professionalInfo.startupStage)
   )
     return [false, SETTINGS.COMPLETE_STARTUP_INFORMATION];
