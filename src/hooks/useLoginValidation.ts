@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { LoginFormInputs } from "../types/LoginFormInputs";
+import type { LoginFormInputs } from "../../shared/types/LoginFormInputs";
 import { isValidEmail } from "../utils/isValidEmail";
 import { isValidLength } from "../utils/isValidLength";
 import { LOGIN } from "../../shared/constants/LOGIN";

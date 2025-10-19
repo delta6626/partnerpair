@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
+import type { UserPreferredCompanyStage } from "../../../shared/types/UserPreferredCompanyStage";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { XIcon } from "lucide-react";
 

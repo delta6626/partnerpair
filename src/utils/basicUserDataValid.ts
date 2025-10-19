@@ -1,5 +1,5 @@
 import { SIGNUP } from "../../shared/constants/SIGNUP";
-import type { User } from "../types/User";
+import type { User } from "../../shared/types/User";
 import { isValidEmail } from "./isValidEmail";
 import { isValidLength } from "./isValidLength";
 import { isValidProfileLink } from "./isValidProfileLink";

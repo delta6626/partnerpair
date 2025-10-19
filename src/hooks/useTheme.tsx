@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import type { AppTheme } from "../types/AppTheme";
+import type { AppTheme } from "../../shared/types/AppTheme";
 
 export const useTheme = () => {
   // Load existing theme preference

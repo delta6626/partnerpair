@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { NavigationItemsProps } from "../../types/navigationItemsProps";
+import type { NavigationItemsProps } from "../../../shared/types/navigationItemsProps";
 
 export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
   return (

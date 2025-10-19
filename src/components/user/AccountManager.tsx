@@ -1,7 +1,7 @@
 import { User2 } from "lucide-react";
 import { useTheme } from "../../hooks/useTheme";
 import type { ChangeEvent } from "react";
-import type { AppTheme } from "../../types/AppTheme";
+import type { AppTheme } from "../../../shared/types/AppTheme";
 import { SignOut } from "./SignOut";
 import { DeleteAccount } from "./DeleteAccount";
 

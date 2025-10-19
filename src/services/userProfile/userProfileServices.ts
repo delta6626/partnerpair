@@ -3,7 +3,7 @@ import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore } from "../firebaseConfig";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-import type { User } from "../../types/User";
+import type { User } from "../../../shared/types/User";
 
 export const setVerificationStatus = async (status: boolean) => {
   const userId = await getUserId();

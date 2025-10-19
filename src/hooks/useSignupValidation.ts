@@ -3,7 +3,7 @@ import { isValidEmail } from "../utils/isValidEmail";
 import { isValidLength } from "../utils/isValidLength";
 import { passwordsMatch } from "../utils/passwordsMatch";
 import { SIGNUP } from "../../shared/constants/SIGNUP";
-import type { SignupFormInputs } from "../types/SignupFormInputs";
+import type { SignupFormInputs } from "../../shared/types/SignupFormInputs";
 import { isValidAge } from "../utils/isValidAge";
 
 export const useSignupValidation = (

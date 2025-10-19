@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import type { UserAvailability } from "../../types/UserAvailability";
+import type { UserAvailability } from "../../../shared/types/UserAvailability";
 
 export const AvailabilityManager = ({ forCurrentUser }: { forCurrentUser: boolean }) => {
   const { tempUser, setTempUser } = useTempUserStore();

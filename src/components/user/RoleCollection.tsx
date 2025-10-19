@@ -1,4 +1,4 @@
-import type { UserRole } from "../../types/UserRole";
+import type { UserRole } from "../../../shared/types/UserRole";
 import { RoleHolder } from "./RoleHolder";
 
 export const RoleCollection = ({ forCurrentUser }: { forCurrentUser: boolean }) => {

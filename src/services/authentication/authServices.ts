@@ -12,7 +12,7 @@ import {
 } from "firebase/auth";
 import { firestore, auth } from "../firebaseConfig";
 import { handleFirebaseError } from "./firebaseErrorHandler";
-import type { User } from "../../types/User";
+import type { User } from "../../../shared/types/User";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";

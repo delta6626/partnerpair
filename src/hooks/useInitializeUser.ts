@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 import { getAuthenticatedUser, getUserData } from "../services/authentication/authServices";
 import { SIGNUP } from "../../shared/constants/SIGNUP";
-import type { User } from "../types/User";
+import type { User } from "../../shared/types/User";
 
 export const useInitializeUser = () => {
   const navigate = useNavigate();

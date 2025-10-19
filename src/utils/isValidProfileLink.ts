@@ -1,4 +1,4 @@
-import type { SocialProfile } from "../types/SocialProfile";
+import type { SocialProfile } from "../../shared/types/SocialProfile";
 
 export const isValidProfileLink = (type: SocialProfile, profileLink: string) => {
   const patterns: Record<SocialProfile, RegExp> = {

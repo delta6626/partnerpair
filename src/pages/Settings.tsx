@@ -19,7 +19,7 @@ import { MatchingPreferenceManager } from "../components/user/MatchingPreference
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../utils/basicUserDataValid";
 import { profileComplete } from "../utils/profileComplete";
-import type { User } from "../types/User";
+import type { User } from "../../shared/types/User";
 
 export const Settings = () => {
   useTheme();

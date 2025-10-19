@@ -1,6 +1,6 @@
 import { Sun, Moon, SunMoon } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
-import type { ThemeChangerProps } from "../types/ThemeChangerProps";
+import type { ThemeChangerProps } from "../../shared/types/ThemeChangerProps";
 
 export const ThemeChanger = ({ forMobile }: ThemeChangerProps) => {
   const { theme, setTheme } = useTheme();

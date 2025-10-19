@@ -2,7 +2,7 @@ import { Rocket } from "lucide-react";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import type { ChangeEvent } from "react";
-import type { UserPreferredCompanyStage } from "../../types/UserPreferredCompanyStage";
+import type { UserPreferredCompanyStage } from "../../../shared/types/UserPreferredCompanyStage";
 
 export const StartupInformationManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();

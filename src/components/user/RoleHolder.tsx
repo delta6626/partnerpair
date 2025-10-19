@@ -1,5 +1,5 @@
 import { XIcon } from "lucide-react";
-import type { UserRole } from "../../types/UserRole";
+import type { UserRole } from "../../../shared/types/UserRole";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 

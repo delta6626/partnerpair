@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
-import type { SignupFormInputs } from "../../types/SignupFormInputs";
+import type { SignupFormInputs } from "../../../shared/types/SignupFormInputs";
 import { useSignupValidation } from "../../hooks/useSignupValidation";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
 import { createUserByEmail, signInWithGoogle } from "../../services/authentication/authServices";
