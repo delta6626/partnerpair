@@ -1,5 +1,6 @@
-import { setGlobalOptions } from "firebase-functions";
+import { onCall } from "firebase-functions/v2/https";
 import { UserTier } from "../../shared/types/UserTier";
-import { onCall } from "firebase-functions/https";
 
-setGlobalOptions({ maxInstances: 10 });
+export const getUserTier = onCall((request) => {
+  const userId: string = request.data.userId;
+});
