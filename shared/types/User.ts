@@ -20,6 +20,7 @@ export interface User {
     profileImageUrl: string;
     profileCompleted: boolean;
     profileViews: number;
+    contactList: string[];
     createdAt: Date;
     lastActiveAt: Date;
   };
