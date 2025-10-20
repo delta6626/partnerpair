@@ -59,7 +59,7 @@ export const getProfileData = (currentUserSubscriptionStatus: UserTier) => {
       verified: true,
       tier: "Basic",
       profileImageUrl: SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_7,
-      connectedToCurrentUser: false,
+      addedToContactList: false,
       createdAt: new Date("2024-03-12"),
     },
 
