@@ -7,6 +7,9 @@ import { getProfileData } from "../../shared/utils/getProfileData";
 import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCollection";
 import { GenericChip } from "../components/ProfileViewer/GenericChip";
+import { functions } from "../services/firebaseConfig";
+import { httpsCallable } from "firebase/functions";
+import { useEffect } from "react";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -14,6 +17,15 @@ export const ViewUserProfile = () => {
   const { id } = useParams(); // Use later while actually making the API call.
   const { loading } = useInitializeUser();
   const user = getProfileData("Pro"); // Mock data from stub
+  const getUserTier = httpsCallable(functions, "getUserTier");
+
+  useEffect(() => {
+    const fetchTier = async () => {
+      const tier = await getUserTier();
+      console.log(tier);
+    };
+    fetchTier();
+  }, []);
 
   return (
     <div className="">
