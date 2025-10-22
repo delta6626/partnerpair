@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { getFirestore } from "firebase-admin/firestore";
+import { UserTier } from "./shared/types/UserTier";
 
 admin.initializeApp();
 
@@ -15,15 +16,8 @@ export const getUserTier = onCall(async (request) => {
 
   try {
     const userDoc = await db.collection("users").doc(userId).get();
-
-    if (!userDoc.exists) {
-      throw new HttpsError("not-found", "User record not found.");
-    }
-
-    const userData = userDoc.data();
-    const userTier = userData?.tier || "free";
-
-    return { tier: userTier };
+    const userTier = userDoc.data()?.basicInfo.tier;
+    return userTier as UserTier;
   } catch (error: unknown) {
     console.error("Error fetching user tier:", error);
     throw new HttpsError("internal", "Failed to fetch user tier.");
