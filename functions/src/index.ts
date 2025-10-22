@@ -21,7 +21,7 @@ export const getUserTier = onCall(async (request) => {
     const userTier = userData?.tier || "free";
 
     return { tier: userTier };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error fetching user tier:", error);
     throw new HttpsError("internal", "Failed to fetch user tier.");
   }
