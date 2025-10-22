@@ -1,7 +1,7 @@
 {
   "name": "functions",
   "scripts": {
-    "lint": "eslint --ext .js,.ts .",
+    "lint": "eslint .",
     "prebuild": "rm -rf src/shared && cp -R ../shared src/shared",
     "build": "tsc",
     "build:watch": "tsc --watch",
