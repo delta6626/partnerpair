@@ -1,3 +1,3 @@
 export interface NavigationItemsProps {
-  forMobile?: Boolean;
+  forMobile?: boolean;
 }
