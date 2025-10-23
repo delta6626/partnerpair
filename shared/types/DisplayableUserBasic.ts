@@ -13,4 +13,7 @@ export interface DisplayableUserBasic {
     | "contactList"
     | "createdAt"
   >;
+
+  professionalInfo: Omit<User["professionalInfo"], "commitmentLevel" | "availability" | "education">;
+  matchingPreferences: Omit<User["matchingPreferences"], "commitmentLevel" | "availability">;
 }
