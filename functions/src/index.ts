@@ -7,13 +7,17 @@ admin.initializeApp();
 
 const db = getFirestore();
 
-// shared internal function
+// shared internal functions
 
 const fetchUserTier = async (userId: string): Promise<UserTier> => {
   const userDoc = await db.collection("users").doc(userId).get();
   const userTier = userDoc.data()?.basicInfo.tier;
   return userTier as UserTier;
 };
+
+const getVisitedUserProfileDataPro = async (visitedUserId: string) => {};
+
+const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {};
 
 export const getUserTier = onCall(async (request): Promise<UserTier> => {
   const userId = request.auth?.uid;
@@ -33,13 +37,14 @@ export const getVisitedUserProfileData = onCall(async (request) => {
   const visitedUserId = request.data.visitedUserId;
 
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
+  if (!visitedUserId) throw new HttpsError("invalid-argument", "Missing visitedUserId argument.");
 
   try {
     const userTier = await fetchUserTier(userId);
     if (userTier === "Pro") {
-      // handle pro case
+      return await getVisitedUserProfileDataPro(visitedUserId);
     } else {
-      // handle basic case
+      return await getVisitedUserProfileDataBasic(visitedUserId);
     }
   } catch (error: unknown) {
     throw new HttpsError("internal", "Failed to fetch user tier.");
