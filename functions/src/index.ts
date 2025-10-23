@@ -30,6 +30,8 @@ export const getUserTier = onCall(async (request): Promise<UserTier> => {
 
 export const getVisitedUserProfileData = onCall(async (request) => {
   const userId = request.auth?.uid;
+  const visitedUserId = request.data.visitedUserId;
+
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
 
   try {
