@@ -15,7 +15,7 @@ const fetchUserTier = async (userId: string): Promise<UserTier> => {
   return userTier as UserTier;
 };
 
-export const getUserTier = onCall(async (request) => {
+export const getUserTier = onCall(async (request): Promise<UserTier> => {
   const userId = request.auth?.uid;
 
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
