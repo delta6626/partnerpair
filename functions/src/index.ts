@@ -2,6 +2,7 @@ import * as admin from "firebase-admin";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
+import { User } from "./shared/types/User";
 
 admin.initializeApp();
 
@@ -18,6 +19,8 @@ const fetchUserTier = async (userId: string): Promise<UserTier> => {
 const getVisitedUserProfileDataPro = async (visitedUserId: string) => {
   const visitedUserDoc = await db.collection("users").doc(visitedUserId).get();
   if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
+
+  const visitedUserData = visitedUserDoc.data() as User;
 };
 
 const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {};
