@@ -3,6 +3,7 @@ import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
+import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
 
 admin.initializeApp();
 
@@ -21,6 +22,22 @@ const getVisitedUserProfileDataPro = async (visitedUserId: string) => {
   if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
 
   const visitedUserData = visitedUserDoc.data() as User;
+  const displayableVisitedUserData: DisplayableUserPro = {
+    basicInfo: {
+      firstName: visitedUserData.basicInfo.firstName,
+      lastName: visitedUserData.basicInfo.lastName,
+      dateOfBirth: visitedUserData.basicInfo.dateOfBirth,
+      phone: visitedUserData.basicInfo.phone,
+      location: visitedUserData.basicInfo.location,
+      profileImageUrl: visitedUserData.basicInfo.profileImageUrl,
+      createdAt: visitedUserData.basicInfo.createdAt,
+      lastActiveAt: visitedUserData.basicInfo.lastActiveAt,
+      tier: visitedUserData.basicInfo.tier,
+    },
+    professionalInfo: visitedUserData.professionalInfo,
+    matchingPreferences: visitedUserData.matchingPreferences,
+    socialLinks: visitedUserData.socialLinks,
+  };
 };
 
 const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {};
