@@ -27,3 +27,19 @@ export const getUserTier = onCall(async (request): Promise<UserTier> => {
     throw new HttpsError("internal", "Failed to fetch user tier.");
   }
 });
+
+export const getVisitedUserProfileData = onCall(async (request) => {
+  const userId = request.auth?.uid;
+  if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
+
+  try {
+    const userTier = await fetchUserTier(userId);
+    if (userTier === "Pro") {
+      // handle pro case
+    } else {
+      // handle basic case
+    }
+  } catch (error: unknown) {
+    throw new HttpsError("internal", "Failed to fetch user tier.");
+  }
+});
