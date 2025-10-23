@@ -15,7 +15,10 @@ const fetchUserTier = async (userId: string): Promise<UserTier> => {
   return userTier as UserTier;
 };
 
-const getVisitedUserProfileDataPro = async (visitedUserId: string) => {};
+const getVisitedUserProfileDataPro = async (visitedUserId: string) => {
+  const visitedUserDoc = await db.collection("users").doc(visitedUserId).get();
+  if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
+};
 
 const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {};
 
