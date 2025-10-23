@@ -39,6 +39,8 @@ const getVisitedUserProfileDataPro = async (userId: string, visitedUserId: strin
     matchingPreferences: visitedUserData.matchingPreferences,
     socialLinks: visitedUserData.socialLinks,
   };
+
+  return displayableVisitedUserData;
 };
 
 const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: string) => {};
