@@ -7,6 +7,14 @@ admin.initializeApp();
 
 const db = getFirestore();
 
+// shared internal function
+
+const fetchUserTier = async (userId: string): Promise<UserTier> => {
+  const userDoc = await db.collection("users").doc(userId).get();
+  const userTier = userDoc.data()?.basicInfo.tier;
+  return userTier as UserTier;
+};
+
 export const getUserTier = onCall(async (request) => {
   const userId = request.auth?.uid;
 
