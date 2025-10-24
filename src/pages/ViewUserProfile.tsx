@@ -60,6 +60,18 @@ export const ViewUserProfile = () => {
             <MainNavbar />
           </div>
 
+          {error ? (
+            <div className="">An error occurred: {error}</div>
+          ) : visitedUser ? (
+            "socialLinks" in visitedUser ? (
+              <div></div>
+            ) : (
+              <div></div>
+            )
+          ) : (
+            ""
+          )}
+
           {/* <div className="w-full flex flex-col items-center py-10">
             <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-8">
               <div className="flex gap-4">
