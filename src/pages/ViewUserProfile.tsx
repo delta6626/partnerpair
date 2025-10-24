@@ -62,20 +62,19 @@ export const ViewUserProfile = () => {
             <MainNavbar />
           </div>
 
-          {error ? (
-            <div className="">An error occurred: {error}</div>
-          ) : visitedUser ? (
-            "socialLinks" in visitedUser ? (
-              <RenderProData visitedUserData={visitedUser} />
+          <div className="w-full flex flex-col items-center py-10">
+            {error ? (
+              <div className="">An error occurred: {error}</div>
+            ) : visitedUser ? (
+              "socialLinks" in visitedUser ? (
+                <RenderProData visitedUserData={visitedUser} />
+              ) : (
+                <RenderBasicData visitedUserData={visitedUser} />
+              )
             ) : (
-              <RenderBasicData visitedUserData={visitedUser} />
-            )
-          ) : (
-            ""
-          )}
-
-          {/* <div className="w-full flex flex-col items-center py-10">
-            <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-8">
+              ""
+            )}
+            {/* <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-8">
               <div className="flex gap-4">
                 <div className="min-w-36">
                   <img src={user.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
@@ -244,8 +243,8 @@ export const ViewUserProfile = () => {
                   })}
                 </div>
               </div>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </div>
       )}
     </div>
