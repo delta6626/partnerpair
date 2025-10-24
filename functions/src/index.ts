@@ -4,6 +4,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
 import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
+import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
 
 admin.initializeApp();
 
@@ -43,7 +44,41 @@ const getVisitedUserProfileDataPro = async (userId: string, visitedUserId: strin
   return displayableVisitedUserData;
 };
 
-const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: string) => {};
+const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: string) => {
+  const visitedUserDoc = await db.collection("users").doc(visitedUserId).get();
+  if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
+
+  const visitedUserData = visitedUserDoc.data() as User;
+
+  const displayableVisitedUserData: DisplayableUserBasic = {
+    basicInfo: {
+      firstName: visitedUserData.basicInfo.firstName,
+      lastName: visitedUserData.basicInfo.lastName,
+      location: visitedUserData.basicInfo.location,
+      tier: visitedUserData.basicInfo.tier,
+      profileImageUrl: visitedUserData.basicInfo.profileImageUrl,
+      lastActiveAt: visitedUserData.basicInfo.lastActiveAt,
+      addedToContactList: visitedUserData.basicInfo.contactList.includes(userId),
+    },
+
+    professionalInfo: {
+      headline: visitedUserData.professionalInfo.headline,
+      bio: visitedUserData.professionalInfo.bio,
+      skills: visitedUserData.professionalInfo.skills,
+      roles: visitedUserData.professionalInfo.roles,
+      hasStartup: visitedUserData.professionalInfo.hasStartup,
+      startupDescription: visitedUserData.professionalInfo.startupDescription,
+      startupStage: visitedUserData.professionalInfo.startupStage,
+      wantsToCofound: visitedUserData.professionalInfo.wantsToCofound,
+    },
+
+    matchingPreferences: {
+      lookingForSkills: visitedUserData.matchingPreferences.lookingForSkills,
+      lookingForRoles: visitedUserData.matchingPreferences.lookingForRoles,
+      preferredCompanyStage: visitedUserData.matchingPreferences.preferredCompanyStage,
+    },
+  };
+};
 
 export const getVisitedUserProfileData = onCall(async (request) => {
   const userId = request.auth?.uid;
