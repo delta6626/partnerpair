@@ -137,6 +137,26 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
       ) : (
         ""
       )}
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">Roles I am Looking For</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.matchingPreferences.lookingForRoles}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred roles yet."}
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">Skills I am Looking For</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.matchingPreferences.lookingForSkills}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred skills yet."}
+          />
+        </div>
+      </div>
     </div>
   );
 };
