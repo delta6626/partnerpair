@@ -1,5 +1,6 @@
 import type { DisplayableUserPro } from "../../../shared/types/DisplayableUserPro";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { GenericChipCollection } from "./GenericChipCollection";
 
 export const RenderProData = ({ visitedUserData }: { visitedUserData: DisplayableUserPro }) => {
   return (
@@ -62,6 +63,16 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
       <div className="mt-4">
         <h1 className="text-lg font-medium">About Me</h1>
         <p className="mt-2">{visitedUserData.professionalInfo.bio}</p>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">Roles I Play</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.professionalInfo.roles}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any roles yet."}
+          />
+        </div>
       </div>
     </div>
   );
