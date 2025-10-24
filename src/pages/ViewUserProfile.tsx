@@ -9,23 +9,44 @@ import { GenericChipCollection } from "../components/ProfileViewer/GenericChipCo
 import { GenericChip } from "../components/ProfileViewer/GenericChip";
 import { functions } from "../services/firebaseConfig";
 import { httpsCallable } from "firebase/functions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { DisplayableUserPro } from "../../shared/types/DisplayableUserPro";
+import type { DisplayableUserBasic } from "../../shared/types/DisplayableUserBasic";
 
 export const ViewUserProfile = () => {
   useTheme();
 
-  const { id } = useParams(); // Use later while actually making the API call.
+  const { id } = useParams();
   const { loading } = useInitializeUser();
-  const user = getProfileData("Pro"); // Mock data from stub
-  const getUserTier = httpsCallable(functions, "getUserTier");
+  const getVisitedUserProfileData = httpsCallable(functions, "getVisitedUserProfileData");
+
+  const [visitedUser, setVisitedUser] = useState<DisplayableUserPro | DisplayableUserBasic>();
+  const [visitedUserDataLoaded, setVisitedUserDataLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchTier = async () => {
-      const tier = await getUserTier();
-      console.log(tier);
+    if (loading || !id) return;
+
+    const fetchVisitedUserProfile = async () => {
+      try {
+        setError(null); // clear any previous error
+        setVisitedUserDataLoaded(false);
+
+        const response = await getVisitedUserProfileData({ visitedUserId: id });
+        const data = response.data as DisplayableUserPro | DisplayableUserBasic;
+
+        setVisitedUser(data);
+      } catch (error: any) {
+        // Extract Firebase HttpsError message
+        const message = error?.message || error?.code || "An unknown error occurred while fetching the user profile.";
+        setError(message);
+      } finally {
+        setVisitedUserDataLoaded(true);
+      }
     };
-    fetchTier();
-  }, []);
+
+    fetchVisitedUserProfile();
+  }, [id, loading]);
 
   return (
     <div className="">
