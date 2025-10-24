@@ -1,6 +1,7 @@
 import type { DisplayableUserPro } from "../../../shared/types/DisplayableUserPro";
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "./GenericChipCollection";
+import { GenericChip } from "./GenericChip";
 
 export const RenderProData = ({ visitedUserData }: { visitedUserData: DisplayableUserPro }) => {
   return (
@@ -83,6 +84,44 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
             fallbackText={visitedUserData.basicInfo.firstName + " has not added any skills yet."}
           />
         </div>
+      </div>
+
+      <div className="mt-4">
+        <div className="">
+          {visitedUserData.professionalInfo.wantsToCofound ? (
+            <h1 className="text-lg font-medium">Startup</h1>
+          ) : (
+            <h1 className="text-lg font-medium">My Startup</h1>
+          )}
+        </div>
+
+        {visitedUserData.professionalInfo.wantsToCofound ? (
+          <div className="mt-2 flex justify-between">
+            <p>I want to join someone else's startup as a co-founder</p>
+            <input
+              type="checkbox"
+              className="checkbox checkbox-primary checkbox-sm"
+              checked={visitedUserData.professionalInfo.wantsToCofound}
+            />
+          </div>
+        ) : (
+          <div className="mt-2">
+            {visitedUserData.professionalInfo.startupDescription.length === 0 ? (
+              <p className="text-accent">
+                {visitedUserData.basicInfo.firstName + " is still working on this section."}
+              </p>
+            ) : (
+              <p>{visitedUserData.professionalInfo.startupDescription}</p>
+            )}
+            <div className="mt-2">
+              {visitedUserData.professionalInfo.startupStage ? (
+                <GenericChip chipText={visitedUserData.professionalInfo.startupStage} />
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
