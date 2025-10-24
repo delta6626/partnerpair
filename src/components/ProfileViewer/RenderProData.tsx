@@ -1,5 +1,5 @@
 import type { DisplayableUserPro } from "../../../shared/types/DisplayableUserPro";
-import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 
@@ -155,6 +155,25 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
             listItems={visitedUserData.matchingPreferences.lookingForSkills}
             fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred skills yet."}
           />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">My Socials</h1>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {Object.keys(visitedUserData.socialLinks).map((linkItem) => {
+            return (
+              <GenericChip
+                chipText={linkItem[0].toUpperCase() + linkItem.slice(1)}
+                onClick={() => {
+                  const url = visitedUserData.socialLinks[linkItem as keyof typeof visitedUserData.socialLinks];
+                  if (url) window.open(url, "_blank");
+                }}
+              >
+                <ExternalLink size={20} />
+              </GenericChip>
+            );
+          })}
         </div>
       </div>
     </div>
