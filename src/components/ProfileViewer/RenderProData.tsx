@@ -74,6 +74,16 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
           />
         </div>
       </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">My Skills</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.professionalInfo.skills}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any skills yet."}
+          />
+        </div>
+      </div>
     </div>
   );
 };
