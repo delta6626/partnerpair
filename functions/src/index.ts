@@ -96,6 +96,6 @@ export const getVisitedUserProfileData = onCall(async (request) => {
       return await getVisitedUserProfileDataBasic(userId, visitedUserId);
     }
   } catch (error: unknown) {
-    throw new HttpsError("internal", "Failed to fetch user tier.");
+    throw new HttpsError("internal", `Failed to fetch user tier: ${error}`);
   }
 });
