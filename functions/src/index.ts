@@ -49,7 +49,6 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
   if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
 
   const visitedUserData = visitedUserDoc.data() as User;
-
   const displayableVisitedUserData: DisplayableUserBasic = {
     basicInfo: {
       firstName: visitedUserData.basicInfo.firstName,
@@ -78,6 +77,8 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
       preferredCompanyStage: visitedUserData.matchingPreferences.preferredCompanyStage,
     },
   };
+
+  return displayableVisitedUserData;
 };
 
 export const getVisitedUserProfileData = onCall(async (request) => {
