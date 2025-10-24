@@ -50,7 +50,7 @@ export const ViewUserProfile = () => {
 
   return (
     <div className="">
-      {loading ? (
+      {loading || !visitedUserDataLoaded ? (
         <div className="w-full h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />
         </div>
