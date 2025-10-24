@@ -12,6 +12,8 @@ import { httpsCallable } from "firebase/functions";
 import { useEffect, useState } from "react";
 import type { DisplayableUserPro } from "../../shared/types/DisplayableUserPro";
 import type { DisplayableUserBasic } from "../../shared/types/DisplayableUserBasic";
+import { RenderProData } from "../components/ProfileViewer/RenderProData";
+import { RenderBasicData } from "../components/ProfileViewer/RenderBasicData";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -64,9 +66,9 @@ export const ViewUserProfile = () => {
             <div className="">An error occurred: {error}</div>
           ) : visitedUser ? (
             "socialLinks" in visitedUser ? (
-              <div></div>
+              <RenderProData visitedUserData={visitedUser} />
             ) : (
-              <div></div>
+              <RenderBasicData visitedUserData={visitedUser} />
             )
           ) : (
             ""
