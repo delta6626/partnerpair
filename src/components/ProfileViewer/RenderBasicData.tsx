@@ -160,6 +160,11 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
           />
         </div>
       </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">My Socials</h1>
+        <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
+      </div>
     </div>
   );
 };
