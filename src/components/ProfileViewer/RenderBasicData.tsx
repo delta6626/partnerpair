@@ -37,17 +37,17 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
                   <p className="flex gap-2">
                     <MapPin size={20} className="text-accent" /> {visitedUserData.basicInfo.location}
                   </p>
-                  <p className="flex gap-2">
-                    <Clock size={20} className="text-accent" /> {PROFILE_VIEWER.PRO_ONLY}
+                  <p className="flex gap-2 text-accent">
+                    <Clock size={20} /> {PROFILE_VIEWER.PRO_ONLY}
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 text-accent">
                   <p className="flex gap-2">
-                    <Phone size={20} className="text-accent" /> {PROFILE_VIEWER.PRO_ONLY}
+                    <Phone size={20} /> {PROFILE_VIEWER.PRO_ONLY}
                   </p>
                   <p className="flex gap-2">
-                    <Zap size={20} className="text-accent" /> {PROFILE_VIEWER.PRO_ONLY}
+                    <Zap size={20} /> {PROFILE_VIEWER.PRO_ONLY}
                   </p>
                 </div>
               </div>
