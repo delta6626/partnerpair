@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { UpgradeTierButton } from "../user/UpgradeTierButton";
+import { useInitializeUser } from "../../hooks/useInitializeUser";
 
 export const MainNavbarNavigationItems = () => {
+  const { user, loading } = useInitializeUser();
+
   return (
     <div className="">
-      <UpgradeTierButton />
+      {!loading && user?.basicInfo.tier != "Pro" ? <UpgradeTierButton /> : ""}
       <Link to={"/dashboard"} className="btn bg-transparent border-none hover:text-primary">
         Dashboard
       </Link>
