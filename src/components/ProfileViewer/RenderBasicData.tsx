@@ -34,21 +34,35 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
 
               <div className="flex gap-4 mt-4">
                 <div className="flex flex-col gap-2">
-                  <p className="flex gap-2">
-                    <MapPin size={20} className="text-accent" /> {visitedUserData.basicInfo.location}
-                  </p>
-                  <p className="flex gap-2 text-accent">
-                    <Clock size={20} /> {PROFILE_VIEWER.PRO_ONLY}
-                  </p>
+                  <div className="flex gap-2 items-center">
+                    <div className="tooltip tooltip-top" data-tip={"Location"}>
+                      <MapPin size={20} className="text-accent" />
+                    </div>
+                    {visitedUserData.basicInfo.location}
+                  </div>
+
+                  <div className="flex gap-2 items-center text-accent">
+                    <div className="tooltip tooltip-top" data-tip={"Commitment"}>
+                      <Clock size={20} />
+                    </div>
+                    {PROFILE_VIEWER.PRO_ONLY}
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-2 text-accent">
-                  <p className="flex gap-2">
-                    <Phone size={20} /> {PROFILE_VIEWER.PRO_ONLY}
-                  </p>
-                  <p className="flex gap-2">
-                    <Zap size={20} /> {PROFILE_VIEWER.PRO_ONLY}
-                  </p>
+                  <div className="flex gap-2 items-center text-accent">
+                    <div className="tooltip tooltip-top" data-tip={"Phone"}>
+                      <Phone size={20} />
+                    </div>
+                    {PROFILE_VIEWER.PRO_ONLY}
+                  </div>
+
+                  <div className="flex gap-2 items-center text-accent">
+                    <div className="tooltip tooltip-top" data-tip={"Availability"}>
+                      <Zap size={20} />
+                    </div>
+                    {PROFILE_VIEWER.PRO_ONLY}
+                  </div>
                 </div>
               </div>
             </div>
