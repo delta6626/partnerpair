@@ -53,7 +53,9 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
 
             <div className="">
               <button className={`btn ${!visitedUserData.basicInfo.addedToContactList ? "btn-primary" : "btn-error"}`}>
-                {!visitedUserData.basicInfo.addedToContactList ? "Add Contact" : "Remove Contact"}
+                {!visitedUserData.basicInfo.addedToContactList
+                  ? PROFILE_VIEWER.ADD_CONTACT
+                  : PROFILE_VIEWER.REMOVE_CONTACT}
               </button>
             </div>
           </div>
