@@ -1,6 +1,8 @@
 import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import type { DisplayableUserBasic } from "../../../shared/types/DisplayableUserBasic";
 import { PROFILE_VIEWER } from "../../../shared/constants/PROFILE_VIEWER";
+import { GenericChipCollection } from "./GenericChipCollection";
+import { GenericChip } from "./GenericChip";
 
 export const RenderBasicData = ({ visitedUserData }: { visitedUserData: DisplayableUserBasic }) => {
   return (
@@ -60,6 +62,69 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">About Me</h1>
+        <p className="mt-2">{visitedUserData.professionalInfo.bio}</p>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">Roles I Play</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.professionalInfo.roles}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any roles yet."}
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <h1 className="text-lg font-medium">My Skills</h1>
+        <div className="mt-2">
+          <GenericChipCollection
+            listItems={visitedUserData.professionalInfo.skills}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any skills yet."}
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <div className="">
+          {visitedUserData.professionalInfo.wantsToCofound ? (
+            <h1 className="text-lg font-medium">Startup</h1>
+          ) : (
+            <h1 className="text-lg font-medium">My Startup</h1>
+          )}
+        </div>
+
+        {visitedUserData.professionalInfo.wantsToCofound ? (
+          <div className="mt-2 flex justify-between">
+            <p>I want to join someone else's startup as a co-founder</p>
+            <input
+              type="checkbox"
+              className="checkbox checkbox-primary checkbox-sm"
+              checked={visitedUserData.professionalInfo.wantsToCofound}
+            />
+          </div>
+        ) : (
+          <div className="mt-2">
+            {visitedUserData.professionalInfo.startupDescription.length === 0 ? (
+              <p className="text-accent">
+                {visitedUserData.basicInfo.firstName + " is still working on this section."}
+              </p>
+            ) : (
+              <p>{visitedUserData.professionalInfo.startupDescription}</p>
+            )}
+            <div className="mt-2">
+              {visitedUserData.professionalInfo.startupStage ? (
+                <GenericChip chipText={visitedUserData.professionalInfo.startupStage} />
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
