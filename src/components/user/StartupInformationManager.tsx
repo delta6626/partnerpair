@@ -137,11 +137,11 @@ export const StartupInformationManager = () => {
             <option value="" disabled>
               Select an option
             </option>
-            <option value="idea">Idea</option>
-            <option value="buildingMVP">Building MVP</option>
-            <option value="justLaunched">Just Launched</option>
-            <option value="growing">Growing</option>
-            <option value="established">Established</option>
+            <option value="Idea">Idea</option>
+            <option value="Building MVP">Building MVP</option>
+            <option value="Just Launched">Just Launched</option>
+            <option value="Growing">Growing</option>
+            <option value="Established">Established</option>
           </select>
         </div>
 
