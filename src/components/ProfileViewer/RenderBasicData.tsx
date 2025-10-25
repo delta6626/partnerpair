@@ -1,4 +1,4 @@
-import { CircleStar, MapPin } from "lucide-react";
+import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
 import type { DisplayableUserBasic } from "../../../shared/types/DisplayableUserBasic";
 
 export const RenderBasicData = ({ visitedUserData }: { visitedUserData: DisplayableUserBasic }) => {
@@ -33,6 +33,18 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
                 <div className="flex flex-col gap-2">
                   <p className="flex gap-2">
                     <MapPin size={20} className="text-accent" /> {visitedUserData.basicInfo.location}
+                  </p>
+                  <p className="flex gap-2">
+                    <Clock size={20} className="text-accent" /> {"Get Pro"}
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <p className="flex gap-2">
+                    <Phone size={20} className="text-accent" /> {"Get Pro"}
+                  </p>
+                  <p className="flex gap-2">
+                    <Zap size={20} className="text-accent" /> {"Get Pro"}
                   </p>
                 </div>
               </div>
