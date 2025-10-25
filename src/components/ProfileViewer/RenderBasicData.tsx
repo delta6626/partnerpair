@@ -126,6 +126,20 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
           </div>
         )}
       </div>
+
+      {visitedUserData.professionalInfo.wantsToCofound ? (
+        <div className="mt-4">
+          <h1 className="text-lg font-medium">My Preferred Startup Stages</h1>
+          <div className="mt-2">
+            <GenericChipCollection
+              listItems={visitedUserData.matchingPreferences.preferredCompanyStage as string[]}
+              fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred stages yet."}
+            />
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
