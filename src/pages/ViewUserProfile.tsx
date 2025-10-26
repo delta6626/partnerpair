@@ -10,7 +10,6 @@ import type { DisplayableUserPro } from "../../shared/types/DisplayableUserPro";
 import type { DisplayableUserBasic } from "../../shared/types/DisplayableUserBasic";
 import { RenderProData } from "../components/ProfileViewer/RenderProData";
 import { RenderBasicData } from "../components/ProfileViewer/RenderBasicData";
-import { Frown } from "lucide-react";
 
 export const ViewUserProfile = () => {
   useTheme();
