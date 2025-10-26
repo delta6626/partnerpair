@@ -34,7 +34,6 @@ const getVisitedUserProfileDataPro = async (userId: string, visitedUserId: strin
       createdAt: visitedUserData.basicInfo.createdAt,
       lastActiveAt: visitedUserData.basicInfo.lastActiveAt,
       tier: visitedUserData.basicInfo.tier,
-      addedToContactList: visitedUserData.basicInfo.contactList.includes(userId),
     },
     professionalInfo: visitedUserData.professionalInfo,
     matchingPreferences: visitedUserData.matchingPreferences,
@@ -57,7 +56,6 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
       tier: visitedUserData.basicInfo.tier,
       profileImageUrl: visitedUserData.basicInfo.profileImageUrl,
       lastActiveAt: visitedUserData.basicInfo.lastActiveAt,
-      addedToContactList: visitedUserData.basicInfo.contactList.includes(userId),
     },
 
     professionalInfo: {
