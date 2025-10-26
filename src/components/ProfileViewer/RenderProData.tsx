@@ -67,9 +67,7 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
             </div>
 
             <div className="">
-              <button className={`btn ${!visitedUserData.basicInfo.addedToContactList ? "btn-primary" : "btn-error"}`}>
-                {!visitedUserData.basicInfo.addedToContactList ? "Add Contact" : "Remove Contact"}
-              </button>
+              <button className="btn btn-primary">Chat</button>
             </div>
           </div>
         </div>
