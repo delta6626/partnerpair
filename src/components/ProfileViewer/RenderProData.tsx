@@ -67,7 +67,7 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
             </div>
 
             <div className="">
-              <button className="btn btn-primary">Chat</button>
+              <button className="btn btn-primary">Message</button>
             </div>
           </div>
         </div>
