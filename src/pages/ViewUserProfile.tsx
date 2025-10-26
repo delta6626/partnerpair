@@ -10,6 +10,7 @@ import type { DisplayableUserPro } from "../../shared/types/DisplayableUserPro";
 import type { DisplayableUserBasic } from "../../shared/types/DisplayableUserBasic";
 import { RenderProData } from "../components/ProfileViewer/RenderProData";
 import { RenderBasicData } from "../components/ProfileViewer/RenderBasicData";
+import { Frown } from "lucide-react";
 
 export const ViewUserProfile = () => {
   useTheme();
@@ -60,9 +61,9 @@ export const ViewUserProfile = () => {
 
           <div className="w-full flex flex-col items-center py-10">
             {error ? (
-              <div className="">
-                <h1 className="text-3xl font-bold">An error occured</h1>
-                <p>{error}</p>
+              <div className="p-8 rounded-md">
+                <h1 className="text-4xl font-bold">Whoops! An error occured.</h1>
+                <h1 className="text-accent">{error}</h1>
               </div>
             ) : visitedUser ? (
               "socialLinks" in visitedUser ? (
