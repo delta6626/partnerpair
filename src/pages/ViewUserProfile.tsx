@@ -60,7 +60,10 @@ export const ViewUserProfile = () => {
 
           <div className="w-full flex flex-col items-center py-10">
             {error ? (
-              <div className="">An error occurred: {error}</div>
+              <div className="">
+                <h1 className="text-3xl font-bold">An error occured</h1>
+                <p>{error}</p>
+              </div>
             ) : visitedUser ? (
               "socialLinks" in visitedUser ? (
                 <RenderProData visitedUserData={visitedUser} />
