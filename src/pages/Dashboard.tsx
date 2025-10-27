@@ -1,5 +1,6 @@
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
+import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 
@@ -20,7 +21,10 @@ export const Dashboard = () => {
           </div>
 
           <div className="py-8">
-            <div>
+            <div className="mb-4">
+              <ProfileStatusMessage />
+            </div>
+            <div className="">
               <h1 className="text-3xl font-bold">Hello, {user?.basicInfo.firstName}</h1>
               <h1 className="text-xl text-accent">Here's what's happening with your cofounder search.</h1>
             </div>
