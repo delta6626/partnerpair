@@ -1,6 +1,6 @@
+import { DashboardHeader } from "../components/DashboardHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
-import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 
@@ -19,6 +19,8 @@ export const Dashboard = () => {
           <div className="py-4">
             <MainNavbar />
           </div>
+
+          <DashboardHeader user={user} />
         </div>
       )}
     </div>

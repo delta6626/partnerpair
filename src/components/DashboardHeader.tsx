@@ -1,7 +1,7 @@
 import type { User } from "../../shared/types/User";
 import { ProfileStatusMessage } from "./user/ProfileStatusMessage";
 
-export const DashboardHeader = ({ user }: { user: User }) => {
+export const DashboardHeader = ({ user }: { user: User | null }) => {
   return (
     <div className="py-8">
       <div className="mb-4">
