@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { AlertCircle, X } from "lucide-react";
 import { profileComplete } from "../../../shared/utils/profileComplete";
+import { useProfileStatusVisibleStore } from "../../store/useProfileStatusVisibleStore";
 
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
-  const [visible, setVisible] = useState<boolean>(true);
+  const { statusVisible, setStatusVisible } = useProfileStatusVisibleStore();
   const [message, setMessage] = useState<string>("");
 
   const handleDismiss = () => {
-    setVisible(false);
+    setStatusVisible(false);
   };
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const ProfileStatusMessage = () => {
 
   return (
     <div className="">
-      {!user?.basicInfo.profileCompleted && visible ? (
+      {!user?.basicInfo.profileCompleted && statusVisible ? (
         <div className="bg-warning text-warning-content rounded-2xl p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
