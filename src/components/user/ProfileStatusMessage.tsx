@@ -7,6 +7,7 @@ import { useProfileStatusVisibleStore } from "../../store/useProfileStatusVisibl
 export const ProfileStatusMessage = () => {
   const { user } = useInitializeUser();
   const { statusVisible, setStatusVisible } = useProfileStatusVisibleStore();
+
   const [message, setMessage] = useState<string>("");
 
   const handleDismiss = () => {
