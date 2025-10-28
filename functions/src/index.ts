@@ -79,6 +79,8 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
   return displayableVisitedUserData;
 };
 
+const addProfileViewRecord = (visitedUserId: string) => {};
+
 export const getVisitedUserProfileData = onCall(async (request) => {
   const userId = request.auth?.uid;
   const visitedUserId = request.data.visitedUserId;
