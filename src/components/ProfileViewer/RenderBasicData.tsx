@@ -34,12 +34,14 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
 
               <div className="flex gap-4 mt-4">
                 <div className="flex flex-col gap-2">
-                  <div className="flex gap-2 items-center">
-                    <div className="tooltip tooltip-top" data-tip={"Location"}>
-                      <MapPin size={20} className="text-accent" />
+                  {visitedUserData.basicInfo.location && (
+                    <div className="flex items-center gap-2">
+                      <div className="tooltip tooltip-top" data-tip="Location">
+                        <MapPin size={20} className="text-accent cursor-pointer" />
+                      </div>
+                      <span>{visitedUserData.basicInfo.location}</span>
                     </div>
-                    {visitedUserData.basicInfo.location}
-                  </div>
+                  )}
 
                   <div className="flex gap-2 items-center text-accent">
                     <div className="tooltip tooltip-top" data-tip={"Commitment"}>
