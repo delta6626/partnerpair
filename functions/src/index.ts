@@ -6,6 +6,7 @@ import { User } from "./shared/types/User";
 import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
 import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
 import { ViewerMetaData } from "./shared/types/ViewerMetaData";
+import { Timestamp } from "firebase/firestore";
 
 admin.initializeApp();
 
@@ -84,7 +85,7 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   if (userId === visitedUserId) return; // Ignore self views.
 
   const viewRecord: ViewerMetaData = {
-    viewedAt: new Date(),
+    viewedAt: Timestamp.fromDate(new Date()),
     viewerId: userId,
   };
 
@@ -135,5 +136,8 @@ export const getProfileViewCountData = onCall(async (request) => {
   const userProfileViewCountData = await db.collection("users").doc(userId).collection("profileViews").get();
 
   if (userTier === "Basic") {
+    const currentDate = new Date();
+    let last7DaysViewCount = 0;
+    userProfileViewCountData.docs.forEach((doc) => {});
   }
 });
