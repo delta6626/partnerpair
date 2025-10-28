@@ -62,12 +62,14 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
                     </div>
                   )}
 
-                  <div className="flex items-center gap-2">
-                    <div className="tooltip tooltip-top" data-tip="Availability">
-                      <Zap size={20} className="text-accent cursor-pointer" />
+                  {visitedUserData.professionalInfo.availability && (
+                    <div className="flex items-center gap-2">
+                      <div className="tooltip tooltip-top" data-tip="Availability">
+                        <Zap size={20} className="text-accent cursor-pointer" />
+                      </div>
+                      <span>{visitedUserData.professionalInfo.availability}</span>
                     </div>
-                    <span>{visitedUserData.professionalInfo.availability}</span>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
