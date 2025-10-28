@@ -1,4 +1,6 @@
+import type { Timestamp } from "firebase/firestore";
+
 export interface ViewerMetaData {
   viewerId: string;
-  viewedAt: Date;
+  viewedAt: Timestamp;
 }
