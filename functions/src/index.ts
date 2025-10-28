@@ -80,11 +80,18 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
   return displayableVisitedUserData;
 };
 
-const addProfileViewRecord = (userId: string, visitedUserId: string) => {
+const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   const viewRecord: ViewerMetaData = {
     viewedAt: new Date(),
     viewerId: userId,
   };
+
+  try {
+    const profileViewsCollection = db.collection("users").doc(visitedUserId).collection("profileViews");
+    await profileViewsCollection.add(viewRecord);
+  } catch (error: unknown) {
+    throw new HttpsError("internal", `${error}`);
+  }
 };
 
 export const getVisitedUserProfileData = onCall(async (request) => {
