@@ -81,6 +81,8 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
 };
 
 const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
+  if (userId === visitedUserId) return; // Ignore self views.
+
   const viewRecord: ViewerMetaData = {
     viewedAt: new Date(),
     viewerId: userId,
