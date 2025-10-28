@@ -83,7 +83,10 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
 
       <div className="mt-4">
         <h1 className="text-lg font-medium">About Me</h1>
-        <p className="mt-2">{visitedUserData.professionalInfo.bio}</p>
+        <p className={`mt-2 ${visitedUserData.professionalInfo.bio === "" ? "text-center text-accent" : ""}`}>
+          {visitedUserData.professionalInfo.bio ||
+            `${visitedUserData.basicInfo.firstName + " has not added a bio yet."}`}
+        </p>
       </div>
 
       <div className="mt-4">
