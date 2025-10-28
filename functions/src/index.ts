@@ -125,3 +125,15 @@ export const getVisitedUserProfileData = onCall(async (request) => {
     throw new HttpsError("internal", `${error}`);
   }
 });
+
+export const getProfileViewCountData = onCall(async (request) => {
+  const userId = request.auth?.uid;
+
+  if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
+
+  const userTier = await fetchUserTier(userId);
+  const userProfileViewCountData = await db.collection("users").doc(userId).collection("profileViews").get();
+
+  if (userTier === "Basic") {
+  }
+});
