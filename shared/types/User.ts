@@ -5,7 +5,6 @@ import type { UserEducation } from "./UserEducation";
 import type { UserPreferredCompanyStage } from "./UserPreferredCompanyStage";
 import type { UserRole } from "./UserRole";
 import type { UserTier } from "./UserTier";
-import type { ViewerMetaData } from "./ViewerMetaData";
 
 export interface User {
   basicInfo: {
@@ -20,7 +19,6 @@ export interface User {
     authenticationMethod: AuthMethod;
     profileImageUrl: string;
     profileCompleted: boolean;
-    profileViews: ViewerMetaData[];
     contactList: string[];
     createdAt: Date;
     lastActiveAt: Date;

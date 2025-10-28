@@ -5,6 +5,7 @@ import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
 import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
 import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
+import { ViewerMetaData } from "./shared/types/ViewerMetaData";
 
 admin.initializeApp();
 
@@ -79,7 +80,12 @@ const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: str
   return displayableVisitedUserData;
 };
 
-const addProfileViewRecord = (visitedUserId: string) => {};
+const addProfileViewRecord = (userId: string, visitedUserId: string) => {
+  const viewRecord: ViewerMetaData = {
+    viewedAt: new Date(),
+    viewerId: userId,
+  };
+};
 
 export const getVisitedUserProfileData = onCall(async (request) => {
   const userId = request.auth?.uid;
