@@ -89,6 +89,13 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   };
 
   try {
+    const userDocRef = db.collection("users").doc(visitedUserId);
+    const userDocSnap = await userDocRef.get();
+
+    if (!userDocSnap.exists) {
+      throw new HttpsError("not-found", `User with ID ${visitedUserId} does not exist.`);
+    }
+
     const profileViewsCollection = db.collection("users").doc(visitedUserId).collection("profileViews");
     await profileViewsCollection.add(viewRecord);
   } catch (error: unknown) {
