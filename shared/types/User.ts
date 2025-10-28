@@ -19,7 +19,7 @@ export interface User {
     authenticationMethod: AuthMethod;
     profileImageUrl: string;
     profileCompleted: boolean;
-    profileViews: number;
+    profileViews: {};
     contactList: string[];
     createdAt: Date;
     lastActiveAt: Date;
