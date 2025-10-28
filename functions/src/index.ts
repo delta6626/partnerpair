@@ -105,6 +105,7 @@ export const getVisitedUserProfileData = onCall(async (request) => {
 
   try {
     addProfileViewRecord(userId, visitedUserId); // Fire and Forget.
+
     const userTier = await fetchUserTier(userId);
     if (userTier === "Pro") {
       return await getVisitedUserProfileDataPro(userId, visitedUserId);
