@@ -104,6 +104,7 @@ export const getVisitedUserProfileData = onCall(async (request) => {
   if (!visitedUserId) throw new HttpsError("invalid-argument", "Missing visitedUserId argument.");
 
   try {
+    addProfileViewRecord(userId, visitedUserId); // Fire and Forget.
     const userTier = await fetchUserTier(userId);
     if (userTier === "Pro") {
       return await getVisitedUserProfileDataPro(userId, visitedUserId);
