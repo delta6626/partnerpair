@@ -147,4 +147,11 @@ export const getProfileViewCount = onCall(async (request) => {
   }
 });
 
-export const getProfileViewData = onCall(async (request) => {});
+export const getProfileViewData = onCall(async (request) => {
+  const userId = request.auth?.uid;
+
+  if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
+  const userTier = await fetchUserTier(userId);
+
+  if (userTier === "Basic") throw new HttpsError("permission-denied", "This feature is only available for Pro users.");
+});
