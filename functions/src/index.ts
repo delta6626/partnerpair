@@ -128,7 +128,7 @@ export const getVisitedUserProfileData = onCall(async (request) => {
   }
 });
 
-export const getProfileViewCountData = onCall(async (request) => {
+export const getProfileViewCount = onCall(async (request) => {
   const userId = request.auth?.uid;
 
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
