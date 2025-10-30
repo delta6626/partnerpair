@@ -146,3 +146,5 @@ export const getProfileViewCount = onCall(async (request) => {
     return [last7DaysViewCount, last30DaysViewCount, last90DaysViewCount];
   }
 });
+
+export const getProfileViewData = onCall(async (request) => {});
