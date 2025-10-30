@@ -136,19 +136,5 @@ export const getProfileViewCountData = onCall(async (request) => {
   const userProfileViewCountData = await db.collection("users").doc(userId).collection("profileViews").get();
 
   if (userTier === "Basic") {
-    const currentDate = new Date();
-    let last7DaysViewCount = 0;
-    userProfileViewCountData.docs.forEach((doc) => {
-      const viewerData: ViewerMetaData = doc.data() as ViewerMetaData;
-      const viewDate = viewerData.viewedAt.toDate();
-
-      // Calculate difference in days
-      const diffInMs = currentDate.getTime() - viewDate.getTime();
-      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-      if (diffInDays <= 7) last7DaysViewCount++;
-    });
-
-    return last7DaysViewCount;
   }
 });
