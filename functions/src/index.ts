@@ -7,6 +7,7 @@ import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
 import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
 import { ViewerMetaData } from "./shared/types/ViewerMetaData";
 import { Timestamp } from "firebase/firestore";
+import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileViewCountWithinTimePeriod";
 
 admin.initializeApp();
 
@@ -136,5 +137,7 @@ export const getProfileViewCountData = onCall(async (request) => {
   const userProfileViewCountData = await db.collection("users").doc(userId).collection("profileViews").get();
 
   if (userTier === "Basic") {
+    const last7DaysViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 7);
+    return last7DaysViewCount;
   }
 });
