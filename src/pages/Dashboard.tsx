@@ -6,6 +6,8 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { functions } from "../services/firebaseConfig";
 import { httpsCallable } from "firebase/functions";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import { STALE_TIME } from "../../shared/constants/STALE_TIME";
 
 export const Dashboard = () => {
   useTheme();
@@ -13,8 +15,9 @@ export const Dashboard = () => {
 
   const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["profileViewCount"],
+    queryKey: [QUERY_KEYS.PROFILE_VIEW_COUNT],
     queryFn: getProfileViewCount,
+    staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
   return (
