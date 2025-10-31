@@ -21,7 +21,7 @@ const fetchUserTier = async (userId: string): Promise<UserTier> => {
   return userTier as UserTier;
 };
 
-const getVisitedUserProfileDataPro = async (userId: string, visitedUserId: string) => {
+const getVisitedUserProfileDataPro = async (visitedUserId: string) => {
   const visitedUserDoc = await db.collection("users").doc(visitedUserId).get();
   if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
 
@@ -46,7 +46,7 @@ const getVisitedUserProfileDataPro = async (userId: string, visitedUserId: strin
   return displayableVisitedUserData;
 };
 
-const getVisitedUserProfileDataBasic = async (userId: string, visitedUserId: string) => {
+const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {
   const visitedUserDoc = await db.collection("users").doc(visitedUserId).get();
   if (!visitedUserDoc.exists) throw new HttpsError("not-found", "This user does not exist.");
 
@@ -119,9 +119,9 @@ export const getVisitedUserProfileData = onCall(async (request) => {
 
     const userTier = await fetchUserTier(userId);
     if (userTier === "Pro") {
-      return await getVisitedUserProfileDataPro(userId, visitedUserId);
+      return await getVisitedUserProfileDataPro(visitedUserId);
     } else {
-      return await getVisitedUserProfileDataBasic(userId, visitedUserId);
+      return await getVisitedUserProfileDataBasic(visitedUserId);
     }
   } catch (error: unknown) {
     throw new HttpsError("internal", `${error}`);
