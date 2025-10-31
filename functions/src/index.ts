@@ -154,4 +154,7 @@ export const getProfileViewData = onCall(async (request) => {
   const userTier = await fetchUserTier(userId);
 
   if (userTier === "Basic") throw new HttpsError("permission-denied", "This feature is only available for Pro users.");
+
+  const userProfileViewCountData = await db.collection("users").doc(userId).collection("profileViews").get();
+  return userProfileViewCountData.docs;
 });
