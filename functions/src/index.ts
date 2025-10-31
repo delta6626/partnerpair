@@ -6,7 +6,7 @@ import { User } from "./shared/types/User";
 import { DisplayableUserPro } from "./shared/types/DisplayableUserPro";
 import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
 import { ViewerMetaData } from "./shared/types/ViewerMetaData";
-import { Timestamp } from "firebase/firestore";
+import { Timestamp } from "firebase-admin/firestore";
 import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileViewCountWithinTimePeriod";
 
 admin.initializeApp();
