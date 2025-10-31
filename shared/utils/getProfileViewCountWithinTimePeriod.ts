@@ -1,4 +1,4 @@
-import type { DocumentData } from "firebase/firestore";
+import type { DocumentData } from "firebase-admin/firestore";
 import type { ViewerMetaData } from "../types/ViewerMetaData";
 
 export const getProfileViewCountWithinTimePeriod = (documentArray: DocumentData[], timePeriod: number) => {
