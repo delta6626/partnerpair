@@ -1,12 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import { DashboardHeader } from "../components/DashboardHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import { functions } from "../services/firebaseConfig";
+import { httpsCallable } from "firebase/functions";
 
 export const Dashboard = () => {
   useTheme();
   const { user, loading } = useInitializeUser();
+
+  const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["profileViewCount"],
+    queryFn: getProfileViewCount,
+  });
 
   return (
     <div className="">
