@@ -16,7 +16,10 @@ export const Dashboard = () => {
   const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
   const { data, isLoading, isError, error } = useQuery({
     queryKey: [QUERY_KEYS.PROFILE_VIEW_COUNT],
-    queryFn: getProfileViewCount,
+    queryFn: async () => {
+      const response = await getProfileViewCount();
+      return response.data as number | number[];
+    },
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
