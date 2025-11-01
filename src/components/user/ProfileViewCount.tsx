@@ -65,6 +65,20 @@ export const ProfileViewCount = () => {
           <option value={"last90Days"}>Last 90 Days</option>
         </select>
       </div>
+
+      <div className="">
+        {viewCount && (
+          <h1 className="text-3xl font-bold">
+            {typeof viewCount === "number"
+              ? viewCount
+              : timePeriod === "last7Days"
+              ? viewCount[0]
+              : timePeriod === "last30Days"
+              ? viewCount[1]
+              : viewCount[2]}
+          </h1>
+        )}
+      </div>
     </div>
   );
 };
