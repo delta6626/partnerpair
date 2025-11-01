@@ -5,6 +5,7 @@ import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { ChartLine } from "lucide-react";
 import type { UserTier } from "../../../shared/types/UserTier";
+import { useState, type ChangeEvent } from "react";
 
 export const ProfileViewCount = () => {
   const getUserTier = httpsCallable(functions, "getUserTier");
@@ -40,6 +41,12 @@ export const ProfileViewCount = () => {
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
+  const [timePeriod, setTimePeriod] = useState<string>("last7Days");
+
+  const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setTimePeriod(e.target.value);
+  };
+
   return (
     <div className="p-4 rounded-md bg-base-200 w-fit flex flex-col gap-2">
       <div className="flex items-center gap-8">
@@ -47,7 +54,12 @@ export const ProfileViewCount = () => {
           <ChartLine size={20} /> Profile
         </h1>
 
-        <select className="select select-sm" value={"last7Days"} disabled={userTier === "Basic"}>
+        <select
+          className="select select-sm"
+          value={timePeriod}
+          disabled={userTier === "Basic"}
+          onChange={handleTimePeriodChange}
+        >
           <option value={"last7Days"}>Last 7 Days</option>
           <option value={"last30Days"}>Last 30 Days</option>
           <option value={"last90Days"}>Last 90 Days</option>
