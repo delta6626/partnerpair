@@ -7,7 +7,12 @@ import { ChartLine } from "lucide-react";
 
 export const ProfileViewCount = () => {
   const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
-  const { data, isLoading, isError, error } = useQuery({
+  const {
+    data: viewCount,
+    isLoading: isViewCountLoading,
+    isError: isViewCountError,
+    error: viewCountError,
+  } = useQuery({
     queryKey: [QUERY_KEYS.PROFILE_VIEW_COUNT],
     queryFn: async () => {
       const response = await getProfileViewCount();
