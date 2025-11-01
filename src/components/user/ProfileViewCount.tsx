@@ -25,8 +25,6 @@ export const ProfileViewCount = () => {
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
-  console.log(userTier);
-
   const {
     data: viewCount,
     isLoading: isViewCountLoading,
