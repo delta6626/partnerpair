@@ -24,6 +24,8 @@ export const ProfileViewCount = () => {
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
+  console.log(userTier);
+
   const {
     data: viewCount,
     isLoading: isViewCountLoading,
@@ -42,10 +44,14 @@ export const ProfileViewCount = () => {
     <div className="p-4 rounded-md bg-base-200 w-fit flex flex-col gap-2">
       <div className="flex items-center gap-8">
         <h1 className="flex shrink-0 gap-2">
-          <ChartLine size={20} /> Profile Views
+          <ChartLine size={20} /> Profile
         </h1>
 
-        <select className="select select-sm"></select>
+        <select className="select select-sm" value={"last7Days"} disabled={userTier === "Basic"}>
+          <option value={"last7Days"}>Last 7 Days</option>
+          <option value={"last30Days"}>Last 30 Days</option>
+          <option value={"last90Days"}>Last 90 Days</option>
+        </select>
       </div>
     </div>
   );
