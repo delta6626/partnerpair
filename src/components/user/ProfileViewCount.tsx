@@ -4,9 +4,26 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { ChartLine } from "lucide-react";
+import type { UserTier } from "../../../shared/types/UserTier";
 
 export const ProfileViewCount = () => {
+  const getUserTier = httpsCallable(functions, "getUserTier");
   const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
+
+  const {
+    data: userTier,
+    isLoading: isUserTierLoading,
+    isError: isUserTierError,
+    error: userTierError,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.USER_TIER],
+    queryFn: async () => {
+      const response = await getUserTier();
+      return response.data as UserTier;
+    },
+    staleTime: STALE_TIME.MINUTE_FIVE,
+  });
+
   const {
     data: viewCount,
     isLoading: isViewCountLoading,
