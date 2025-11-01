@@ -12,7 +12,10 @@ export const DashboardHeader = ({ user }: { user: User | null }) => {
         <h1 className="text-3xl font-bold">Hello, {user?.basicInfo.firstName}</h1>
         <h1 className="text-xl text-accent">Here's what's happening with your cofounder search.</h1>
       </div>
-      <ProfileViewCount />
+
+      <div className="mt-4">
+        <ProfileViewCount />
+      </div>
     </div>
   );
 };
