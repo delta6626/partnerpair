@@ -1,27 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
 import { DashboardHeader } from "../components/DashboardHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
-import { functions } from "../services/firebaseConfig";
-import { httpsCallable } from "firebase/functions";
-import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
-import { STALE_TIME } from "../../shared/constants/STALE_TIME";
 
 export const Dashboard = () => {
   useTheme();
   const { user, loading } = useInitializeUser();
-
-  const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: [QUERY_KEYS.PROFILE_VIEW_COUNT],
-    queryFn: async () => {
-      const response = await getProfileViewCount();
-      return response.data as number | number[];
-    },
-    staleTime: STALE_TIME.MINUTE_FIVE,
-  });
 
   return (
     <div className="">
@@ -34,7 +19,6 @@ export const Dashboard = () => {
           <div className="py-4">
             <MainNavbar />
           </div>
-
           <DashboardHeader user={user} />
         </div>
       )}
