@@ -113,7 +113,7 @@ export const getUserTier = onCall(async (request) => {
     const userTier = await fetchUserTier(userId);
     return userTier;
   } catch (error: unknown) {
-    throw new HttpsError("internal", "Failed to fetch user tier.");
+    throw new HttpsError("internal", `Failed to fetch user tier. ${error}`);
   }
 });
 
