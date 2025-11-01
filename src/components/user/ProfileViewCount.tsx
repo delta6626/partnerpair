@@ -51,7 +51,8 @@ export const ProfileViewCount = () => {
     <div className="p-4 rounded-md bg-base-200 w-fit flex flex-col gap-2">
       <div className="flex items-center gap-8">
         <h1 className="flex shrink-0 gap-2">
-          <ChartLine size={20} /> Profile
+          <ChartLine size={20} />
+          Profile Views
         </h1>
 
         <select
