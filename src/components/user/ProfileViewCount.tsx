@@ -48,41 +48,49 @@ export const ProfileViewCount = () => {
 
   return (
     <div className="p-4 rounded-3xl bg-base-200 w-fit flex flex-col gap-2">
-      <div className="flex items-center gap-4">
-        <h1 className="flex shrink-0 gap-2">
-          <ChartLine size={20} />
-          Profile Views
-        </h1>
+      {!isUserTierLoading && !isUserTierError && !isViewCountLoading && !isViewCountError && userTier && viewCount ? (
+        <div className="">
+          <div className="flex items-center gap-4">
+            <h1 className="flex shrink-0 gap-2">
+              <ChartLine size={20} />
+              Profile Views
+            </h1>
 
-        <select
-          className="select select-sm bg-base-200"
-          value={timePeriod}
-          disabled={userTier === "Basic"}
-          onChange={handleTimePeriodChange}
-        >
-          <option value={"last7Days"}>Last 7 Days</option>
-          <option value={"last30Days"}>Last 30 Days</option>
-          <option value={"last90Days"}>Last 90 Days</option>
-        </select>
-      </div>
+            <select
+              className="select select-sm bg-base-200"
+              value={timePeriod}
+              disabled={userTier === "Basic"}
+              onChange={handleTimePeriodChange}
+            >
+              <option value={"last7Days"}>Last 7 Days</option>
+              <option value={"last30Days"}>Last 30 Days</option>
+              <option value={"last90Days"}>Last 90 Days</option>
+            </select>
+          </div>
 
-      <div className="mt-2 text-center">
-        {viewCount && (
-          <h1 className="text-3xl font-bold">
-            {typeof viewCount === "number"
-              ? viewCount
-              : timePeriod === "last7Days"
-              ? viewCount[0]
-              : timePeriod === "last30Days"
-              ? viewCount[1]
-              : viewCount[2]}
-          </h1>
-        )}
+          <div className="mt-2 text-center">
+            {
+              <h1 className="text-3xl font-bold">
+                {typeof viewCount === "number"
+                  ? viewCount
+                  : timePeriod === "last7Days"
+                  ? viewCount[0]
+                  : timePeriod === "last30Days"
+                  ? viewCount[1]
+                  : viewCount[2]}
+              </h1>
+            }
 
-        <p className="mt-2 text-accent">
-          {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
-        </p>
-      </div>
+            <p className="mt-2 text-accent">
+              {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
+            </p>
+          </div>
+        </div>
+      ) : isUserTierLoading || isViewCountLoading ? (
+        <div></div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
