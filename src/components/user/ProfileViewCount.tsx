@@ -48,7 +48,7 @@ export const ProfileViewCount = () => {
   };
 
   return (
-    <div className="p-4 rounded-3xl bg-base-200 w-fit flex flex-col gap-2">
+    <div className="p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
       {!isUserTierLoading && !isUserTierError && !isViewCountLoading && !isViewCountError && userTier && viewCount ? (
         <div className="">
           <div className="flex items-center gap-4">
@@ -88,11 +88,14 @@ export const ProfileViewCount = () => {
           </div>
         </div>
       ) : isUserTierLoading || isViewCountLoading ? (
-        <div>
+        <div className="w-full flex items-center justify-center">
           <Loader />
         </div>
       ) : (
-        <div></div>
+        <div className="w-full text-center">
+          <h1 className="text-error">An error occured</h1>
+          <p className="text-accent">Please refresh the page and try again.</p>
+        </div>
       )}
     </div>
   );
