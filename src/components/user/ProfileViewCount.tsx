@@ -7,6 +7,7 @@ import { ChartLine } from "lucide-react";
 import type { UserTier } from "../../../shared/types/UserTier";
 import { useState, type ChangeEvent } from "react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
+import { Loader } from "../Loader";
 
 export const ProfileViewCount = () => {
   const getUserTier = httpsCallable(functions, "getUserTier");
@@ -87,7 +88,9 @@ export const ProfileViewCount = () => {
           </div>
         </div>
       ) : isUserTierLoading || isViewCountLoading ? (
-        <div></div>
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div></div>
       )}
