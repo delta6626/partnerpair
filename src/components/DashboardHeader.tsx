@@ -1,3 +1,4 @@
+import { DASHBOARD } from "../../shared/constants/DASHBOARD";
 import type { User } from "../../shared/types/User";
 import { ProfileStatusMessage } from "./user/ProfileStatusMessage";
 import { ProfileViewCount } from "./user/ProfileViewCount";
@@ -10,7 +11,7 @@ export const DashboardHeader = ({ user }: { user: User | null }) => {
       </div>
       <div className="">
         <h1 className="text-3xl font-bold">Hello, {user?.basicInfo.firstName}</h1>
-        <h1 className="text-xl text-accent">Here's what's happening with your cofounder search.</h1>
+        <h1 className="text-xl text-accent">{DASHBOARD.HEADER_SUB_TEXT}</h1>
       </div>
 
       <div className="mt-4">
