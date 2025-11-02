@@ -6,6 +6,7 @@ import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { ChartLine } from "lucide-react";
 import type { UserTier } from "../../../shared/types/UserTier";
 import { useState, type ChangeEvent } from "react";
+import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 
 export const ProfileViewCount = () => {
   const getUserTier = httpsCallable(functions, "getUserTier");
@@ -79,7 +80,7 @@ export const ProfileViewCount = () => {
         )}
 
         <p className="mt-2 text-accent">
-          {userTier === "Basic" ? "Upgrade to see more insights." : "Click to see more."}
+          {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
         </p>
       </div>
     </div>
