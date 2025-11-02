@@ -49,53 +49,51 @@ export const ProfileViewCount = () => {
 
   return (
     <div className="p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
-      {!isUserTierLoading && !isUserTierError && !isViewCountLoading && !isViewCountError && userTier && viewCount ? (
-        <div className="">
-          <div className="flex items-center gap-4">
-            <h1 className="flex shrink-0 gap-2">
-              <ChartLine size={20} />
-              Profile Views
-            </h1>
+      <div className="flex items-center gap-4">
+        <h1 className="flex shrink-0 gap-2 items-center">
+          <ChartLine size={20} />
+          Profile Views
+        </h1>
 
-            <select
-              className="select select-sm bg-base-200"
-              value={timePeriod}
-              disabled={userTier === "Basic"}
-              onChange={handleTimePeriodChange}
-            >
-              <option value={"last7Days"}>Last 7 Days</option>
-              <option value={"last30Days"}>Last 30 Days</option>
-              <option value={"last90Days"}>Last 90 Days</option>
-            </select>
-          </div>
+        <select
+          className="select select-sm bg-base-200"
+          value={timePeriod}
+          disabled={userTier === "Basic" || isUserTierLoading || isUserTierError}
+          onChange={handleTimePeriodChange}
+        >
+          <option value="last7Days">Last 7 Days</option>
+          <option value="last30Days">Last 30 Days</option>
+          <option value="last90Days">Last 90 Days</option>
+        </select>
+      </div>
 
+      {isUserTierLoading || isViewCountLoading ? (
+        <div className="w-full flex justify-center items-center py-4">
+          <Loader />
+        </div>
+      ) : isUserTierError || isViewCountError ? (
+        <div className="w-full text-center py-4">
+          <h1 className="text-error font-semibold">An error occurred</h1>
+          <p className="text-accent">Please refresh the page and try again.</p>
+        </div>
+      ) : (
+        userTier &&
+        viewCount && (
           <div className="mt-2 text-center">
-            {
-              <h1 className="text-3xl font-bold">
-                {typeof viewCount === "number"
-                  ? viewCount
-                  : timePeriod === "last7Days"
-                  ? viewCount[0]
-                  : timePeriod === "last30Days"
-                  ? viewCount[1]
-                  : viewCount[2]}
-              </h1>
-            }
-
+            <h1 className="text-3xl font-bold">
+              {typeof viewCount === "number"
+                ? viewCount
+                : timePeriod === "last7Days"
+                ? viewCount[0]
+                : timePeriod === "last30Days"
+                ? viewCount[1]
+                : viewCount[2]}
+            </h1>
             <p className="mt-2 text-accent">
               {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
             </p>
           </div>
-        </div>
-      ) : isUserTierLoading || isViewCountLoading ? (
-        <div className="w-full flex items-center justify-center">
-          <Loader />
-        </div>
-      ) : (
-        <div className="w-full text-center">
-          <h1 className="text-error">An error occured</h1>
-          <p className="text-accent">Please refresh the page and try again.</p>
-        </div>
+        )
       )}
     </div>
   );
