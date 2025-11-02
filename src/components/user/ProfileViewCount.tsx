@@ -46,15 +46,15 @@ export const ProfileViewCount = () => {
   };
 
   return (
-    <div className="p-4 rounded-md bg-base-200 w-fit flex flex-col gap-2">
-      <div className="flex items-center gap-8">
+    <div className="p-4 rounded-3xl bg-base-200 w-fit flex flex-col gap-2">
+      <div className="flex items-center gap-4">
         <h1 className="flex shrink-0 gap-2">
           <ChartLine size={20} />
           Profile Views
         </h1>
 
         <select
-          className="select select-sm"
+          className="select select-sm bg-base-200"
           value={timePeriod}
           disabled={userTier === "Basic"}
           onChange={handleTimePeriodChange}
@@ -65,9 +65,9 @@ export const ProfileViewCount = () => {
         </select>
       </div>
 
-      <div className="">
+      <div className="mt-4">
         {viewCount && (
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-center text-3xl font-bold">
             {typeof viewCount === "number"
               ? viewCount
               : timePeriod === "last7Days"
