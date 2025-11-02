@@ -65,9 +65,9 @@ export const ProfileViewCount = () => {
         </select>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-2 text-center">
         {viewCount && (
-          <h1 className="text-center text-3xl font-bold">
+          <h1 className="text-3xl font-bold">
             {typeof viewCount === "number"
               ? viewCount
               : timePeriod === "last7Days"
@@ -77,6 +77,10 @@ export const ProfileViewCount = () => {
               : viewCount[2]}
           </h1>
         )}
+
+        <p className="mt-2 text-accent">
+          {userTier === "Basic" ? "Upgrade to see more insights." : "Click to see more."}
+        </p>
       </div>
     </div>
   );
