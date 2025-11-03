@@ -91,11 +91,13 @@ const getVisitedUserProfileDataBasic = async (visitedUserId: string) => {
 const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   if (userId === visitedUserId) return; // Ignore self views.
 
+  const userData = await fetchUserData(userId);
+
   const viewRecord: ViewerMetaData = {
     viewedAt: Timestamp.fromDate(new Date()),
     viewerId: userId,
-    viewerName: "",
-    viewerPhotoURL: "",
+    viewerName: userData.basicInfo.firstName,
+    viewerPhotoURL: userData.basicInfo.profileImageUrl,
   };
 
   try {
