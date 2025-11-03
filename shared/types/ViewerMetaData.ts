@@ -5,5 +5,5 @@ export interface ViewerMetaData {
   viewedAt: Timestamp;
   viewerFirstName: string;
   viewerLastName: string;
-  viewerImageURL: string;
+  viewerProfileImageURL: string;
 }
