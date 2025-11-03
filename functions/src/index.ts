@@ -15,6 +15,12 @@ const db = getFirestore();
 
 // shared internal functions
 
+const fetchUserData = async (userId: string): Promise<User> => {
+  const userDoc = await db.collection("users").doc(userId).get();
+  const userData = userDoc.data() as User;
+  return userData;
+};
+
 const fetchUserTier = async (userId: string): Promise<UserTier> => {
   const userDoc = await db.collection("users").doc(userId).get();
   const userTier = userDoc.data()?.basicInfo.tier;
