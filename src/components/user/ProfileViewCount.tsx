@@ -45,6 +45,9 @@ export const ProfileViewCount = () => {
     setTimePeriod(e.target.value);
   };
 
+  console.log(viewCount);
+  console.log(userTier);
+
   return (
     <div className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
       <div className="flex items-center gap-4">
@@ -65,7 +68,7 @@ export const ProfileViewCount = () => {
         </select>
       </div>
 
-      {isUserTierLoading || isViewCountLoading ? (
+      {isUserTierLoading || isViewCountLoading || userTier === undefined || viewCount === undefined ? (
         <div className="w-full flex justify-center items-center py-4">
           <Loader />
         </div>
@@ -75,23 +78,20 @@ export const ProfileViewCount = () => {
           <p className="text-accent">Please refresh the page and try again.</p>
         </div>
       ) : (
-        userTier &&
-        viewCount && (
-          <div className="mt-2 text-center">
-            <h1 className="text-3xl font-bold">
-              {typeof viewCount === "number"
-                ? viewCount
-                : timePeriod === "last7Days"
-                ? viewCount[0]
-                : timePeriod === "last30Days"
-                ? viewCount[1]
-                : viewCount[2]}
-            </h1>
-            <p className="mt-2 text-accent">
-              {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
-            </p>
-          </div>
-        )
+        <div className="mt-2 text-center">
+          <h1 className="text-3xl font-bold">
+            {typeof viewCount === "number"
+              ? viewCount
+              : timePeriod === "last7Days"
+              ? viewCount[0]
+              : timePeriod === "last30Days"
+              ? viewCount[1]
+              : viewCount[2]}
+          </h1>
+          <p className="mt-2 text-accent">
+            {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
+          </p>
+        </div>
       )}
     </div>
   );
