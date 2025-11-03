@@ -22,9 +22,9 @@ const fetchUserData = async (userId: string): Promise<User> => {
 };
 
 const fetchUserTier = async (userId: string): Promise<UserTier> => {
-  const userDoc = await db.collection("users").doc(userId).get();
-  const userTier = userDoc.data()?.basicInfo.tier;
-  return userTier as UserTier;
+  const userData = await fetchUserData(userId);
+  const userTier = userData.basicInfo.tier;
+  return userTier;
 };
 
 const getVisitedUserProfileDataPro = async (visitedUserId: string) => {
