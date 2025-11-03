@@ -17,7 +17,6 @@ export const ProfileViewCount = () => {
     data: userTier,
     isLoading: isUserTierLoading,
     isError: isUserTierError,
-    error: userTierError,
   } = useQuery({
     queryKey: [QUERY_KEYS.USER_TIER],
     queryFn: async () => {
@@ -31,7 +30,6 @@ export const ProfileViewCount = () => {
     data: viewCount,
     isLoading: isViewCountLoading,
     isError: isViewCountError,
-    error: viewCountError,
   } = useQuery({
     queryKey: [QUERY_KEYS.PROFILE_VIEW_COUNT],
     queryFn: async () => {
