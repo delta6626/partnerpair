@@ -88,6 +88,8 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   const viewRecord: ViewerMetaData = {
     viewedAt: Timestamp.fromDate(new Date()),
     viewerId: userId,
+    viewerName: "",
+    viewerPhotoURL: "",
   };
 
   try {
