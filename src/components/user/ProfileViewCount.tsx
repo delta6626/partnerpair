@@ -6,7 +6,7 @@ import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { ChartLine } from "lucide-react";
 import type { UserTier } from "../../../shared/types/UserTier";
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type MouseEvent } from "react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { Loader } from "../Loader";
 
@@ -48,6 +48,10 @@ export const ProfileViewCount = () => {
     navigate("/profileInsights");
   };
 
+  const handleTimePeriodClick = (e: MouseEvent) => {
+    e.stopPropagation(); // Stop redirect to profileInsights on click
+  };
+
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value);
   };
@@ -69,6 +73,7 @@ export const ProfileViewCount = () => {
           className="select select-sm bg-base-200"
           value={timePeriod}
           disabled={userTier === "Basic" || isUserTierLoading || isUserTierError}
+          onClick={handleTimePeriodClick}
           onChange={handleTimePeriodChange}
         >
           <option value="last7Days">Last 7 Days</option>
