@@ -1,3 +1,4 @@
+import { PROFILE_INSIGHTS } from "../../shared/constants/PROFILE_INSIGHTS";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
@@ -23,7 +24,7 @@ export const ProfileInsights = () => {
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
                 <h1 className="font-bold text-3xl">Profile Views</h1>
-                <p className="text-accent">Track profile views and learn about your audience</p>
+                <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
             </div>
           </div>

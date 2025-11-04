@@ -87,7 +87,7 @@ export const Settings = () => {
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
                 <h1 className="font-bold text-3xl">Settings</h1>
-                <p>{SETTINGS.SUBTITLE_TEXT}</p>
+                <p className="text-accent">{SETTINGS.SUBTITLE_TEXT}</p>
               </div>
 
               <div className="flex gap-2">
