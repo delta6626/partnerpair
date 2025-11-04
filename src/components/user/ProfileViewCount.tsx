@@ -49,7 +49,11 @@ export const ProfileViewCount = () => {
   console.log(userTier);
 
   return (
-    <div className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
+    <div
+      className={`${
+        userTier && userTier === "Pro" ? "cursor-pointer" : ""
+      } p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2`}
+    >
       <div className="flex items-center gap-4">
         <h1 className="flex shrink-0 gap-2 items-center">
           <ChartLine size={20} />
