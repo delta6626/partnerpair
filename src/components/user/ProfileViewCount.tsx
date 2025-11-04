@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { functions } from "../../services/firebaseConfig";
 import { httpsCallable } from "firebase/functions";
 import { useQuery } from "@tanstack/react-query";
@@ -10,6 +11,8 @@ import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { Loader } from "../Loader";
 
 export const ProfileViewCount = () => {
+  const navigate = useNavigate();
+
   const getUserTier = httpsCallable(functions, "getUserTier");
   const getProfileViewCount = httpsCallable(functions, "getProfileViewCount");
 
@@ -41,6 +44,10 @@ export const ProfileViewCount = () => {
 
   const [timePeriod, setTimePeriod] = useState<string>("last7Days");
 
+  const handleViewCountClick = () => {
+    navigate("/profileInsights");
+  };
+
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value);
   };
@@ -50,6 +57,7 @@ export const ProfileViewCount = () => {
       className={`${
         userTier && userTier === "Pro" ? "cursor-pointer" : ""
       } p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2`}
+      onClick={handleViewCountClick}
     >
       <div className="flex items-center gap-4">
         <h1 className="flex shrink-0 gap-2 items-center">
