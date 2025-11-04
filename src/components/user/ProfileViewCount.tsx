@@ -45,9 +45,6 @@ export const ProfileViewCount = () => {
     setTimePeriod(e.target.value);
   };
 
-  console.log(viewCount);
-  console.log(userTier);
-
   return (
     <div
       className={`${
