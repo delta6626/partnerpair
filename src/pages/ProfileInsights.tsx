@@ -18,6 +18,15 @@ export const ProfileInsights = () => {
           <div className="py-4">
             <MainNavbar />
           </div>
+
+          <div className="w-full flex flex-col items-center">
+            <div className="w-full max-w-200 py-10 flex items-center justify-between">
+              <div className="">
+                <h1 className="font-bold text-3xl">Profile Views</h1>
+                <p className="text-accent">Track profile views and learn about your audience</p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
