@@ -10,7 +10,9 @@ export const ProfileInsights = () => {
   useTheme();
   const { loading } = useInitializeUser();
 
-  const [timeRange, setTimeRange] = useState<ProfileInsightsTimeRange>("last7Days");
+  const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimeRange>("last7Days");
+
+  const handleTimePeriodChange = () => {};
 
   return (
     <div className="">
@@ -31,7 +33,7 @@ export const ProfileInsights = () => {
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
 
-              <select className="select" value={timeRange}>
+              <select className="select" value={timePeriod} onChange={handleTimePeriodChange}>
                 <option value="today">Today</option>
                 <option value="yesterday">Yesterday</option>
                 <option value="last7Days">Last 7 Days</option>
