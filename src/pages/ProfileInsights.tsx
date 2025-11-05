@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import { PROFILE_INSIGHTS } from "../../shared/constants/PROFILE_INSIGHTS";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
@@ -12,7 +12,9 @@ export const ProfileInsights = () => {
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
 
-  const handleTimePeriodChange = () => {};
+  const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
+  };
 
   return (
     <div className="">
