@@ -49,7 +49,11 @@ export const ProfileInsights = () => {
           </div>
 
           <div className="w-full flex flex-1 flex-col items-center">
-            <div className="w-full max-w-200 py-10 flex items-center justify-between">
+            <div
+              className={`${
+                isLoading || isError ? "pt-10" : "py-10"
+              } w-full max-w-200 flex items-center justify-between`}
+            >
               <div className="">
                 <h1 className="font-bold text-3xl">Profile Views</h1>
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
@@ -65,12 +69,15 @@ export const ProfileInsights = () => {
             </div>
 
             <div className="flex flex-1">
-              {!isLoading ? (
+              {isLoading ? (
                 <div className="flex flex-1 items-center justify-center">
                   <Loader />
                 </div>
               ) : isError ? (
-                <div></div>
+                <div className="flex flex-col flex-1 items-center justify-center">
+                  <h1 className="text-2xl text-error font-semibold">An error occured</h1>
+                  <p className="text text-accent">{error.message}</p>
+                </div>
               ) : (
                 ""
               )}
