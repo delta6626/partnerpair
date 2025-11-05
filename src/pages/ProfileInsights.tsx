@@ -9,6 +9,7 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import type { ViewerMetaData } from "../../shared/types/ViewerMetaData";
 
 export const ProfileInsights = () => {
   useTheme();
@@ -25,7 +26,7 @@ export const ProfileInsights = () => {
     queryKey: [QUERY_KEYS.PROFILE_VIEW_DATA],
     queryFn: async () => {
       const response = await getProfileViewData();
-      return response;
+      return response.data as ViewerMetaData[];
     },
   });
 
