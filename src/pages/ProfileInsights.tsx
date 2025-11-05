@@ -4,13 +4,13 @@ import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
-import type { ProfileInsightsTimeRange } from "../../shared/types/ProfileInsightsTimeRange";
+import type { ProfileInsightsTimePeriod } from "../../shared/types/ProfileInsightsTimePeriod";
 
 export const ProfileInsights = () => {
   useTheme();
   const { loading } = useInitializeUser();
 
-  const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimeRange>("last7Days");
+  const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
 
   const handleTimePeriodChange = () => {};
 
