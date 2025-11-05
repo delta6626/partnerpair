@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { PROFILE_INSIGHTS } from "../../shared/constants/PROFILE_INSIGHTS";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import type { ProfileInsightsTimeRange } from "../../shared/types/ProfileInsightsTimeRange";
 
 export const ProfileInsights = () => {
   useTheme();
   const { loading } = useInitializeUser();
+
+  const [timeRange, setTimeRange] = useState<ProfileInsightsTimeRange>("last7Days");
 
   return (
     <div className="">
@@ -27,7 +31,13 @@ export const ProfileInsights = () => {
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
 
-              <select className="select"></select>
+              <select className="select" value={timeRange}>
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="last7Days">Last 7 Days</option>
+                <option value="last30Days">Last 30 Days</option>
+                <option value="last90Days">Last 90 Days</option>
+              </select>
             </div>
           </div>
         </div>
