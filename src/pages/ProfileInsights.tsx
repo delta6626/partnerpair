@@ -5,10 +5,29 @@ import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import type { ProfileInsightsTimePeriod } from "../../shared/types/ProfileInsightsTimePeriod";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../services/firebaseConfig";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 
 export const ProfileInsights = () => {
   useTheme();
   const { loading } = useInitializeUser();
+
+  const getProfileViewData = httpsCallable(functions, "getProfileViewData");
+
+  const {
+    data: profileViewData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.PROFILE_VIEW_DATA],
+    queryFn: async () => {
+      const response = await getProfileViewData();
+      return response;
+    },
+  });
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
 
@@ -35,7 +54,7 @@ export const ProfileInsights = () => {
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
 
-              <select className="select" value={timePeriod} onChange={handleTimePeriodChange}>
+              <select className="select max-w-50" value={timePeriod} onChange={handleTimePeriodChange}>
                 <option value="today">Today</option>
                 <option value="yesterday">Yesterday</option>
                 <option value="last7Days">Last 7 Days</option>
