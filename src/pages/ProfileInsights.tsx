@@ -26,6 +26,8 @@ export const ProfileInsights = () => {
                 <h1 className="font-bold text-3xl">Profile Views</h1>
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
+
+              <select className="select"></select>
             </div>
           </div>
         </div>
