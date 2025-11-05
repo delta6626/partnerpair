@@ -43,12 +43,12 @@ export const ProfileInsights = () => {
           <Loader />
         </div>
       ) : (
-        <div className="w-full min-h-[100vh] font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
+        <div className="w-full flex flex-col min-h-[100vh] font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
           <div className="py-4">
             <MainNavbar />
           </div>
 
-          <div className="w-full flex flex-col items-center">
+          <div className="w-full flex flex-1 flex-col items-center">
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
                 <h1 className="font-bold text-3xl">Profile Views</h1>
@@ -62,6 +62,18 @@ export const ProfileInsights = () => {
                 <option value="last30Days">Last 30 Days</option>
                 <option value="last90Days">Last 90 Days</option>
               </select>
+            </div>
+
+            <div className="flex flex-1">
+              {!isLoading ? (
+                <div className="flex flex-1 items-center justify-center">
+                  <Loader />
+                </div>
+              ) : isError ? (
+                <div></div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
