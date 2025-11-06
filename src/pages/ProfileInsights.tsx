@@ -79,7 +79,7 @@ export const ProfileInsights = () => {
                   <p className="text text-accent">{error.message}</p>
                 </div>
               ) : (
-                ""
+                <div className=""></div>
               )}
             </div>
           </div>
