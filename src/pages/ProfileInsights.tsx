@@ -61,8 +61,7 @@ export const ProfileInsights = () => {
               </div>
 
               <select className="select max-w-50" value={timePeriod} onChange={handleTimePeriodChange}>
-                <option value="today">Today</option>
-                <option value="yesterday">Yesterday</option>
+                <option value="last24Hours">Last 24 Hours</option>
                 <option value="last7Days">Last 7 Days</option>
                 <option value="last30Days">Last 30 Days</option>
                 <option value="last90Days">Last 90 Days</option>
