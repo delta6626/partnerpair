@@ -10,6 +10,7 @@ import { functions } from "../services/firebaseConfig";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { ViewerMetaData } from "../../shared/types/ViewerMetaData";
+import { VisitedUserCollection } from "../components/user/VisitedUserCollection";
 
 export const ProfileInsights = () => {
   useTheme();
@@ -79,7 +80,7 @@ export const ProfileInsights = () => {
                   <p className="text text-accent">{error.message}</p>
                 </div>
               ) : (
-                <div className=""></div>
+                profileViewData && <VisitedUserCollection visitedUsers={profileViewData} />
               )}
             </div>
           </div>
