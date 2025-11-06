@@ -13,38 +13,27 @@ export const VisitedUserCollection = ({
 
   let filteredVisitedUsers: ViewerMetaData[] = [];
 
-  switch (timePeriod) {
-    case "last24Hours": {
-      const startTime = now - 24 * 60 * 60 * 1000;
-      filteredVisitedUsers = visitedUsers.filter(
-        (v) => v.viewedAt.toMillis() >= startTime && v.viewedAt.toMillis() <= now
-      );
-      break;
+  const getStartTime = () => {
+    switch (timePeriod) {
+      case "last24Hours":
+        return now - 1 * day;
+      case "last7Days":
+        return now - 7 * day;
+      case "last30Days":
+        return now - 30 * day;
+      case "last90Days":
+        return now - 90 * day;
+      default:
+        return 0;
     }
-    case "last7Days": {
-      const startTime = now - 7 * day;
-      filteredVisitedUsers = visitedUsers.filter(
-        (v) => v.viewedAt.toMillis() >= startTime && v.viewedAt.toMillis() <= now
-      );
-      break;
-    }
-    case "last30Days": {
-      const startTime = now - 30 * day;
-      filteredVisitedUsers = visitedUsers.filter(
-        (v) => v.viewedAt.toMillis() >= startTime && v.viewedAt.toMillis() <= now
-      );
-      break;
-    }
-    case "last90Days": {
-      const startTime = now - 90 * day;
-      filteredVisitedUsers = visitedUsers.filter(
-        (v) => v.viewedAt.toMillis() >= startTime && v.viewedAt.toMillis() <= now
-      );
-      break;
-    }
-    default:
-      filteredVisitedUsers = visitedUsers;
-  }
+  };
+
+  const startTime = getStartTime();
+
+  filteredVisitedUsers = visitedUsers.filter((v) => {
+    const viewedAtMillis = v.viewedAt._seconds * 1000 + v.viewedAt._nanoseconds / 1_000_000;
+    return viewedAtMillis >= startTime && viewedAtMillis <= now;
+  });
 
   return <div className=""></div>;
 };
