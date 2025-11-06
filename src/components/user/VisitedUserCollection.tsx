@@ -37,7 +37,7 @@ export const VisitedUserCollection = ({
   });
 
   return (
-    <div className="">
+    <div className="w-full flex flex-col gap-4">
       {filteredVisitedUsers.map((visitedUser, index) => {
         return <VisitedUser key={index} viewerData={visitedUser} />;
       })}
