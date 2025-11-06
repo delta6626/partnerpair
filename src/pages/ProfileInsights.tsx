@@ -68,7 +68,7 @@ export const ProfileInsights = () => {
               </select>
             </div>
 
-            <div className="flex flex-1">
+            <div className="w-full max-w-200 flex flex-1">
               {isLoading ? (
                 <div className="flex flex-1 items-center justify-center">
                   <Loader />

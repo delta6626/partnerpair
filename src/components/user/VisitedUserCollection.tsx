@@ -1,5 +1,6 @@
 import type { ProfileInsightsTimePeriod } from "../../../shared/types/ProfileInsightsTimePeriod";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
+import { VisitedUser } from "./VisitedUser";
 
 export const VisitedUserCollection = ({
   visitedUsers,
@@ -35,5 +36,11 @@ export const VisitedUserCollection = ({
     return viewedAtMillis >= startTime && viewedAtMillis <= now;
   });
 
-  return <div className=""></div>;
+  return (
+    <div className="">
+      {filteredVisitedUsers.map((visitedUser, index) => {
+        return <VisitedUser key={index} viewerData={visitedUser} />;
+      })}
+    </div>
+  );
 };
