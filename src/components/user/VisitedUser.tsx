@@ -13,7 +13,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
   });
 
   return (
-    <div className="p-4 border border-accent rounded-3xl">
+    <div className="flex items-center justify-between p-4 border border-accent rounded-3xl">
       <div className="flex items-center gap-4">
         <img
           className="w-15 h-15 rounded-full"
@@ -26,7 +26,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
         </div>
       </div>
 
-      <div className="">
+      <div className="flex gap-2">
         <button className="btn">Add to Contacts</button>
         <button className="btn btn-primary">Message</button>
       </div>
