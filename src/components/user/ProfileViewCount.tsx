@@ -45,6 +45,7 @@ export const ProfileViewCount = () => {
   const [timePeriod, setTimePeriod] = useState<string>("last7Days");
 
   const handleViewCountClick = () => {
+    if (userTier === "Basic") return;
     navigate("/profileInsights");
   };
 
