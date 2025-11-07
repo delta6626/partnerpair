@@ -9,6 +9,7 @@ import type { UserTier } from "../../../shared/types/UserTier";
 import { useState, type ChangeEvent, type MouseEvent } from "react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { Loader } from "../Loader";
+import type { ProfileInsightsTimePeriod } from "../../../shared/types/ProfileInsightsTimePeriod";
 
 export const ProfileViewCount = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export const ProfileViewCount = () => {
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
-  const [timePeriod, setTimePeriod] = useState<string>("last7Days");
+  const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
 
   const handleViewCountClick = () => {
     if (userTier === "Basic") return;
@@ -54,7 +55,7 @@ export const ProfileViewCount = () => {
   };
 
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setTimePeriod(e.target.value);
+    setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
   };
 
   return (
@@ -77,6 +78,7 @@ export const ProfileViewCount = () => {
           onClick={handleTimePeriodClick}
           onChange={handleTimePeriodChange}
         >
+          <option value="last24Hours">Last 24 Hours</option>
           <option value="last7Days">Last 7 Days</option>
           <option value="last30Days">Last 30 Days</option>
           <option value="last90Days">Last 90 Days</option>
