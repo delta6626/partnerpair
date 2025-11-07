@@ -27,6 +27,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
       </div>
 
       <div className="">
+        <button className="btn">Add to Contacts</button>
         <button className="btn btn-primary">Message</button>
       </div>
     </div>
