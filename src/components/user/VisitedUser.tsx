@@ -25,6 +25,10 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
           <p className="text-accent">Viewed on {formattedDate}</p>
         </div>
       </div>
+
+      <div className="">
+        <button className="btn btn-primary">Message</button>
+      </div>
     </div>
   );
 };
