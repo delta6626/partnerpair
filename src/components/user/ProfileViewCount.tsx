@@ -99,11 +99,13 @@ export const ProfileViewCount = () => {
           <h1 className="text-3xl font-bold">
             {typeof viewCount === "number"
               ? viewCount
-              : timePeriod === "last7Days"
+              : timePeriod === "last24Hours"
               ? viewCount[0]
-              : timePeriod === "last30Days"
+              : timePeriod === "last7Days"
               ? viewCount[1]
-              : viewCount[2]}
+              : timePeriod === "last30Days"
+              ? viewCount[2]
+              : viewCount[3]}
           </h1>
           <p className="mt-2 text-accent">
             {userTier === "Basic" ? DASHBOARD.PROFILE_COUNTER_USER_BASIC : DASHBOARD.PROFILE_COUNTER_USER_PRO}
