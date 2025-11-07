@@ -1,6 +1,8 @@
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
+import { useNavigate } from "react-router-dom";
 
 export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
+  const navigate = useNavigate();
   const viewedAt = new Date(viewerData.viewedAt._seconds * 1000);
 
   // Format date/time cleanly
@@ -12,9 +14,13 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
     minute: "2-digit",
   });
 
+  const handleVisitUserProfile = () => {
+    navigate(`/user/${viewerData.viewerId}`); // Visit the visited user's profile
+  };
+
   return (
     <div className="flex items-center justify-between p-4 border border-accent rounded-3xl">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 cursor-pointer" onClick={handleVisitUserProfile}>
         <img
           className="w-15 h-15 rounded-full"
           src={viewerData.viewerProfileImageURL}
