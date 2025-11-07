@@ -163,10 +163,11 @@ export const getProfileViewCount = onCall(async (request) => {
     const last7DaysViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 7);
     return last7DaysViewCount;
   } else {
+    const last24HoursViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 1);
     const last7DaysViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 7);
     const last30DaysViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 30);
     const last90DaysViewCount = getProfileViewCountWithinTimePeriod(userProfileViewCountData.docs, 90);
-    return [last7DaysViewCount, last30DaysViewCount, last90DaysViewCount];
+    return [last24HoursViewCount, last7DaysViewCount, last30DaysViewCount, last90DaysViewCount];
   }
 });
 
