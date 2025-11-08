@@ -33,7 +33,8 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
                   </div>
                 </div>
 
-                <div className="">
+                <div className="flex gap-2">
+                  <button className="btn">Add to Contacts</button>
                   <button className="btn btn-primary">Message</button>
                 </div>
               </div>
