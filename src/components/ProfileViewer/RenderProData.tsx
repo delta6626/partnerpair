@@ -5,7 +5,7 @@ import { GenericChip } from "./GenericChip";
 
 export const RenderProData = ({ visitedUserData }: { visitedUserData: DisplayableUserPro }) => {
   return (
-    <div className="w-full max-w-200 border-1 border-accent rounded-3xl p-8">
+    <div className="w-full max-w-220 border-1 border-accent rounded-3xl p-8">
       <div className="flex gap-4">
         <div className="min-w-36">
           <img src={visitedUserData.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
