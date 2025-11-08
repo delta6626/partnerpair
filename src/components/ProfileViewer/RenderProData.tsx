@@ -13,22 +13,29 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
 
         <div className="w-full">
           <div className="flex justify-between">
-            <div className="">
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-medium">
-                  {visitedUserData.basicInfo.firstName + " " + visitedUserData.basicInfo.lastName}
-                </h1>
-                {visitedUserData.basicInfo.tier === "Pro" ? (
-                  <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
-                    <CircleStar className="text-primary" size={20} />
+            <div className="w-full">
+              <div className="flex items-center justify-between">
+                <div className="">
+                  <div className="flex items-center gap-2">
+                    <h1 className="text-2xl font-medium">
+                      {visitedUserData.basicInfo.firstName + " " + visitedUserData.basicInfo.lastName}
+                    </h1>
+                    {visitedUserData.basicInfo.tier === "Pro" ? (
+                      <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
+                        <CircleStar className="text-primary" size={20} />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                ) : (
-                  ""
-                )}
-              </div>
+                  <div className="">
+                    <p className="text-accent">{visitedUserData.professionalInfo.headline}</p>
+                  </div>
+                </div>
 
-              <div className="">
-                <p className="text-accent">{visitedUserData.professionalInfo.headline}</p>
+                <div className="">
+                  <button className="btn btn-primary">Message</button>
+                </div>
               </div>
 
               <div className="flex gap-4 mt-4">
@@ -72,10 +79,6 @@ export const RenderProData = ({ visitedUserData }: { visitedUserData: Displayabl
                   )}
                 </div>
               </div>
-            </div>
-
-            <div className="">
-              <button className="btn btn-primary">Message</button>
             </div>
           </div>
         </div>
