@@ -1,5 +1,6 @@
 import { DASHBOARD } from "../../shared/constants/DASHBOARD";
 import type { User } from "../../shared/types/User";
+import { ContactCounter } from "./user/ContactCounter";
 import { ProfileStatusMessage } from "./user/ProfileStatusMessage";
 import { ProfileViewCount } from "./user/ProfileViewCount";
 
@@ -16,6 +17,7 @@ export const DashboardHeader = ({ user }: { user: User | null }) => {
 
       <div className="mt-4">
         <ProfileViewCount />
+        <ContactCounter />
       </div>
     </div>
   );
