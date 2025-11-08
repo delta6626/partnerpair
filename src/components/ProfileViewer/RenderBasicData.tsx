@@ -35,7 +35,8 @@ export const RenderBasicData = ({ visitedUserData }: { visitedUserData: Displaya
                   </div>
                 </div>
 
-                <div className="">
+                <div className="flex gap-2">
+                  <button className="btn">Add to Contacts</button>
                   <button className="btn btn-primary">Message</button>
                 </div>
               </div>
