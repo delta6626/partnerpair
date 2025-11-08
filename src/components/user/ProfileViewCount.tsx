@@ -4,7 +4,7 @@ import { httpsCallable } from "firebase/functions";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
-import { ChartLine } from "lucide-react";
+import { Eye } from "lucide-react";
 import type { UserTier } from "../../../shared/types/UserTier";
 import { useState, type ChangeEvent, type MouseEvent } from "react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
@@ -67,7 +67,7 @@ export const ProfileViewCount = () => {
     >
       <div className="flex items-center gap-4">
         <h1 className="flex shrink-0 gap-2 items-center">
-          <ChartLine size={20} />
+          <Eye size={20} />
           Profile Views
         </h1>
 
