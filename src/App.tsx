@@ -12,6 +12,7 @@ import { Settings } from "./pages/Settings";
 import { ViewUserProfile } from "./pages/ViewUserProfile";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ProfileInsights } from "./pages/ProfileInsights";
+import { UserContacts } from "./pages/UserContacts";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />}></Route>
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/profileInsights" element={<ProfileInsights />}></Route>
+          <Route path="/contacts" element={<UserContacts />}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
