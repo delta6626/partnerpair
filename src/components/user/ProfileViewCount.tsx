@@ -65,7 +65,7 @@ export const ProfileViewCount = () => {
       } p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2`}
       onClick={handleViewCountClick}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-start gap-4">
         <h1 className="flex shrink-0 gap-2 items-center">
           <Eye size={20} />
           Profile Views
