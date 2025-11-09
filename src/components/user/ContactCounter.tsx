@@ -18,6 +18,11 @@ export const ContactCounter = () => {
         <ContactRound size={20} />
         Saved Contacts
       </div>
+
+      <div className="">
+        <h1>{user?.basicInfo.contactList.length}</h1>
+        <p>View contact details</p>
+      </div>
     </div>
   );
 };
