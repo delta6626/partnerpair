@@ -16,7 +16,7 @@ export const ContactCounter = () => {
     <div className="p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
       <div className="flex gap-2">
         <ContactRound size={20} />
-        Contacts
+        Saved Contacts
       </div>
     </div>
   );
