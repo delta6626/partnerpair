@@ -1,6 +1,7 @@
 import { ContactRound } from "lucide-react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { Loader } from "../Loader";
+import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 
 export const ContactCounter = () => {
   const { user, loading } = useInitializeUser();
@@ -21,7 +22,11 @@ export const ContactCounter = () => {
 
       <div className="mt-2 text-center">
         <h1 className="text-3xl font-bold">{user?.basicInfo.contactList.length}</h1>
-        <p className="mt-2 text-accent">View contact details</p>
+        <p className="mt-2 text-accent">
+          {user?.basicInfo.contactList.length === 0
+            ? DASHBOARD.CONTACT_COUNTER_NO_CONTACTS
+            : DASHBOARD.CONTACT_COUNTER_VIEW_SAVED}
+        </p>
       </div>
     </div>
   );
