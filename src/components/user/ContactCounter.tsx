@@ -19,9 +19,9 @@ export const ContactCounter = () => {
         Saved Contacts
       </div>
 
-      <div className="">
-        <h1>{user?.basicInfo.contactList.length}</h1>
-        <p>View contact details</p>
+      <div className="mt-2 text-center">
+        <h1 className="text-3xl font-bold">{user?.basicInfo.contactList.length}</h1>
+        <p className="mt-2 text-accent">View contact details</p>
       </div>
     </div>
   );
