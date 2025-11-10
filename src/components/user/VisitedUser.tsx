@@ -1,5 +1,6 @@
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { useNavigate } from "react-router-dom";
+import { AddContact } from "./AddContact";
 
 export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
       </div>
 
       <div className="flex gap-2">
-        <button className="btn">Add to Contacts</button>
+        <AddContact contactId={viewerData.viewerId} />
         <button className="btn btn-primary">Message</button>
       </div>
     </div>
