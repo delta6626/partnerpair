@@ -13,12 +13,12 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
   const userIsAContact = user?.basicInfo.contactList.includes(contactId);
 
   const addContact = async () => {
+    if (!user) return;
+
     setLoading(true);
     const updatedUser: User = {
-      basicInfo: { ...user!.basicInfo, contactList: [...user!.basicInfo.contactList, contactId] },
-      professionalInfo: { ...user!.professionalInfo },
-      matchingPreferences: { ...user!.matchingPreferences },
-      socialLinks: { ...user!.socialLinks },
+      ...user,
+      basicInfo: { ...user.basicInfo, contactList: [...user.basicInfo.contactList, contactId] },
     };
 
     const result = await updateUserProfile(updatedUser);
