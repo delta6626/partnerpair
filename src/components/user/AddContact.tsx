@@ -3,6 +3,7 @@ import type { User } from "../../../shared/types/User";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { updateUserProfile } from "../../services/userProfile/userProfileServices";
 import { useUserStore } from "../../store/useUserStore";
+import { Loader } from "../Loader";
 
 export const AddContact = ({ contactId }: { contactId: string }) => {
   const { user } = useInitializeUser();
@@ -65,7 +66,7 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
 
   return (
     <button className={`btn ${userIsAContact ? "btn-error" : ""}`} onClick={handleContactChange}>
-      {userIsAContact ? "Remove Contact" : "Add to Contacts"}
+      {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
     </button>
   );
 };
