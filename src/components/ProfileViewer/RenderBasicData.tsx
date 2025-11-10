@@ -4,7 +4,13 @@ import { PROFILE_VIEWER } from "../../../shared/constants/PROFILE_VIEWER";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 
-export const RenderBasicData = ({ visitedUserData }: { visitedUserData: DisplayableUserBasic }) => {
+export const RenderBasicData = ({
+  visitedUserData,
+  visitedUserId,
+}: {
+  visitedUserData: DisplayableUserBasic;
+  visitedUserId: string;
+}) => {
   return (
     <div className="w-full max-w-220 border-1 border-accent rounded-3xl p-8">
       <div className="flex gap-4">

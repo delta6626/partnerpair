@@ -3,7 +3,13 @@ import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-reac
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 
-export const RenderProData = ({ visitedUserData }: { visitedUserData: DisplayableUserPro }) => {
+export const RenderProData = ({
+  visitedUserData,
+  visitedUserId,
+}: {
+  visitedUserData: DisplayableUserPro;
+  visitedUserId: string;
+}) => {
   return (
     <div className="w-full max-w-220 border-1 border-accent rounded-3xl p-8">
       <div className="flex gap-4">

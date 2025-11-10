@@ -66,9 +66,9 @@ export const ViewUserProfile = () => {
               </div>
             ) : visitedUser ? (
               "socialLinks" in visitedUser ? (
-                <RenderProData visitedUserData={visitedUser} />
+                id && <RenderProData visitedUserData={visitedUser} visitedUserId={id} />
               ) : (
-                <RenderBasicData visitedUserData={visitedUser} />
+                id && <RenderBasicData visitedUserData={visitedUser} visitedUserId={id} />
               )
             ) : (
               ""
