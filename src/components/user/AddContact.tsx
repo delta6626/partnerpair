@@ -1,3 +1,3 @@
-export const AddContact = () => {
-  return <button className=""></button>;
+export const AddContact = ({ contactId }: { contactId: string }) => {
+  return <button className="btn">Add to Contacts</button>;
 };
