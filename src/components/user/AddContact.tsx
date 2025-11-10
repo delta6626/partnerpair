@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { User } from "../../../shared/types/User";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { updateUserProfile } from "../../services/userProfile/userProfileServices";
@@ -6,9 +7,13 @@ import { useUserStore } from "../../store/useUserStore";
 export const AddContact = ({ contactId }: { contactId: string }) => {
   const { user } = useInitializeUser();
   const { setUser } = useUserStore();
+
+  const [loading, setLoading] = useState<boolean>(false);
+
   const userIsAContact = user?.basicInfo.contactList.includes(contactId);
 
   const addContact = async () => {
+    setLoading(true);
     const updatedUser: User = {
       basicInfo: { ...user!.basicInfo, contactList: [...user!.basicInfo.contactList, contactId] },
       professionalInfo: { ...user!.professionalInfo },
@@ -16,12 +21,14 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
       socialLinks: { ...user!.socialLinks },
     };
 
-    const userUpdated = await updateUserProfile(updatedUser);
-    if (typeof userUpdated === "string") {
+    const result = await updateUserProfile(updatedUser);
+    setLoading(false);
+
+    if (typeof result === "string") {
       return; // TO DO: handle error case;
     }
 
-    setUser(user!);
+    setUser(updatedUser);
   };
 
   const removeContact = () => {};
