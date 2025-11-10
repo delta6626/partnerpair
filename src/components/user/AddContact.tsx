@@ -31,7 +31,29 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
     setUser(updatedUser);
   };
 
-  const removeContact = () => {};
+  const removeContact = async () => {
+    if (!user) return;
+
+    setLoading(true);
+    const updatedContactList = user.basicInfo.contactList.filter((id) => id !== contactId);
+
+    const updatedUser: User = {
+      ...user,
+      basicInfo: {
+        ...user.basicInfo,
+        contactList: updatedContactList,
+      },
+    };
+
+    const result = await updateUserProfile(updatedUser);
+    setLoading(false);
+
+    if (typeof result === "string") {
+      return; // TO DO: handle error case;
+    }
+
+    setUser(updatedUser);
+  };
 
   const handleContactChange = () => {
     if (userIsAContact) {
