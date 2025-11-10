@@ -2,6 +2,7 @@ import type { DisplayableUserPro } from "../../../shared/types/DisplayableUserPr
 import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
+import { AddContact } from "../user/AddContact";
 
 export const RenderProData = ({
   visitedUserData,
@@ -40,7 +41,7 @@ export const RenderProData = ({
                 </div>
 
                 <div className="flex gap-2">
-                  <button className="btn">Add to Contacts</button>
+                  <AddContact contactId={visitedUserId} />
                   <button className="btn btn-primary">Message</button>
                 </div>
               </div>

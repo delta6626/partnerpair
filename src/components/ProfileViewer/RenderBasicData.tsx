@@ -3,6 +3,7 @@ import type { DisplayableUserBasic } from "../../../shared/types/DisplayableUser
 import { PROFILE_VIEWER } from "../../../shared/constants/PROFILE_VIEWER";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
+import { AddContact } from "../user/AddContact";
 
 export const RenderBasicData = ({
   visitedUserData,
@@ -42,7 +43,7 @@ export const RenderBasicData = ({
                 </div>
 
                 <div className="flex gap-2">
-                  <button className="btn">Add to Contacts</button>
+                  <AddContact contactId={visitedUserId} />
                   <button className="btn btn-primary">Message</button>
                 </div>
               </div>
