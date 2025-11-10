@@ -1,3 +1,11 @@
+import { useInitializeUser } from "../../hooks/useInitializeUser";
+
 export const AddContact = ({ contactId }: { contactId: string }) => {
-  return <button className="btn">Add to Contacts</button>;
+  const { user } = useInitializeUser();
+
+  return (
+    <button className="btn">
+      {user?.basicInfo.contactList.includes(contactId) ? "Remove Contact" : "Add to Contacts"}
+    </button>
+  );
 };
