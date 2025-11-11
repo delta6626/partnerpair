@@ -39,7 +39,9 @@ export const ProfileInsights = () => {
     setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
   };
 
-  const handleShowUniqueViewsToggle = () => {};
+  const handleViewFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setShowUniqueViews(e.target.value as ProfileViewFilter);
+  };
 
   return (
     <div className="">
@@ -65,7 +67,7 @@ export const ProfileInsights = () => {
               </div>
 
               <div className="flex gap-2">
-                <select className="select max-w-25" value={showUniqueViews}>
+                <select className="select max-w-25" value={showUniqueViews} onChange={handleViewFilterChange}>
                   <option value={"uniqueViews"}>Unique Views</option>
                   <option value={"allViews"}>All Views</option>
                 </select>
