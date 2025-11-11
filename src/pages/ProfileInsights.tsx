@@ -92,7 +92,13 @@ export const ProfileInsights = () => {
                   <p className="text text-accent">{error.message}</p>
                 </div>
               ) : (
-                profileViewData && <VisitedUserCollection visitedUsers={profileViewData} timePeriod={timePeriod} />
+                profileViewData && (
+                  <VisitedUserCollection
+                    visitedUsers={profileViewData}
+                    timePeriod={timePeriod}
+                    viewFilter={viewFilter}
+                  />
+                )
               )}
             </div>
           </div>

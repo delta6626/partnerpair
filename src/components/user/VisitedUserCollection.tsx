@@ -1,14 +1,17 @@
 import { PROFILE_INSIGHTS } from "../../../shared/constants/PROFILE_INSIGHTS";
 import type { ProfileInsightsTimePeriod } from "../../../shared/types/ProfileInsightsTimePeriod";
+import type { ProfileViewFilter } from "../../../shared/types/ProfileViewFilter";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { VisitedUser } from "./VisitedUser";
 
 export const VisitedUserCollection = ({
   visitedUsers,
   timePeriod,
+  viewFilter,
 }: {
   visitedUsers: ViewerMetaData[];
   timePeriod: ProfileInsightsTimePeriod;
+  viewFilter: ProfileViewFilter;
 }) => {
   const now = Date.now();
   const day = 24 * 60 * 60 * 1000;
