@@ -4,10 +4,18 @@ import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { updateUserProfile } from "../../services/userProfile/userProfileServices";
 import { useUserStore } from "../../store/useUserStore";
 import { Loader } from "../Loader";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
+import { getUserId } from "../../services/authentication/authServices";
 
 export const AddContact = ({ contactId }: { contactId: string }) => {
   const { user } = useInitializeUser();
   const { setUser } = useUserStore();
+  const {
+    data: userId,
+    isLoading: userIdLoading,
+    isError: userIdError,
+  } = useQuery({ queryKey: [QUERY_KEYS.USER_ID], queryFn: getUserId });
 
   const [loading, setLoading] = useState<boolean>(false);
 
