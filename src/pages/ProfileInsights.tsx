@@ -32,11 +32,13 @@ export const ProfileInsights = () => {
   });
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
-  const [showUniqueViews, setShowUniqueViews] = useState<boolean>(false);
+  const [showUniqueViews, setShowUniqueViews] = useState("uniqueViews");
 
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
   };
+
+  const handleShowUniqueViewsToggle = () => {};
 
   return (
     <div className="">
@@ -61,7 +63,12 @@ export const ProfileInsights = () => {
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
 
-              <div className="">
+              <div className="flex gap-2">
+                <select className="select max-w-25" value={showUniqueViews}>
+                  <option value={"uniqueViews"}>Unique Views</option>
+                  <option value={"allViews"}>All Views</option>
+                </select>
+
                 <select className="select max-w-50" value={timePeriod} onChange={handleTimePeriodChange}>
                   <option value="last24Hours">Last 24 Hours</option>
                   <option value="last7Days">Last 7 Days</option>
