@@ -32,6 +32,7 @@ export const ProfileInsights = () => {
   });
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
+  const [uniqueViews, setUniqueViews] = useState<boolean>(true);
 
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
