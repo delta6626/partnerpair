@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { ViewerMetaData } from "../../shared/types/ViewerMetaData";
 import { VisitedUserCollection } from "../components/user/VisitedUserCollection";
+import type { ProfileViewFilter } from "../../shared/types/ProfileViewFilter";
 
 export const ProfileInsights = () => {
   useTheme();
@@ -32,7 +33,7 @@ export const ProfileInsights = () => {
   });
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
-  const [showUniqueViews, setShowUniqueViews] = useState("uniqueViews");
+  const [showUniqueViews, setShowUniqueViews] = useState<ProfileViewFilter>("uniqueViews");
 
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
