@@ -73,7 +73,11 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
   };
 
   return (
-    <button className={`btn ${userIsAContact ? "btn-error" : ""}`} onClick={handleContactChange}>
+    <button
+      className={`btn ${userIsAContact ? "btn-error" : ""}`}
+      onClick={handleContactChange}
+      disabled={userIdLoading || loading}
+    >
       {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
     </button>
   );
