@@ -80,7 +80,7 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
     <button
       className={`btn ${userIsAContact ? "btn-error" : ""}`}
       onClick={handleContactChange}
-      disabled={userIdLoading || loading}
+      disabled={userIdLoading || loading || userId === contactId}
     >
       {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
     </button>
