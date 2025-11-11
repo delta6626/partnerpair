@@ -67,7 +67,7 @@ export const ProfileInsights = () => {
               </div>
 
               <div className="flex gap-2">
-                <select className="select max-w-25" value={viewFilter} onChange={handleViewFilterChange}>
+                <select className="select max-w-50" value={viewFilter} onChange={handleViewFilterChange}>
                   <option value={"uniqueViews"}>Unique Views</option>
                   <option value={"allViews"}>All Views</option>
                 </select>
