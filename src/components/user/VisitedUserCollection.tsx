@@ -1,3 +1,4 @@
+import { PROFILE_INSIGHTS } from "../../../shared/constants/PROFILE_INSIGHTS";
 import type { ProfileInsightsTimePeriod } from "../../../shared/types/ProfileInsightsTimePeriod";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { VisitedUser } from "./VisitedUser";
@@ -35,6 +36,14 @@ export const VisitedUserCollection = ({
     const viewedAtMillis = v.viewedAt._seconds * 1000 + v.viewedAt._nanoseconds / 1_000_000;
     return viewedAtMillis >= startTime && viewedAtMillis <= now;
   });
+
+  if (filteredVisitedUsers.length === 0) {
+    return (
+      <div className="w-full flex grow-1 items-center justify-center gap-4">
+        <p className="text-accent">{PROFILE_INSIGHTS.NO_VIEWS}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col gap-4">
