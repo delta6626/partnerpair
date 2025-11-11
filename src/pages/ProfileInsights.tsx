@@ -33,14 +33,14 @@ export const ProfileInsights = () => {
   });
 
   const [timePeriod, setTimePeriod] = useState<ProfileInsightsTimePeriod>("last7Days");
-  const [showUniqueViews, setShowUniqueViews] = useState<ProfileViewFilter>("uniqueViews");
+  const [viewFilter, setViewFilter] = useState<ProfileViewFilter>("uniqueViews");
 
   const handleTimePeriodChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTimePeriod(e.target.value as ProfileInsightsTimePeriod);
   };
 
   const handleViewFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setShowUniqueViews(e.target.value as ProfileViewFilter);
+    setViewFilter(e.target.value as ProfileViewFilter);
   };
 
   return (
@@ -67,7 +67,7 @@ export const ProfileInsights = () => {
               </div>
 
               <div className="flex gap-2">
-                <select className="select max-w-25" value={showUniqueViews} onChange={handleViewFilterChange}>
+                <select className="select max-w-25" value={viewFilter} onChange={handleViewFilterChange}>
                   <option value={"uniqueViews"}>Unique Views</option>
                   <option value={"allViews"}>All Views</option>
                 </select>
