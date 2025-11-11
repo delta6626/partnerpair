@@ -23,6 +23,10 @@ export const AddContact = ({ contactId }: { contactId: string }) => {
 
   const addContact = async () => {
     if (!user) return;
+    if (userIdLoading) return;
+    if (userIdError) return;
+
+    if (userId === contactId) return; // User cannot add themselves as a contact
 
     setLoading(true);
     const updatedUser: User = {
