@@ -1,9 +1,11 @@
 import { ContactRound } from "lucide-react";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { useNavigate } from "react-router-dom";
+import { useInitializeUser } from "../../hooks/useInitializeUser";
 
 export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
   const navigate = useNavigate();
+  const { user } = useInitializeUser();
   const viewedAt = new Date(viewerData.viewedAt._seconds * 1000);
 
   // Format date/time cleanly
@@ -30,9 +32,13 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
         <div>
           <h1 className="flex gap-2">
             {viewerData.viewerFirstName + " " + viewerData.viewerLastName}
-            <div className="tooltip tooltip-top" data-tip={viewerData.viewerFirstName + " is a contact"}>
-              <ContactRound size={20} />
-            </div>
+            {user?.basicInfo.contactList.includes(viewerData.viewerId) ? (
+              <div className="tooltip tooltip-top" data-tip={viewerData.viewerFirstName + " is a contact"}>
+                <ContactRound size={20} />
+              </div>
+            ) : (
+              ""
+            )}
           </h1>
           <p className="text-accent">Viewed on {formattedDate}</p>
         </div>
