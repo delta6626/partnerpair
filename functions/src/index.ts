@@ -184,3 +184,8 @@ export const getProfileViewData = onCall(async (request) => {
     return { id: document.id, ...document.data() };
   });
 });
+
+export const getUserContacts = onCall(async (request) => {
+  const contactList: string[] = request.data.contactList;
+  if (contactList.length === 0) return;
+});
