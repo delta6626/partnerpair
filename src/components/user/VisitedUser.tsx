@@ -1,3 +1,4 @@
+import { ContactRound } from "lucide-react";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +28,12 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
           alt={`${viewerData.viewerFirstName} ${viewerData.viewerLastName}`}
         />
         <div>
-          <h1>{viewerData.viewerFirstName + " " + viewerData.viewerLastName}</h1>
+          <h1 className="flex gap-2">
+            {viewerData.viewerFirstName + " " + viewerData.viewerLastName}
+            <div className="tooltip tooltip-top" data-tip={viewerData.viewerFirstName + " is a contact"}>
+              <ContactRound size={20} />
+            </div>
+          </h1>
           <p className="text-accent">Viewed on {formattedDate}</p>
         </div>
       </div>
