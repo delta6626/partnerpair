@@ -2,9 +2,15 @@ import { ContactRound } from "lucide-react";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 import { Loader } from "../Loader";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
+import { useNavigate } from "react-router-dom";
 
 export const ContactCounter = () => {
   const { user, loading } = useInitializeUser();
+  const navigate = useNavigate();
+
+  const handleCounterClick = () => {
+    navigate("/contacts");
+  };
 
   if (loading)
     return (
@@ -14,7 +20,10 @@ export const ContactCounter = () => {
     );
 
   return (
-    <div className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
+    <div
+      className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2"
+      onClick={handleCounterClick}
+    >
       <div className="flex gap-2">
         <ContactRound size={20} />
         Saved Contacts
