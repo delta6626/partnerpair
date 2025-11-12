@@ -34,7 +34,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
             {viewerData.viewerFirstName + " " + viewerData.viewerLastName}
             {user?.basicInfo.contactList.includes(viewerData.viewerId) ? (
               <div className="tooltip tooltip-top" data-tip={viewerData.viewerFirstName + " is a contact"}>
-                <ContactRound size={20} />
+                <ContactRound className="text-accent" size={20} />
               </div>
             ) : (
               ""
