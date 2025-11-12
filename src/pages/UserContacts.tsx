@@ -20,11 +20,19 @@ export const UserContacts = () => {
         <MainNavbar />
       </div>
 
-      <div className="py-10 flex items-center justify-center">
+      <div className="py-10 flex flex-col items-center grow">
         <div className="w-full max-w-200">
           <h1 className="font-bold text-3xl">Contacts</h1>
           <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
         </div>
+
+        {user?.basicInfo.contactList.length === 0 ? (
+          <div className="w-full h-full max-w-200 flex grow items-center justify-center">
+            <p className="text-accent">{USER_CONTACTS.NO_CONTACTS}</p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
