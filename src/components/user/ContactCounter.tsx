@@ -9,6 +9,7 @@ export const ContactCounter = () => {
   const navigate = useNavigate();
 
   const handleCounterClick = () => {
+    if (user?.basicInfo.contactList.length === 0) return;
     navigate("/contacts");
   };
 
