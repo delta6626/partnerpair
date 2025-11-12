@@ -20,7 +20,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
 
   return (
     <div className="flex items-center justify-between p-4 border border-accent rounded-3xl">
-      <div className="flex items-center gap-4 cursor-pointer" onClick={handleVisitUserProfile}>
+      <div className="flex items-center gap-4 cursor-pointer">
         <img
           className="w-15 h-15 rounded-full"
           src={viewerData.viewerProfileImageURL}
@@ -33,6 +33,9 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
       </div>
 
       <div className="flex gap-2">
+        <button className="btn" onClick={handleVisitUserProfile}>
+          View Profile
+        </button>
         <button className="btn btn-primary">Message</button>
       </div>
     </div>
