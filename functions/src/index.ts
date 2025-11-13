@@ -117,7 +117,7 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   }
 };
 
-export const getContactDetail = async (contactId: string): Promise<Contact> => {
+export const getContactDetails = async (contactId: string): Promise<Contact> => {
   const fullContactData: User = await fetchUserData(contactId);
   const contactFirstName = fullContactData.basicInfo.firstName;
   const contactLastName = fullContactData.basicInfo.lastName;
