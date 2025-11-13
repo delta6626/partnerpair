@@ -116,6 +116,19 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   }
 };
 
+export const getContactDetail = async (contactId: string) => {
+  const fullContactData: User = await fetchUserData(contactId);
+  const contactFirstName = fullContactData.basicInfo.firstName;
+  const contactLastName = fullContactData.basicInfo.lastName;
+  const contactProfileImageURL = fullContactData.basicInfo.profileImageUrl;
+  return {
+    contactId: contactId,
+    contactFirstName: contactFirstName,
+    contactLastName: contactLastName,
+    contactProfileImageURL: contactProfileImageURL,
+  };
+};
+
 export const getUserTier = onCall(async (request) => {
   const userId = request.auth?.uid;
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
