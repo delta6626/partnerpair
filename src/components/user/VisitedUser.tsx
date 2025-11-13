@@ -23,7 +23,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
 
   return (
     <div className="flex items-center justify-between p-4 border border-accent rounded-3xl">
-      <div className="flex items-center gap-4 cursor-pointer">
+      <div className="flex items-center gap-4">
         <img
           className="w-15 h-15 rounded-full"
           src={viewerData.viewerProfileImageURL}
