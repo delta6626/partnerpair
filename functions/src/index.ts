@@ -8,6 +8,7 @@ import { DisplayableUserBasic } from "./shared/types/DisplayableUserBasic";
 import { ViewerMetaData } from "./shared/types/ViewerMetaData";
 import { Timestamp } from "firebase-admin/firestore";
 import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileViewCountWithinTimePeriod";
+import { Contact } from "./shared/types/Contact";
 
 admin.initializeApp();
 
@@ -116,7 +117,7 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
   }
 };
 
-export const getContactDetail = async (contactId: string) => {
+export const getContactDetail = async (contactId: string): Promise<Contact> => {
   const fullContactData: User = await fetchUserData(contactId);
   const contactFirstName = fullContactData.basicInfo.firstName;
   const contactLastName = fullContactData.basicInfo.lastName;
