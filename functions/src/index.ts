@@ -201,5 +201,5 @@ export const getProfileViewData = onCall(async (request) => {
 
 export const getUserContacts = onCall(async (request) => {
   const contactList: string[] = request.data.contactList;
-  if (contactList.length === 0) return;
+  if (!contactList || contactList.length === 0) return;
 });
