@@ -46,7 +46,15 @@ export const UserContacts = () => {
           <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
         </div>
 
-        {user?.basicInfo.contactList.length === 0 ? (
+        {contactsLoading ? (
+          <div className="w-full h-full max-w-200 flex grow items-center justify-center">
+            <Loader />
+          </div>
+        ) : contactsLoadingError ? (
+          <div className="w-full h-full max-w-200 flex grow items-center justify-center">
+            <p className="text-accent">Failed to load contacts.</p>
+          </div>
+        ) : user?.basicInfo.contactList.length === 0 ? (
           <div className="w-full h-full max-w-200 flex grow items-center justify-center">
             <p className="text-accent">{USER_CONTACTS.NO_CONTACTS}</p>
           </div>
