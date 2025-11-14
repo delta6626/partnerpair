@@ -21,7 +21,7 @@ export const UserContacts = () => {
   } = useQuery({
     queryKey: [QUERY_KEYS.CONTACT_COLLECTION],
     queryFn: async () => {
-      const response = await getUserContacts();
+      const response = await getUserContacts({ contactList: user?.basicInfo.contactList });
       return response.data as Contact[];
     },
   });
