@@ -18,6 +18,7 @@ const db = getFirestore();
 
 const fetchUserData = async (userId: string): Promise<User> => {
   const userDoc = await db.collection("users").doc(userId).get();
+  if (!userDoc.exists) throw new HttpsError("not-found", "The user data doesn't exist.");
   const userData = userDoc.data() as User;
   return userData;
 };
