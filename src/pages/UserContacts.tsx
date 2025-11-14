@@ -60,7 +60,7 @@ export const UserContacts = () => {
             <p className="text-accent">{USER_CONTACTS.NO_CONTACTS}</p>
           </div>
         ) : (
-          <div className="w-full max-w-200">
+          <div className="w-full flex flex-col gap-4 max-w-200">
             {contactsData.map((contact) => {
               return <ContactHolder contactDetails={contact} />;
             })}
