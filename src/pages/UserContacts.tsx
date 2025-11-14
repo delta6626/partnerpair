@@ -1,10 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { USER_CONTACTS } from "../../shared/constants/USER_CONTACTS";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 
 export const UserContacts = () => {
   const { user, loading } = useInitializeUser();
+  const { data, isLoading, isError } = useQuery({ queryKey: [QUERY_KEYS.CONTACT_COLLECTION], queryFn: () => {} });
 
   if (loading) {
     return (

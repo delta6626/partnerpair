@@ -3,4 +3,5 @@ export const QUERY_KEYS = {
   USER_ID: "userId",
   PROFILE_VIEW_COUNT: "profileViewCount",
   PROFILE_VIEW_DATA: "profileViewData",
+  CONTACT_COLLECTION: "contactCollection",
 };
