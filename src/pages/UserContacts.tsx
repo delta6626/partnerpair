@@ -14,7 +14,11 @@ export const UserContacts = () => {
   const getUserContacts = httpsCallable(functions, "getUserContacts");
 
   const { user, loading } = useInitializeUser();
-  const { data, isLoading, isError } = useQuery({
+  const {
+    data: contactsData,
+    isLoading: contactsLoading,
+    isError: contactsLoadingError,
+  } = useQuery({
     queryKey: [QUERY_KEYS.CONTACT_COLLECTION],
     queryFn: async () => {
       const response = await getUserContacts();
