@@ -7,8 +7,10 @@ import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import type { Contact } from "../../shared/types/Contact";
+import { useTheme } from "../hooks/useTheme";
 
 export const UserContacts = () => {
+  useTheme();
   const getUserContacts = httpsCallable(functions, "getUserContacts");
 
   const { user, loading } = useInitializeUser();
