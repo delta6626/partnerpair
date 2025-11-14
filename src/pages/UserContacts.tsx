@@ -8,7 +8,6 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import type { Contact } from "../../shared/types/Contact";
 import { useTheme } from "../hooks/useTheme";
-import { STALE_TIME } from "../../shared/constants/STALE_TIME";
 
 export const UserContacts = () => {
   useTheme();
