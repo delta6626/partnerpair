@@ -4,10 +4,21 @@ import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../services/firebaseConfig";
+import type { Contact } from "../../shared/types/Contact";
 
 export const UserContacts = () => {
+  const getUserContacts = httpsCallable(functions, "getUserContacts");
+
   const { user, loading } = useInitializeUser();
-  const { data, isLoading, isError } = useQuery({ queryKey: [QUERY_KEYS.CONTACT_COLLECTION], queryFn: () => {} });
+  const { data, isLoading, isError } = useQuery({
+    queryKey: [QUERY_KEYS.CONTACT_COLLECTION],
+    queryFn: async () => {
+      const response = await getUserContacts();
+      return response.data as Contact[];
+    },
+  });
 
   if (loading) {
     return (
