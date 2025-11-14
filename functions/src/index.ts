@@ -202,8 +202,7 @@ export const getProfileViewData = onCall(async (request) => {
 
 export const getUserContacts = onCall(async (request) => {
   const contactList: string[] = request.data.contactList;
-  if (!contactList || contactList.length === 0)
-    throw new HttpsError("invalid-argument", "Missing contact list argument");
+  if (!contactList || contactList.length === 0) return;
 
   const contactDetailsPromises = contactList.map((contact: string) => {
     return getContactDetails(contact);
