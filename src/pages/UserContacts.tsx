@@ -8,6 +8,7 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import type { Contact } from "../../shared/types/Contact";
 import { useTheme } from "../hooks/useTheme";
+import { STALE_TIME } from "../../shared/constants/STALE_TIME";
 
 export const UserContacts = () => {
   useTheme();
@@ -24,6 +25,7 @@ export const UserContacts = () => {
       const response = await getUserContacts({ contactList: user?.basicInfo.contactList });
       return response.data as Contact[];
     },
+    staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
   if (loading) {
