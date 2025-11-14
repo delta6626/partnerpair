@@ -8,6 +8,7 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import type { Contact } from "../../shared/types/Contact";
 import { useTheme } from "../hooks/useTheme";
+import { ContactHolder } from "../components/user/ContactHolder";
 
 export const UserContacts = () => {
   useTheme();
@@ -40,8 +41,8 @@ export const UserContacts = () => {
         <MainNavbar />
       </div>
 
-      <div className="py-10 flex flex-col items-center grow">
-        <div className="w-full max-w-200">
+      <div className="flex flex-col items-center grow">
+        <div className="py-10 w-full max-w-200">
           <h1 className="font-bold text-3xl">Contacts</h1>
           <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
         </div>
@@ -54,12 +55,16 @@ export const UserContacts = () => {
           <div className="w-full h-full max-w-200 flex grow items-center justify-center">
             <p className="text-accent">{USER_CONTACTS.LOADING_FAILED}</p>
           </div>
-        ) : user?.basicInfo.contactList.length === 0 ? (
+        ) : user?.basicInfo.contactList.length === 0 || !contactsData ? (
           <div className="w-full h-full max-w-200 flex grow items-center justify-center">
             <p className="text-accent">{USER_CONTACTS.NO_CONTACTS}</p>
           </div>
         ) : (
-          ""
+          <div className="w-full max-w-200">
+            {contactsData.map((contact) => {
+              return <ContactHolder contactDetails={contact} />;
+            })}
+          </div>
         )}
       </div>
     </div>
