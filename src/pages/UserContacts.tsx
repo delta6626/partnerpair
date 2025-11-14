@@ -25,7 +25,6 @@ export const UserContacts = () => {
       const response = await getUserContacts({ contactList: user?.basicInfo.contactList });
       return response.data as Contact[];
     },
-    staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
   if (loading) {
