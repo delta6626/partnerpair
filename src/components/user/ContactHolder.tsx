@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) => {
   const navigate = useNavigate();
   const handleProfileClick = () => {
-    navigate(`/users/${contactDetails.contactId}`);
+    navigate(`/user/${contactDetails.contactId}`);
   };
 
   return (
