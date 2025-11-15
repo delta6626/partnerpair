@@ -62,7 +62,7 @@ export const UserContacts = () => {
         ) : (
           <div className="w-full flex flex-col gap-4 max-w-200">
             {contactsData.map((contact) => {
-              return <ContactHolder contactDetails={contact} />;
+              return <ContactHolder key={contact.contactId} contactDetails={contact} />;
             })}
           </div>
         )}
