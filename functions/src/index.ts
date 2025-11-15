@@ -212,3 +212,5 @@ export const getUserContacts = onCall(async (request) => {
   const contactDetailsCollection: Contact[] = await Promise.all(contactDetailsPromises);
   return contactDetailsCollection;
 });
+
+export const getSuggestedProfiles = onCall(async (request) => {});
