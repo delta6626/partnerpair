@@ -1,6 +1,7 @@
 import { DashboardHeader } from "../components/DashboardHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
+import { SuggestedProfiles } from "../components/ProfileViewer/SuggestedProfiles";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 
@@ -20,6 +21,7 @@ export const Dashboard = () => {
             <MainNavbar />
           </div>
           <DashboardHeader user={user} />
+          <SuggestedProfiles />
         </div>
       )}
     </div>
