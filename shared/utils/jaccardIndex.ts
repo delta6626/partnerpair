@@ -1,4 +1,4 @@
-export const jaccardIndex = (a: string[], b: string[]) => {
+export const jaccardIndex = (a: string[], b: string[]): number => {
   if (!a || !b) return 0;
   const setA = new Set(a);
   const setB = new Set(b);
