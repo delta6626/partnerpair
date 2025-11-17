@@ -8,6 +8,9 @@ export const compatibilityScore = (a: User, b: User) => {
   const skillMatchForUserA = jaccardIndex(a.matchingPreferences.lookingForSkills, b.professionalInfo.skills);
   const roleMatchForUserA = jaccardIndex(a.matchingPreferences.lookingForRoles, b.professionalInfo.roles);
 
-  const commitmentLevelMatch = enumEqual(a.matchingPreferences.commitmentLevel, b.professionalInfo.commitmentLevel);
-  const availabilityMatch = enumEqual(a.matchingPreferences.availability, b.professionalInfo.availability);
+  const commitmentLevelMatchForUserA = enumEqual(
+    a.matchingPreferences.commitmentLevel,
+    b.professionalInfo.commitmentLevel
+  );
+  const availabilityMatchForUserA = enumEqual(a.matchingPreferences.availability, b.professionalInfo.availability);
 };
