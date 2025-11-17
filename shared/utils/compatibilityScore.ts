@@ -3,8 +3,6 @@ import { enumEqual } from "./enumEqual";
 import { jaccardIndex } from "./jaccardIndex";
 
 export const compatibilityScore = (a: User, b: User) => {
-  let score = 0;
-
   // Individual role and skill based matching
 
   const skillMatchForUserA = jaccardIndex(a.matchingPreferences.lookingForSkills, b.professionalInfo.skills);
@@ -37,4 +35,28 @@ export const compatibilityScore = (a: User, b: User) => {
     (a.professionalInfo.wantsToCofound && b.professionalInfo.hasStartup)
       ? 1
       : 0;
+
+  // How fit B is for A
+  const scoreA =
+    skillMatchForUserA * 0.15 +
+    roleMatchForUserA * 0.1 +
+    commitmentLevelMatchForUserA * 0.025 +
+    availabilityMatchForUserA * 0.025;
+
+  // How fit A is for B
+  const scoreB =
+    skillMatchForUserB * 0.15 +
+    roleMatchForUserB * 0.1 +
+    commitmentLevelMatchForUserB * 0.025 +
+    availabilityMatchForUserB * 0.025;
+
+  // How fit are A & B for each other in terms of commitment and availability
+  const mutual = commitmentLevelMutualMatch * 0.15 + AvailabilityMutualMatch * 0.15;
+
+  // Startup partner check
+  const startup = canBePartners * 0.1;
+
+  const finalScore = scoreA + scoreB + mutual + startup;
+
+  return finalScore; // 0 (Bad fit) - 1 (Excellent fit)
 };
