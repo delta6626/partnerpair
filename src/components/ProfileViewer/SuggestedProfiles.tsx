@@ -1,6 +1,10 @@
+import { httpsCallable } from "firebase/functions";
 import { Link } from "react-router-dom";
+import { functions } from "../../services/firebaseConfig";
 
 export const SuggestedProfiles = () => {
+  const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
+
   return (
     <div className="w-full py-4">
       <div className="flex justify-between items-center">
