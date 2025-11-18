@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
+import { Loader } from "../Loader";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
@@ -26,7 +27,17 @@ export const SuggestedProfiles = () => {
         </Link>
       </div>
 
-      <div className="w-full grow py-8"></div>
+      {isLoading ? (
+        <div className="w-full grow flex items-center justify-center py-8">
+          <Loader />
+        </div>
+      ) : isError ? (
+        <div className="w-full grow flex items-center justify-center py-8">
+          <p className="text-accent">An unknown error occured.</p>
+        </div>
+      ) : (
+        <div className=""></div>
+      )}
     </div>
   );
 };
