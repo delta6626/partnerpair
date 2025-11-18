@@ -9,6 +9,7 @@ import { ViewerMetaData } from "./shared/types/ViewerMetaData";
 import { Timestamp } from "firebase-admin/firestore";
 import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileViewCountWithinTimePeriod";
 import { Contact } from "./shared/types/Contact";
+import { compatibilityScore } from "./shared/utils/compatibilityScore";
 
 admin.initializeApp();
 
@@ -213,4 +214,22 @@ export const getUserContacts = onCall(async (request) => {
   return contactDetailsCollection;
 });
 
-export const getSuggestedProfiles = onCall(async (request) => {});
+export const getSuggestedProfiles = onCall(async (request) => {
+  const userId = request.auth?.uid;
+  if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
+
+  const user = await fetchUserData(userId);
+  const userContacts = user.basicInfo.contactList;
+  const allUsersSnapshot = await db.collection("users").get();
+  const allUsers = allUsersSnapshot.docs.map((doc) => doc.data());
+
+  return allUsers
+    .filter((u) => u.basicInfo.email !== user.basicInfo.email)
+    .filter((u) => !userContacts.includes(u.basicInfo.email))
+    .map((u) => ({
+      user: u,
+      score: compatibilityScore(user, u as User),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 20);
+});
