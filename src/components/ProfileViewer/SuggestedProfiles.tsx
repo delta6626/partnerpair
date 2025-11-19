@@ -9,7 +9,11 @@ import { Loader } from "../Loader";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
-  const { data, isLoading, isError } = useQuery({
+  const {
+    data: suggestedProfiles,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: [QUERY_KEYS.SUGGESTED_PROFILES],
     queryFn: async () => {
       const response = await getSuggestedProfiles();
