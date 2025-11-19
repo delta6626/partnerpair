@@ -5,7 +5,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
     <div className="p-4 bg-base-200 min-w-100 rounded-3xl">
       <div className="flex items-center gap-4">
         <img src={userData.user.basicInfo.profileImageUrl} className="w-15 h-15 rounded-full" />
-        <h1>{userData.user.basicInfo.firstName + " " + userData.user.basicInfo.lastName}</h1>
+        <div className="">
+          <h1>{userData.user.basicInfo.firstName + " " + userData.user.basicInfo.lastName}</h1>
+          <p className="text-accent w-full max-w-70 truncate">{userData.user.professionalInfo.headline}</p>
+        </div>
       </div>
     </div>
   );
