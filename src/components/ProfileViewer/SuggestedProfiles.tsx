@@ -43,7 +43,7 @@ export const SuggestedProfiles = () => {
           <p className="text-accent">{DASHBOARD.SUGGESTED_PROFILE_LOADING_ERROR + " " + error}</p>
         </div>
       ) : (
-        <div className="">
+        <div className="flex flex-wrap">
           {suggestedProfiles.map((suggestedUser, index) => {
             return <UserProfileCard key={index} userData={suggestedUser} />;
           })}
