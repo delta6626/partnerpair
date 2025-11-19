@@ -7,6 +7,7 @@ import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { Loader } from "../Loader";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
+import { UserProfileCard } from "./UserProfileCard";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
@@ -37,12 +38,16 @@ export const SuggestedProfiles = () => {
         <div className="w-full grow flex items-center justify-center py-8">
           <Loader />
         </div>
-      ) : isError ? (
+      ) : isError || !suggestedProfiles ? (
         <div className="w-full grow flex items-center justify-center py-8">
           <p className="text-accent">{DASHBOARD.SUGGESTED_PROFILE_LOADING_ERROR + " " + error}</p>
         </div>
       ) : (
-        <div className=""></div>
+        <div className="">
+          {suggestedProfiles.map((suggestedUser, index) => {
+            return <UserProfileCard key={index} userData={suggestedUser} />;
+          })}
+        </div>
       )}
     </div>
   );
