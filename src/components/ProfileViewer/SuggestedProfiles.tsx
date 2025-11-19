@@ -14,6 +14,7 @@ export const SuggestedProfiles = () => {
     data: suggestedProfiles,
     isLoading,
     isError,
+    error,
   } = useQuery({
     queryKey: [QUERY_KEYS.SUGGESTED_PROFILES],
     queryFn: async () => {
@@ -38,7 +39,7 @@ export const SuggestedProfiles = () => {
         </div>
       ) : isError ? (
         <div className="w-full grow flex items-center justify-center py-8">
-          <p className="text-accent">{DASHBOARD.SUGGESTED_PROFILE_LOADING_ERROR}</p>
+          <p className="text-accent">{DASHBOARD.SUGGESTED_PROFILE_LOADING_ERROR + " " + error}</p>
         </div>
       ) : (
         <div className=""></div>
