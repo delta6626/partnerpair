@@ -21,7 +21,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
       </div>
 
       <div className="mt-4">
-        <GenericChipCollection listItems={userData.roles} fallbackText={""} />
+        <GenericChipCollection
+          listItems={userData.roles}
+          fallbackText={userData.firstName + " has not added any roles yet."}
+        />
       </div>
     </div>
   );
