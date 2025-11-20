@@ -25,6 +25,8 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
           listItems={userData.roles}
           fallbackText={userData.firstName + " has not added any roles yet."}
         />
+
+        <h1 className="mt-4 text-accent">{userData.bio}</h1>
       </div>
     </div>
   );
