@@ -227,7 +227,12 @@ export const getSuggestedProfiles = onCall(async (request) => {
     .filter((u) => u.basicInfo.email !== user.basicInfo.email)
     .filter((u) => !userContacts.includes(u.basicInfo.email))
     .map((u) => ({
-      user: u,
+      id: u.id,
+      profileImageURL: u.basicInfo.profileImageUrl,
+      firstName: u.basicInfo.firstName,
+      lastName: u.basicInfo.lastName,
+      headline: u.professionalInfo.headline,
+      roles: u.professionalInfo.roles,
       score: compatibilityScore(user, u as User),
     }))
     .sort((a, b) => b.score - a.score)
