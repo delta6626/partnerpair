@@ -7,6 +7,7 @@ export type SuggestedProfile = {
   lastName: User["basicInfo"]["lastName"];
   tier: User["basicInfo"]["tier"];
   headline: User["professionalInfo"]["headline"];
+  bio: User["professionalInfo"]["bio"];
   roles: User["professionalInfo"]["roles"];
   score: number;
 };

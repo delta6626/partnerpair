@@ -233,6 +233,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
       lastName: u.basicInfo.lastName,
       tier: u.basicInfo.tier,
       headline: u.professionalInfo.headline,
+      bio: u.professionalInfo.bio,
       roles: u.professionalInfo.roles,
       score: compatibilityScore(user, u as User),
     }))
