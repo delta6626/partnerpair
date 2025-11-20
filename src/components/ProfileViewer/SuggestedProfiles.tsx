@@ -45,7 +45,7 @@ export const SuggestedProfiles = () => {
       ) : (
         <div className="grid grid-cols-3 gap-4 py-4">
           {suggestedProfiles.map((suggestedUser) => {
-            return <UserProfileCard key={suggestedUser.user.id} userData={suggestedUser} />;
+            return <UserProfileCard key={suggestedUser.id} userData={suggestedUser} />;
           })}
         </div>
       )}
