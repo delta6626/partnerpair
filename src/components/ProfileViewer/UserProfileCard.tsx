@@ -1,5 +1,6 @@
 import { CircleStar } from "lucide-react";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
+import { GenericChipCollection } from "./GenericChipCollection";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
@@ -17,6 +18,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
           </div>
           <p className="text-accent w-full max-w-70 truncate">{userData.headline}</p>
         </div>
+      </div>
+
+      <div className="mt-4">
+        <GenericChipCollection listItems={userData.roles} fallbackText={""} />
       </div>
     </div>
   );
