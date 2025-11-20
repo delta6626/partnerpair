@@ -1,10 +1,11 @@
 import { CircleStar } from "lucide-react";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { GenericChipCollection } from "./GenericChipCollection";
+import { AddContact } from "../user/AddContact";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
-    <div className="p-4 bg-base-200 min-w-105 rounded-3xl">
+    <div className="p-4 bg-base-200 min-w-105 rounded-3xl flex flex-col justify-between">
       <div className="flex items-center gap-4">
         <img src={userData.profileImageURL} className="w-15 h-15 rounded-full" />
         <div className="">
@@ -27,6 +28,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         />
 
         <h1 className="mt-4 text-accent">{userData.bio}</h1>
+      </div>
+
+      <div className="mt-4">
+        <AddContact contactId={userData.id} />
       </div>
     </div>
   );
