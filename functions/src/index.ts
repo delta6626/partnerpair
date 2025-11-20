@@ -231,6 +231,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
       profileImageURL: u.basicInfo.profileImageUrl,
       firstName: u.basicInfo.firstName,
       lastName: u.basicInfo.lastName,
+      tier: u.basicInfo.tier,
       headline: u.professionalInfo.headline,
       roles: u.professionalInfo.roles,
       score: compatibilityScore(user, u as User),
