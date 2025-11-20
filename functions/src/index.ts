@@ -221,7 +221,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
   const user = await fetchUserData(userId);
   const userContacts = user.basicInfo.contactList;
   const allUsersSnapshot = await db.collection("users").get();
-  const allUsers = allUsersSnapshot.docs.map((doc) => doc.data());
+  const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
 
   return allUsers
     .filter((u) => u.basicInfo.email !== user.basicInfo.email)
