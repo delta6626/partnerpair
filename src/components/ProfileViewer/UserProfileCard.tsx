@@ -5,8 +5,8 @@ import { AddContact } from "../user/AddContact";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
-    <div className="p-4 border border-accent min-w-105 rounded-3xl flex flex-col justify-between">
-      <div className="flex items-center gap-4">
+    <div className="border border-accent min-w-105 rounded-3xl flex flex-col justify-between">
+      <div className="px-4 pt-4 flex items-center gap-4">
         <img src={userData.profileImageURL} className="w-15 h-15 rounded-full" />
         <div className="">
           <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="px-4 mt-4">
         <GenericChipCollection
           listItems={userData.roles}
           fallbackText={userData.firstName + " has not added any roles yet."}
@@ -30,7 +30,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         <h1 className="mt-4 text-accent">{userData.bio}</h1>
       </div>
 
-      <div className="mt-4">
+      <div className="p-4">
         <AddContact contactId={userData.id} />
       </div>
     </div>
