@@ -20,19 +20,6 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
           <p className="text-accent w-full max-w-70 truncate">{userData.headline}</p>
         </div>
       </div>
-
-      <div className="px-4 mt-4">
-        <GenericChipCollection
-          listItems={userData.roles}
-          fallbackText={userData.firstName + " has not added any roles yet."}
-        />
-
-        <h1 className="mt-4 text-accent">{userData.bio}</h1>
-      </div>
-
-      <div className="p-4">
-        <AddContact contactId={userData.id} />
-      </div>
     </div>
   );
 };
