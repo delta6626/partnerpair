@@ -6,10 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   const navigate = useNavigate();
 
-  const viewUserProfile = () => {
-    navigate(`/user/${userData.id}`);
-  };
-
   return (
     <div className="p-4 border border-accent min-w-105 rounded-3xl flex flex-col justify-between">
       <div className="flex items-center gap-4">
@@ -21,9 +17,9 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         <div className="w-full flex items-center justify-between">
           <div className="">
             <div className="flex items-center gap-2">
-              <h1 className="cursor-pointer" onClick={viewUserProfile}>
-                {userData.firstName + " " + userData.lastName}
-              </h1>
+              <Link to={`/user/${userData.id}`}>
+                <h1>{userData.firstName + " " + userData.lastName}</h1>
+              </Link>
               {userData.tier === "Pro" && (
                 <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
                   <CircleStar className="text-primary" size={20} />
