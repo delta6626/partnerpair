@@ -1,7 +1,7 @@
 import { CircleStar } from "lucide-react";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { AddContact } from "../user/AddContact";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   const navigate = useNavigate();
@@ -13,11 +13,9 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
   return (
     <div className="p-4 border border-accent min-w-105 rounded-3xl flex flex-col justify-between">
       <div className="flex items-center gap-4">
-        <img
-          src={userData.profileImageURL}
-          className="w-15 h-15 rounded-full cursor-pointer"
-          onClick={viewUserProfile}
-        />
+        <Link to={`/user/${userData.id}`} className="w-15 h-15">
+          <img src={userData.profileImageURL} className="rounded-full cursor-pointer" />
+        </Link>
         <div className="w-full flex items-center justify-between">
           <div className="">
             <div className="flex items-center gap-2">
