@@ -24,10 +24,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
                 </div>
               )}
             </div>
-            <p className="text-accent w-full max-w-70 truncate">{userData.headline}</p>
+            <p className="text-accent">{userData.headline}</p>
           </div>
 
-          <div className="">
+          <div className="min-w-fit">
             <AddContact contactId={userData.id} />
           </div>
         </div>
