@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 import type { AddContactButtonVariant } from "../../../shared/types/AddContactButtonVariant";
+import { UserRoundPlus, UserRoundMinus } from "lucide-react";
 
 export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactButtonVariant; contactId: string }) => {
   const { user } = useInitializeUser();
@@ -90,11 +91,11 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
   } else {
     return (
       <button
-        className="btn btn-transparent"
+        className="btn bg-transparent border-none px-2"
         onClick={handleContactChange}
         disabled={userIdLoading || loading || userId === contactId}
       >
-        {loading ? <Loader /> : <>{userIsAContact ? "✔️" : "➕"}</>}
+        {loading ? <Loader /> : <>{userIsAContact ? <UserRoundMinus size={20} /> : <UserRoundPlus size={20} />}</>}
       </button>
     );
   }
