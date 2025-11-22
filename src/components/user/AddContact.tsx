@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 
-export const AddContact = ({ contactId }: { contactId: string }) => {
+export const AddContact = ({ buttonType, contactId }: { buttonType?: string; contactId: string }) => {
   const { user } = useInitializeUser();
   const { setUser } = useUserStore();
   const {
