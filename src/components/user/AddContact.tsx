@@ -87,5 +87,15 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
         {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
       </button>
     );
+  } else {
+    return (
+      <button
+        className="btn btn-transparent"
+        onClick={handleContactChange}
+        disabled={userIdLoading || loading || userId === contactId}
+      >
+        {loading ? <Loader /> : <>{userIsAContact ? "✔️" : "➕"}</>}
+      </button>
+    );
   }
 };

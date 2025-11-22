@@ -28,7 +28,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
           </div>
 
           <div className="min-w-fit">
-            <AddContact contactId={userData.id} />
+            <AddContact buttonType={"icon"} contactId={userData.id} />
           </div>
         </div>
       </div>
