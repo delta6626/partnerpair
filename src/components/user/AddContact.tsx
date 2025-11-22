@@ -7,8 +7,9 @@ import { Loader } from "../Loader";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
+import type { AddContactButtonVariant } from "../../../shared/types/AddContactButtonVariant";
 
-export const AddContact = ({ buttonType, contactId }: { buttonType?: string; contactId: string }) => {
+export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactButtonVariant; contactId: string }) => {
   const { user } = useInitializeUser();
   const { setUser } = useUserStore();
   const {
