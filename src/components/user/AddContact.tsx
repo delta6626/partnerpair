@@ -77,13 +77,15 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
     }
   };
 
-  return (
-    <button
-      className={`btn ${userIsAContact ? "btn-error" : ""}`}
-      onClick={handleContactChange}
-      disabled={userIdLoading || loading || userId === contactId}
-    >
-      {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
-    </button>
-  );
+  if (!buttonType || buttonType === "default") {
+    return (
+      <button
+        className={`btn ${userIsAContact ? "btn-error" : ""}`}
+        onClick={handleContactChange}
+        disabled={userIdLoading || loading || userId === contactId}
+      >
+        {loading ? <Loader /> : <>{userIsAContact ? "Remove Contact" : "Add to Contacts"}</>}
+      </button>
+    );
+  }
 };
