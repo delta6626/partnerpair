@@ -91,11 +91,15 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
   } else {
     return (
       <button
-        className={`btn btn-square ${userIsAContact ? "btn-error" : ""}`}
+        className={"btn btn-square"}
         onClick={handleContactChange}
         disabled={userIdLoading || loading || userId === contactId}
       >
-        {loading ? <Loader /> : <>{userIsAContact ? <UserRoundMinus size={20} /> : <UserRoundPlus size={20} />}</>}
+        {loading ? (
+          <Loader />
+        ) : (
+          <>{userIsAContact ? <UserRoundMinus size={20} className="text-error" /> : <UserRoundPlus size={20} />}</>
+        )}
       </button>
     );
   }
