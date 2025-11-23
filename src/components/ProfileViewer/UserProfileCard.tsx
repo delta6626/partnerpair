@@ -33,7 +33,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-2">
         <p className="text-accent">Bio</p>
         <h1>{userData.bio}</h1>
       </div>
