@@ -235,6 +235,9 @@ export const getSuggestedProfiles = onCall(async (request) => {
       headline: u.professionalInfo.headline,
       bio: u.professionalInfo.bio,
       roles: u.professionalInfo.roles,
+      hasStartup: u.professionalInfo.hasStartup,
+      wantsToCofound: u.professionalInfo.wantsToCofound,
+      startupDescription: u.professionalInfo.startupDescription,
       score: compatibilityScore(user, u as User),
     }))
     .sort((a, b) => b.score - a.score)
