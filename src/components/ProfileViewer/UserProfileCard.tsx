@@ -32,6 +32,11 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
           </div>
         </div>
       </div>
+
+      <div className="mt-4">
+        <p className="text-accent">Bio</p>
+        <h1>{userData.bio}</h1>
+      </div>
     </div>
   );
 };
