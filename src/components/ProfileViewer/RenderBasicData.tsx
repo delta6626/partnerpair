@@ -127,7 +127,7 @@ export const RenderBasicData = ({
 
         {visitedUserData.professionalInfo.wantsToCofound ? (
           <div className="mt-2 flex justify-between">
-            <p>I want to join someone else's startup as a co-founder</p>
+            <p>I want to join someone else's startup as a cofounder</p>
             <input
               type="checkbox"
               className="checkbox checkbox-primary checkbox-sm"

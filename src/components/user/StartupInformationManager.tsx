@@ -100,7 +100,7 @@ export const StartupInformationManager = () => {
         </div>
 
         <div className="mt-2 flex items-center justify-between">
-          <p>Do you want to join someone else's startup as a co-founder?</p>
+          <p>Do you want to join someone else's startup as a cofounder?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
               <p>Yes</p>

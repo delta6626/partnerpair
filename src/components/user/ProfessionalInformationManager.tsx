@@ -55,7 +55,7 @@ export const ProfessionalInformationManager = () => {
         <p className="mt-4">What makes you a great cofounder?</p>
         <textarea
           className="mt-2 textarea w-full max-h-100"
-          placeholder="Explain your skills, experience, and vision that make you an ideal co-founder"
+          placeholder="Explain your skills, experience, and vision that make you an ideal cofounder"
           maxLength={SETTINGS.MAX_BIO_LENGTH}
           value={tempUser?.professionalInfo.bio}
           onChange={handleBioChange}

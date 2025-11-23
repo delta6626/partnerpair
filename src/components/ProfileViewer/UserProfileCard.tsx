@@ -39,10 +39,10 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
       </div>
 
       <div className="mt-2">
-        <p className="text-accent">{userData.wantsToCofound ? "Co-founder status" : "My startup"}</p>
+        <p className="text-accent">{userData.wantsToCofound ? "Looking to cofound" : "My startup"}</p>
         <h1>
           {userData.wantsToCofound
-            ? "I want to join someone else's startup as a co-founder"
+            ? "I want to join someone else's startup as a co-founder."
             : userData.startupDescription}
         </h1>
       </div>
