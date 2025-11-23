@@ -216,7 +216,10 @@ export const getUserContacts = onCall(async (request) => {
 
 export const getSuggestedProfiles = onCall(async (request) => {
   const userId = request.auth?.uid;
+  let suggestionCount = request.data.suggestionCount || 20;
+
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
+  if (suggestionCount > 50) suggestionCount = 50; // max limit
 
   const user = await fetchUserData(userId);
   const userContacts = user.basicInfo.contactList;
@@ -241,5 +244,5 @@ export const getSuggestedProfiles = onCall(async (request) => {
       score: compatibilityScore(user, u as User),
     }))
     .sort((a, b) => b.score - a.score)
-    .slice(0, 20);
+    .slice(0, suggestionCount);
 });
