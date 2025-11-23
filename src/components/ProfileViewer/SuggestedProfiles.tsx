@@ -19,7 +19,7 @@ export const SuggestedProfiles = () => {
   } = useQuery({
     queryKey: [QUERY_KEYS.SUGGESTED_PROFILES],
     queryFn: async () => {
-      const response = await getSuggestedProfiles();
+      const response = await getSuggestedProfiles({ suggestionCount: DASHBOARD.SUGGESTED_PROFILE_COUNT });
       return response.data as SuggestedProfile[];
     },
     staleTime: STALE_TIME.MINUTE_FIVE,
