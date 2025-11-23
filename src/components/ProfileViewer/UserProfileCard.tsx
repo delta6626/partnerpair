@@ -37,6 +37,15 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
         <p className="text-accent">Bio</p>
         <h1>{userData.bio}</h1>
       </div>
+
+      <div className="mt-2">
+        <p className="text-accent">{userData.wantsToCofound ? "Co-founder status" : "My startup"}</p>
+        <h1>
+          {userData.wantsToCofound
+            ? "I want to join someone else's startup as a co-founder"
+            : userData.startupDescription}
+        </h1>
+      </div>
     </div>
   );
 };
