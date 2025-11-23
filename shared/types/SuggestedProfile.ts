@@ -9,5 +9,8 @@ export type SuggestedProfile = {
   headline: User["professionalInfo"]["headline"];
   bio: User["professionalInfo"]["bio"];
   roles: User["professionalInfo"]["roles"];
+  hasStartup: User["professionalInfo"]["hasStartup"];
+  wantsToCofound: User["professionalInfo"]["wantsToCofound"];
+  startupDescription: User["professionalInfo"]["startupDescription"];
   score: number;
 };
