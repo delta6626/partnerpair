@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
-    <div className="p-4 border border-accent min-w-105 rounded-3xl">
+    <div className="break-inside-avoid p-4 border border-accent min-w-105 rounded-3xl">
       <div className="flex items-center gap-4">
         <div className="h-15 w-15 flex items-center">
           <Link to={`/user/${userData.id}`} className="h-15 w-15">
