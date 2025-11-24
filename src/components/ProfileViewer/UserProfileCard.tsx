@@ -3,6 +3,7 @@ import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { AddContact } from "../user/AddContact";
 import { Link } from "react-router-dom";
 import { GenericChipCollection } from "./GenericChipCollection";
+import { ProBadge } from "../user/ProBadge";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
@@ -19,11 +20,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
               <Link to={`/user/${userData.id}`}>
                 <h1>{userData.firstName + " " + userData.lastName}</h1>
               </Link>
-              {userData.tier === "Pro" && (
-                <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
-                  <CircleStar className="text-primary" size={20} />
-                </div>
-              )}
+              {userData.tier === "Pro" && <ProBadge />}
             </div>
             <p className="text-accent">{userData.headline}</p>
           </div>
