@@ -1,9 +1,10 @@
-import { CircleStar, Clock, MapPin, Phone, Zap } from "lucide-react";
+import { Clock, MapPin, Phone, Zap } from "lucide-react";
 import type { DisplayableUserBasic } from "../../../shared/types/DisplayableUserBasic";
 import { PROFILE_VIEWER } from "../../../shared/constants/PROFILE_VIEWER";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 import { AddContact } from "../user/AddContact";
+import { ProBadge } from "../user/ProBadge";
 
 export const RenderBasicData = ({
   visitedUserData,
@@ -28,13 +29,7 @@ export const RenderBasicData = ({
                     <h1 className="text-2xl font-medium">
                       {visitedUserData.basicInfo.firstName + " " + visitedUserData.basicInfo.lastName}
                     </h1>
-                    {visitedUserData.basicInfo.tier === "Pro" ? (
-                      <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
-                        <CircleStar className="text-primary" size={20} />
-                      </div>
-                    ) : (
-                      ""
-                    )}
+                    {visitedUserData.basicInfo.tier === "Pro" ? <ProBadge /> : ""}
                   </div>
 
                   <div className="">

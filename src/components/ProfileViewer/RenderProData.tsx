@@ -1,8 +1,9 @@
 import type { DisplayableUserPro } from "../../../shared/types/DisplayableUserPro";
-import { CircleStar, Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
+import { Clock, ExternalLink, MapPin, Phone, Zap } from "lucide-react";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 import { AddContact } from "../user/AddContact";
+import { ProBadge } from "../user/ProBadge";
 
 export const RenderProData = ({
   visitedUserData,
@@ -27,13 +28,7 @@ export const RenderProData = ({
                     <h1 className="text-2xl font-medium">
                       {visitedUserData.basicInfo.firstName + " " + visitedUserData.basicInfo.lastName}
                     </h1>
-                    {visitedUserData.basicInfo.tier === "Pro" ? (
-                      <div className="tooltip tooltip-top tooltip-primary" data-tip={"Pro user"}>
-                        <CircleStar className="text-primary" size={20} />
-                      </div>
-                    ) : (
-                      ""
-                    )}
+                    {visitedUserData.basicInfo.tier === "Pro" ? <ProBadge /> : ""}
                   </div>
                   <div className="">
                     <p className="text-accent">{visitedUserData.professionalInfo.headline}</p>
