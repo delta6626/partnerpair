@@ -1,3 +1,7 @@
 export const ProBadge = () => {
-  return;
+  return (
+    <div className="">
+      <p className="">Pro</p>
+    </div>
+  );
 };
