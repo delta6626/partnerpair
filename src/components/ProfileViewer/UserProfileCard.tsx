@@ -2,6 +2,7 @@ import { CircleStar } from "lucide-react";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { AddContact } from "../user/AddContact";
 import { Link } from "react-router-dom";
+import { GenericChipCollection } from "./GenericChipCollection";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
   return (
@@ -36,6 +37,14 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
       <div className="mt-2">
         <p className="text-accent">Bio</p>
         <h1>{userData.bio}</h1>
+      </div>
+
+      <div className="mt-2 flex flex-col gap-2">
+        <p className="text-accent">Roles I Play</p>
+        <GenericChipCollection
+          listItems={userData.roles}
+          fallbackText={userData.firstName + " has not added any roles yet."}
+        />
       </div>
 
       <div className="mt-2">
