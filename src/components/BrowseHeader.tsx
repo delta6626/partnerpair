@@ -10,7 +10,7 @@ export const BrowseHeader = () => {
 
       <div className="">
         <h1 className="font-bold text-3xl">Browse</h1>
-        <h1 className="text-xl text-accent">{BROWSE.HEADER_SUB_TEXT}</h1>
+        <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
       </div>
     </div>
   );
