@@ -33,7 +33,7 @@ export const RenderBasicData = ({
                   </div>
 
                   <div className="">
-                    <p className="text-accent">{visitedUserData.professionalInfo.headline}</p>
+                    <p className="text-accent">{visitedUserData.professionalInfo.headline ?? "---"}</p>
                   </div>
                 </div>
 

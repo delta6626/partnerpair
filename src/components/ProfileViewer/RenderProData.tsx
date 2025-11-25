@@ -31,7 +31,7 @@ export const RenderProData = ({
                     {visitedUserData.basicInfo.tier === "Pro" ? <ProBadge /> : ""}
                   </div>
                   <div className="">
-                    <p className="text-accent">{visitedUserData.professionalInfo.headline}</p>
+                    <p className="text-accent">{visitedUserData.professionalInfo.headline ?? "---"}</p>
                   </div>
                 </div>
 
