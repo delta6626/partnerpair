@@ -1,1 +1,1 @@
-# PartnerPair - A Co-founder matching platform
+# PartnerPair - A Cofounder matching platform
