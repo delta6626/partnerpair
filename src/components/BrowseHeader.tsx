@@ -8,9 +8,17 @@ export const BrowseHeader = () => {
         <ProfileStatusMessage />
       </div>
 
-      <div className="">
-        <h1 className="font-bold text-3xl">Browse</h1>
-        <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
+      <div className="flex items-center justify-between">
+        <div className="">
+          <h1 className="font-bold text-3xl">Browse</h1>
+          <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
+        </div>
+
+        <div>
+          <input className="input min-w-120" placeholder=""></input>
+        </div>
+
+        <div className="">Filters</div>
       </div>
     </div>
   );
