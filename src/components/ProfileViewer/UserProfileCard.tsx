@@ -1,4 +1,3 @@
-import { CircleStar } from "lucide-react";
 import type { SuggestedProfile } from "../../../shared/types/SuggestedProfile";
 import { AddContact } from "../user/AddContact";
 import { Link } from "react-router-dom";
