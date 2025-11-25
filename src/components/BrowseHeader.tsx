@@ -15,7 +15,7 @@ export const BrowseHeader = () => {
         </div>
 
         <div>
-          <input className="input min-w-120" placeholder=""></input>
+          <input className="input min-w-120" placeholder={BROWSE.SEARCH_PLACEHOLDER}></input>
         </div>
 
         <div className="">Filters</div>
