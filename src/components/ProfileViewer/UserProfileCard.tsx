@@ -21,7 +21,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) =>
               </Link>
               {userData.tier === "Pro" && <ProBadge />}
             </div>
-            <p className="text-accent">{userData.headline}</p>
+            <p className="text-accent">{userData.headline ?? "---"}</p>
           </div>
 
           <div className="min-w-fit">
