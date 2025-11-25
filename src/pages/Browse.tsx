@@ -1,3 +1,4 @@
+import { BrowseHeader } from "../components/BrowseHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
@@ -18,6 +19,7 @@ export const Browse = () => {
           <div className="py-4">
             <MainNavbar />
           </div>
+          <BrowseHeader />
         </div>
       )}
     </div>

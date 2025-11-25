@@ -1,3 +1,4 @@
+import { BROWSE } from "../../shared/constants/BROWSE";
 import { ProfileStatusMessage } from "./user/ProfileStatusMessage";
 
 export const BrowseHeader = () => {
@@ -8,7 +9,8 @@ export const BrowseHeader = () => {
       </div>
 
       <div className="">
-        <h1 className="text-2xl font-bold">Browse</h1>
+        <h1 className="font-bold text-3xl">Browse</h1>
+        <h1 className="text-xl text-accent">{BROWSE.HEADER_SUB_TEXT}</h1>
       </div>
     </div>
   );
