@@ -50,7 +50,7 @@ export const UserContacts = () => {
           </div>
           <div className="relative">
             <Search size={20} className="text-accent absolute left-4 top-1/2 -translate-y-1/2 z-10" />
-            <input className="input pl-12 min-w-100"></input>
+            <input className="input pl-12 min-w-100" placeholder={USER_CONTACTS.SEARCH_PLACEHOLDER}></input>
           </div>
         </div>
 
