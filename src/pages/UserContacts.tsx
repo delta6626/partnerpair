@@ -10,6 +10,7 @@ import type { Contact } from "../../shared/types/Contact";
 import { useTheme } from "../hooks/useTheme";
 import { ContactHolder } from "../components/user/ContactHolder";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 export const UserContacts = () => {
   useTheme();
@@ -27,6 +28,11 @@ export const UserContacts = () => {
       return response.data as Contact[];
     },
   });
+
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const filteredContacts = contactsData?.filter((contact) =>
+    (contact.contactFirstName + " " + contact.contactLastName).toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   if (loading) {
     return (
@@ -50,7 +56,12 @@ export const UserContacts = () => {
           </div>
           <div className="relative">
             <Search size={20} className="text-accent absolute left-4 top-1/2 -translate-y-1/2 z-10" />
-            <input className="input pl-12 min-w-100" placeholder={USER_CONTACTS.SEARCH_PLACEHOLDER}></input>
+            <input
+              className="input pl-12 min-w-100"
+              placeholder={USER_CONTACTS.SEARCH_PLACEHOLDER}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            ></input>
           </div>
         </div>
 
@@ -68,7 +79,7 @@ export const UserContacts = () => {
           </div>
         ) : (
           <div className="w-full flex flex-col gap-4 max-w-200">
-            {contactsData.map((contact) => {
+            {filteredContacts?.map((contact) => {
               return <ContactHolder key={contact.contactId} contactDetails={contact} />;
             })}
           </div>
