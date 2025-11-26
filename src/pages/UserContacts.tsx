@@ -9,6 +9,7 @@ import { functions } from "../services/firebaseConfig";
 import type { Contact } from "../../shared/types/Contact";
 import { useTheme } from "../hooks/useTheme";
 import { ContactHolder } from "../components/user/ContactHolder";
+import { Search } from "lucide-react";
 
 export const UserContacts = () => {
   useTheme();
@@ -47,7 +48,10 @@ export const UserContacts = () => {
             <h1 className="font-bold text-3xl">Contacts</h1>
             <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
           </div>
-          <input className="input" placeholder="Search contacts"></input>
+          <div className="relative">
+            <Search size={20} className="text-accent absolute left-4 top-1/2 -translate-y-1/2 z-10" />
+            <input className="input pl-12 min-w-100"></input>
+          </div>
         </div>
 
         {contactsLoading ? (
