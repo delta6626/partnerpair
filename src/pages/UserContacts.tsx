@@ -77,6 +77,10 @@ export const UserContacts = () => {
           <div className="w-full h-full max-w-200 flex grow items-center justify-center">
             <p className="text-accent">{USER_CONTACTS.NO_CONTACTS}</p>
           </div>
+        ) : filteredContacts?.length === 0 ? (
+          <div className="w-full h-full max-w-200 flex grow items-center justify-center">
+            <p className="text-accent">{USER_CONTACTS.NO_FILTERED_CONTACTS}</p>
+          </div>
         ) : (
           <div className="w-full flex flex-col gap-4 max-w-200">
             {filteredContacts?.map((contact) => {

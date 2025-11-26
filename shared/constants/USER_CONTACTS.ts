@@ -3,4 +3,5 @@ export const USER_CONTACTS = {
   NO_CONTACTS: "No contacts added yet.",
   LOADING_FAILED: "Failed to load contacts. Please try again.",
   SEARCH_PLACEHOLDER: "Search contacts",
+  NO_FILTERED_CONTACTS: "No contacts found matching your search.",
 };
