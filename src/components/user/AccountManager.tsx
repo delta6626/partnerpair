@@ -1,4 +1,4 @@
-import { User2 } from "lucide-react";
+import { UserRoundCog } from "lucide-react";
 import { useTheme } from "../../hooks/useTheme";
 import type { ChangeEvent } from "react";
 import type { AppTheme } from "../../../shared/types/AppTheme";
@@ -15,7 +15,7 @@ export const AccountManager = () => {
   return (
     <div className="max-w-200 border-1 border-accent rounded-3xl p-8">
       <div className="flex items-center gap-2">
-        <User2 />
+        <UserRoundCog size={20} />
         <h1 className="text-lg font-medium">Account</h1>
       </div>
 
