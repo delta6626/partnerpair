@@ -13,7 +13,7 @@ export const SearchUser = () => {
       </div>
 
       <button className="btn" onClick={() => setIsOpen(!isOpen)}>
-        Filters
+        {isOpen ? "Close Filters" : "Open Filters"}
       </button>
     </>
   );
