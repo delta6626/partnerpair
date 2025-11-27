@@ -1,4 +1,4 @@
-import { BrowseHeader } from "../components/BrowseHeader";
+import { BrowseHeader } from "../components/browsing/BrowseHeader";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";

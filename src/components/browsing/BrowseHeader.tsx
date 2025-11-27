@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
-import { BROWSE } from "../../shared/constants/BROWSE";
-import { ProfileStatusMessage } from "./user/ProfileStatusMessage";
+import { BROWSE } from "../../../shared/constants/BROWSE";
+import { ProfileStatusMessage } from "../user/ProfileStatusMessage";
 
 export const BrowseHeader = () => {
   return (
