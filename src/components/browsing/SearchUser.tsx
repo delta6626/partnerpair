@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import { SearchFilters } from "./SearchFilters";
 
 export const SearchUser = () => {
   return (
@@ -9,7 +10,7 @@ export const SearchUser = () => {
         <input className="input pl-12 min-w-120" placeholder={BROWSE.SEARCH_PLACEHOLDER}></input>
       </div>
 
-      <div className="">Filters</div>
+      <SearchFilters />
     </>
   );
 };
