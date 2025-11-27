@@ -1,3 +1,3 @@
 export const SearchFiltersMenu = () => {
-  return <div className=""></div>;
+  return <div className="">hi</div>;
 };

@@ -1,12 +1,15 @@
 import { BrowseHeader } from "../components/browsing/BrowseHeader";
+import { SearchFiltersMenu } from "../components/browsing/SearchFiltersMenu";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import { useFilterMenuStore } from "../store/useFilterMenuStore";
 
 export const Browse = () => {
   useTheme();
   const { loading } = useInitializeUser();
+  const { isOpen } = useFilterMenuStore();
 
   return (
     <div className="">
@@ -20,6 +23,7 @@ export const Browse = () => {
             <MainNavbar />
           </div>
           <BrowseHeader />
+          {isOpen && <SearchFiltersMenu />}
         </div>
       )}
     </div>
