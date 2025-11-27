@@ -1,7 +1,10 @@
 import { Search } from "lucide-react";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import { useFilterMenuStore } from "../../store/useFilterMenuStore";
 
 export const SearchUser = () => {
+  const { isOpen, setIsOpen } = useFilterMenuStore();
+
   return (
     <>
       <div className="relative">
@@ -9,7 +12,9 @@ export const SearchUser = () => {
         <input className="input pl-12 min-w-120" placeholder={BROWSE.SEARCH_PLACEHOLDER}></input>
       </div>
 
-      <button className="btn">Filters</button>
+      <button className="btn" onClick={() => setIsOpen(!isOpen)}>
+        Filters
+      </button>
     </>
   );
 };
