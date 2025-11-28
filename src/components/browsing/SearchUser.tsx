@@ -1,5 +1,3 @@
-import { Search } from "lucide-react";
-import { BROWSE } from "../../../shared/constants/BROWSE";
 import { useFilterMenuStore } from "../../store/useFilterMenuStore";
 
 export const SearchUser = () => {
