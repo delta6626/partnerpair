@@ -190,7 +190,10 @@ export const RenderProData = ({
       <div className="mt-4">
         <h1 className="text-lg font-medium">Preferred Cofounder Commitment Level</h1>
         <div className="mt-2">
-          <GenericChip chipText={visitedUserData.matchingPreferences.commitmentLevel} />
+          <GenericChip
+            chipText={visitedUserData.matchingPreferences.commitmentLevel!}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred commitment level."}
+          />
         </div>
       </div>
 
