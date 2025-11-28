@@ -8,9 +8,13 @@ import { loginUserByEmail, signInWithGoogle } from "../../services/authenticatio
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
+import { useUserStore } from "../../store/useUserStore";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const { resetUser } = useUserStore();
+  const queryClient = useQueryClient();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
@@ -34,6 +38,8 @@ export const LoginForm = () => {
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
+    resetUser();
+    queryClient.clear();
     setLoading(true);
 
     const userCredentials = await loginUserByEmail(email, password);
@@ -55,6 +61,8 @@ export const LoginForm = () => {
 
   const handleGoogleLogin = async (e: FormEvent) => {
     e.preventDefault();
+    resetUser();
+    queryClient.clear();
     setLoading(true);
 
     const userCredentials: UserCredential | string = await signInWithGoogle();

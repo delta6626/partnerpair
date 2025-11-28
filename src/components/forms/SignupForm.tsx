@@ -8,11 +8,13 @@ import { useUserStore } from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const SignupForm = () => {
   const navigate = useNavigate();
 
-  const { setUser } = useUserStore();
+  const { setUser, resetUser } = useUserStore();
+  const queryClient = useQueryClient();
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -74,6 +76,8 @@ export const SignupForm = () => {
 
   const handleSignup = async (e: FormEvent) => {
     e.preventDefault();
+    resetUser();
+    queryClient.clear();
     setLoading(true);
 
     // Authenticate the user and store them in Firestore.
@@ -93,6 +97,8 @@ export const SignupForm = () => {
 
   const handleGoogleSignup = async (e: FormEvent) => {
     e.preventDefault();
+    resetUser();
+    queryClient.clear();
     setLoading(true);
 
     const userCredentials: UserCredential | string = await signInWithGoogle();
