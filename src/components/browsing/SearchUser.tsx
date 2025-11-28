@@ -7,11 +7,6 @@ export const SearchUser = () => {
 
   return (
     <>
-      <div className="relative">
-        <Search size={20} className="text-accent absolute left-4 top-1/2 -translate-y-1/2 z-10" />
-        <input className="input pl-12 min-w-120" placeholder={BROWSE.SEARCH_PLACEHOLDER}></input>
-      </div>
-
       <button className="btn min-w-30" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Close Filters" : "Open Filters"}
       </button>
