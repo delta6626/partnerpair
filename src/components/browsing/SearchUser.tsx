@@ -12,7 +12,7 @@ export const SearchUser = () => {
         <input className="input pl-12 min-w-120" placeholder={BROWSE.SEARCH_PLACEHOLDER}></input>
       </div>
 
-      <button className="btn" onClick={() => setIsOpen(!isOpen)}>
+      <button className="btn min-w-30" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Close Filters" : "Open Filters"}
       </button>
     </>
