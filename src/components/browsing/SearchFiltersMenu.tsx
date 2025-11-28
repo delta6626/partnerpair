@@ -7,16 +7,16 @@ export const SearchFiltersMenu = () => {
   
   professionalInfo.skills
   professonalInfo.roles
-  professionalInfo.commitmentLevel
-  professionalInfo.availability
+  professionalInfo.commitmentLevel // Pay wall
+  professionalInfo.availability // Pay wall
   professionalInfo.hasStartup
   professionalInfo.startupStage
   professonalInfo.wantsToCofound
 
-  matchingPreferences.lookingForSkills
-  matchingPreferences.lookingForRoles
-  matchingPreferences.commitmentLevel
-  matchingPreferences.availability
+  matchingPreferences.lookingForSkills 
+  matchingPreferences.lookingForRoles 
+  matchingPreferences.commitmentLevel // Pay wall
+  matchingPreferences.availability // Pay wall
   matchingPreferences.preferredCompanyStage
   */
 
