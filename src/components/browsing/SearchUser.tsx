@@ -5,7 +5,7 @@ export const SearchUser = () => {
 
   return (
     <>
-      <button className="btn min-w-30" onClick={() => setIsOpen(!isOpen)}>
+      <button className="btn" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Close Filters" : "Open Filters"}
       </button>
     </>
