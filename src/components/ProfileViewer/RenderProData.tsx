@@ -198,6 +198,16 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
+        <h1 className="text-lg font-medium">Preferred Cofounder Availability</h1>
+        <div className="mt-2">
+          <GenericChip
+            chipText={visitedUserData.matchingPreferences.availability!}
+            fallbackText={visitedUserData.basicInfo.firstName + " has not added any preferred availability."}
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
         <h1 className="text-lg font-medium">My Socials</h1>
         <div className="mt-2 flex flex-wrap gap-2">
           {Object.keys(visitedUserData.socialLinks).map((linkItem) => {
