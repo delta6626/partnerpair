@@ -31,7 +31,7 @@ export const SearchFiltersMenu = () => {
   */
 
   return (
-    <div className="min-w-full bg-blue-50">
+    <div className="w-full flex flex-wrap gap-4">
       <LocationFilterDropdown />
       <SkillsFilterDropdown />
       <RolesFilterDropdown />
