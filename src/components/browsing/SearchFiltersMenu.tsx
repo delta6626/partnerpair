@@ -10,7 +10,7 @@ export const SearchFiltersMenu = () => {
   /*
   Relevant properties to be included for filtering.
 
-  basicInfo.location
+  basicInfo.location // Pay wall
   basicInfo.profileCompleted
   
   professionalInfo.skills
@@ -23,9 +23,6 @@ export const SearchFiltersMenu = () => {
 
   matchingPreferences.lookingForSkills 
   matchingPreferences.lookingForRoles 
-  matchingPreferences.commitmentLevel // Pay wall
-  matchingPreferences.availability // Pay wall
-  matchingPreferences.preferredCompanyStage
   */
 
   return (
