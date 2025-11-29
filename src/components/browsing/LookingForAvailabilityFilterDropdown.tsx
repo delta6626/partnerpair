@@ -1,10 +1,10 @@
 import { ChevronDown } from "lucide-react";
 
-export const LookingForCommitmentFilterDropdown = () => {
+export const LookingForAvailabilityFilterDropdown = () => {
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
-        Commitment they Seek
+        Availability they Seek
         <ChevronDown size={20} />
       </button>
 
