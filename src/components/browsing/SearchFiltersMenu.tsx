@@ -23,7 +23,9 @@ export const SearchFiltersMenu = () => {
   professonalInfo.wantsToCofound
 
   matchingPreferences.lookingForSkills 
-  matchingPreferences.lookingForRoles 
+  matchingPreferences.lookingForRoles
+  matchingPreferences.commitmentLevel // Pay wall
+  matchingPreferences.availability // Pay wall
   */
 
   return (
