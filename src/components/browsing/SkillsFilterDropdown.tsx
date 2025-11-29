@@ -21,6 +21,17 @@ export const SkillsFilterDropdown = () => {
     skillInput.value = "";
   };
 
+  const handleSkillDelete = (skillToDelete: string) => {
+    const updatedSkills = skills.filter((skill) => skill !== skillToDelete);
+    if (updatedSkills.length > 0) {
+      searchParams.set("skills", updatedSkills.join(","));
+    } else {
+      searchParams.delete("skills");
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -33,7 +44,13 @@ export const SkillsFilterDropdown = () => {
           <div className="flex flex-wrap gap-2 mb-4">
             {skills.map((skill) => {
               return (
-                <GenericChip chipText={skill} fallbackText="">
+                <GenericChip
+                  chipText={skill}
+                  fallbackText=""
+                  onClick={() => {
+                    handleSkillDelete(skill);
+                  }}
+                >
                   <XIcon size={20} />
                 </GenericChip>
               );
