@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 
-export const LookingForSkillsDropDown = () => {
+export const LookingForSkillsFilterDropDown = () => {
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
