@@ -5,12 +5,20 @@ import { useSearchParams } from "react-router-dom";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 
 export const SkillsFilterDropdown = () => {
-  const [searchParams, getSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const skills = searchParams.get("skills")?.split(",") ?? [];
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const skillInput = e.currentTarget.querySelector("input") as HTMLInputElement;
+    const skill = skillInput.value.trim().toLowerCase();
+    if (!skill) return;
+
+    const updatedSkills = skills.includes(skill) ? skills : [...skills, skill];
+    searchParams.set("skills", updatedSkills.join(","));
+    setSearchParams(searchParams);
+    skillInput.value = "";
   };
 
   return (
@@ -21,11 +29,11 @@ export const SkillsFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
-        <div className="">
+        <div className="flex flex-wrap gap-2 mb-4">
           {skills.length > 0
             ? skills.map((skill) => {
                 return (
-                  <GenericChip chipText={skill.toLocaleUpperCase()} fallbackText="">
+                  <GenericChip chipText={skill} fallbackText="">
                     <XIcon size={20} />
                   </GenericChip>
                 );
