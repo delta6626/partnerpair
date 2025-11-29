@@ -1,3 +1,4 @@
+import { RolesFilterDropdown } from "./RolesFilterDropdown";
 import { SkillsFilterDropdown } from "./SkillsFilterDropdown";
 
 export const SearchFiltersMenu = () => {
@@ -25,6 +26,7 @@ export const SearchFiltersMenu = () => {
   return (
     <div className="min-w-full bg-blue-50">
       <SkillsFilterDropdown />
+      <RolesFilterDropdown />
     </div>
   );
 };
