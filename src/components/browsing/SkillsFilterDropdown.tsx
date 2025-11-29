@@ -29,17 +29,17 @@ export const SkillsFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {skills.length > 0
-            ? skills.map((skill) => {
-                return (
-                  <GenericChip chipText={skill} fallbackText="">
-                    <XIcon size={20} />
-                  </GenericChip>
-                );
-              })
-            : ""}
-        </div>
+        {skills.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {skills.map((skill) => {
+              return (
+                <GenericChip chipText={skill} fallbackText="">
+                  <XIcon size={20} />
+                </GenericChip>
+              );
+            })}
+          </div>
+        )}
 
         <form className="flex gap-2" onSubmit={handleSubmit}>
           <input className="input w-70" type="text" placeholder={BROWSE.SKILL_SEARCH_PLACEHOLDER} />
