@@ -1,7 +1,9 @@
 import { AvailabilityFilterDropdown } from "./AvailabilityFilterDropdown";
 import { CommitmentLevelFilterDropdown } from "./CommitmentLevelFilterDropdown";
+import { LookingForSkillsDropDown } from "./LookingForSkillsFilterDropdown";
 import { RolesFilterDropdown } from "./RolesFilterDropdown";
 import { SkillsFilterDropdown } from "./SkillsFilterDropdown";
+import { StartupFilterDropdown } from "./StartupFilterDropdown";
 
 export const SearchFiltersMenu = () => {
   /*
@@ -31,6 +33,8 @@ export const SearchFiltersMenu = () => {
       <RolesFilterDropdown />
       <CommitmentLevelFilterDropdown />
       <AvailabilityFilterDropdown />
+      <StartupFilterDropdown />
+      <LookingForSkillsDropDown />
     </div>
   );
 };
