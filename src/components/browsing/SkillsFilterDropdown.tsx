@@ -3,6 +3,7 @@ import { BROWSE } from "../../../shared/constants/BROWSE";
 import type { FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { titleString } from "../../../shared/utils/titleString";
 
 export const SkillsFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,7 +15,6 @@ export const SkillsFilterDropdown = () => {
     const skillInput = e.currentTarget.querySelector("input") as HTMLInputElement;
     const skill = skillInput.value.trim().toLowerCase();
     if (!skill) return;
-
     const updatedSkills = skills.includes(skill) ? skills : [...skills, skill];
     searchParams.set("skills", updatedSkills.join(","));
     setSearchParams(searchParams);
@@ -45,7 +45,7 @@ export const SkillsFilterDropdown = () => {
             {skills.map((skill) => {
               return (
                 <GenericChip
-                  chipText={skill}
+                  chipText={titleString(skill)}
                   fallbackText=""
                   onClick={() => {
                     handleSkillDelete(skill);
