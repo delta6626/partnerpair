@@ -1,3 +1,4 @@
+import { AvailabilityFilterDropdown } from "./AvailabilityFilterDropdown";
 import { CommitmentLevelFilterDropdown } from "./CommitmentLevelFilterDropdown";
 import { RolesFilterDropdown } from "./RolesFilterDropdown";
 import { SkillsFilterDropdown } from "./SkillsFilterDropdown";
@@ -29,6 +30,7 @@ export const SearchFiltersMenu = () => {
       <SkillsFilterDropdown />
       <RolesFilterDropdown />
       <CommitmentLevelFilterDropdown />
+      <AvailabilityFilterDropdown />
     </div>
   );
 };
