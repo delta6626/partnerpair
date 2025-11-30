@@ -1,8 +1,9 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, XIcon } from "lucide-react";
 import type { UserRole } from "../../../shared/types/UserRole";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import { titleString } from "../../../shared/utils/titleString";
 
 export const RolesFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -66,7 +67,18 @@ export const RolesFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
-        <div className=""></div>
+        {roles.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {roles.map((role) => {
+              return (
+                <GenericChip chipText={titleString(role)} fallbackText="">
+                  <XIcon size={20} />
+                </GenericChip>
+              );
+            })}
+          </div>
+        )}
+
         <div className="w-200 flex flex-wrap gap-2">
           {validRoles.map((role) => {
             return (
