@@ -67,30 +67,36 @@ export const RolesFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
-        {roles.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {roles.map((role) => {
+        <div>
+          {roles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
+          {roles.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-2">
+              {roles.map((role) => {
+                return (
+                  <GenericChip key={`selected-${role}`} chipText={titleString(role)} fallbackText="">
+                    <XIcon size={20} />
+                  </GenericChip>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        <div className="">
+          <h1 className="text-accent mt-4">Available Roles</h1>
+          <div className="w-200 flex flex-wrap gap-2 mt-2">
+            {validRoles.map((role) => {
               return (
-                <GenericChip key={`selected-${role}`} chipText={titleString(role)} fallbackText="">
-                  <XIcon size={20} />
-                </GenericChip>
+                <GenericChip
+                  key={`available-${role}`}
+                  chipText={role}
+                  onClick={() => {
+                    handleRoleAddition(role);
+                  }}
+                />
               );
             })}
           </div>
-        )}
-
-        <div className="w-200 flex flex-wrap gap-2">
-          {validRoles.map((role) => {
-            return (
-              <GenericChip
-                key={`available-${role}`}
-                chipText={role}
-                onClick={() => {
-                  handleRoleAddition(role);
-                }}
-              />
-            );
-          })}
         </div>
       </ul>
     </div>
