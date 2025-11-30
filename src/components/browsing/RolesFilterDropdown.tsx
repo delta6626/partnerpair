@@ -71,7 +71,7 @@ export const RolesFilterDropdown = () => {
           <div className="flex flex-wrap gap-2 mb-4">
             {roles.map((role) => {
               return (
-                <GenericChip chipText={titleString(role)} fallbackText="">
+                <GenericChip key={`selected-${role}`} chipText={titleString(role)} fallbackText="">
                   <XIcon size={20} />
                 </GenericChip>
               );
