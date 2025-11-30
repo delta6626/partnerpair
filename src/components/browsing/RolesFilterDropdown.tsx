@@ -1,6 +1,45 @@
 import { ChevronDown } from "lucide-react";
+import type { UserRole } from "../../../shared/types/UserRole";
 
 export const RolesFilterDropdown = () => {
+  const validRoles: UserRole[] = [
+    "CEO",
+    "COO",
+    "CTO",
+    "CPO",
+    "CMO",
+    "CFO",
+    "CIO",
+    "CSO",
+    "Product Manager",
+    "Designer",
+    "UX Designer",
+    "UI Designer",
+    "UX Researcher",
+    "Frontend Developer",
+    "Backend Developer",
+    "Fullstack Developer",
+    "Mobile Developer",
+    "Data Engineer",
+    "ML Engineer",
+    "QA Engineer",
+    "Marketer",
+    "Social Media Manager",
+    "Content Creator",
+    "SEO Specialist",
+    "Community Manager",
+    "Sales",
+    "Business Development",
+    "Partnerships",
+    "Customer Success",
+    "HR",
+    "Legal",
+    "Operations Manager",
+    "Finance",
+    "Advisor",
+    "Other",
+  ];
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
