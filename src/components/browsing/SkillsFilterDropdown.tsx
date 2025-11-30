@@ -4,6 +4,7 @@ import type { FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { titleString } from "../../../shared/utils/titleString";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const SkillsFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,8 +13,12 @@ export const SkillsFilterDropdown = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (skills.length >= SETTINGS.MAX_SKILL_COUNT) return;
+
     const skillInput = e.currentTarget.querySelector("input") as HTMLInputElement;
     const skill = skillInput.value.trim().toLowerCase();
+
     if (!skill) return;
     const updatedSkills = skills.includes(skill) ? skills : [...skills, skill];
     searchParams.set("skills", updatedSkills.join(","));
