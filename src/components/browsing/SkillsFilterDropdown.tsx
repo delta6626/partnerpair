@@ -53,6 +53,7 @@ export const SkillsFilterDropdown = () => {
                 return (
                   <GenericChip
                     chipText={titleString(skill)}
+                    key={`selected-${skill}`}
                     fallbackText=""
                     onClick={() => {
                       handleSkillDelete(skill);
@@ -67,7 +68,7 @@ export const SkillsFilterDropdown = () => {
         </div>
 
         <form className="flex gap-2" onSubmit={handleSubmit}>
-          <input className="input w-70" type="text" placeholder={BROWSE.SKILL_SEARCH_PLACEHOLDER} />
+          <input className="input w-100" type="text" placeholder={BROWSE.SKILL_SEARCH_PLACEHOLDER} />
           <button type="submit" className="btn btn-primary">
             Add
           </button>
