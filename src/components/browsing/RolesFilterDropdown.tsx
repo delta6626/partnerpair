@@ -1,8 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import type { UserRole } from "../../../shared/types/UserRole";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { useSearchParams } from "react-router-dom";
 
 export const RolesFilterDropdown = () => {
+  const { searchParams, setSearchParams } = useSearchParams();
+
   const validRoles: UserRole[] = [
     "CEO",
     "COO",
@@ -41,6 +44,8 @@ export const RolesFilterDropdown = () => {
     "Other",
   ];
 
+  const handleRoleAddition = (role: string) => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -52,7 +57,15 @@ export const RolesFilterDropdown = () => {
         <div className=""></div>
         <div className="w-200 flex flex-wrap gap-2">
           {validRoles.map((role) => {
-            return <GenericChip key={`available-${role}`} chipText={role} />;
+            return (
+              <GenericChip
+                key={`available-${role}`}
+                chipText={role}
+                onClick={() => {
+                  handleRoleAddition(role);
+                }}
+              />
+            );
           })}
         </div>
       </ul>
