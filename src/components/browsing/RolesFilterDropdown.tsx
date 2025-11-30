@@ -3,7 +3,6 @@ import type { UserRole } from "../../../shared/types/UserRole";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
-import { titleString } from "../../../shared/utils/titleString";
 
 export const RolesFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,22 +44,24 @@ export const RolesFilterDropdown = () => {
     "Advisor",
     "Other",
   ];
+
   const roles = searchParams.get("roles")?.split(",") ?? [];
+  const validParameterRoles = roles.filter((role) => validRoles.includes(role as UserRole));
 
   const handleRoleAddition = (role: string) => {
-    if (!validRoles.includes(role as UserRole)) return;
-    if (roles.includes(role)) return;
-    if (roles.length >= SETTINGS.MAX_ROLE_COUNT) return;
+    if (validParameterRoles.includes(role)) return;
+    if (validParameterRoles.length >= SETTINGS.MAX_ROLE_COUNT) return;
+
     const trimmedRole = role.trim();
     if (!trimmedRole) return;
 
-    const updatedRoles = [...roles, trimmedRole];
+    const updatedRoles = [...validParameterRoles, trimmedRole];
     searchParams.set("roles", updatedRoles.join(","));
     setSearchParams(searchParams);
   };
 
   const handleRoleDeletion = (roleToDelete: string) => {
-    const updatedRoles = roles.filter((role) => role !== roleToDelete);
+    const updatedRoles = validParameterRoles.filter((role) => role !== roleToDelete);
     if (updatedRoles.length > 0) {
       searchParams.set("roles", updatedRoles.join(","));
     } else {
@@ -79,14 +80,14 @@ export const RolesFilterDropdown = () => {
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
         <div>
-          {roles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
-          {roles.length > 0 && (
+          {validParameterRoles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
+          {validParameterRoles.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
-              {roles.map((role) => {
+              {validParameterRoles.map((role) => {
                 return (
                   <GenericChip
                     key={`selected-${role}`}
-                    chipText={titleString(role)}
+                    chipText={role}
                     fallbackText=""
                     onClick={() => {
                       handleRoleDeletion(role);
