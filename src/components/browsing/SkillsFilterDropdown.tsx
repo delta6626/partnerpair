@@ -59,7 +59,7 @@ export const SkillsFilterDropdown = () => {
                       handleSkillDelete(skill);
                     }}
                   >
-                    <XIcon size={20} />
+                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
               })}

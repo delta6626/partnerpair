@@ -78,7 +78,7 @@ export const RolesFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
+      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-200 mt-2 p-4">
         <div>
           {validParameterRoles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
           {validParameterRoles.length > 0 && (
@@ -93,7 +93,7 @@ export const RolesFilterDropdown = () => {
                       handleRoleDeletion(role);
                     }}
                   >
-                    <XIcon size={20} />
+                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
               })}
@@ -103,7 +103,7 @@ export const RolesFilterDropdown = () => {
 
         <div className="">
           <h1 className="text-accent">Available Roles</h1>
-          <div className="w-200 flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-2 mt-2">
             {validRoles.map((role) => {
               return (
                 <GenericChip
