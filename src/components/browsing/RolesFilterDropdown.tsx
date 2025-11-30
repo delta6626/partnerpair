@@ -81,7 +81,7 @@ export const RolesFilterDropdown = () => {
         <div>
           {roles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
           {roles.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2">
+            <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {roles.map((role) => {
                 return (
                   <GenericChip
@@ -101,7 +101,7 @@ export const RolesFilterDropdown = () => {
         </div>
 
         <div className="">
-          <h1 className="text-accent mt-4">Available Roles</h1>
+          <h1 className="text-accent">Available Roles</h1>
           <div className="w-200 flex flex-wrap gap-2 mt-2">
             {validRoles.map((role) => {
               return (
