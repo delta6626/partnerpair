@@ -52,7 +52,7 @@ export const RolesFilterDropdown = () => {
         <div className=""></div>
         <div className="w-200 flex flex-wrap gap-2">
           {validRoles.map((role) => {
-            return <GenericChip key={role + "option"} chipText={role} />;
+            return <GenericChip key={`available-${role}`} chipText={role} />;
           })}
         </div>
       </ul>
