@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import type { UserRole } from "../../../shared/types/UserRole";
+import { GenericChip } from "../ProfileViewer/GenericChip";
 
 export const RolesFilterDropdown = () => {
   const validRoles: UserRole[] = [
@@ -49,6 +50,11 @@ export const RolesFilterDropdown = () => {
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
         <div className=""></div>
+        <div className="w-200 flex flex-wrap gap-2">
+          {validRoles.map((role) => {
+            return <GenericChip key={role + "option"} chipText={role} />;
+          })}
+        </div>
       </ul>
     </div>
   );
