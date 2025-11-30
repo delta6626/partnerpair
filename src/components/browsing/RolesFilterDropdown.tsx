@@ -59,6 +59,17 @@ export const RolesFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
+  const handleRoleDeletion = (roleToDelete: string) => {
+    const updatedRoles = roles.filter((role) => role !== roleToDelete);
+    if (updatedRoles.length > 0) {
+      searchParams.set("roles", updatedRoles.join(","));
+    } else {
+      searchParams.delete("roles");
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -73,7 +84,14 @@ export const RolesFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2">
               {roles.map((role) => {
                 return (
-                  <GenericChip key={`selected-${role}`} chipText={titleString(role)} fallbackText="">
+                  <GenericChip
+                    key={`selected-${role}`}
+                    chipText={titleString(role)}
+                    fallbackText=""
+                    onClick={() => {
+                      handleRoleDeletion(role);
+                    }}
+                  >
                     <XIcon size={20} />
                   </GenericChip>
                 );
