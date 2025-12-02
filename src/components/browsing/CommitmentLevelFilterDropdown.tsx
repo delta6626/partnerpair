@@ -1,8 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { useSearchParams } from "react-router-dom";
 
 export const CommitmentLevelFilterDropdown = () => {
+  const { searchParams, setSearchParams } = useSearchParams();
+
   const validCommitmentLevels: UserCommitmentLevel[] = [
     "10 to 20 hours per week",
     "20 to 30 hours per week",
@@ -11,6 +14,11 @@ export const CommitmentLevelFilterDropdown = () => {
     "50 to 60 hours per week",
     "More than 60 hours per week",
   ];
+
+  const commitmentLevels = searchParams.get("commitmentLevels")?.split(",") ?? [];
+  const validParameterCommitmentLevels = commitmentLevels.filter((level: string) =>
+    validCommitmentLevels.includes(level as UserCommitmentLevel)
+  );
 
   const handleCommitmentLevelAddition = (commitmentLevel: string) => {};
 
