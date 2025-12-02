@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, XIcon } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
@@ -35,6 +35,21 @@ export const CommitmentLevelFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4">
+        <div>
+          {validCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}
+          {validCommitmentLevels.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-2 mb-4">
+              {validCommitmentLevels.map((commitmentLevel) => {
+                return (
+                  <GenericChip key={`selected-${commitmentLevel}`} chipText={commitmentLevel as string} fallbackText="">
+                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
+                  </GenericChip>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <div className="">
           <h1 className="text-accent">Available Roles</h1>
           <div className="flex flex-wrap gap-2 mt-2">
