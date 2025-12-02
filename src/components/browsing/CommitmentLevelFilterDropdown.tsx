@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
+import { GenericChip } from "../ProfileViewer/GenericChip";
 
 export const CommitmentLevelFilterDropdown = () => {
   const validCommitmentLevels: UserCommitmentLevel[] = [
@@ -18,7 +19,16 @@ export const CommitmentLevelFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-200 mt-2 p-4"></ul>
+      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4">
+        <div className="">
+          <h1 className="text-accent">Available Roles</h1>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {validCommitmentLevels.map((commitmentLevel) => {
+              return <GenericChip key={`available-${commitmentLevel}`} chipText={commitmentLevel as string} />;
+            })}
+          </div>
+        </div>
+      </ul>
     </div>
   );
 };
