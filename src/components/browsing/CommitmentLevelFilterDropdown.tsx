@@ -27,6 +27,17 @@ export const CommitmentLevelFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
+  const handleCommitmentLevelDeletion = (commitmentLevel: string) => {
+    const updatedCommitmentLevels = validParameterCommitmentLevels.filter((level) => level !== commitmentLevel);
+    if (updatedCommitmentLevels.length === 0) {
+      searchParams.delete("commitmentLevels");
+    } else {
+      searchParams.set("commitmentLevels", updatedCommitmentLevels.join(","));
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -36,12 +47,19 @@ export const CommitmentLevelFilterDropdown = () => {
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4">
         <div>
-          {validCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}
-          {validCommitmentLevels.length > 0 && (
+          {validParameterCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}
+          {validParameterCommitmentLevels.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
-              {validCommitmentLevels.map((commitmentLevel) => {
+              {validParameterCommitmentLevels.map((commitmentLevel) => {
                 return (
-                  <GenericChip key={`selected-${commitmentLevel}`} chipText={commitmentLevel as string} fallbackText="">
+                  <GenericChip
+                    key={`selected-${commitmentLevel}`}
+                    chipText={commitmentLevel}
+                    fallbackText=""
+                    onClick={() => {
+                      handleCommitmentLevelDeletion(commitmentLevel);
+                    }}
+                  >
                     <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
