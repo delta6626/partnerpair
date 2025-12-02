@@ -4,7 +4,7 @@ import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 
 export const CommitmentLevelFilterDropdown = () => {
-  const { searchParams, setSearchParams } = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const validCommitmentLevels: UserCommitmentLevel[] = [
     "10 to 20 hours per week",
@@ -20,7 +20,12 @@ export const CommitmentLevelFilterDropdown = () => {
     validCommitmentLevels.includes(level as UserCommitmentLevel)
   );
 
-  const handleCommitmentLevelAddition = (commitmentLevel: string) => {};
+  const handleCommitmentLevelAddition = (commitmentLevel: string) => {
+    if (validParameterCommitmentLevels.includes(commitmentLevel)) return;
+    const updatedCommitmentLevels = [...validParameterCommitmentLevels, commitmentLevel];
+    searchParams.set("commitmentLevels", updatedCommitmentLevels.join(","));
+    setSearchParams(searchParams);
+  };
 
   return (
     <div className="dropdown dropdown-bottom">
