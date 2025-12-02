@@ -51,7 +51,7 @@ export const CommitmentLevelFilterDropdown = () => {
         </div>
 
         <div className="">
-          <h1 className="text-accent">Available Roles</h1>
+          <h1 className="text-accent">Available</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validCommitmentLevels.map((commitmentLevel) => {
               return (
