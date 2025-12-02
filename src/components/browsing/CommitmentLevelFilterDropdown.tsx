@@ -12,6 +12,8 @@ export const CommitmentLevelFilterDropdown = () => {
     "More than 60 hours per week",
   ];
 
+  const handleCommitmentLevelAddition = (commitmentLevel: string) => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -24,7 +26,15 @@ export const CommitmentLevelFilterDropdown = () => {
           <h1 className="text-accent">Available Roles</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validCommitmentLevels.map((commitmentLevel) => {
-              return <GenericChip key={`available-${commitmentLevel}`} chipText={commitmentLevel as string} />;
+              return (
+                <GenericChip
+                  key={`available-${commitmentLevel}`}
+                  chipText={commitmentLevel as string}
+                  onClick={() => {
+                    handleCommitmentLevelAddition(commitmentLevel as string);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
