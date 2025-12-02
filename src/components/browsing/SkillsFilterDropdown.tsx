@@ -46,7 +46,7 @@ export const SkillsFilterDropdown = () => {
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
         <div className="">
-          {skills.length > 0 && <h1 className="text-accent">Selected skills</h1>}
+          {skills.length > 0 && <h1 className="text-accent">Added</h1>}
           {skills.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4 mt-2">
               {skills.map((skill) => {

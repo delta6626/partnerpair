@@ -80,7 +80,7 @@ export const RolesFilterDropdown = () => {
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-200 mt-2 p-4">
         <div>
-          {validParameterRoles.length > 0 && <h1 className="text-accent">Selected Roles</h1>}
+          {validParameterRoles.length > 0 && <h1 className="text-accent">Selected</h1>}
           {validParameterRoles.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {validParameterRoles.map((role) => {
@@ -102,7 +102,7 @@ export const RolesFilterDropdown = () => {
         </div>
 
         <div className="">
-          <h1 className="text-accent">Available Roles</h1>
+          <h1 className="text-accent">Available</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validRoles.map((role) => {
               return (
