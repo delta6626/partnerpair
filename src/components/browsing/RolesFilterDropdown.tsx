@@ -102,12 +102,12 @@ export const RolesFilterDropdown = () => {
         </div>
 
         <div className="">
-          <h1 className="text-accent">Available</h1>
+          <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validRoles.map((role) => {
               return (
                 <GenericChip
-                  key={`available-${role}`}
+                  key={`option-${role}`}
                   chipText={role}
                   onClick={() => {
                     handleRoleAddition(role);

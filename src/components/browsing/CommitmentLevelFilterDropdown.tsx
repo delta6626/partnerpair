@@ -69,12 +69,12 @@ export const CommitmentLevelFilterDropdown = () => {
         </div>
 
         <div className="">
-          <h1 className="text-accent">Available</h1>
+          <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validCommitmentLevels.map((commitmentLevel) => {
               return (
                 <GenericChip
-                  key={`available-${commitmentLevel}`}
+                  key={`option-${commitmentLevel}`}
                   chipText={commitmentLevel as string}
                   onClick={() => {
                     handleCommitmentLevelAddition(commitmentLevel as string);
