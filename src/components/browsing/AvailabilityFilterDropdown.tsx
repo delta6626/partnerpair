@@ -52,14 +52,14 @@ export const AvailabilityFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {validParameterAvailabilities.map((availability) => {
                 return (
-                  <GenericChip key={`selected-${availability}`} chipText={availability}>
-                    <XIcon
-                      size={20}
-                      className="hover:text-error focus:text-error ease-in-out duration-200"
-                      onClick={() => {
-                        handleAvailabilityDeletion(availability);
-                      }}
-                    />
+                  <GenericChip
+                    key={`selected-${availability}`}
+                    chipText={availability}
+                    onClick={() => {
+                      handleAvailabilityDeletion(availability);
+                    }}
+                  >
+                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
               })}
