@@ -27,6 +27,17 @@ export const AvailabilityFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
+  const handleAvailabilityDeletion = (availability: string) => {
+    const updatedAvailabilities = validParameterAvailabilities.filter((item) => item !== availability);
+    if (updatedAvailabilities.length === 0) {
+      searchParams.delete("availability");
+    } else {
+      searchParams.set("availability", updatedAvailabilities.join(","));
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -42,7 +53,13 @@ export const AvailabilityFilterDropdown = () => {
               {validParameterAvailabilities.map((availability) => {
                 return (
                   <GenericChip key={`selected-${availability}`} chipText={availability}>
-                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
+                    <XIcon
+                      size={20}
+                      className="hover:text-error focus:text-error ease-in-out duration-200"
+                      onClick={() => {
+                        handleAvailabilityDeletion(availability);
+                      }}
+                    />
                   </GenericChip>
                 );
               })}
