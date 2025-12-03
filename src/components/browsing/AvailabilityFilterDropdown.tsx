@@ -11,6 +11,8 @@ export const AvailabilityFilterDropdown = () => {
     "Available after a month",
   ];
 
+  const handleAvailabilityAddition = (availability: UserAvailability) => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -23,7 +25,15 @@ export const AvailabilityFilterDropdown = () => {
           <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validAvailabilities.map((availability) => {
-              return <GenericChip key={`option-${availability}`} chipText={availability as string} fallbackText="" />;
+              return (
+                <GenericChip
+                  key={`option-${availability}`}
+                  chipText={availability as string}
+                  onClick={() => {
+                    handleAvailabilityAddition(availability);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
