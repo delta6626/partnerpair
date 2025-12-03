@@ -18,11 +18,14 @@ export const AvailabilityFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2">
+      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box w-160 z-1 mt-2 p-4">
         <div className="">
-          {validAvailabilities.map((availability) => {
-            return <GenericChip key={`option-${availability}`} chipText={availability as string} fallbackText="" />;
-          })}
+          <h1 className="text-accent">Options</h1>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {validAvailabilities.map((availability) => {
+              return <GenericChip key={`option-${availability}`} chipText={availability as string} fallbackText="" />;
+            })}
+          </div>
         </div>
       </ul>
     </div>
