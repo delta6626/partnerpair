@@ -1,6 +1,10 @@
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export const StartupFilterDropdown = () => {
+  const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
+  const [showStartupSeekes, setShowStartupSeekers] = useState<boolean | null>(null);
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
