@@ -1,14 +1,27 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import type { UserPreferredCompanyStage } from "../../../shared/types/UserPreferredCompanyStage";
+import { GenericChip } from "../ProfileViewer/GenericChip";
 
 export const StartupFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
   const [showStartupSeekers, setShowStartupSeekers] = useState<boolean | null>(null);
 
+  const validPreferredStartupStages: UserPreferredCompanyStage[] = [
+    "Idea",
+    "Building MVP",
+    "Just Launched",
+    "Growing",
+    "Established",
+  ];
+
   const profileType = searchParams.get("profileType") ?? "";
-  const preferredStartupStages = searchParams.get("preferredStartupStages") ?? "";
+  const preferredStartupStages = searchParams.get("preferredStartupStages")?.split(",") || [];
+  const validParameterPreferredStartupStages = preferredStartupStages.filter((stage) =>
+    validPreferredStartupStages.includes(stage as UserPreferredCompanyStage)
+  );
 
   const handleShowStartupOwners = () => {
     setShowStartupOwners(true);
@@ -67,6 +80,17 @@ export const StartupFilterDropdown = () => {
             />
           </div>
         </div>
+
+        {showStartupOwners && (
+          <div>
+            <h1 className="text-accent">Options</h1>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {validPreferredStartupStages.map((stage) => {
+                return <GenericChip key={`option-${stage}`} chipText={stage as string} />;
+              })}
+            </div>
+          </div>
+        )}
       </ul>
     </div>
   );
