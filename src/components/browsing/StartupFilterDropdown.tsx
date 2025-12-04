@@ -39,8 +39,21 @@ export const StartupFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
+  const handleStageDeletion = (stage: string) => {
+    const updatedStages = validParameterPreferredStartupStages.filter((item) => item !== stage);
+
+    if (updatedStages.length === 0) {
+      searchParams.delete("preferredStartupStages");
+    } else {
+      searchParams.set("preferredStartupStages", updatedStages.join(","));
+    }
+
+    setSearchParams(searchParams);
+  };
+
   const handleStageAddition = (stage: UserPreferredCompanyStage) => {
     if (validParameterPreferredStartupStages.includes(stage as string)) return;
+
     const updatedStages = [...validParameterPreferredStartupStages, stage];
     searchParams.set("preferredStartupStages", updatedStages.join(","));
     setSearchParams(searchParams);
@@ -94,7 +107,13 @@ export const StartupFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2">
               {validParameterPreferredStartupStages.map((stage) => {
                 return (
-                  <GenericChip key={`selected-${stage}`} chipText={stage}>
+                  <GenericChip
+                    key={`selected-${stage}`}
+                    chipText={stage}
+                    onClick={() => {
+                      handleStageDeletion(stage);
+                    }}
+                  >
                     <XIcon size={20} />
                   </GenericChip>
                 );
