@@ -105,7 +105,7 @@ export const StartupFilterDropdown = () => {
 
         {showStartupOwners && (
           <div className="mt-4">
-            <h1 className="text-accent">Preferred Startup Stages</h1>
+            <h1 className="text-accent">Startup Stage Options</h1>
             <div className="flex flex-wrap gap-2 mt-2">
               {validPreferredStartupStages.map((stage) => {
                 return (
