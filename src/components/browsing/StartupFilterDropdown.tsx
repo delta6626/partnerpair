@@ -9,9 +9,13 @@ export const StartupFilterDropdown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 w-100 rounded-box z-1 mt-2 p-4">
-        <div className="">
+        <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <h1>Show users with startups</h1>
+            <input type="radio" className="radio" />
+          </div>
+          <div className="flex items-center justify-between">
+            <h1>Show users who want to join a startup</h1>
             <input type="radio" className="radio" />
           </div>
         </div>
