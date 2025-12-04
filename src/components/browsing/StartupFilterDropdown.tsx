@@ -5,6 +5,10 @@ export const StartupFilterDropdown = () => {
   const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
   const [showStartupSeekers, setShowStartupSeekers] = useState<boolean | null>(null);
 
+  const handleShowStartupOwners = () => {};
+
+  const handleShowStartupSeekers = () => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -16,11 +20,21 @@ export const StartupFilterDropdown = () => {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <h1>Show users with startups</h1>
-            <input type="radio" className="radio" checked={showStartupOwners ? showStartupOwners : false} />
+            <input
+              type="radio"
+              className="radio"
+              checked={showStartupOwners ? showStartupOwners : false}
+              onChange={handleShowStartupOwners}
+            />
           </div>
           <div className="flex items-center justify-between">
             <h1>Show users who want to join a startup</h1>
-            <input type="radio" className="radio" checked={showStartupSeekers ? showStartupSeekers : false} />
+            <input
+              type="radio"
+              className="radio"
+              checked={showStartupSeekers ? showStartupSeekers : false}
+              onChange={handleShowStartupSeekers}
+            />
           </div>
         </div>
       </ul>
