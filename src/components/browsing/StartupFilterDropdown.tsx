@@ -5,9 +5,15 @@ export const StartupFilterDropdown = () => {
   const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
   const [showStartupSeekers, setShowStartupSeekers] = useState<boolean | null>(null);
 
-  const handleShowStartupOwners = () => {};
+  const handleShowStartupOwners = () => {
+    setShowStartupOwners(true);
+    setShowStartupSeekers(false);
+  };
 
-  const handleShowStartupSeekers = () => {};
+  const handleShowStartupSeekers = () => {
+    setShowStartupSeekers(true);
+    setShowStartupOwners(false);
+  };
 
   return (
     <div className="dropdown dropdown-bottom">
