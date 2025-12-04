@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export const StartupFilterDropdown = () => {
@@ -7,15 +7,14 @@ export const StartupFilterDropdown = () => {
   const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
   const [showStartupSeekers, setShowStartupSeekers] = useState<boolean | null>(null);
 
-  let profileType = searchParams.get("profileType") ?? "";
-  let preferredStartupStages = searchParams.get("preferredStartupStages") ?? "";
+  const profileType = searchParams.get("profileType") ?? "";
+  const preferredStartupStages = searchParams.get("preferredStartupStages") ?? "";
 
   const handleShowStartupOwners = () => {
     setShowStartupOwners(true);
     setShowStartupSeekers(false);
 
-    profileType = "startupOwner";
-    searchParams.set("profileType", profileType);
+    searchParams.set("profileType", "startupOwner");
     setSearchParams(searchParams);
   };
 
@@ -23,10 +22,22 @@ export const StartupFilterDropdown = () => {
     setShowStartupSeekers(true);
     setShowStartupOwners(false);
 
-    profileType = "startupSeeker";
-    searchParams.set("profileType", profileType);
+    searchParams.set("profileType", "startupSeeker");
     setSearchParams(searchParams);
   };
+
+  useEffect(() => {
+    if (profileType === "startupOwner") {
+      setShowStartupOwners(true);
+      setShowStartupSeekers(false);
+    } else if (profileType === "startupSeeker") {
+      setShowStartupSeekers(true);
+      setShowStartupOwners(false);
+    } else {
+      setShowStartupOwners(null);
+      setShowStartupSeekers(null);
+    }
+  }, [profileType, preferredStartupStages]);
 
   return (
     <div className="dropdown dropdown-bottom">
