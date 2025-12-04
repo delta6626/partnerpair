@@ -36,6 +36,7 @@ export const StartupFilterDropdown = () => {
     setShowStartupOwners(false);
 
     searchParams.set("profileType", "startupSeeker");
+    searchParams.delete("preferredStartupStages");
     setSearchParams(searchParams);
   };
 
