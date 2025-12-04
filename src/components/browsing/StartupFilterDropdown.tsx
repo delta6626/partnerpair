@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import type { UserPreferredCompanyStage } from "../../../shared/types/UserPreferredCompanyStage";
@@ -36,6 +36,13 @@ export const StartupFilterDropdown = () => {
     setShowStartupOwners(false);
 
     searchParams.set("profileType", "startupSeeker");
+    setSearchParams(searchParams);
+  };
+
+  const handleStageAddition = (stage: UserPreferredCompanyStage) => {
+    if (validParameterPreferredStartupStages.includes(stage as string)) return;
+    const updatedStages = [...validParameterPreferredStartupStages, stage];
+    searchParams.set("preferredStartupStages", updatedStages.join(","));
     setSearchParams(searchParams);
   };
 
@@ -81,12 +88,35 @@ export const StartupFilterDropdown = () => {
           </div>
         </div>
 
+        {validParameterPreferredStartupStages.length > 0 && (
+          <div className="mt-4">
+            <h1 className="text-accent">Preferred Startup Stages</h1>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {validParameterPreferredStartupStages.map((stage) => {
+                return (
+                  <GenericChip key={`selected-${stage}`} chipText={stage}>
+                    <XIcon size={20} />
+                  </GenericChip>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {showStartupOwners && (
           <div className="mt-4">
             <h1 className="text-accent">Preferred Startup Stages</h1>
             <div className="flex flex-wrap gap-2 mt-2">
               {validPreferredStartupStages.map((stage) => {
-                return <GenericChip key={`option-${stage}`} chipText={stage as string} />;
+                return (
+                  <GenericChip
+                    key={`option-${stage}`}
+                    chipText={stage as string}
+                    onClick={() => {
+                      handleStageAddition(stage);
+                    }}
+                  />
+                );
               })}
             </div>
           </div>
