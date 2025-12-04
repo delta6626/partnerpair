@@ -82,8 +82,8 @@ export const StartupFilterDropdown = () => {
         </div>
 
         {showStartupOwners && (
-          <div>
-            <h1 className="text-accent">Options</h1>
+          <div className="mt-4">
+            <h1 className="text-accent">Preferred Startup Stages</h1>
             <div className="flex flex-wrap gap-2 mt-2">
               {validPreferredStartupStages.map((stage) => {
                 return <GenericChip key={`option-${stage}`} chipText={stage as string} />;
