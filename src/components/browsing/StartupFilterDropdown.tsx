@@ -1,18 +1,31 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export const StartupFilterDropdown = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [showStartupOwners, setShowStartupOwners] = useState<boolean | null>(null);
   const [showStartupSeekers, setShowStartupSeekers] = useState<boolean | null>(null);
+
+  let profileType = searchParams.get("profileType") ?? "";
+  let preferredStartupStages = searchParams.get("preferredStartupStages") ?? "";
 
   const handleShowStartupOwners = () => {
     setShowStartupOwners(true);
     setShowStartupSeekers(false);
+
+    profileType = "startupOwner";
+    searchParams.set("profileType", profileType);
+    setSearchParams(searchParams);
   };
 
   const handleShowStartupSeekers = () => {
     setShowStartupSeekers(true);
     setShowStartupOwners(false);
+
+    profileType = "startupSeeker";
+    searchParams.set("profileType", profileType);
+    setSearchParams(searchParams);
   };
 
   return (
