@@ -41,6 +41,8 @@ export const LookingForRolesFilterDropdown = () => {
     "Other",
   ];
 
+  const handleRoleAddition = (role: string) => {};
+
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
       <button tabIndex={0} role="button" className="btn">
@@ -53,7 +55,15 @@ export const LookingForRolesFilterDropdown = () => {
           <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validRoles.map((role) => {
-              return <GenericChip key={`option-${role}`} chipText={role} />;
+              return (
+                <GenericChip
+                  key={`option-${role}`}
+                  chipText={role}
+                  onClick={() => {
+                    handleRoleAddition(role);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
