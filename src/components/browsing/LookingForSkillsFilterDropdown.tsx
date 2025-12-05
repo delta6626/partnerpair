@@ -1,8 +1,10 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, XIcon } from "lucide-react";
 import { BROWSE } from "../../../shared/constants/BROWSE";
 import type { FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import { GenericChip } from "../ProfileViewer/GenericChip";
+import { titleString } from "../../../shared/utils/titleString";
 
 export const LookingForSkillsFilterDropDown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,6 +34,21 @@ export const LookingForSkillsFilterDropDown = () => {
       </button>
 
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
+        <div className="">
+          {skillsSought.length > 0 && <h1 className="text-accent">Added</h1>}
+          {skillsSought.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4 mt-2">
+              {skillsSought.map((skill) => {
+                return (
+                  <GenericChip chipText={titleString(skill)} key={`selected-${skill}`} fallbackText="">
+                    <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
+                  </GenericChip>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <form className="flex gap-2" onSubmit={handleSubmit}>
           <input className="input w-100" type="text" placeholder={BROWSE.LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER} />
           <button type="submit" className="btn btn-primary">
