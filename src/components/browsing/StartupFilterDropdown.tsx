@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import type { UserPreferredCompanyStage } from "../../../shared/types/UserPreferredCompanyStage";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const StartupFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,8 +18,8 @@ export const StartupFilterDropdown = () => {
     "Established",
   ];
 
-  const profileType = searchParams.get("profileType") ?? "";
-  const preferredStartupStages = searchParams.get("preferredStartupStages")?.split(",") || [];
+  const profileType = searchParams.get(BROWSE.PARAM_PROFILE_TYPE) ?? "";
+  const preferredStartupStages = searchParams.get(BROWSE.PARAM_PREFERRED_STARTUP_STAGES)?.split(",") || [];
   const validParameterPreferredStartupStages = preferredStartupStages.filter((stage) =>
     validPreferredStartupStages.includes(stage as UserPreferredCompanyStage)
   );
@@ -27,7 +28,7 @@ export const StartupFilterDropdown = () => {
     setShowStartupOwners(true);
     setShowStartupSeekers(false);
 
-    searchParams.set("profileType", "startupOwner");
+    searchParams.set(BROWSE.PARAM_PROFILE_TYPE, "startupOwner");
     setSearchParams(searchParams);
   };
 
@@ -35,8 +36,8 @@ export const StartupFilterDropdown = () => {
     setShowStartupSeekers(true);
     setShowStartupOwners(false);
 
-    searchParams.set("profileType", "startupSeeker");
-    searchParams.delete("preferredStartupStages");
+    searchParams.set(BROWSE.PARAM_PROFILE_TYPE, "startupSeeker");
+    searchParams.delete(BROWSE.PARAM_PREFERRED_STARTUP_STAGES);
     setSearchParams(searchParams);
   };
 
@@ -44,9 +45,9 @@ export const StartupFilterDropdown = () => {
     const updatedStages = validParameterPreferredStartupStages.filter((item) => item !== stage);
 
     if (updatedStages.length === 0) {
-      searchParams.delete("preferredStartupStages");
+      searchParams.delete(BROWSE.PARAM_PREFERRED_STARTUP_STAGES);
     } else {
-      searchParams.set("preferredStartupStages", updatedStages.join(","));
+      searchParams.set(BROWSE.PARAM_PREFERRED_STARTUP_STAGES, updatedStages.join(","));
     }
 
     setSearchParams(searchParams);
@@ -56,15 +57,15 @@ export const StartupFilterDropdown = () => {
     if (validParameterPreferredStartupStages.includes(stage as string)) return;
 
     const updatedStages = [...validParameterPreferredStartupStages, stage];
-    searchParams.set("preferredStartupStages", updatedStages.join(","));
+    searchParams.set(BROWSE.PARAM_PREFERRED_STARTUP_STAGES, updatedStages.join(","));
     setSearchParams(searchParams);
   };
 
   useEffect(() => {
-    if (profileType === "startupOwner") {
+    if (profileType === BROWSE.PARAM_VALUE_STARTUP_OWNER) {
       setShowStartupOwners(true);
       setShowStartupSeekers(false);
-    } else if (profileType === "startupSeeker") {
+    } else if (profileType === BROWSE.PARAM_VALUE_STARTUP_SEEKER) {
       setShowStartupSeekers(true);
       setShowStartupOwners(false);
     } else {
