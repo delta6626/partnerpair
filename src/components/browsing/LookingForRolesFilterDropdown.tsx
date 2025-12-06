@@ -1,8 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import type { UserRole } from "../../../shared/types/UserRole";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { useSearchParams } from "react-router-dom";
 
 export const LookingForRolesFilterDropdown = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const validRoles: UserRole[] = [
     "CEO",
     "COO",
@@ -41,7 +44,18 @@ export const LookingForRolesFilterDropdown = () => {
     "Other",
   ];
 
-  const handleRoleAddition = (role: string) => {};
+  const roles = searchParams.get("lookingForRoles")?.split(",") ?? [];
+  const validParameterRoles = roles.filter((role) => validRoles.includes(role as UserRole));
+
+  const handleRoleAddition = (role: string) => {
+    if (validParameterRoles.includes(role)) return;
+
+    const trimmedRole = role.trim();
+    if (!trimmedRole) return;
+    const updatedRoles = [...validParameterRoles, trimmedRole];
+    searchParams.set("lookingForRoles", updatedRoles.join(","));
+    setSearchParams(searchParams);
+  };
 
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
