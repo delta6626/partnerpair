@@ -3,6 +3,7 @@ import type { UserRole } from "../../../shared/types/UserRole";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const LookingForRolesFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,7 +46,7 @@ export const LookingForRolesFilterDropdown = () => {
     "Other",
   ];
 
-  const roles = searchParams.get("lookingForRoles")?.split(",") ?? [];
+  const roles = searchParams.get(BROWSE.PARAM_ROLES_SOUGHT)?.split(",") ?? [];
   const validParameterRoles = roles.filter((role) => validRoles.includes(role as UserRole));
 
   const handleRoleAddition = (role: string) => {
@@ -55,7 +56,7 @@ export const LookingForRolesFilterDropdown = () => {
     const trimmedRole = role.trim();
     if (!trimmedRole) return;
     const updatedRoles = [...validParameterRoles, trimmedRole];
-    searchParams.set("lookingForRoles", updatedRoles.join(","));
+    searchParams.set(BROWSE.PARAM_ROLES_SOUGHT, updatedRoles.join(","));
     setSearchParams(searchParams);
   };
 
@@ -63,9 +64,9 @@ export const LookingForRolesFilterDropdown = () => {
     const updatedRoles = validParameterRoles.filter((role) => role !== roleToDelete);
 
     if (updatedRoles.length === 0) {
-      searchParams.delete("lookingForRoles");
+      searchParams.delete(BROWSE.PARAM_ROLES_SOUGHT);
     } else {
-      searchParams.set("lookingForRoles", updatedRoles.join(","));
+      searchParams.set(BROWSE.PARAM_ROLES_SOUGHT, updatedRoles.join(","));
     }
 
     setSearchParams(searchParams);
