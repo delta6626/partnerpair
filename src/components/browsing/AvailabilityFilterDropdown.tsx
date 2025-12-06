@@ -2,6 +2,7 @@ import { ChevronDown, XIcon } from "lucide-react";
 import type { UserAvailability } from "../../../shared/types/UserAvailability";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const AvailabilityFilterDropdown = () => {
   const validAvailabilities: UserAvailability[] = [
@@ -14,7 +15,7 @@ export const AvailabilityFilterDropdown = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const availabilities = searchParams.get("availability")?.split(",") ?? [];
+  const availabilities = searchParams.get(BROWSE.PARAM_AVAILABILITY)?.split(",") ?? [];
   const validParameterAvailabilities = availabilities.filter((availability) =>
     validAvailabilities.includes(availability as UserAvailability)
   );
@@ -23,16 +24,16 @@ export const AvailabilityFilterDropdown = () => {
     if (validParameterAvailabilities.includes(availability as string)) return;
 
     const updatedAvailabilities = [...validParameterAvailabilities, availability];
-    searchParams.set("availability", updatedAvailabilities.join(","));
+    searchParams.set(BROWSE.PARAM_AVAILABILITY, updatedAvailabilities.join(","));
     setSearchParams(searchParams);
   };
 
   const handleAvailabilityDeletion = (availability: string) => {
     const updatedAvailabilities = validParameterAvailabilities.filter((item) => item !== availability);
     if (updatedAvailabilities.length === 0) {
-      searchParams.delete("availability");
+      searchParams.delete(BROWSE.PARAM_AVAILABILITY);
     } else {
-      searchParams.set("availability", updatedAvailabilities.join(","));
+      searchParams.set(BROWSE.PARAM_AVAILABILITY, updatedAvailabilities.join(","));
     }
 
     setSearchParams(searchParams);
