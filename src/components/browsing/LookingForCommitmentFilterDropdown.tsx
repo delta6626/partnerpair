@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
 import { useSearchParams } from "react-router-dom";
+import { GenericChip } from "../ProfileViewer/GenericChip";
 
 export const LookingForCommitmentFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,7 +27,16 @@ export const LookingForCommitmentFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4"></ul>
+      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4">
+        <div className="">
+          <h1 className="text-accent">Options</h1>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {validCommitmentLevels.map((commitmentLevel) => {
+              return <GenericChip key={`option-${commitmentLevel}`} chipText={commitmentLevel as string} />;
+            })}
+          </div>
+        </div>
+      </ul>
     </div>
   );
 };
