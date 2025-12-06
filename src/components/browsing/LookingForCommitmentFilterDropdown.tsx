@@ -20,6 +20,23 @@ export const LookingForCommitmentFilterDropdown = () => {
     validCommitmentLevels.includes(level as UserCommitmentLevel)
   );
 
+  const handleCommitmentLevelAddition = (commitmentLevel: string) => {
+    if (validParameterCommitmentLevels.includes(commitmentLevel)) return;
+    const updatedCommitmentLevels = [...validParameterCommitmentLevels, commitmentLevel];
+    searchParams.set("lookingForCommitments", updatedCommitmentLevels.join(","));
+    setSearchParams(searchParams);
+  };
+
+  const handleCommitmentLevelDeletion = (commitmentLevel: string) => {
+    const updatedCommitmentLevels = validParameterCommitmentLevels.filter((level) => level !== commitmentLevel);
+    if (updatedCommitmentLevels.length === 0) {
+      searchParams.delete("lookingForCommitments");
+    } else {
+      searchParams.set("lookingForCommitments", updatedCommitmentLevels.join(","));
+    }
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
       <button tabIndex={0} role="button" className="btn">
@@ -34,7 +51,13 @@ export const LookingForCommitmentFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {validParameterCommitmentLevels.map((commitmentLevel) => {
                 return (
-                  <GenericChip key={`selected-${commitmentLevel}`} chipText={commitmentLevel}>
+                  <GenericChip
+                    key={`selected-${commitmentLevel}`}
+                    chipText={commitmentLevel}
+                    onClick={() => {
+                      handleCommitmentLevelDeletion(commitmentLevel);
+                    }}
+                  >
                     <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
@@ -47,7 +70,15 @@ export const LookingForCommitmentFilterDropdown = () => {
           <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validCommitmentLevels.map((commitmentLevel) => {
-              return <GenericChip key={`option-${commitmentLevel}`} chipText={commitmentLevel as string} />;
+              return (
+                <GenericChip
+                  key={`option-${commitmentLevel}`}
+                  chipText={commitmentLevel as string}
+                  onClick={() => {
+                    handleCommitmentLevelAddition(commitmentLevel as string);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
