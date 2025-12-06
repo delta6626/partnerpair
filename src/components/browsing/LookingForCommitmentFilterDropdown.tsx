@@ -2,6 +2,7 @@ import { ChevronDown, XIcon } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
 import { useSearchParams } from "react-router-dom";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const LookingForCommitmentFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +16,7 @@ export const LookingForCommitmentFilterDropdown = () => {
     "More than 60 hours per week",
   ];
 
-  const commitmentLevels = searchParams.get("lookingForCommitments")?.split(",") ?? [];
+  const commitmentLevels = searchParams.get(BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT)?.split(",") ?? [];
   const validParameterCommitmentLevels = commitmentLevels.filter((level: string) =>
     validCommitmentLevels.includes(level as UserCommitmentLevel)
   );
@@ -23,16 +24,16 @@ export const LookingForCommitmentFilterDropdown = () => {
   const handleCommitmentLevelAddition = (commitmentLevel: string) => {
     if (validParameterCommitmentLevels.includes(commitmentLevel)) return;
     const updatedCommitmentLevels = [...validParameterCommitmentLevels, commitmentLevel];
-    searchParams.set("lookingForCommitments", updatedCommitmentLevels.join(","));
+    searchParams.set(BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT, updatedCommitmentLevels.join(","));
     setSearchParams(searchParams);
   };
 
   const handleCommitmentLevelDeletion = (commitmentLevel: string) => {
     const updatedCommitmentLevels = validParameterCommitmentLevels.filter((level) => level !== commitmentLevel);
     if (updatedCommitmentLevels.length === 0) {
-      searchParams.delete("lookingForCommitments");
+      searchParams.delete(BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT);
     } else {
-      searchParams.set("lookingForCommitments", updatedCommitmentLevels.join(","));
+      searchParams.set(BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT, updatedCommitmentLevels.join(","));
     }
     setSearchParams(searchParams);
   };
