@@ -59,6 +59,18 @@ export const LookingForRolesFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
+  const handleRoleDeletion = (roleToDelete: string) => {
+    const updatedRoles = validParameterRoles.filter((role) => role !== roleToDelete);
+
+    if (updatedRoles.length === 0) {
+      searchParams.delete("lookingForRoles");
+    } else {
+      searchParams.set("lookingForRoles", updatedRoles.join(","));
+    }
+
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
       <button tabIndex={0} role="button" className="btn">
@@ -73,7 +85,13 @@ export const LookingForRolesFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {validParameterRoles.map((role) => {
                 return (
-                  <GenericChip key={`selected-${role}`} chipText={role} fallbackText="">
+                  <GenericChip
+                    key={`selected-${role}`}
+                    chipText={role}
+                    onClick={() => {
+                      handleRoleDeletion(role);
+                    }}
+                  >
                     <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
