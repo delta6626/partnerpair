@@ -9,7 +9,7 @@ import { SETTINGS } from "../../../shared/constants/SETTINGS";
 export const SkillsFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const skills = searchParams.get("skills")?.split(",") ?? [];
+  const skills = searchParams.get(BROWSE.PARAM_SKILLS)?.split(",") ?? [];
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export const SkillsFilterDropdown = () => {
 
     if (!skill) return;
     const updatedSkills = skills.includes(skill) ? skills : [...skills, skill];
-    searchParams.set("skills", updatedSkills.join(","));
+    searchParams.set(BROWSE.PARAM_SKILLS, updatedSkills.join(","));
     setSearchParams(searchParams);
     skillInput.value = "";
   };
@@ -29,9 +29,9 @@ export const SkillsFilterDropdown = () => {
   const handleSkillDelete = (skillToDelete: string) => {
     const updatedSkills = skills.filter((skill) => skill !== skillToDelete);
     if (updatedSkills.length > 0) {
-      searchParams.set("skills", updatedSkills.join(","));
+      searchParams.set(BROWSE.PARAM_SKILLS, updatedSkills.join(","));
     } else {
-      searchParams.delete("skills");
+      searchParams.delete(BROWSE.PARAM_SKILLS);
     }
 
     setSearchParams(searchParams);
