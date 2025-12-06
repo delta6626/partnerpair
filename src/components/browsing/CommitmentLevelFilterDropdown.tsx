@@ -2,6 +2,7 @@ import { ChevronDown, XIcon } from "lucide-react";
 import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLevel";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const CommitmentLevelFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +16,7 @@ export const CommitmentLevelFilterDropdown = () => {
     "More than 60 hours per week",
   ];
 
-  const commitmentLevels = searchParams.get("commitmentLevels")?.split(",") ?? [];
+  const commitmentLevels = searchParams.get(BROWSE.PARAM_COMMITMENT_LEVELS)?.split(",") ?? [];
   const validParameterCommitmentLevels = commitmentLevels.filter((level: string) =>
     validCommitmentLevels.includes(level as UserCommitmentLevel)
   );
@@ -23,16 +24,16 @@ export const CommitmentLevelFilterDropdown = () => {
   const handleCommitmentLevelAddition = (commitmentLevel: string) => {
     if (validParameterCommitmentLevels.includes(commitmentLevel)) return;
     const updatedCommitmentLevels = [...validParameterCommitmentLevels, commitmentLevel];
-    searchParams.set("commitmentLevels", updatedCommitmentLevels.join(","));
+    searchParams.set(BROWSE.PARAM_COMMITMENT_LEVELS, updatedCommitmentLevels.join(","));
     setSearchParams(searchParams);
   };
 
   const handleCommitmentLevelDeletion = (commitmentLevel: string) => {
     const updatedCommitmentLevels = validParameterCommitmentLevels.filter((level) => level !== commitmentLevel);
     if (updatedCommitmentLevels.length === 0) {
-      searchParams.delete("commitmentLevels");
+      searchParams.delete(BROWSE.PARAM_COMMITMENT_LEVELS);
     } else {
-      searchParams.set("commitmentLevels", updatedCommitmentLevels.join(","));
+      searchParams.set(BROWSE.PARAM_COMMITMENT_LEVELS, updatedCommitmentLevels.join(","));
     }
 
     setSearchParams(searchParams);
