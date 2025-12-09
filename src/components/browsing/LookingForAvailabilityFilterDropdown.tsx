@@ -19,6 +19,10 @@ export const LookingForAvailabilityFilterDropdown = () => {
     validAvailabilities.includes(availability as UserAvailability)
   );
 
+  const handleAvailabilityAddition = (availability: string) => {};
+
+  const handleAvailabilityDeletion = (availability: string) => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
@@ -33,7 +37,13 @@ export const LookingForAvailabilityFilterDropdown = () => {
             <div className="flex flex-wrap gap-2 mt-2 mb-4">
               {validParameterAvailabilitiesSought.map((availability) => {
                 return (
-                  <GenericChip key={`selected-${availability}`} chipText={availability}>
+                  <GenericChip
+                    key={`selected-${availability}`}
+                    chipText={availability}
+                    onClick={() => {
+                      handleAvailabilityDeletion(availability);
+                    }}
+                  >
                     <XIcon size={20} className="hover:text-error focus:text-error ease-in-out duration-200" />
                   </GenericChip>
                 );
@@ -46,7 +56,15 @@ export const LookingForAvailabilityFilterDropdown = () => {
           <h1 className="text-accent">Options</h1>
           <div className="flex flex-wrap gap-2 mt-2">
             {validAvailabilities.map((availability) => {
-              return <GenericChip key={`option-${availability}`} chipText={availability as string} />;
+              return (
+                <GenericChip
+                  key={`option-${availability}`}
+                  chipText={availability as string}
+                  onClick={() => {
+                    handleAvailabilityAddition(availability as string);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
