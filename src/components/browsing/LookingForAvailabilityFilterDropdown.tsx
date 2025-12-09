@@ -19,9 +19,27 @@ export const LookingForAvailabilityFilterDropdown = () => {
     validAvailabilities.includes(availability as UserAvailability)
   );
 
-  const handleAvailabilityAddition = (availability: string) => {};
+  const handleAvailabilityAddition = (availability: string) => {
+    if (validParameterAvailabilitiesSought.includes(availability)) return;
 
-  const handleAvailabilityDeletion = (availability: string) => {};
+    const updatedAvailabilitiesSought = [...validParameterAvailabilitiesSought, availability];
+    searchParams.set(BROWSE.PARAM_AVAILABILITY_SOUGHT, updatedAvailabilitiesSought.join(","));
+    setSearchParams(searchParams);
+  };
+
+  const handleAvailabilityDeletion = (availabilityToDelete: string) => {
+    const updatedAvailabilitiesSought = validParameterAvailabilitiesSought.filter(
+      (availability) => availability != availabilityToDelete
+    );
+
+    if (updatedAvailabilitiesSought.length === 0) {
+      searchParams.delete(BROWSE.PARAM_AVAILABILITY_SOUGHT);
+    } else {
+      searchParams.set(BROWSE.PARAM_AVAILABILITY_SOUGHT, updatedAvailabilitiesSought.join(","));
+    }
+
+    setSearchParams(searchParams);
+  };
 
   return (
     <div className="dropdown dropdown-bottom">
