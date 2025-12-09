@@ -1,5 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import type { UserAvailability } from "../../../shared/types/UserAvailability";
+import { useSearchParams } from "react-router-dom";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const LookingForAvailabilityFilterDropdown = () => {
   const validAvailabilities: UserAvailability[] = [
@@ -9,6 +11,12 @@ export const LookingForAvailabilityFilterDropdown = () => {
     "Available within a month",
     "Available after a month",
   ];
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const availabilitiesSought = searchParams.get(BROWSE.PARAM_AVAILABILITY_SOUGHT)?.split(",") ?? [];
+  const validParameterAvailabilitiesSought = availabilitiesSought.filter((availability) =>
+    validAvailabilities.includes(availability as UserAvailability)
+  );
 
   return (
     <div className="dropdown dropdown-bottom">
