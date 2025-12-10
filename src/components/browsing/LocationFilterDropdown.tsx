@@ -3,7 +3,7 @@ import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 
 export const LocationFilterDropdown = () => {
-  const setCountry = (country: string) => {};
+  const setLocation = (country: string) => {};
 
   return (
     <div className="dropdown dropdown-bottom">
@@ -16,7 +16,12 @@ export const LocationFilterDropdown = () => {
         className="dropdown-content menu bg-base-200 rounded-box z-10 w-80 mt-2 max-h-80 grid grid-cols-1 overflow-y-auto"
       >
         <li key={"any"}>
-          <button className="flex items-center px-4 py-3">
+          <button
+            className="flex items-center px-4 py-3"
+            onClick={() => {
+              setLocation("any");
+            }}
+          >
             <Globe size={20} className="text-secondary" />
             <p>Anywhere</p>
           </button>
@@ -25,7 +30,12 @@ export const LocationFilterDropdown = () => {
           const parsed = parseCountry(c);
           return (
             <li key={parsed.iso2}>
-              <button className="flex items-center px-4 py-3">
+              <button
+                className="flex items-center px-4 py-3"
+                onClick={() => {
+                  setLocation(parsed.name);
+                }}
+              >
                 <FlagImage iso2={parsed.iso2} style={{ width: "20px" }} />
                 <p>{parsed.name}</p>
               </button>
