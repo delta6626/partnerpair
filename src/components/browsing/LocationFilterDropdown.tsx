@@ -5,7 +5,7 @@ import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const LocationFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? "Anywhere";
+  const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? BROWSE.PARAM_VALUE_ANY_COUNTRY;
 
   const isValidCountry = (country: string) => {
     const countries = defaultCountries.map((countryObject) => countryObject[0]);
@@ -17,8 +17,8 @@ export const LocationFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
-  if (!(location === "Anywhere") && !isValidCountry(location)) {
-    setLocation("Anywhere");
+  if (!(location === BROWSE.PARAM_VALUE_ANY_COUNTRY) && !isValidCountry(location)) {
+    setLocation(BROWSE.PARAM_VALUE_ANY_COUNTRY);
   }
 
   return (
@@ -36,7 +36,7 @@ export const LocationFilterDropdown = () => {
           <button
             className="flex items-center px-4 py-3"
             onClick={() => {
-              setLocation("any");
+              setLocation(BROWSE.PARAM_VALUE_ANY_COUNTRY);
             }}
           >
             <Globe size={20} className="text-secondary" />
