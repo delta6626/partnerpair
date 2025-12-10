@@ -19,7 +19,7 @@ export const LocationFilterDropdown = () => {
   }, []);
 
   const isValidCountry = (countryCode: string) => {
-    return Object.keys(countriesObject).includes(countryCode);
+    return countryCode in countriesObject;
   };
 
   const setLocation = (country: string) => {
