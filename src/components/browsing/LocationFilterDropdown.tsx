@@ -8,12 +8,18 @@ export const LocationFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? BROWSE.PARAM_VALUE_ANY_COUNTRY;
 
-  const countryISOCodes = useMemo(() => {
-    return defaultCountries.map((countryArray) => countryArray[1]);
+  const countriesObject = useMemo(() => {
+    const countries: Record<string, string> = {};
+
+    defaultCountries.forEach((countryArray) => {
+      countries[countryArray[1]] = countryArray[0];
+    });
+
+    return countries;
   }, []);
 
   const isValidCountry = (countryCode: string) => {
-    return countryISOCodes.includes(countryCode);
+    return Object.keys(countriesObject).includes(countryCode);
   };
 
   const setLocation = (country: string) => {
