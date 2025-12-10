@@ -1,5 +1,5 @@
 import { defaultCountries, FlagImage, parseCountry } from "react-international-phone";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 
 export const LocationFilterDropdown = () => {
@@ -13,6 +13,12 @@ export const LocationFilterDropdown = () => {
         tabIndex={0}
         className="dropdown-content menu bg-base-200 rounded-box z-10 w-80 mt-2 max-h-80 grid grid-cols-1 overflow-y-auto"
       >
+        <li key={"any"}>
+          <button className="flex items-center px-4 py-3">
+            <Globe size={20} className="text-secondary" />
+            <p>Anywhere</p>
+          </button>
+        </li>
         {defaultCountries.map((c) => {
           const parsed = parseCountry(c);
           return (
