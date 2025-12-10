@@ -2,7 +2,7 @@ import { defaultCountries, FlagImage, parseCountry } from "react-international-p
 import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 export const LocationFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,9 +21,11 @@ export const LocationFilterDropdown = () => {
     setSearchParams(searchParams);
   };
 
-  if (!(location === BROWSE.PARAM_VALUE_ANY_COUNTRY) && !isValidCountry(location)) {
-    setLocation(BROWSE.PARAM_VALUE_ANY_COUNTRY);
-  }
+  useEffect(() => {
+    if (!(location === BROWSE.PARAM_VALUE_ANY_COUNTRY) && !isValidCountry(location)) {
+      setLocation(BROWSE.PARAM_VALUE_ANY_COUNTRY);
+    }
+  }, [location]);
 
   return (
     <div className="dropdown dropdown-bottom">
