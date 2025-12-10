@@ -1,13 +1,30 @@
 import { defaultCountries, FlagImage, parseCountry } from "react-international-phone";
 import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const LocationFilterDropdown = () => {
-  const setLocation = (country: string) => {};
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? "Anywhere";
+
+  const isValidCountry = (country: string) => {
+    const countries = defaultCountries.map((countryObject) => countryObject[0]);
+    return countries.includes(country);
+  };
+
+  const setLocation = (country: string) => {
+    searchParams.set(BROWSE.PARAM_LOCATION, country);
+    setSearchParams(searchParams);
+  };
+
+  if (!(location === "Anywhere") && !isValidCountry(location)) {
+    setLocation("Anywhere");
+  }
 
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
+        {location}
         <ChevronDown size={20} />
       </button>
 
