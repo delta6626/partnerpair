@@ -1,11 +1,11 @@
 import { defaultCountries, FlagImage, parseCountry } from "react-international-phone";
 import { ChevronDown } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
 export const LocationFilterDropdown = () => {
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
-        Location
         <ChevronDown size={20} />
       </button>
 
