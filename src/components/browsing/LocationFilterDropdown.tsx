@@ -36,7 +36,7 @@ export const LocationFilterDropdown = () => {
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
-        {location}
+        {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}
         <ChevronDown size={20} />
       </button>
 
