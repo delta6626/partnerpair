@@ -3,6 +3,8 @@ import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 
 export const LocationFilterDropdown = () => {
+  const setCountry = (country: string) => {};
+
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
