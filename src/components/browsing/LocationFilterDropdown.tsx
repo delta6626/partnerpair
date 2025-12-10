@@ -2,14 +2,18 @@ import { defaultCountries, FlagImage, parseCountry } from "react-international-p
 import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import { useMemo } from "react";
 
 export const LocationFilterDropdown = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? BROWSE.PARAM_VALUE_ANY_COUNTRY;
 
-  const isValidCountry = (country: string) => {
-    const countries = defaultCountries.map((countryObject) => countryObject[0]);
-    return countries.includes(country);
+  const countryISOCodes = useMemo(() => {
+    return defaultCountries.map((countryArray) => countryArray[1]);
+  }, []);
+
+  const isValidCountry = (countryCode: string) => {
+    return countryISOCodes.includes(countryCode);
   };
 
   const setLocation = (country: string) => {
@@ -50,7 +54,7 @@ export const LocationFilterDropdown = () => {
               <button
                 className="flex items-center px-4 py-3"
                 onClick={() => {
-                  setLocation(parsed.name);
+                  setLocation(parsed.iso2);
                 }}
               >
                 <FlagImage iso2={parsed.iso2} style={{ width: "20px" }} />
