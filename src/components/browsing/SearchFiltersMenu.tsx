@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { AvailabilityFilterDropdown } from "./AvailabilityFilterDropdown";
 import { CommitmentLevelFilterDropdown } from "./CommitmentLevelFilterDropdown";
 import { LocationFilterDropdown } from "./LocationFilterDropdown";
@@ -30,8 +31,10 @@ export const SearchFiltersMenu = () => {
   matchingPreferences.availability // Pay wall
   */
 
+  const [, setSearchParams] = useSearchParams();
+
   const handleResetFilterClick = () => {
-    return;
+    setSearchParams({});
   };
 
   return (
