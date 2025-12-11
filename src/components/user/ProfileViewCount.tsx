@@ -27,7 +27,6 @@ export const ProfileViewCount = () => {
       const response = await getUserTier();
       return response.data as UserTier;
     },
-    staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
   const {
