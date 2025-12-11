@@ -30,6 +30,10 @@ export const SearchFiltersMenu = () => {
   matchingPreferences.availability // Pay wall
   */
 
+  const handleResetFilterClick = () => {
+    return;
+  };
+
   return (
     <div className="w-full flex flex-wrap gap-4">
       <LocationFilterDropdown />
@@ -42,6 +46,10 @@ export const SearchFiltersMenu = () => {
       <LookingForRolesFilterDropdown />
       <LookingForCommitmentFilterDropdown />
       <LookingForAvailabilityFilterDropdown />
+
+      <button className="btn" onClick={handleResetFilterClick}>
+        Reset Filters
+      </button>
     </div>
   );
 };
