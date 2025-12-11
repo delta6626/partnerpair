@@ -9,6 +9,11 @@ import { LookingForSkillsFilterDropDown } from "./LookingForSkillsFilterDropdown
 import { RolesFilterDropdown } from "./RolesFilterDropdown";
 import { SkillsFilterDropdown } from "./SkillsFilterDropdown";
 import { StartupFilterDropdown } from "./StartupFilterDropdown";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../../services/firebaseConfig";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
+import type { UserTier } from "../../../shared/types/UserTier";
 
 export const SearchFiltersMenu = () => {
   /*
@@ -31,6 +36,19 @@ export const SearchFiltersMenu = () => {
   matchingPreferences.availability // Pay wall
   */
 
+  const getUserTier = httpsCallable(functions, "getUserTier");
+  const {
+    data: userTier,
+    isLoading: isUserTierLoading,
+    isError: isUserTierError,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.USER_TIER],
+    queryFn: async () => {
+      const response = await getUserTier();
+      return response.data as UserTier;
+    },
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleResetFilterClick = () => {
@@ -38,7 +56,7 @@ export const SearchFiltersMenu = () => {
   };
 
   return (
-    <div className="w-full flex flex-wrap gap-4">
+    <div className="w-full flex flex-wrap gap-4 bg-blue-500">
       <LocationFilterDropdown />
       <SkillsFilterDropdown />
       <RolesFilterDropdown />
