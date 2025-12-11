@@ -15,6 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import type { UserTier } from "../../../shared/types/UserTier";
 import { Loader } from "../Loader";
+import { BROWSE } from "../../../shared/constants/BROWSE";
 
 export const SearchFiltersMenu = () => {
   /*
@@ -61,6 +62,10 @@ export const SearchFiltersMenu = () => {
       {isUserTierLoading ? (
         <div className="w-full flex flex-col items-center">
           <Loader />
+        </div>
+      ) : isUserTierError ? (
+        <div className="w-full flex flex-col items-center">
+          <p className="text-accent">{BROWSE.USER_TIER_LOADING_ERROR}</p>
         </div>
       ) : (
         <div className="w-full flex flex-wrap gap-4">
