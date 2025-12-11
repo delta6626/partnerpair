@@ -31,7 +31,7 @@ export const SearchFiltersMenu = () => {
   matchingPreferences.availability // Pay wall
   */
 
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleResetFilterClick = () => {
     setSearchParams({});
@@ -50,7 +50,7 @@ export const SearchFiltersMenu = () => {
       <LookingForCommitmentFilterDropdown />
       <LookingForAvailabilityFilterDropdown />
 
-      <button className="btn" onClick={handleResetFilterClick}>
+      <button className="btn" onClick={handleResetFilterClick} disabled={searchParams.size === 0}>
         Reset Filters
       </button>
     </div>
