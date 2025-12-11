@@ -1,7 +1,9 @@
-import { BrowseHeader } from "../components/browsing/BrowseHeader";
+import { BROWSE } from "../../shared/constants/BROWSE";
 import { SearchFiltersMenu } from "../components/browsing/SearchFiltersMenu";
+import { SearchUser } from "../components/browsing/SearchUser";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
+import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { useFilterMenuStore } from "../store/useFilterMenuStore";
@@ -22,7 +24,22 @@ export const Browse = () => {
           <div className="py-4">
             <MainNavbar />
           </div>
-          <BrowseHeader />
+
+          <div className="py-8">
+            <div className="mb-4">
+              <ProfileStatusMessage />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="">
+                <h1 className="font-bold text-3xl">Browse</h1>
+                <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
+              </div>
+
+              <SearchUser />
+            </div>
+          </div>
+
           {isOpen && <SearchFiltersMenu />}
         </div>
       )}
