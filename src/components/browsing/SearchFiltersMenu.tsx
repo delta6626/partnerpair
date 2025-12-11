@@ -59,11 +59,11 @@ export const SearchFiltersMenu = () => {
   return (
     <>
       {isUserTierLoading ? (
-        <div className="w-full flex items-center">
+        <div className="w-full flex flex-col items-center">
           <Loader />
         </div>
       ) : (
-        <div className="w-full flex flex-wrap gap-4 bg-blue-500">
+        <div className="w-full flex flex-wrap gap-4">
           <LocationFilterDropdown />
           <SkillsFilterDropdown />
           <RolesFilterDropdown />
