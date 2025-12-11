@@ -14,6 +14,7 @@ import { functions } from "../../services/firebaseConfig";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import type { UserTier } from "../../../shared/types/UserTier";
+import { Loader } from "../Loader";
 
 export const SearchFiltersMenu = () => {
   /*
@@ -56,21 +57,29 @@ export const SearchFiltersMenu = () => {
   };
 
   return (
-    <div className="w-full flex flex-wrap gap-4 bg-blue-500">
-      <LocationFilterDropdown />
-      <SkillsFilterDropdown />
-      <RolesFilterDropdown />
-      <CommitmentLevelFilterDropdown />
-      <AvailabilityFilterDropdown />
-      <StartupFilterDropdown />
-      <LookingForSkillsFilterDropDown />
-      <LookingForRolesFilterDropdown />
-      <LookingForCommitmentFilterDropdown />
-      <LookingForAvailabilityFilterDropdown />
+    <>
+      {isUserTierLoading ? (
+        <div className="w-full flex items-center">
+          <Loader />
+        </div>
+      ) : (
+        <div className="w-full flex flex-wrap gap-4 bg-blue-500">
+          <LocationFilterDropdown />
+          <SkillsFilterDropdown />
+          <RolesFilterDropdown />
+          <CommitmentLevelFilterDropdown />
+          <AvailabilityFilterDropdown />
+          <StartupFilterDropdown />
+          <LookingForSkillsFilterDropDown />
+          <LookingForRolesFilterDropdown />
+          <LookingForCommitmentFilterDropdown />
+          <LookingForAvailabilityFilterDropdown />
 
-      <button className="btn" onClick={handleResetFilterClick} disabled={searchParams.size === 0}>
-        Reset Filters
-      </button>
-    </div>
+          <button className="btn" onClick={handleResetFilterClick} disabled={searchParams.size === 0}>
+            Reset Filters
+          </button>
+        </div>
+      )}
+    </>
   );
 };
