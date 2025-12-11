@@ -36,7 +36,9 @@ export const LocationFilterDropdown = () => {
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn">
-        {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}
+        <p className="text-left w-25 max-w-25 text-nowrap overflow-hidden text-ellipsis">
+          {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}
+        </p>
         <ChevronDown size={20} />
       </button>
 
