@@ -4,6 +4,7 @@ import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
 import type { UserTier } from "../../../shared/types/UserTier";
+import { ProBadge } from "../user/ProBadge";
 
 export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,7 +44,8 @@ export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
-        Commitment Level
+        {userTier === "Basic" && <ProBadge />}
+        <p>Commitment Level</p>
         <ChevronDown size={20} />
       </button>
 
