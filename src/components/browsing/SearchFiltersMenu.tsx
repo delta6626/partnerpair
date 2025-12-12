@@ -69,7 +69,7 @@ export const SearchFiltersMenu = () => {
         </div>
       ) : (
         <div className="w-full flex flex-wrap gap-4">
-          <LocationFilterDropdown />
+          <LocationFilterDropdown userTier={userTier ?? "Basic"} />
           <SkillsFilterDropdown />
           <RolesFilterDropdown />
           <CommitmentLevelFilterDropdown />

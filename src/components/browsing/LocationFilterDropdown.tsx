@@ -3,8 +3,9 @@ import { ChevronDown, Globe } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
 import { useEffect, useMemo } from "react";
+import type { UserTier } from "../../../shared/types/UserTier";
 
-export const LocationFilterDropdown = () => {
+export const LocationFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = searchParams.get(BROWSE.PARAM_LOCATION) ?? BROWSE.PARAM_VALUE_ANY_COUNTRY;
 
@@ -35,7 +36,7 @@ export const LocationFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn">
+      <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
         <p className="text-left w-25 max-w-25 text-nowrap overflow-hidden text-ellipsis">
           {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}
         </p>
