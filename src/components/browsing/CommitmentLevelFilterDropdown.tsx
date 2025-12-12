@@ -42,7 +42,7 @@ export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn">
+      <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
         Commitment Level
         <ChevronDown size={20} />
       </button>
