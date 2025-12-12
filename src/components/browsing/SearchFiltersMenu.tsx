@@ -77,7 +77,7 @@ export const SearchFiltersMenu = () => {
           <StartupFilterDropdown />
           <LookingForSkillsFilterDropDown />
           <LookingForRolesFilterDropdown />
-          <LookingForCommitmentFilterDropdown />
+          <LookingForCommitmentFilterDropdown userTier={userTier ?? "Basic"} />
           <LookingForAvailabilityFilterDropdown />
 
           <button className="btn" onClick={handleResetFilterClick} disabled={searchParams.size === 0}>

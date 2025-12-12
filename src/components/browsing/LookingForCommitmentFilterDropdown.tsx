@@ -3,8 +3,10 @@ import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLe
 import { useSearchParams } from "react-router-dom";
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import type { UserTier } from "../../../shared/types/UserTier";
+import { ProBadge } from "../user/ProBadge";
 
-export const LookingForCommitmentFilterDropdown = () => {
+export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const validCommitmentLevels: UserCommitmentLevel[] = [
@@ -40,8 +42,9 @@ export const LookingForCommitmentFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
-      <button tabIndex={0} role="button" className="btn">
-        Commitment they Seek
+      <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
+        {userTier === "Basic" && <ProBadge />}
+        <p>Commitment they Seek</p>
         <ChevronDown size={20} />
       </button>
 
