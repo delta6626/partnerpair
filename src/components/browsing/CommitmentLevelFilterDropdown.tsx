@@ -3,8 +3,9 @@ import type { UserCommitmentLevel } from "../../../shared/types/UserCommitmentLe
 import { GenericChip } from "../ProfileViewer/GenericChip";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import type { UserTier } from "../../../shared/types/UserTier";
 
-export const CommitmentLevelFilterDropdown = () => {
+export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const validCommitmentLevels: UserCommitmentLevel[] = [
