@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
 import { useEffect, useMemo } from "react";
 import type { UserTier } from "../../../shared/types/UserTier";
+import { ProBadge } from "../user/ProBadge";
 
 export const LocationFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,6 +38,7 @@ export const LocationFilterDropdown = ({ userTier }: { userTier: UserTier }) => 
   return (
     <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
+        {userTier === "Basic" && <ProBadge />}
         <p className="text-left w-25 max-w-25 text-nowrap overflow-hidden text-ellipsis">
           {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}
         </p>
