@@ -73,7 +73,7 @@ export const SearchFiltersMenu = () => {
           <SkillsFilterDropdown />
           <RolesFilterDropdown />
           <CommitmentLevelFilterDropdown userTier={userTier ?? "Basic"} />
-          <AvailabilityFilterDropdown />
+          <AvailabilityFilterDropdown userTier={userTier ?? "Basic"} />
           <StartupFilterDropdown />
           <LookingForSkillsFilterDropDown />
           <LookingForRolesFilterDropdown />
