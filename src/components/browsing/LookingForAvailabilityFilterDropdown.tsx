@@ -3,8 +3,10 @@ import type { UserAvailability } from "../../../shared/types/UserAvailability";
 import { useSearchParams } from "react-router-dom";
 import { BROWSE } from "../../../shared/constants/BROWSE";
 import { GenericChip } from "../ProfileViewer/GenericChip";
+import type { UserTier } from "../../../shared/types/UserTier";
+import { ProBadge } from "../user/ProBadge";
 
-export const LookingForAvailabilityFilterDropdown = () => {
+export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: UserTier }) => {
   const validAvailabilities: UserAvailability[] = [
     "Available immediately",
     "Available within a week",
@@ -43,8 +45,9 @@ export const LookingForAvailabilityFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn">
-        Availability they Seek
+      <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
+        {userTier === "Basic" && <ProBadge />}
+        <p>Availability they Seek</p>
         <ChevronDown size={20} />
       </button>
 
