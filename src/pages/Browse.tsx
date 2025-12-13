@@ -11,36 +11,41 @@ import { useSearchParams } from "react-router-dom";
 
 export const Browse = () => {
   useTheme();
+
+  const arrayKeys = [
+    BROWSE.PARAM_SKILLS,
+    BROWSE.PARAM_ROLES,
+    BROWSE.PARAM_COMMITMENT_LEVELS,
+    BROWSE.PARAM_AVAILABILITY,
+    BROWSE.PARAM_PREFERRED_STARTUP_STAGES,
+    BROWSE.PARAM_SKILLS_SOUGHT,
+    BROWSE.PARAM_ROLES_SOUGHT,
+    BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT,
+    BROWSE.PARAM_AVAILABILITY_SOUGHT,
+  ];
+
   const { loading } = useInitializeUser();
   const { isOpen, setIsOpen } = useFilterMenuStore();
 
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<Record<string, string | string[]>>();
 
-  const handleSearch = () => {
-    const searchParamsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
-    const arrayKeys = [
-      BROWSE.PARAM_SKILLS,
-      BROWSE.PARAM_ROLES,
-      BROWSE.PARAM_COMMITMENT_LEVELS,
-      BROWSE.PARAM_AVAILABILITY,
-      BROWSE.PARAM_PREFERRED_STARTUP_STAGES,
-      BROWSE.PARAM_SKILLS_SOUGHT,
-      BROWSE.PARAM_ROLES_SOUGHT,
-      BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT,
-      BROWSE.PARAM_AVAILABILITY_SOUGHT,
-    ];
-
-    arrayKeys.forEach((key) => {
-      if (!(typeof searchParamsObject[key] === "string") || !searchParamsObject[key]) return;
-      searchParamsObject[key] = searchParamsObject[key].split(",");
-    });
-  };
+  const handleSearch = () => {};
 
   useEffect(() => {
     if (searchParams.size === 0) return;
     // TODO: If size is not 0, initiate a search on load
   }, []);
+
+  useEffect(() => {
+    const paramsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
+    arrayKeys.forEach((key) => {
+      if (!(typeof paramsObject[key] === "string") || !paramsObject[key]) return;
+      paramsObject[key] = paramsObject[key].split(",");
+    });
+
+    setSearchParamsObject(paramsObject);
+  }, [searchParams]);
 
   return (
     <div className="">
