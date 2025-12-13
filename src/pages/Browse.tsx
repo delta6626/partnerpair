@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BROWSE } from "../../shared/constants/BROWSE";
 import { SearchFiltersMenu } from "../components/browsing/SearchFiltersMenu";
 import { Loader } from "../components/Loader";
@@ -15,6 +15,7 @@ export const Browse = () => {
   const { isOpen, setIsOpen } = useFilterMenuStore();
 
   const [searchParams] = useSearchParams();
+  const [searchParamsObject, setSearchParamsObject] = useState<Record<string, string | string[]>>();
 
   const handleSearch = () => {
     const searchParamsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
