@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { BROWSE } from "../../shared/constants/BROWSE";
 import { SearchFiltersMenu } from "../components/browsing/SearchFiltersMenu";
-import { SearchUser } from "../components/browsing/SearchUser";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
@@ -13,7 +12,7 @@ import { useSearchParams } from "react-router-dom";
 export const Browse = () => {
   useTheme();
   const { loading } = useInitializeUser();
-  const { isOpen } = useFilterMenuStore();
+  const { isOpen, setIsOpen } = useFilterMenuStore();
 
   const [searchParams] = useSearchParams();
 
@@ -45,7 +44,15 @@ export const Browse = () => {
                 <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
               </div>
 
-              <SearchUser />
+              <div className="flex gap-2">
+                <button className="btn" onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? "Close Filters" : "Open Filters"}
+                </button>
+
+                <button className="btn btn-primary" disabled={searchParams.size === 0}>
+                  Search
+                </button>
+              </div>
             </div>
           </div>
 
