@@ -33,11 +33,6 @@ export const Browse = () => {
   const handleSearch = () => {};
 
   useEffect(() => {
-    if (searchParams.size === 0) return;
-    // TODO: If size is not 0, initiate a search on load
-  }, []);
-
-  useEffect(() => {
     const paramsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
     arrayKeys.forEach((key) => {
       if (!(typeof paramsObject[key] === "string") || !paramsObject[key]) return;
