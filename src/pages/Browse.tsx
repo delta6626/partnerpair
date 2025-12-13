@@ -16,6 +16,8 @@ export const Browse = () => {
 
   const [searchParams] = useSearchParams();
 
+  const handleSearch = () => {};
+
   useEffect(() => {
     if (searchParams.size === 0) return;
     // TODO: If size is not 0, initiate a search on load
@@ -49,7 +51,7 @@ export const Browse = () => {
                   {isOpen ? "Close Filters" : "Open Filters"}
                 </button>
 
-                <button className="btn btn-primary" disabled={searchParams.size === 0}>
+                <button className="btn btn-primary" disabled={searchParams.size === 0} onClick={handleSearch}>
                   Search
                 </button>
               </div>
