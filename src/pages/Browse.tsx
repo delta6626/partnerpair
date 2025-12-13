@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BROWSE } from "../../shared/constants/BROWSE";
 import { SearchFiltersMenu } from "../components/browsing/SearchFiltersMenu";
 import { SearchUser } from "../components/browsing/SearchUser";
@@ -7,11 +8,19 @@ import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { useFilterMenuStore } from "../store/useFilterMenuStore";
+import { useSearchParams } from "react-router-dom";
 
 export const Browse = () => {
   useTheme();
   const { loading } = useInitializeUser();
   const { isOpen } = useFilterMenuStore();
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.size === 0) return;
+    // TODO: If size is not 0, initiate a search on load
+  }, []);
 
   return (
     <div className="">
