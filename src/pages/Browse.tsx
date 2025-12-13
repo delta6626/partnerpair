@@ -16,7 +16,25 @@ export const Browse = () => {
 
   const [searchParams] = useSearchParams();
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    const searchParamsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
+    const arrayKeys = [
+      BROWSE.PARAM_SKILLS,
+      BROWSE.PARAM_ROLES,
+      BROWSE.PARAM_COMMITMENT_LEVELS,
+      BROWSE.PARAM_AVAILABILITY,
+      BROWSE.PARAM_PREFERRED_STARTUP_STAGES,
+      BROWSE.PARAM_SKILLS_SOUGHT,
+      BROWSE.PARAM_ROLES_SOUGHT,
+      BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT,
+      BROWSE.PARAM_AVAILABILITY_SOUGHT,
+    ];
+
+    arrayKeys.forEach((key) => {
+      if (!(typeof searchParamsObject[key] === "string") || !searchParamsObject[key]) return;
+      searchParamsObject[key] = searchParamsObject[key].split(",");
+    });
+  };
 
   useEffect(() => {
     if (searchParams.size === 0) return;
