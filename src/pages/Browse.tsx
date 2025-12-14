@@ -8,6 +8,7 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { useFilterMenuStore } from "../store/useFilterMenuStore";
 import { useSearchParams } from "react-router-dom";
+import type { SearchParams } from "../../shared/types/SearchParams";
 
 export const Browse = () => {
   useTheme();
@@ -30,7 +31,7 @@ export const Browse = () => {
   const { isOpen, setIsOpen } = useFilterMenuStore();
 
   const [searchParams] = useSearchParams();
-  const [searchParamsObject, setSearchParamsObject] = useState<Record<string, string | string[]>>();
+  const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
 
   const handleSearch = () => {
     console.log(searchParamsObject);
@@ -58,7 +59,7 @@ export const Browse = () => {
       }
     });
 
-    setSearchParamsObject(paramsObject);
+    setSearchParamsObject(paramsObject as unknown as SearchParams);
   }, [searchParams]);
 
   return (
