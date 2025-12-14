@@ -30,7 +30,9 @@ export const Browse = () => {
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<Record<string, string | string[]>>();
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    console.log(searchParamsObject);
+  };
 
   useEffect(() => {
     const paramsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
