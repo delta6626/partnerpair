@@ -24,6 +24,8 @@ export const Browse = () => {
     BROWSE.PARAM_AVAILABILITY_SOUGHT,
   ];
 
+  const stringKeys = [BROWSE.PARAM_LOCATION, BROWSE.PARAM_PROFILE_TYPE];
+
   const { loading } = useInitializeUser();
   const { isOpen, setIsOpen } = useFilterMenuStore();
 
@@ -36,9 +38,24 @@ export const Browse = () => {
 
   useEffect(() => {
     const paramsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
+
     arrayKeys.forEach((key) => {
-      if (!(typeof paramsObject[key] === "string") || !paramsObject[key]) return;
-      paramsObject[key] = paramsObject[key].split(",");
+      const value = paramsObject[key];
+
+      if (typeof value === "string") {
+        paramsObject[key] = value.split(",");
+      } else {
+        paramsObject[key] = [];
+      }
+    });
+
+    stringKeys.forEach((key) => {
+      const value = paramsObject[key];
+      if (value) {
+        paramsObject[key] = value;
+      } else {
+        paramsObject[key] = "";
+      }
     });
 
     setSearchParamsObject(paramsObject);
