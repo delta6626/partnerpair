@@ -10,6 +10,7 @@ import { Timestamp } from "firebase-admin/firestore";
 import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileViewCountWithinTimePeriod";
 import { Contact } from "./shared/types/Contact";
 import { compatibilityScore } from "./shared/utils/compatibilityScore";
+import { SearchParams } from "./shared/types/SearchParams";
 
 admin.initializeApp();
 
@@ -249,7 +250,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
 
 export const getFilteredUsers = onCall(async (request) => {
   const userId = request.auth?.uid;
-  const searchParams = request.data.searchParams;
+  const searchParams: SearchParams = request.data.searchParams as SearchParams;
 
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
 });
