@@ -250,11 +250,30 @@ export const getSuggestedProfiles = onCall(async (request) => {
 
 export const getFilteredUsers = onCall(async (request) => {
   const userId = request.auth?.uid;
-  const searchParams: SearchParams = request.data.searchParams as SearchParams;
+  const rawSearchParams = request.data.searchParams;
 
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
 
+  if (
+    !rawSearchParams ||
+    typeof rawSearchParams.location !== "string" ||
+    !Array.isArray(rawSearchParams.skills) ||
+    !Array.isArray(rawSearchParams.roles) ||
+    !Array.isArray(rawSearchParams.commitmentLevels) ||
+    !Array.isArray(rawSearchParams.availabilities) ||
+    !["", "startupOwner", "startupSeeker"].includes(rawSearchParams.profileType) ||
+    !Array.isArray(rawSearchParams.preferredStartupStages) ||
+    !Array.isArray(rawSearchParams.skillsSought) ||
+    !Array.isArray(rawSearchParams.rolesSought) ||
+    !Array.isArray(rawSearchParams.commitmentLevelsSought) ||
+    !Array.isArray(rawSearchParams.availabilitiesSought)
+  ) {
+    throw new HttpsError("invalid-argument", "searchParams is invalid");
+  }
+
+  const searchParams = request.data.searchParams as SearchParams;
   const userTier = await fetchUserTier(userId);
+
   if (
     (searchParams.location != "" ||
       searchParams.commitmentLevels.length != 0 ||
