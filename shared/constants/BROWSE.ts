@@ -8,7 +8,7 @@ export const BROWSE = {
   PARAM_SKILLS: "skills",
   PARAM_ROLES: "roles",
   PARAM_COMMITMENT_LEVELS: "commitmentLevels",
-  PARAM_AVAILABILITY: "availability",
+  PARAM_AVAILABILITY: "availabilities",
   PARAM_PROFILE_TYPE: "profileType",
   PARAM_PREFERRED_STARTUP_STAGES: "preferredStartupStages",
   PARAM_VALUE_STARTUP_OWNER: "startupOwner",
@@ -16,5 +16,5 @@ export const BROWSE = {
   PARAM_SKILLS_SOUGHT: "skillsSought",
   PARAM_ROLES_SOUGHT: "rolesSought",
   PARAM_COMMITMENT_LEVELS_SOUGHT: "commitmentLevelsSought",
-  PARAM_AVAILABILITY_SOUGHT: "availabilitySought",
+  PARAM_AVAILABILITY_SOUGHT: "availabilitiesSought",
 };
