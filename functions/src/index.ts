@@ -246,3 +246,10 @@ export const getSuggestedProfiles = onCall(async (request) => {
     .sort((a, b) => b.score - a.score)
     .slice(0, suggestionCount);
 });
+
+export const getFilteredUsers = onCall(async (request) => {
+  const userId = request.auth?.uid;
+  const searchParams = request.data.searchParams;
+
+  if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
+});
