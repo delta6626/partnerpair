@@ -253,4 +253,15 @@ export const getFilteredUsers = onCall(async (request) => {
   const searchParams: SearchParams = request.data.searchParams as SearchParams;
 
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
+
+  const userTier = await fetchUserTier(userId);
+  if (
+    (searchParams.location != "" ||
+      searchParams.commitmentLevels.length != 0 ||
+      searchParams.availabilities.length != 0 ||
+      searchParams.commitmentLevelsSought.length != 0 ||
+      searchParams.availabilitiesSought.length != 0) &&
+    userTier === "Basic"
+  )
+    throw new HttpsError("permission-denied", "Pro features cannot be accessed by Basic tier user.");
 });
