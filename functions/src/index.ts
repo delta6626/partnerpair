@@ -251,6 +251,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
 export const getFilteredUsers = onCall(async (request) => {
   const userId = request.auth?.uid;
   const rawSearchParams = request.data.searchParams;
+  const cursor = request.data.cursor || 0;
 
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
 
