@@ -250,14 +250,7 @@ export const getSuggestedProfiles = onCall(async (request) => {
     .slice(0, suggestionCount);
 });
 
-export const getFilteredUsers = onCall(async (request) => {
-  const userId = request.auth?.uid;
-  const rawSearchParams = request.data.searchParams;
-  const cursor = request.data.cursor || 0;
-  const pageLimit = 20; // Max profiles per page / per request
-
-  if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
-
+const checkSearchParamsValid = (rawSearchParams: any) => {
   if (
     !rawSearchParams ||
     typeof rawSearchParams.location !== "string" ||
@@ -271,9 +264,21 @@ export const getFilteredUsers = onCall(async (request) => {
     !Array.isArray(rawSearchParams.rolesSought) ||
     !Array.isArray(rawSearchParams.commitmentLevelsSought) ||
     !Array.isArray(rawSearchParams.availabilitiesSought)
-  ) {
-    throw new HttpsError("invalid-argument", "searchParams is invalid");
-  }
+  )
+    return false;
+  return true;
+};
+
+export const getFilteredUsers = onCall(async (request) => {
+  const userId = request.auth?.uid;
+  const rawSearchParams = request.data.searchParams;
+  const cursor = request.data.cursor || 0;
+  const pageLimit = 20; // Max profiles per page / per request
+
+  const searchParamsValid = checkSearchParamsValid(rawSearchParams);
+
+  if (!searchParamsValid) throw new HttpsError("invalid-argument", "Search parameters are invalid.");
+  if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
 
   const searchParams = request.data.searchParams as SearchParams;
   const userTier = await fetchUserTier(userId);
