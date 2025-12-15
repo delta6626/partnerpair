@@ -346,5 +346,11 @@ export const getFilteredUsers = onCall(async (request) => {
       !user.matchingPreferences.lookingForRoles.some((role) => searchParams.skillsSought.includes(role))
     )
       return false;
+
+    if (
+      searchParams.commitmentLevelsSought.length &&
+      !searchParams.commitmentLevelsSought.includes(user.matchingPreferences.commitmentLevel)
+    )
+      return false;
   });
 });
