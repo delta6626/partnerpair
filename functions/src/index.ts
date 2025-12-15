@@ -352,5 +352,11 @@ export const getFilteredUsers = onCall(async (request) => {
       !searchParams.commitmentLevelsSought.includes(user.matchingPreferences.commitmentLevel)
     )
       return false;
+
+    if (
+      searchParams.availabilitiesSought.length &&
+      !searchParams.availabilitiesSought.includes(user.matchingPreferences.availability)
+    )
+      return false;
   });
 });
