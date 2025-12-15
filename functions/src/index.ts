@@ -298,6 +298,15 @@ export const getFilteredUsers = onCall(async (request) => {
 
     if (searchParams.profileType === "startupOwner" && !user.professionalInfo.hasStartup) return false;
 
+    if (searchParams.profileType === "startupSeeker" && user.professionalInfo.hasStartup) return false;
+
+    if (
+      searchParams.profileType === "startupOwner" &&
+      searchParams.preferredStartupStages.length &&
+      !searchParams.preferredStartupStages.includes(user.professionalInfo.startupStage)
+    )
+      return false;
+
     if (
       (searchParams.location != "" || searchParams.location != BROWSE.PARAM_VALUE_ANY_COUNTRY) &&
       countries[searchParams.location] != user.basicInfo.location
