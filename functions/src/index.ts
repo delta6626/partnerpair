@@ -13,6 +13,7 @@ import { compatibilityScore } from "./shared/utils/compatibilityScore";
 import { SearchParams } from "./shared/types/SearchParams";
 import { BROWSE } from "./shared/constants/BROWSE";
 import { countries } from "./shared/utils/countries";
+import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
 
 admin.initializeApp();
 
@@ -249,25 +250,6 @@ export const getSuggestedProfiles = onCall(async (request) => {
     .sort((a, b) => b.score - a.score)
     .slice(0, suggestionCount);
 });
-
-const checkSearchParamsValid = (rawSearchParams: any) => {
-  if (
-    !rawSearchParams ||
-    typeof rawSearchParams.location !== "string" ||
-    !Array.isArray(rawSearchParams.skills) ||
-    !Array.isArray(rawSearchParams.roles) ||
-    !Array.isArray(rawSearchParams.commitmentLevels) ||
-    !Array.isArray(rawSearchParams.availabilities) ||
-    !["", "startupOwner", "startupSeeker"].includes(rawSearchParams.profileType) ||
-    !Array.isArray(rawSearchParams.preferredStartupStages) ||
-    !Array.isArray(rawSearchParams.skillsSought) ||
-    !Array.isArray(rawSearchParams.rolesSought) ||
-    !Array.isArray(rawSearchParams.commitmentLevelsSought) ||
-    !Array.isArray(rawSearchParams.availabilitiesSought)
-  )
-    return false;
-  return true;
-};
 
 export const getFilteredUsers = onCall(async (request) => {
   const userId = request.auth?.uid;
