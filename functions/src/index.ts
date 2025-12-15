@@ -13,6 +13,7 @@ import { compatibilityScore } from "./shared/utils/compatibilityScore";
 import { SearchParams } from "./shared/types/SearchParams";
 import { BROWSE } from "./shared/constants/BROWSE";
 import { use } from "react";
+import { countries } from "./shared/utils/countries";
 
 admin.initializeApp();
 
@@ -292,7 +293,22 @@ export const getFilteredUsers = onCall(async (request) => {
   const allUsersSnapshot = await db.collection("users").get();
   const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
 
-  const filteredUsers = allUsers.filter((u) => {
-    if (u.id === userId) return false;
+  const filteredUsers = allUsers.filter((user) => {
+    if (user.id === userId) return false;
+
+    if (searchParams.profileType === "startupOwner" && !user.professionalInfo.hasStartup) return false;
+
+    if (
+      (searchParams.location != "" || searchParams.location != BROWSE.PARAM_VALUE_ANY_COUNTRY) &&
+      countries[searchParams.location] != user.basicInfo.location
+    )
+      return false;
+
+    if (
+      searchParams.skillsSought.length &&
+      !user.professionalInfo.skills.some((s) => searchParams.skillsSought.includes(s))
+    ) {
+      return false;
+    }
   });
 });
