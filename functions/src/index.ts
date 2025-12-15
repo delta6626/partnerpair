@@ -12,7 +12,6 @@ import { Contact } from "./shared/types/Contact";
 import { compatibilityScore } from "./shared/utils/compatibilityScore";
 import { SearchParams } from "./shared/types/SearchParams";
 import { BROWSE } from "./shared/constants/BROWSE";
-import { use } from "react";
 import { countries } from "./shared/utils/countries";
 
 admin.initializeApp();
@@ -320,6 +319,13 @@ export const getFilteredUsers = onCall(async (request) => {
       return false;
 
     if (searchParams.roles.length && !user.professionalInfo.roles.some((role) => searchParams.roles.includes(role)))
+      return false;
+
+    if (
+      searchParams.commitmentLevels.length &&
+      user.professionalInfo.commitmentLevel &&
+      !searchParams.commitmentLevels.includes(user.professionalInfo.commitmentLevel)
+    )
       return false;
   });
 });
