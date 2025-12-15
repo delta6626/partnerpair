@@ -314,7 +314,7 @@ export const getFilteredUsers = onCall(async (request) => {
       return false;
 
     if (
-      searchParams.skillsSought.length &&
+      searchParams.skills.length &&
       !user.professionalInfo.skills.some((s) => searchParams.skillsSought.includes(s))
     ) {
       return false;
