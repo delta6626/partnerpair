@@ -252,6 +252,7 @@ export const getFilteredUsers = onCall(async (request) => {
   const userId = request.auth?.uid;
   const rawSearchParams = request.data.searchParams;
   const cursor = request.data.cursor || 0;
+  const pageLimit = 20; // Max profiles per page / per request
 
   if (!userId) throw new HttpsError("unauthenticated", "The user is unauthenticated.");
 
