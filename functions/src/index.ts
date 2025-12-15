@@ -327,5 +327,12 @@ export const getFilteredUsers = onCall(async (request) => {
       !searchParams.commitmentLevels.includes(user.professionalInfo.commitmentLevel)
     )
       return false;
+
+    if (
+      searchParams.availabilities.length &&
+      user.professionalInfo.availability &&
+      !searchParams.availabilities.includes(user.professionalInfo.availability)
+    )
+      return false;
   });
 });
