@@ -315,9 +315,11 @@ export const getFilteredUsers = onCall(async (request) => {
 
     if (
       searchParams.skills.length &&
-      !user.professionalInfo.skills.some((s) => searchParams.skillsSought.includes(s))
-    ) {
+      !user.professionalInfo.skills.some((skill) => searchParams.skills.includes(skill))
+    )
       return false;
-    }
+
+    if (searchParams.roles.length && !user.professionalInfo.roles.some((role) => searchParams.roles.includes(role)))
+      return false;
   });
 });
