@@ -11,6 +11,8 @@ import { getProfileViewCountWithinTimePeriod } from "./shared/utils/getProfileVi
 import { Contact } from "./shared/types/Contact";
 import { compatibilityScore } from "./shared/utils/compatibilityScore";
 import { SearchParams } from "./shared/types/SearchParams";
+import { BROWSE } from "./shared/constants/BROWSE";
+import { use } from "react";
 
 admin.initializeApp();
 
@@ -285,4 +287,12 @@ export const getFilteredUsers = onCall(async (request) => {
     userTier === "Basic"
   )
     throw new HttpsError("permission-denied", "Pro features cannot be accessed by Basic tier user.");
+
+  const currentUser = await fetchUserData(userId);
+  const allUsersSnapshot = await db.collection("users").get();
+  const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
+
+  const filteredUsers = allUsers.filter((u) => {
+    if (u.id === userId) return false;
+  });
 });
