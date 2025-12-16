@@ -36,14 +36,22 @@ export const Browse = () => {
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
 
-  const { data, isLoading, isError, error, hasNextPage, fetchNextPage, isFetchingNextPage, refetch } = useInfiniteQuery(
-    {
-      queryKey: [QUERY_KEYS.FILTERED_USERS, searchParams],
-      initialPageParam: 0,
-      getNextPageParam: (lastPage: FilteredUsersPayload) => lastPage.nextCursor,
-      enabled: false,
-    }
-  );
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    isFetchNextPageError,
+    refetch,
+  } = useInfiniteQuery({
+    queryKey: [QUERY_KEYS.FILTERED_USERS, searchParams],
+    initialPageParam: 0,
+    getNextPageParam: (lastPage: FilteredUsersPayload) => lastPage.nextCursor,
+    enabled: false,
+  });
 
   const handleSearch = () => {
     console.log(searchParamsObject);
