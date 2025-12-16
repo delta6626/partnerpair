@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   PROFILE_VIEW_DATA: "profileViewData",
   CONTACT_COLLECTION: "contactCollection",
   SUGGESTED_PROFILES: "suggestedProfiles",
+  FILTERED_USERS: "filteredUsers",
 };

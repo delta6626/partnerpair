@@ -9,6 +9,9 @@ import { useTheme } from "../hooks/useTheme";
 import { useFilterMenuStore } from "../store/useFilterMenuStore";
 import { useSearchParams } from "react-router-dom";
 import type { SearchParams } from "../../shared/types/SearchParams";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import type { FilteredUsersPayload } from "../../shared/types/FilteredUsersPayload";
 
 export const Browse = () => {
   useTheme();
@@ -32,6 +35,15 @@ export const Browse = () => {
 
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
+
+  const { data, isLoading, isError, error, hasNextPage, fetchNextPage, isFetchingNextPage, refetch } = useInfiniteQuery(
+    {
+      queryKey: [QUERY_KEYS.FILTERED_USERS, searchParams],
+      initialPageParam: 0,
+      getNextPageParam: (lastPage: FilteredUsersPayload) => lastPage.nextCursor,
+      enabled: false,
+    }
+  );
 
   const handleSearch = () => {
     console.log(searchParamsObject);
