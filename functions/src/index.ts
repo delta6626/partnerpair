@@ -349,4 +349,11 @@ export const getFilteredUsers = onCall(async (request) => {
   });
 
   filteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
+  filteredUsers.slice(cursor, cursor + pageLimit);
+
+  return {
+    users: filteredUsers,
+    currentCursor: cursor,
+    nextCursor: cursor + pageLimit,
+  };
 });
