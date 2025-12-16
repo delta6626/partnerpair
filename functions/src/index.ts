@@ -15,6 +15,7 @@ import { BROWSE } from "./shared/constants/BROWSE";
 import { countries } from "./shared/utils/countries";
 import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
 import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
+import { FilteredUser } from "./shared/types/FilteredProfile";
 
 admin.initializeApp();
 
@@ -279,7 +280,7 @@ export const getFilteredUsers = onCall(async (request) => {
   const allUsersSnapshot = await db.collection("users").get();
   const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
 
-  const filteredUsers = allUsers.filter((user) => {
+  const filteredUsersExtended = allUsers.filter((user) => {
     if (user.id === userId) return false;
 
     if (searchParams.profileType === "startupOwner" && !user.professionalInfo.hasStartup) return false;
@@ -349,10 +350,10 @@ export const getFilteredUsers = onCall(async (request) => {
     return true;
   });
 
-  filteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
-  filteredUsers.slice(cursor, cursor + pageLimit);
+  filteredUsersExtended.sort((userA, userB) => userA.id.localeCompare(userB.id));
+  filteredUsersExtended.slice(cursor, cursor + pageLimit);
 
-  const filteredUsersMinimal = filteredUsers.map((user) => ({
+  const filteredUsers: FilteredUser[] = filteredUsersExtended.map((user) => ({
     id: user.id,
     profileImageURL: user.basicInfo.profileImageUrl,
     firstName: user.basicInfo.firstName,
@@ -367,7 +368,7 @@ export const getFilteredUsers = onCall(async (request) => {
   }));
 
   return {
-    users: filteredUsersMinimal,
+    users: filteredUsers,
     currentCursor: cursor,
     nextCursor: cursor + pageLimit < filteredUsers.length ? cursor + pageLimit : null,
   } as FilteredUsersPayload;
