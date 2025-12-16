@@ -368,6 +368,6 @@ export const getFilteredUsers = onCall(async (request) => {
   return {
     users: filteredUsersMinimal,
     currentCursor: cursor,
-    nextCursor: cursor + pageLimit,
+    nextCursor: cursor + pageLimit < filteredUsers.length ? cursor + pageLimit : null,
   };
 });
