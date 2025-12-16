@@ -344,6 +344,8 @@ export const getFilteredUsers = onCall(async (request) => {
       !searchParams.availabilitiesSought.includes(user.matchingPreferences.availability)
     )
       return false;
+
+    return true;
   });
 
   filteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
