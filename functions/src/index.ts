@@ -14,6 +14,7 @@ import { SearchParams } from "./shared/types/SearchParams";
 import { BROWSE } from "./shared/constants/BROWSE";
 import { countries } from "./shared/utils/countries";
 import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
+import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
 
 admin.initializeApp();
 
@@ -369,5 +370,5 @@ export const getFilteredUsers = onCall(async (request) => {
     users: filteredUsersMinimal,
     currentCursor: cursor,
     nextCursor: cursor + pageLimit < filteredUsers.length ? cursor + pageLimit : null,
-  };
+  } as FilteredUsersPayload;
 });
