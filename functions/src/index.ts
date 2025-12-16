@@ -275,7 +275,6 @@ export const getFilteredUsers = onCall(async (request) => {
   )
     throw new HttpsError("permission-denied", "Pro features cannot be accessed by Basic tier user.");
 
-  const currentUser = await fetchUserData(userId);
   const allUsersSnapshot = await db.collection("users").get();
   const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
 
@@ -346,4 +345,6 @@ export const getFilteredUsers = onCall(async (request) => {
     )
       return false;
   });
+
+  filteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
 });
