@@ -329,7 +329,7 @@ export const getFilteredUsers = onCall(async (request) => {
 
     if (
       searchParams.rolesSought.length &&
-      !user.matchingPreferences.lookingForRoles.some((role) => searchParams.skillsSought.includes(role))
+      !user.matchingPreferences.lookingForRoles.some((role) => searchParams.rolesSought.includes(role))
     )
       return false;
 
