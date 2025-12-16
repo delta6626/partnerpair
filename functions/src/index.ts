@@ -351,8 +351,22 @@ export const getFilteredUsers = onCall(async (request) => {
   filteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
   filteredUsers.slice(cursor, cursor + pageLimit);
 
+  const filteredUsersMinimal = filteredUsers.map((user) => ({
+    id: user.id,
+    profileImageURL: user.basicInfo.profileImageUrl,
+    firstName: user.basicInfo.firstName,
+    lastName: user.basicInfo.lastName,
+    tier: user.basicInfo.tier,
+    headline: user.professionalInfo.headline,
+    bio: user.professionalInfo.bio,
+    roles: user.professionalInfo.roles,
+    hasStartup: user.professionalInfo.hasStartup,
+    wantsToCofound: user.professionalInfo.wantsToCofound,
+    startupDescription: user.professionalInfo.startupDescription,
+  }));
+
   return {
-    users: filteredUsers,
+    users: filteredUsersMinimal,
     currentCursor: cursor,
     nextCursor: cursor + pageLimit,
   };
