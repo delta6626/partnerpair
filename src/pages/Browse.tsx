@@ -52,6 +52,10 @@ export const Browse = () => {
     refetch,
   } = useInfiniteQuery({
     queryKey: [QUERY_KEYS.FILTERED_USERS, searchParams],
+    queryFn: async ({ pageParam }) => {
+      const response = await getFilteredUsers({ searchParams: searchParamsObject, cursor: pageParam });
+      return response.data as FilteredUsersPayload;
+    },
     initialPageParam: 0,
     getNextPageParam: (lastPage: FilteredUsersPayload) => lastPage.nextCursor,
     enabled: false,
