@@ -295,7 +295,8 @@ export const getFilteredUsers = onCall(async (request) => {
       return false;
 
     if (
-      (searchParams.location != "" || searchParams.location != BROWSE.PARAM_VALUE_ANY_COUNTRY) &&
+      searchParams.location != "" &&
+      searchParams.location != BROWSE.PARAM_VALUE_ANY_COUNTRY &&
       countries[searchParams.location] != user.basicInfo.location
     )
       return false;
