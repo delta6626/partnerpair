@@ -280,7 +280,7 @@ export const getFilteredUsers = onCall(async (request) => {
   const allUsersSnapshot = await db.collection("users").get();
   const allUsers = allUsersSnapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as User) }));
 
-  const filteredUsersExtended = allUsers.filter((user) => {
+  const allFilteredUsers = allUsers.filter((user) => {
     if (user.id === userId) return false;
 
     if (searchParams.profileType === "startupOwner" && !user.professionalInfo.hasStartup) return false;
@@ -351,10 +351,10 @@ export const getFilteredUsers = onCall(async (request) => {
     return true;
   });
 
-  filteredUsersExtended.sort((userA, userB) => userA.id.localeCompare(userB.id));
-  const paginatedUsers = filteredUsersExtended.slice(cursor, cursor + pageLimit);
+  allFilteredUsers.sort((userA, userB) => userA.id.localeCompare(userB.id));
+  const paginatedUsers = allFilteredUsers.slice(cursor, cursor + pageLimit);
 
-  const filteredUsers: FilteredUser[] = paginatedUsers.map((user) => ({
+  const filteredPaginatedUsers: FilteredUser[] = paginatedUsers.map((user) => ({
     id: user.id,
     profileImageURL: user.basicInfo.profileImageUrl,
     firstName: user.basicInfo.firstName,
@@ -369,8 +369,8 @@ export const getFilteredUsers = onCall(async (request) => {
   }));
 
   return {
-    users: filteredUsers,
+    users: filteredPaginatedUsers,
     currentCursor: cursor,
-    nextCursor: cursor + pageLimit < filteredUsers.length ? cursor + pageLimit : null,
+    nextCursor: cursor + pageLimit < allFilteredUsers.length ? cursor + pageLimit : null,
   } as FilteredUsersPayload;
 });
