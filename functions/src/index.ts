@@ -351,9 +351,9 @@ export const getFilteredUsers = onCall(async (request) => {
   });
 
   filteredUsersExtended.sort((userA, userB) => userA.id.localeCompare(userB.id));
-  filteredUsersExtended.slice(cursor, cursor + pageLimit);
+  const paginatedUsers = filteredUsersExtended.slice(cursor, cursor + pageLimit);
 
-  const filteredUsers: FilteredUser[] = filteredUsersExtended.map((user) => ({
+  const filteredUsers: FilteredUser[] = paginatedUsers.map((user) => ({
     id: user.id,
     profileImageURL: user.basicInfo.profileImageUrl,
     firstName: user.basicInfo.firstName,
