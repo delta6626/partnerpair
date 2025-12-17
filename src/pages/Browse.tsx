@@ -12,6 +12,8 @@ import type { SearchParams } from "../../shared/types/SearchParams";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { FilteredUsersPayload } from "../../shared/types/FilteredUsersPayload";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../services/firebaseConfig";
 
 export const Browse = () => {
   useTheme();
@@ -35,6 +37,8 @@ export const Browse = () => {
 
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
+
+  const getFilteredUsers = httpsCallable(functions, "getFilteredUsers");
 
   const {
     data,
