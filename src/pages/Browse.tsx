@@ -97,7 +97,7 @@ export const Browse = () => {
           <Loader />
         </div>
       ) : (
-        <div className="w-full min-h-[100vh] font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
+        <div className="w-full min-h-[100vh] flex flex-col font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
           <div className="py-4">
             <MainNavbar />
           </div>
@@ -126,6 +126,12 @@ export const Browse = () => {
           </div>
 
           {isOpen && <SearchFiltersMenu />}
+
+          {searchParams.size === 0 && (
+            <div className="flex w-full flex-1 items-center justify-between">
+              <p className="text-accent"></p>
+            </div>
+          )}
         </div>
       )}
     </div>
