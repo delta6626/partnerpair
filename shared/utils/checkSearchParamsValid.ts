@@ -1,4 +1,4 @@
-export const checkSearchParamsValid = (rawSearchParams: any) => {
+export const checkSearchParamsValid = (rawSearchParams: Record<string, string>) => {
   if (
     !rawSearchParams ||
     typeof rawSearchParams.location !== "string" ||
