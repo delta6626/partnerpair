@@ -90,6 +90,8 @@ export const Browse = () => {
     setSearchParamsObject(paramsObject as unknown as SearchParams);
   }, [searchParams]);
 
+  console.log(data);
+
   return (
     <div className="">
       {loading ? (
@@ -128,8 +130,14 @@ export const Browse = () => {
           {isOpen && <SearchFiltersMenu />}
 
           {!data && (
-            <div className="flex w-full flex-col flex-1 items-center justify-center">
+            <div className="flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
+            </div>
+          )}
+
+          {loading && (
+            <div className="flex w-full flex-1 items-center justify-center">
+              <Loader />
             </div>
           )}
         </div>
