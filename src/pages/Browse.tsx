@@ -128,8 +128,8 @@ export const Browse = () => {
           {isOpen && <SearchFiltersMenu />}
 
           {searchParams.size === 0 && (
-            <div className="flex w-full flex-1 items-center justify-between">
-              <p className="text-accent"></p>
+            <div className="flex w-full flex-1 items-center justify-center">
+              <p className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</p>
             </div>
           )}
         </div>
