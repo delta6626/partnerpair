@@ -128,8 +128,8 @@ export const Browse = () => {
           {isOpen && <SearchFiltersMenu />}
 
           {!data && (
-            <div className="flex w-full flex-1 items-center justify-center">
-              <p className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</p>
+            <div className="flex w-full flex-col flex-1 items-center justify-center">
+              <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
             </div>
           )}
         </div>
