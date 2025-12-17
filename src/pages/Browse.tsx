@@ -51,7 +51,7 @@ export const Browse = () => {
     isFetchNextPageError,
     refetch,
   } = useInfiniteQuery({
-    queryKey: [QUERY_KEYS.FILTERED_USERS, searchParamsObject],
+    queryKey: [QUERY_KEYS.FILTERED_USERS],
     queryFn: async ({ pageParam }) => {
       const response = await getFilteredUsers({ searchParams: searchParamsObject, cursor: pageParam });
       return response.data as FilteredUsersPayload;
@@ -127,13 +127,13 @@ export const Browse = () => {
 
           {isOpen && <SearchFiltersMenu />}
 
-          {!data && (
+          {!data && !isLoading && (
             <div className="flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
             </div>
           )}
 
-          {loading && (
+          {isLoading && (
             <div className="flex w-full flex-1 items-center justify-center">
               <Loader />
             </div>
