@@ -62,7 +62,7 @@ export const Browse = () => {
   });
 
   const handleSearch = () => {
-    console.log(searchParamsObject);
+    refetch();
   };
 
   useEffect(() => {
