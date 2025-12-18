@@ -50,6 +50,7 @@ export const Browse = () => {
     isError,
     error,
     hasNextPage,
+    isFetching,
     fetchNextPage,
     isFetchingNextPage,
     isFetchNextPageError,
@@ -149,7 +150,7 @@ export const Browse = () => {
             </div>
           )}
 
-          {isLoading && (
+          {(isLoading || isFetching) && (
             <div className="flex w-full flex-1 items-center justify-center">
               <Loader />
             </div>
