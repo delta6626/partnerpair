@@ -163,23 +163,25 @@ export const Browse = () => {
             </div>
           )}
 
-          <div className="">
-            {data?.pages.map((page) => {
-              return (
-                <div key={page.currentCursor} className="">
-                  {page.users.map((user) => {
-                    return <UserProfileCard userData={user} />;
-                  })}
-                </div>
-              );
-            })}
+          {!isLoading && !isFetching && (
+            <div className="">
+              {data?.pages.map((page) => {
+                return (
+                  <div key={page.currentCursor} className="">
+                    {page.users.map((user) => {
+                      return <UserProfileCard userData={user} />;
+                    })}
+                  </div>
+                );
+              })}
 
-            <div className="w-full flex items-center justify-center py-8" ref={ref}>
-              {isFetchingNextPage && <Loader />}
-              {isFetchNextPageError && <p className="">error</p>}
-              {data && !hasNextPage && <p>End</p>}
+              <div className="w-full flex items-center justify-center py-8" ref={ref}>
+                {isFetchingNextPage && <Loader />}
+                {isFetchNextPageError && <p className="">error</p>}
+                {data && !hasNextPage && <p>End</p>}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>
