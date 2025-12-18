@@ -38,7 +38,7 @@ export const Browse = () => {
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
 
-  const getFilteredUsers = httpsCallable(functions, "getFiltered");
+  const getFilteredUsers = httpsCallable(functions, "getFilteredUsers");
 
   const {
     data,
@@ -127,7 +127,7 @@ export const Browse = () => {
 
           {isOpen && <SearchFiltersMenu />}
 
-          {!data && !isLoading && (
+          {!data && !isLoading && !isError && (
             <div className="flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
             </div>
