@@ -3,8 +3,9 @@ import { AddContact } from "../user/AddContact";
 import { Link } from "react-router-dom";
 import { GenericChipCollection } from "./GenericChipCollection";
 import { ProBadge } from "../user/ProBadge";
+import type { FilteredUser } from "../../../shared/types/FilteredProfile";
 
-export const UserProfileCard = ({ userData }: { userData: SuggestedProfile }) => {
+export const UserProfileCard = ({ userData }: { userData: SuggestedProfile | FilteredUser }) => {
   return (
     <div className="break-inside-avoid p-4 border border-accent min-w-105 rounded-3xl">
       <div className="flex items-center gap-4">

@@ -14,6 +14,7 @@ import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { FilteredUsersPayload } from "../../shared/types/FilteredUsersPayload";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
+import { UserProfileCard } from "../components/ProfileViewer/UserProfileCard";
 
 export const Browse = () => {
   useTheme();
@@ -145,6 +146,18 @@ export const Browse = () => {
               <p className="text-accent">Error: {error.message}</p>
             </div>
           )}
+
+          <div className="">
+            {data?.pages.map((page) => {
+              return (
+                <div key={page.currentCursor} className="">
+                  {page.users.map((user) => {
+                    return <UserProfileCard userData={user} />;
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>
