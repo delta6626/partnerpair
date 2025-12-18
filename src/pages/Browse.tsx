@@ -15,6 +15,7 @@ import type { FilteredUsersPayload } from "../../shared/types/FilteredUsersPaylo
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import { UserProfileCard } from "../components/ProfileViewer/UserProfileCard";
+import { useInView } from "react-intersection-observer";
 
 export const Browse = () => {
   useTheme();
@@ -62,6 +63,8 @@ export const Browse = () => {
     enabled: false,
   });
 
+  const { ref, inView } = useInView();
+
   const handleSearch = () => {
     refetch();
   };
@@ -90,6 +93,12 @@ export const Browse = () => {
 
     setSearchParamsObject(paramsObject as unknown as SearchParams);
   }, [searchParams]);
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   return (
     <div className="">
@@ -157,6 +166,8 @@ export const Browse = () => {
                 </div>
               );
             })}
+
+            <div ref={ref}></div>
           </div>
         </div>
       )}
