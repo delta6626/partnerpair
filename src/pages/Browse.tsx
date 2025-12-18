@@ -53,7 +53,7 @@ export const Browse = () => {
     isFetchNextPageError,
     refetch,
   } = useInfiniteQuery({
-    queryKey: [QUERY_KEYS.FILTERED_USERS, searchParamsObject],
+    queryKey: [QUERY_KEYS.FILTERED_USERS],
     queryFn: async ({ pageParam }) => {
       const response = await getFilteredUsers({ searchParams: searchParamsObject, cursor: pageParam });
       return response.data as FilteredUsersPayload;
@@ -95,7 +95,7 @@ export const Browse = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && searchParams.size != 0) {
       fetchNextPage();
     }
   }, [inView]);
