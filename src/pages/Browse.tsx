@@ -9,7 +9,7 @@ import { useTheme } from "../hooks/useTheme";
 import { useFilterMenuStore } from "../store/useFilterMenuStore";
 import { useSearchParams } from "react-router-dom";
 import type { SearchParams } from "../../shared/types/SearchParams";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { FilteredUsersPayload } from "../../shared/types/FilteredUsersPayload";
 import { httpsCallable } from "firebase/functions";
@@ -41,6 +41,8 @@ export const Browse = () => {
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
 
   const getFilteredUsers = httpsCallable(functions, "getFilteredUsers");
+
+  const queryClient = useQueryClient();
 
   const {
     data,
@@ -99,6 +101,10 @@ export const Browse = () => {
       fetchNextPage();
     }
   }, [inView]);
+
+  useEffect(() => {
+    queryClient.removeQueries({ queryKey: [QUERY_KEYS.FILTERED_USERS] });
+  }, []);
 
   return (
     <div className="">
