@@ -38,7 +38,7 @@ export const Browse = () => {
   const [searchParams] = useSearchParams();
   const [searchParamsObject, setSearchParamsObject] = useState<SearchParams>();
 
-  const getFilteredUsers = httpsCallable(functions, "getFilteredUsers");
+  const getFilteredUsers = httpsCallable(functions, "getFiltered");
 
   const {
     data,
@@ -140,9 +140,9 @@ export const Browse = () => {
           )}
 
           {isError && (
-            <div className="flex w-full flex-1 items-center justify-center">
+            <div className="flex w-full flex-col flex-1 items-center justify-center">
               <h1 className="text-4xl font-bold">{BROWSE.SEARCH_ERROR}</h1>
-              <p className="text-accent">{error.message}</p>
+              <p className="text-accent">Error: {error.message}</p>
             </div>
           )}
         </div>
