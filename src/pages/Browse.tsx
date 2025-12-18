@@ -138,6 +138,12 @@ export const Browse = () => {
               <Loader />
             </div>
           )}
+
+          {isError && (
+            <div className="flex w-full flex-1 items-center justify-center">
+              <h1 className="text-accent"></h1>
+            </div>
+          )}
         </div>
       )}
     </div>
