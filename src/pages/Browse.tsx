@@ -53,7 +53,7 @@ export const Browse = () => {
     isFetchNextPageError,
     refetch,
   } = useInfiniteQuery({
-    queryKey: [QUERY_KEYS.FILTERED_USERS],
+    queryKey: [QUERY_KEYS.FILTERED_USERS, searchParamsObject],
     queryFn: async ({ pageParam }) => {
       const response = await getFilteredUsers({ searchParams: searchParamsObject, cursor: pageParam });
       return response.data as FilteredUsersPayload;
@@ -167,7 +167,11 @@ export const Browse = () => {
               );
             })}
 
-            <div ref={ref}></div>
+            <div className="w-full flex items-center justify-center py-8" ref={ref}>
+              {isFetchingNextPage && <Loader />}
+              {isFetchNextPageError && <p className="">error</p>}
+              {data && !hasNextPage && <p>End</p>}
+            </div>
           </div>
         </div>
       )}
