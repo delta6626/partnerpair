@@ -141,7 +141,8 @@ export const Browse = () => {
 
           {isError && (
             <div className="flex w-full flex-1 items-center justify-center">
-              <h1 className=""></h1>
+              <h1 className="text-4xl font-bold">{BROWSE.SEARCH_ERROR}</h1>
+              <p className="text-accent">{error.message}</p>
             </div>
           )}
         </div>
