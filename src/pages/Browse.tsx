@@ -50,7 +50,7 @@ export const Browse = () => {
     isError,
     error,
     hasNextPage,
-    isFetching,
+    isRefetching,
     fetchNextPage,
     isFetchingNextPage,
     isFetchNextPageError,
@@ -152,7 +152,7 @@ export const Browse = () => {
             </div>
           )}
 
-          {(isLoading || isFetching) && (
+          {(isLoading || isRefetching) && (
             <div className="flex w-full flex-1 items-center justify-center">
               <Loader />
             </div>
@@ -165,13 +165,13 @@ export const Browse = () => {
             </div>
           )}
 
-          {data && data.pages.length === 1 && data.pages[0].users.length === 0 && (
+          {data && data.pages.length <= 1 && data.pages[0].users.length === 0 && (
             <div className="flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_RESULTS_EMPTY}</h1>
             </div>
           )}
 
-          {!isLoading && !isFetching && (
+          {!isLoading && !isRefetching && (
             <div className="">
               {data?.pages.map((page) => {
                 return (
