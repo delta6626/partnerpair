@@ -165,6 +165,12 @@ export const Browse = () => {
             </div>
           )}
 
+          {data && data.pages.length === 1 && data.pages[0].users.length === 0 && (
+            <div className="flex w-full flex-1 items-center justify-center">
+              <h1 className="text-accent">{BROWSE.SEARCH_RESULTS_EMPTY}</h1>
+            </div>
+          )}
+
           {!isLoading && !isFetching && (
             <div className="">
               {data?.pages.map((page) => {
@@ -176,12 +182,6 @@ export const Browse = () => {
                   </div>
                 );
               })}
-
-              {data && data.pages.length === 1 && data.pages[0].users.length === 0 && (
-                <div className="flex w-full flex-1 items-center justify-center">
-                  <h1 className="text-accent"></h1>
-                </div>
-              )}
 
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
                 {isFetchingNextPage && <Loader />}
