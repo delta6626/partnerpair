@@ -165,7 +165,7 @@ export const Browse = () => {
             </div>
           )}
 
-          {data && data.pages.length <= 1 && data.pages[0].users.length === 0 && (
+          {data && data.pages.length <= 1 && data.pages[0].users.length === 0 && !isRefetching && (
             <div className="flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_RESULTS_EMPTY}</h1>
             </div>
