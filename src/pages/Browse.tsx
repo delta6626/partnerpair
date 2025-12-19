@@ -185,7 +185,19 @@ export const Browse = () => {
 
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
                 {isFetchingNextPage && <Loader />}
-                {isFetchNextPageError && <h1 className="text-error">{BROWSE.NEXT_PAGE_LOAD_ERROR}</h1>}
+                {isFetchNextPageError && (
+                  <div className="flex flex-col items-center">
+                    <h1 className="text-error">{BROWSE.NEXT_PAGE_LOAD_ERROR}</h1>
+                    <button
+                      className="btn mt-2"
+                      onClick={() => {
+                        fetchNextPage();
+                      }}
+                    >
+                      Try again
+                    </button>
+                  </div>
+                )}
                 {data && data.pages.length > 1 && !hasNextPage && (
                   <h1 className="text-accent">{BROWSE.PAGINATION_END}</h1>
                 )}
