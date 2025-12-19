@@ -5,6 +5,7 @@ export const BROWSE = {
   SEARCH_INSTRUCTION_MESSAGE: "Choose your filters and click Search to get started.",
   SEARCH_ERROR: "Whoops! An error occured.",
   NEXT_PAGE_LOAD_ERROR: "Something went wrong while loading more results. Try again in a moment.",
+  PAGINATION_END: "Looks like you’ve seen everything.",
   LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER: "Filter by skills others are seeking",
   PARAM_LOCATION: "location",
   PARAM_VALUE_ANY_COUNTRY: "anywhere",
