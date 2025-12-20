@@ -72,6 +72,8 @@ export const Browse = () => {
     refetch();
   };
 
+  const allUsers = data?.pages.flatMap((page) => page.users) ?? [];
+
   useEffect(() => {
     const paramsObject: Record<string, string | string[]> = Object.fromEntries(searchParams.entries());
 
@@ -171,15 +173,14 @@ export const Browse = () => {
 
           {!isLoading && !isRefetching && (
             <div className="">
-              {data?.pages.map((page) => {
-                return (
-                  <div key={page.currentCursor} className="">
-                    {page.users.map((user) => {
+              {
+                <div className="grid grid-cols-2 gap-4 pt-8">
+                  {allUsers &&
+                    allUsers.map((user) => {
                       return <UserProfileCard userData={user} />;
                     })}
-                  </div>
-                );
-              })}
+                </div>
+              }
 
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
                 {isFetchingNextPage && <Loader />}
