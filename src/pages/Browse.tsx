@@ -174,12 +174,18 @@ export const Browse = () => {
           {!isLoading && !isRefetching && (
             <div className="">
               {
-                <div className="grid grid-cols-2 gap-4 pt-8">
-                  {allUsers &&
-                    allUsers.map((user) => {
-                      return <UserProfileCard userData={user} />;
-                    })}
-                </div>
+                <>
+                  <div className="grid grid-cols-2 gap-4 pt-8">
+                    {allUsers &&
+                      allUsers.map((user) => {
+                        return <UserProfileCard userData={user} />;
+                      })}
+                  </div>
+
+                  {data && data.pages.length === 1 && (
+                    <h1 className="py-8 text-accent text-center">{BROWSE.PAGINATION_END}</h1>
+                  )}
+                </>
               }
 
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
