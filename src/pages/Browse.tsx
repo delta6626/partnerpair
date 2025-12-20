@@ -107,8 +107,6 @@ export const Browse = () => {
     queryClient.removeQueries({ queryKey: [QUERY_KEYS.FILTERED_USERS] });
   }, []);
 
-  console.log(data);
-
   return (
     <div className="">
       {loading ? (
