@@ -184,6 +184,7 @@ export const Browse = () => {
 
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
                 {isFetchingNextPage && <Loader />}
+
                 {isFetchNextPageError && (
                   <div className="flex flex-col items-center">
                     <h1 className="text-error">{BROWSE.NEXT_PAGE_LOAD_ERROR}</h1>
