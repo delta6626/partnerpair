@@ -64,6 +64,10 @@ export const Browse = () => {
     initialPageParam: 0,
     getNextPageParam: (lastPage: FilteredUsersPayload) => lastPage.nextCursor,
     enabled: false,
+    retry: (failureCount, error) => {
+      if (error.message === "Pro features cannot be accessed by Basic tier user.") return false;
+      return failureCount < BROWSE.MAX_RETRIES;
+    },
   });
 
   const { ref, inView } = useInView();
@@ -100,7 +104,7 @@ export const Browse = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (inView && searchParams.size != 0) {
+    if (inView && searchParams.size != 0 && !error) {
       fetchNextPage();
     }
   }, [inView]);
@@ -191,7 +195,7 @@ export const Browse = () => {
               <div className="w-full flex items-center justify-center py-8" ref={ref}>
                 {isFetchingNextPage && <Loader />}
 
-                {isFetchNextPageError && (
+                {isFetchNextPageError && !(error.message === "Pro features cannot be accessed by Basic tier user.") && (
                   <div className="flex flex-col items-center">
                     <h1 className="text-error">{BROWSE.NEXT_PAGE_LOAD_ERROR}</h1>
                     <button

@@ -22,4 +22,5 @@ export const BROWSE = {
   PARAM_ROLES_SOUGHT: "rolesSought",
   PARAM_COMMITMENT_LEVELS_SOUGHT: "commitmentLevelsSought",
   PARAM_AVAILABILITY_SOUGHT: "availabilitiesSought",
+  MAX_RETRIES: 5,
 };
