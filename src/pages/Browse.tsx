@@ -182,7 +182,7 @@ export const Browse = () => {
                       })}
                   </div>
 
-                  {data && data.pages.length === 1 && (
+                  {data && data.pages.length === 1 && !hasNextPage && (
                     <h1 className="py-8 text-accent text-center">{BROWSE.PAGINATION_END}</h1>
                   )}
                 </>
