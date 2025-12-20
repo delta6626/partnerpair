@@ -197,6 +197,7 @@ export const Browse = () => {
                     </button>
                   </div>
                 )}
+
                 {data && data.pages.length > 1 && !hasNextPage && (
                   <h1 className="text-accent">{BROWSE.PAGINATION_END}</h1>
                 )}
