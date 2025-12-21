@@ -16,11 +16,13 @@ import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import type { UserTier } from "../../../shared/types/UserTier";
 import { Loader } from "../Loader";
 import { BROWSE } from "../../../shared/constants/BROWSE";
+import { NameFilterInput } from "./NameFilterInput";
 
 export const SearchFiltersMenu = () => {
   /*
   Relevant properties to be included for filtering.
 
+  basicInfo.firstName + basicInfo.lastName
   basicInfo.location // Pay wall
   basicInfo.profileCompleted
   
@@ -69,6 +71,7 @@ export const SearchFiltersMenu = () => {
         </div>
       ) : (
         <div className="w-full flex flex-wrap gap-4">
+          <NameFilterInput />
           <LocationFilterDropdown userTier={userTier ?? "Basic"} />
           <SkillsFilterDropdown />
           <RolesFilterDropdown />
