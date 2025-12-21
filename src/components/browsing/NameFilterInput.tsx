@@ -5,6 +5,8 @@ import type { ChangeEvent } from "react";
 export const NameFilterInput = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const name = searchParams.get(BROWSE.PARAM_NAME) ?? "";
+
   const handleNameParamChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
 
@@ -21,6 +23,7 @@ export const NameFilterInput = () => {
   return (
     <input
       type="text"
+      value={name}
       className="input bg-base-200 border-none"
       placeholder={BROWSE.NAME_SEARCH_PLACEHOLDER}
       onChange={handleNameParamChange}
