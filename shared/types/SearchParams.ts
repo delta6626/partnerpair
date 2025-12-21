@@ -4,6 +4,7 @@ import type { UserPreferredCompanyStage } from "./UserPreferredCompanyStage";
 import type { UserRole } from "./UserRole";
 
 export interface SearchParams {
+  name: string | "";
   location: string | "";
   skills: string[];
   roles: UserRole[];
