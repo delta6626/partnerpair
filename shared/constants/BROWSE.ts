@@ -9,6 +9,7 @@ export const BROWSE = {
   PAGINATION_END: "Looks like you’ve seen everything.",
   SEARCH_RESULTS_EMPTY: "No results found. Try adjusting your search.",
   LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER: "Filter by skills others are seeking",
+  PARAM_NAME: "name",
   PARAM_LOCATION: "location",
   PARAM_VALUE_ANY_COUNTRY: "anywhere",
   PARAM_SKILLS: "skills",
