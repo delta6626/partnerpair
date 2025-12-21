@@ -1,5 +1,6 @@
 export const BROWSE = {
   HEADER_SUB_TEXT: "Discover potential cofounders.",
+  NAME_SEARCH_PLACEHOLDER: "Search by name",
   SKILL_SEARCH_PLACEHOLDER: "Enter skills to filter by",
   USER_TIER_LOADING_ERROR: "An error occured loading user tier. Please try again later.",
   SEARCH_INSTRUCTION_MESSAGE: "Choose your filters and click Search to get started.",
