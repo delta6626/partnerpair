@@ -41,46 +41,42 @@ export const RenderProData = ({
                 </div>
               </div>
 
-              <div className="flex gap-4 mt-4">
-                <div className="flex flex-col gap-2">
-                  {visitedUserData.basicInfo.location && (
-                    <div className="flex items-center gap-2">
-                      <div className="tooltip tooltip-top" data-tip="Location">
-                        <MapPin size={20} className="text-accent cursor-pointer" />
-                      </div>
-                      <span>{visitedUserData.basicInfo.location}</span>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-2 mt-4 w-fit">
+                {visitedUserData.basicInfo.location && (
+                  <div className="flex items-center gap-2">
+                    <div className="tooltip tooltip-top" data-tip="Location">
+                      <MapPin size={20} className="text-accent cursor-pointer" />
                     </div>
-                  )}
+                    <span>{visitedUserData.basicInfo.location}</span>
+                  </div>
+                )}
 
-                  {visitedUserData.professionalInfo.commitmentLevel && (
-                    <div className="flex items-center gap-2">
-                      <div className="tooltip tooltip-top" data-tip="Commitment Level">
-                        <Clock size={20} className="text-accent cursor-pointer" />
-                      </div>
-                      <span>{visitedUserData.professionalInfo.commitmentLevel}</span>
+                {visitedUserData.professionalInfo.commitmentLevel && (
+                  <div className="flex items-center gap-2">
+                    <div className="tooltip tooltip-top" data-tip="Commitment Level">
+                      <Clock size={20} className="text-accent cursor-pointer" />
                     </div>
-                  )}
-                </div>
+                    <span>{visitedUserData.professionalInfo.commitmentLevel}</span>
+                  </div>
+                )}
 
-                <div className="flex flex-col gap-2">
-                  {visitedUserData.basicInfo.phone && (
-                    <div className="flex items-center gap-2">
-                      <div className="tooltip tooltip-top" data-tip="Phone">
-                        <Phone size={20} className="text-accent cursor-pointer" />
-                      </div>
-                      <span>{visitedUserData.basicInfo.phone}</span>
+                {visitedUserData.basicInfo.phone && (
+                  <div className="flex items-center gap-2">
+                    <div className="tooltip tooltip-top" data-tip="Phone">
+                      <Phone size={20} className="text-accent cursor-pointer" />
                     </div>
-                  )}
+                    <span>{visitedUserData.basicInfo.phone}</span>
+                  </div>
+                )}
 
-                  {visitedUserData.professionalInfo.availability && (
-                    <div className="flex items-center gap-2">
-                      <div className="tooltip tooltip-top" data-tip="Availability">
-                        <Zap size={20} className="text-accent cursor-pointer" />
-                      </div>
-                      <span>{visitedUserData.professionalInfo.availability}</span>
+                {visitedUserData.professionalInfo.availability && (
+                  <div className="flex items-center gap-2">
+                    <div className="tooltip tooltip-top" data-tip="Availability">
+                      <Zap size={20} className="text-accent cursor-pointer" />
                     </div>
-                  )}
-                </div>
+                    <span>{visitedUserData.professionalInfo.availability}</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
