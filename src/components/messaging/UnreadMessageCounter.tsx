@@ -1,9 +1,19 @@
 import { Mail } from "lucide-react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
+import { useNavigate } from "react-router-dom";
 
 export const UnreadMessageCounter = () => {
+  const navigate = useNavigate();
+
+  const handleUnreadMessageCounterClick = () => {
+    navigate("/messages");
+  };
+
   return (
-    <div className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2">
+    <button
+      className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2"
+      onClick={handleUnreadMessageCounterClick}
+    >
       <div className="flex gap-2 text-accent items-center">
         <Mail size={20} />
         Unread Messages
@@ -13,6 +23,6 @@ export const UnreadMessageCounter = () => {
         <h1 className="text-3xl font-bold">{0}</h1>
         <p className="mt-2 text-accent">{DASHBOARD.UNREAD_MESSAGE_COUNTER_SUBTEXT}</p>
       </div>
-    </div>
+    </button>
   );
 };
