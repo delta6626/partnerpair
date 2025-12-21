@@ -132,7 +132,7 @@ export const RenderProData = ({
         ) : (
           <div className="mt-2">
             {visitedUserData.professionalInfo.startupDescription.length === 0 ? (
-              <p className="text-accent">
+              <p className="text-accent text-center">
                 {visitedUserData.basicInfo.firstName + " is still working on this section."}
               </p>
             ) : (
