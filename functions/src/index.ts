@@ -294,6 +294,12 @@ export const getFilteredUsers = onCall(async (request) => {
     )
       return false;
 
+    if (searchParams.name.trim()) {
+      const fullName = `${user.basicInfo.firstName} ${user.basicInfo.lastName}`.toLowerCase();
+      const search = searchParams.name.trim().toLowerCase();
+      if (!fullName.includes(search)) return false;
+    }
+
     if (
       searchParams.location != "" &&
       searchParams.location != BROWSE.PARAM_VALUE_ANY_COUNTRY &&
