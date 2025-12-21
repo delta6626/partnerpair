@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 
 export const UnreadMessageCounter = () => {
   return (
@@ -10,6 +11,7 @@ export const UnreadMessageCounter = () => {
 
       <div className="mt-4 text-center">
         <h1 className="text-3xl font-bold">{0}</h1>
+        <p className="mt-2 text-accent">{DASHBOARD.UNREAD_MESSAGE_COUNTER_SUBTEXT}</p>
       </div>
     </div>
   );
