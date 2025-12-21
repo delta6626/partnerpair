@@ -32,7 +32,7 @@ export const Browse = () => {
     BROWSE.PARAM_AVAILABILITY_SOUGHT,
   ];
 
-  const stringKeys = [BROWSE.PARAM_LOCATION, BROWSE.PARAM_PROFILE_TYPE];
+  const stringKeys = [BROWSE.PARAM_NAME, BROWSE.PARAM_LOCATION, BROWSE.PARAM_PROFILE_TYPE];
 
   const { loading } = useInitializeUser();
   const { isOpen, setIsOpen } = useFilterMenuStore();
