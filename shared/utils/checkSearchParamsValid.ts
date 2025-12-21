@@ -1,6 +1,7 @@
 export const checkSearchParamsValid = (rawSearchParams: Record<string, string>) => {
   if (
     !rawSearchParams ||
+    typeof rawSearchParams.name !== "string" ||
     typeof rawSearchParams.location !== "string" ||
     !Array.isArray(rawSearchParams.skills) ||
     !Array.isArray(rawSearchParams.roles) ||
