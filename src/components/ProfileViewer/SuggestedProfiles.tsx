@@ -31,7 +31,9 @@ export const SuggestedProfiles = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <h1 className="text-2xl font-bold">Suggested Profiles</h1>
-          <CircleQuestionMark className="text-accent" size={20} />
+          <button className="bg-transparent border-none btn btn-square">
+            <CircleQuestionMark className="text-accent" size={20} />
+          </button>
         </div>
 
         <Link to="/browse" className="btn">
