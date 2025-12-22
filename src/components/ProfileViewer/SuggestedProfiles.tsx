@@ -9,6 +9,7 @@ import { Loader } from "../Loader";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { UserProfileCard } from "./UserProfileCard";
 import { CircleQuestionMark } from "lucide-react";
+import { SuggestedProfilesInformationModal } from "../modals/SuggestedProfilesInformationModal";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
@@ -28,6 +29,8 @@ export const SuggestedProfiles = () => {
 
   return (
     <div className="w-full flex flex-col grow">
+      <SuggestedProfilesInformationModal />
+
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <h1 className="text-2xl font-bold">Suggested Profiles</h1>
