@@ -10,6 +10,7 @@ import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { UserProfileCard } from "./UserProfileCard";
 import { CircleQuestionMark } from "lucide-react";
 import { SuggestedProfilesInformationModal } from "../modals/SuggestedProfilesInformationModal";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
@@ -27,6 +28,11 @@ export const SuggestedProfiles = () => {
     staleTime: STALE_TIME.MINUTE_FIVE,
   });
 
+  const handleModalOpen = () => {
+    const modal = document.getElementById(MODALS.SUGGESTED_PROFILES_INFORMATION_MODAL.ID) as HTMLDialogElement;
+    modal.showModal();
+  };
+
   return (
     <div className="w-full flex flex-col grow">
       <SuggestedProfilesInformationModal />
@@ -34,7 +40,7 @@ export const SuggestedProfiles = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <h1 className="text-2xl font-bold">Suggested Profiles</h1>
-          <button className="bg-transparent border-none btn btn-square">
+          <button className="bg-transparent border-none btn btn-square" onClick={handleModalOpen}>
             <CircleQuestionMark className="text-accent" size={20} />
           </button>
         </div>
