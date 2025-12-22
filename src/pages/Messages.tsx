@@ -3,6 +3,7 @@ import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
+import { MESSAGES } from "../../shared/constants/MESSAGES";
 
 export const Messages = () => {
   useTheme();
@@ -23,6 +24,11 @@ export const Messages = () => {
           <div className="py-8">
             <div className="mb-4">
               <ProfileStatusMessage />
+            </div>
+
+            <div className="">
+              <h1 className="font-bold text-3xl">Messages</h1>
+              <p className="text-accent">{MESSAGES.MESSAGE_SUBTEXT}</p>
             </div>
           </div>
         </div>
