@@ -2,6 +2,7 @@ import { ContactRound } from "lucide-react";
 import type { ViewerMetaData } from "../../../shared/types/ViewerMetaData";
 import { useNavigate } from "react-router-dom";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
+import { MessageUser } from "../messaging/MessageUser";
 
 export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
         <button className="btn" onClick={handleVisitUserProfile}>
           View Profile
         </button>
-        <button className="btn btn-primary">Message</button>
+        <MessageUser />
       </div>
     </div>
   );

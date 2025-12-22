@@ -1,4 +1,5 @@
 import type { Contact } from "../../../shared/types/Contact";
+import { MessageUser } from "../messaging/MessageUser";
 import { AddContact } from "./AddContact";
 import { useNavigate } from "react-router-dom";
 
@@ -21,7 +22,7 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
 
       <div className="flex gap-2">
         <AddContact contactId={contactDetails.contactId} />
-        <button className="btn btn-primary">Message</button>
+        <MessageUser />
       </div>
     </div>
   );

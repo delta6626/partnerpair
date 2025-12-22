@@ -5,6 +5,7 @@ import { GenericChipCollection } from "./GenericChipCollection";
 import { GenericChip } from "./GenericChip";
 import { AddContact } from "../user/AddContact";
 import { ProBadge } from "../user/ProBadge";
+import { MessageUser } from "../messaging/MessageUser";
 
 export const RenderBasicData = ({
   visitedUserData,
@@ -39,7 +40,7 @@ export const RenderBasicData = ({
 
                 <div className="flex gap-2">
                   <AddContact contactId={visitedUserId} />
-                  <button className="btn btn-primary">Message</button>
+                  <MessageUser />
                 </div>
               </div>
 
