@@ -16,4 +16,11 @@ export const MODALS = {
     TITLE: "Profile Updated",
     DESCRIPTION: "Your profile changes have been saved successfully.",
   },
+
+  SUGGESTED_PROFILES_INFORMATION_MODAL: {
+    ID: "suggestedProfilesInformationModal",
+    TITLE: "Suggested Profiles",
+    DESCRIPTION:
+      "Suggested profiles are users who best match your skills, roles, availability, and commitment preferences. Complete your profile to get more accurate matches.",
+  },
 };
