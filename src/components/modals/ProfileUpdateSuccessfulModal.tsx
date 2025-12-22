@@ -11,10 +11,10 @@ export const ProfileUpdateSuccessfulModal = () => {
     <dialog id={MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID} className="modal">
       <div className="modal-box bg-base-300">
         <h1 className="text-lg font-medium">{MODALS.PROFILE_UPDATE_SUCCESS_MODAL.TITLE}</h1>
-        <p className="text-accent">{MODALS.PROFILE_UPDATE_SUCCESS_MODAL.DESCRIPTION}</p>
+        <p className="mt-2 text-accent">{MODALS.PROFILE_UPDATE_SUCCESS_MODAL.DESCRIPTION}</p>
 
         <div className="flex justify-end mt-4">
-          <button type="button" className="btn btn-primary" onClick={closeModal}>
+          <button type="button" className="btn" onClick={closeModal}>
             {MODAL_ACTIONS.ACTION_OK}
           </button>
         </div>
