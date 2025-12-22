@@ -8,6 +8,7 @@ import { STALE_TIME } from "../../../shared/constants/STALE_TIME";
 import { Loader } from "../Loader";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { UserProfileCard } from "./UserProfileCard";
+import { CircleQuestionMark } from "lucide-react";
 
 export const SuggestedProfiles = () => {
   const getSuggestedProfiles = httpsCallable(functions, "getSuggestedProfiles");
@@ -28,7 +29,11 @@ export const SuggestedProfiles = () => {
   return (
     <div className="w-full flex flex-col grow">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Suggested Profiles</h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl font-bold">Suggested Profiles</h1>
+          <CircleQuestionMark className="text-accent" size={20} />
+        </div>
+
         <Link to="/browse" className="btn">
           Browse more
         </Link>
