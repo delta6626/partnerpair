@@ -29,8 +29,8 @@ export const SuggestedProfiles = () => {
     <div className="w-full flex flex-col grow">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Suggested Profiles</h1>
-        <Link to="/browse" className="btn btn-primary">
-          Browse all profiles
+        <Link to="/browse" className="btn">
+          Browse more
         </Link>
       </div>
 
