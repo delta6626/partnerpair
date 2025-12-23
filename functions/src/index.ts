@@ -388,12 +388,21 @@ const checkChatExists = async (userA: string, userB: string) => {
   const chatsRef = db.collection("chats");
   const querySnapshot = await chatsRef.where("participants", "array-contains", userA).get();
 
-  const chatExists = querySnapshot.docs.some((doc) => {
+  for (const doc of querySnapshot.docs) {
     const data = doc.data();
-    return data.participants.includes(userB);
-  });
+    if (data.participants.includes(userB)) {
+      return {
+        chatExists: true,
+        chatId: doc.id,
+      };
+    }
+  }
 
-  return chatExists;
+  // If no chat was found
+  return {
+    chatExists: false,
+    chatId: null,
+  };
 };
 
 export const initiateChat = onCall(async (request) => {
