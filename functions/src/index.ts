@@ -386,7 +386,7 @@ export const getFilteredUsers = onCall(async (request) => {
 
 // Messaging
 
-const checkChatExists = async (userA: string, userB: string) => {
+const getChatExistenceInformation = async (userA: string, userB: string) => {
   const chatsRef = db.collection("chats");
   const querySnapshot = await chatsRef.where("participants", "array-contains", userA).get();
 
@@ -405,6 +405,29 @@ const checkChatExists = async (userA: string, userB: string) => {
     chatExists: false,
     chatId: null,
   } as ChatExistenceInformation;
+};
+
+const createChat = async (userA: string, userB: string) => {
+  const existence = await getChatExistenceInformation(userA, userB);
+
+  if (existence.chatExists && existence.chatId) {
+    return existence.chatId;
+  }
+
+  // If chat doesn't exist, create a new one
+
+  const newChatRef = await db.collection("chats").add({
+    lastMessage: "",
+    lastMessageAt: null,
+    lastMessageSenderId: "",
+    participants: [userA, userB],
+    unreadCount: {
+      userA: 0,
+      userB: 0,
+    },
+  } as Omit<ChatMetaData, "id">);
+
+  return newChatRef.id;
 };
 
 export const initiateChat = onCall(async (request) => {
