@@ -17,6 +17,7 @@ import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
 import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
 import { FilteredUser } from "./shared/types/FilteredProfile";
 import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformtion";
+import { ChatMetaData } from "./shared/types/ChatMetaData";
 
 admin.initializeApp();
 
@@ -390,7 +391,7 @@ const checkChatExists = async (userA: string, userB: string) => {
   const querySnapshot = await chatsRef.where("participants", "array-contains", userA).get();
 
   for (const doc of querySnapshot.docs) {
-    const data = doc.data();
+    const data = doc.data() as Omit<ChatMetaData, "id">;
     if (data.participants.includes(userB)) {
       return {
         chatExists: true,
