@@ -16,6 +16,7 @@ import { countries } from "./shared/utils/countries";
 import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
 import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
 import { FilteredUser } from "./shared/types/FilteredProfile";
+import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformtion";
 
 admin.initializeApp();
 
@@ -394,7 +395,7 @@ const checkChatExists = async (userA: string, userB: string) => {
       return {
         chatExists: true,
         chatId: doc.id,
-      };
+      } as ChatExistenceInformation;
     }
   }
 
@@ -402,7 +403,7 @@ const checkChatExists = async (userA: string, userB: string) => {
   return {
     chatExists: false,
     chatId: null,
-  };
+  } as ChatExistenceInformation;
 };
 
 export const initiateChat = onCall(async (request) => {
