@@ -381,3 +381,17 @@ export const getFilteredUsers = onCall(async (request) => {
     nextCursor: cursor + pageLimit < allFilteredUsers.length ? cursor + pageLimit : null,
   } as FilteredUsersPayload;
 });
+
+// Messaging
+
+const checkChatExists = async (userA: string, userB: string) => {
+  const chatsRef = db.collection("chats");
+  const querySnapshot = await chatsRef.where("participants", "array-contains", userA).get();
+
+  const chatExists = querySnapshot.docs.some((doc) => {
+    const data = doc.data();
+    return data.participants.includes(userB);
+  });
+
+  return chatExists;
+};
