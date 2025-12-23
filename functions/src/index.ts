@@ -438,4 +438,10 @@ export const initiateChat = onCall(async (request) => {
   if (!userId) throw new HttpsError("unauthenticated", "User is not authenticated.");
   if (!chatInitiatorId || otherParticipantId)
     throw new HttpsError("invalid-argument", "One or more arguments are missing.");
+
+  const chatId = createChat(chatInitiatorId, otherParticipantId);
+
+  if (!chatId) throw new HttpsError("unknown", "An unknown error occured.");
+
+  return chatId;
 });
