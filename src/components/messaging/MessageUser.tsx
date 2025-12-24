@@ -1,7 +1,6 @@
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../../services/firebaseConfig";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
+import { useMutation } from "@tanstack/react-query";
 import type { ChatExistenceInformation } from "../../../shared/types/ChatExistenceInformtion";
 import { Loader } from "../Loader";
 
