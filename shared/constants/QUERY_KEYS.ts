@@ -6,4 +6,5 @@ export const QUERY_KEYS = {
   CONTACT_COLLECTION: "contactCollection",
   SUGGESTED_PROFILES: "suggestedProfiles",
   FILTERED_USERS: "filteredUsers",
+  USER_SPECIFIC_CHAT_ID: "userSpecificChatId",
 };
