@@ -434,7 +434,7 @@ export const initiateChat = onCall(async (request) => {
   const userId = request.auth?.uid;
   const otherParticipantId = request.data.otherParticipantId ?? "";
 
-  if (!userId) throw new HttpsError("unauthenticated", "User is not authenticated.");
+  if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
   if (!otherParticipantId) throw new HttpsError("invalid-argument", "One or more arguments are missing.");
 
   const chatId = await createChat(userId, otherParticipantId);
