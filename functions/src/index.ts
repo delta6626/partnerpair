@@ -432,14 +432,12 @@ const createChat = async (userA: string, userB: string) => {
 
 export const initiateChat = onCall(async (request) => {
   const userId = request.auth?.uid;
-  const chatInitiatorId = request.data.chatInitiator ?? "";
   const otherParticipantId = request.data.otherParticipantId ?? "";
 
   if (!userId) throw new HttpsError("unauthenticated", "User is not authenticated.");
-  if (!chatInitiatorId || otherParticipantId)
-    throw new HttpsError("invalid-argument", "One or more arguments are missing.");
+  if (!otherParticipantId) throw new HttpsError("invalid-argument", "One or more arguments are missing.");
 
-  const chatId = createChat(chatInitiatorId, otherParticipantId);
+  const chatId = await createChat(userId, otherParticipantId);
 
   if (!chatId) throw new HttpsError("unknown", "An unknown error occured.");
 
