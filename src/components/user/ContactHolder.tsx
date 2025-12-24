@@ -22,7 +22,7 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
 
       <div className="flex gap-2">
         <AddContact contactId={contactDetails.contactId} />
-        <MessageUser />
+        <MessageUser otherParticipantId={contactDetails.contactId} />
       </div>
     </div>
   );

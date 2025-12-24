@@ -40,7 +40,7 @@ export const RenderBasicData = ({
 
                 <div className="flex gap-2">
                   <AddContact contactId={visitedUserId} />
-                  <MessageUser />
+                  <MessageUser otherParticipantId={visitedUserId} />
                 </div>
               </div>
 

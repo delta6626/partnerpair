@@ -49,7 +49,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
         <button className="btn" onClick={handleVisitUserProfile}>
           View Profile
         </button>
-        <MessageUser />
+        <MessageUser otherParticipantId={viewerData.viewerId} />
       </div>
     </div>
   );
