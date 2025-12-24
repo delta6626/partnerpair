@@ -1,4 +1,4 @@
-import type { ChatExistenceInformation } from "./ChatExistenceInformtion";
+import type { ChatExistenceInformation } from "./ChatExistenceInformation";
 
 export interface SelectedChatStore {
   selectedChatId: Pick<ChatExistenceInformation, "chatId"> | null;

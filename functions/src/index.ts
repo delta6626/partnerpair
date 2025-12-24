@@ -16,7 +16,7 @@ import { countries } from "./shared/utils/countries";
 import { checkSearchParamsValid } from "./shared/utils/checkSearchParamsValid";
 import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
 import { FilteredUser } from "./shared/types/FilteredProfile";
-import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformtion";
+import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformation";
 import { ChatMetaData } from "./shared/types/ChatMetaData";
 
 admin.initializeApp();
