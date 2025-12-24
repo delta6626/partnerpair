@@ -12,7 +12,7 @@ import { getUserId } from "../services/authentication/authServices";
 export const Dashboard = () => {
   useTheme();
   const { user, loading } = useInitializeUser();
-  const { data: userId, isLoading: userIdLoading } = useQuery({
+  const { isLoading: userIdLoading } = useQuery({
     queryKey: [QUERY_KEYS.USER_ID],
     queryFn: getUserId,
     staleTime: Infinity,
