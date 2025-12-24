@@ -14,11 +14,14 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
     mutate: initiateChatMutate,
     isPending,
     isError,
-    error,
   } = useMutation({
     mutationFn: async () => {
       const response = await initiateChat({ otherParticipantId: otherParticipantId });
       return response.data as Pick<ChatExistenceInformation, "chatId">;
+    },
+    onSuccess: () => {
+      if (!chatId) return;
+      setSelectedChatId(chatId);
     },
   });
 
@@ -27,13 +30,9 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
     initiateChatMutate();
   };
 
-  if (chatId) {
-    setSelectedChatId(chatId);
-  }
-
   return (
-    <button className="btn btn-primary" onClick={handleMessageButtonClick}>
-      {isPending ? <Loader /> : "Message"}
+    <button className={`btn ${isError ? "btn-error" : "btn-primary"}`} onClick={handleMessageButtonClick}>
+      {isPending ? <Loader /> : isError ? <h1>Error occurred. Try again.</h1> : "Message"}
     </button>
   );
 };
