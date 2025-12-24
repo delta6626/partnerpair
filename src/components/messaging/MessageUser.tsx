@@ -3,9 +3,11 @@ import { functions } from "../../services/firebaseConfig";
 import { useMutation } from "@tanstack/react-query";
 import type { ChatExistenceInformation } from "../../../shared/types/ChatExistenceInformtion";
 import { Loader } from "../Loader";
+import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 
 export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string }) => {
   const initiateChat = httpsCallable(functions, "initiateChat");
+  const { setSelectedChatId } = useSelectedChatStore();
 
   const {
     data: chatId,
@@ -26,7 +28,7 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
   };
 
   if (chatId) {
-    // navigate the user to Message page and set selectedChatId zustand store to chatId
+    setSelectedChatId(chatId);
   }
 
   return (
