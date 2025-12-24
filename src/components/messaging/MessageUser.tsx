@@ -12,6 +12,7 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
     mutate: initiateChatMutate,
     isPending,
     isError,
+    error,
   } = useMutation({
     mutationFn: async () => {
       const response = await initiateChat({ otherParticipantId: otherParticipantId });
