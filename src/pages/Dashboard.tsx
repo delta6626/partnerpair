@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { DashboardHeader } from "../components/DashboardHeader";
 import { Footer } from "../components/Footer";
 import { Loader } from "../components/Loader";
@@ -5,14 +6,21 @@ import { MainNavbar } from "../components/navigation/MainNavbar";
 import { SuggestedProfiles } from "../components/ProfileViewer/SuggestedProfiles";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import { getUserId } from "../services/authentication/authServices";
 
 export const Dashboard = () => {
   useTheme();
   const { user, loading } = useInitializeUser();
+  const { data: userId, isLoading: userIdLoading } = useQuery({
+    queryKey: [QUERY_KEYS.USER_ID],
+    queryFn: getUserId,
+    staleTime: Infinity,
+  });
 
   return (
     <div className="">
-      {loading ? (
+      {loading || userIdLoading ? (
         <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />
         </div>
