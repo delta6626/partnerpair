@@ -17,6 +17,7 @@ export const ChatInbox = () => {
     data: userId,
     isLoading,
     isError,
+    error,
   } = useQuery({
     queryKey: [QUERY_KEYS.USER_ID],
     queryFn: getUserId,
@@ -56,12 +57,17 @@ export const ChatInbox = () => {
     <div className="flex min-w-100 flex-col gap-4">
       <input className="input w-full bg-base-200 border-none" type="text" placeholder={"Search chats"} />
       <div className="flex flex-1 bg-base-200 rounded-3xl">
-        {isLoading ? (
+        {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
             <Loader />
           </div>
-        ) : (
-          ""
+        )}
+
+        {(isError || chatsLoadingError) && (
+          <div className="flex flex-1 items-center justify-center text-error">
+            Error loading chats: {error instanceof Error ? error.message : chatsLoadingErrorMessage} Please try again
+            later.
+          </div>
         )}
       </div>
     </div>
