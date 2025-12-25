@@ -9,6 +9,10 @@ import { Loader } from "../Loader";
 
 export const ChatInbox = () => {
   const [chats, setChats] = useState<ChatMetaData[]>([]);
+  const [chatsLoading, setChatsLoading] = useState<boolean>(true);
+  const [chatsLoadingError, setChatsLoadingError] = useState<boolean>(false);
+  const [chatsLoadingErrorMessage, setChatsLoadingErrorMessage] = useState<string>("");
+
   const {
     data: userId,
     isLoading,
@@ -23,16 +27,25 @@ export const ChatInbox = () => {
 
     const chatsQuery = query(collection(firestore, "chats"), where("participants", "array-contains", userId));
 
-    const unsubscribe = onSnapshot(chatsQuery, (snapshot) => {
-      const updatedChats = snapshot.docs.map(
-        (doc) =>
-          ({
-            id: doc.id,
-            ...doc.data(),
-          } as ChatMetaData)
-      );
-      setChats(updatedChats);
-    });
+    const unsubscribe = onSnapshot(
+      chatsQuery,
+      (snapshot) => {
+        const updatedChats = snapshot.docs.map(
+          (doc) =>
+            ({
+              id: doc.id,
+              ...doc.data(),
+            } as ChatMetaData)
+        );
+        setChats(updatedChats);
+        setChatsLoading(false);
+      },
+      (error) => {
+        setChatsLoadingError(true);
+        setChatsLoadingErrorMessage(error.message);
+        setChatsLoading(false);
+      }
+    );
 
     return () => unsubscribe();
   }, [userId]);
