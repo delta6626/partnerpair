@@ -4,6 +4,8 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { MESSAGES } from "../../shared/constants/MESSAGES";
+import { ChatInbox } from "../components/messaging/ChatInbox";
+import { Footer } from "../components/Footer";
 
 export const Messages = () => {
   useTheme();
@@ -31,6 +33,12 @@ export const Messages = () => {
               <p className="text-accent">{MESSAGES.MESSAGE_SUBTEXT}</p>
             </div>
           </div>
+
+          <div className="flex flex-1">
+            <ChatInbox />
+          </div>
+
+          <Footer />
         </div>
       )}
     </div>
