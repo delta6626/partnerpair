@@ -429,7 +429,7 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
       [initiatorId]: `${initiatorProfileDetails.basicInfo.firstName} ${initiatorProfileDetails.basicInfo.lastName}`,
       [otherParticipantId]: `${otherParticipantProfileDetails.basicInfo.firstName} ${otherParticipantProfileDetails.basicInfo.lastName}`,
     },
-    participantProfilePics: {
+    participantProfileImageUrls: {
       [initiatorId]: initiatorProfileDetails.basicInfo.profileImageUrl,
       [otherParticipantId]: otherParticipantProfileDetails.basicInfo.profileImageUrl,
     },

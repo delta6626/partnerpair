@@ -8,6 +8,6 @@ export interface ChatMetaData {
   lastMessageSenderId: string;
   participants: [string, string];
   participantNames: Record<string, string>;
-  participantProfileImageURLs: Record<string, string>;
+  participantProfileImageUrls: Record<string, string>;
   unreadCount: Record<string, number>;
 }
