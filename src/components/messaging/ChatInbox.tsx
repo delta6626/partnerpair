@@ -8,6 +8,7 @@ import { getUserId } from "../../services/authentication/authServices";
 import { Loader } from "../Loader";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { Link } from "react-router-dom";
+import { ChatCard } from "./ChatCard";
 
 export const ChatInbox = () => {
   const [chats, setChats] = useState<ChatMetaData[]>([]);
@@ -82,6 +83,14 @@ export const ChatInbox = () => {
             <Link className="btn btn-primary mt-4" to={"/browse"}>
               Browse
             </Link>
+          </div>
+        )}
+
+        {chats.length > 0 && (
+          <div className="">
+            {chats.map((chat) => {
+              return <ChatCard chat={chat} />;
+            })}
           </div>
         )}
       </div>
