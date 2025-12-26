@@ -4,7 +4,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
 
   return (
-    <div className="p-2 border-1 border-accent rounded-3xl w-full flex gap-4">
+    <div className="p-4 border-1 border-accent rounded-3xl w-full flex gap-4">
       <img
         className="rounded-3xl"
         src={chat.participantProfileImageUrls[otherParticipantId]}
