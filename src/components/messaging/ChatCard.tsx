@@ -28,7 +28,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
         <div className="tooltip" data-tip="Delete Chat">
           <button className="btn btn-square">
-            <Trash2 className="text-error" size={20} />
+            <Trash2 className="text-error/60" size={20} />
           </button>
         </div>
       </div>
