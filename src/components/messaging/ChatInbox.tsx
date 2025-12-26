@@ -87,7 +87,7 @@ export const ChatInbox = () => {
         )}
 
         {chats.length > 0 && (
-          <div className="">
+          <div className="p-4">
             {chats.map((chat) => {
               return <ChatCard chat={chat} />;
             })}
