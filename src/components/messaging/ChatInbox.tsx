@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 import { Loader } from "../Loader";
+import { MESSAGES } from "../../../shared/constants/MESSAGES";
+import { Link } from "react-router-dom";
 
 export const ChatInbox = () => {
   const [chats, setChats] = useState<ChatMetaData[]>([]);
@@ -71,10 +73,15 @@ export const ChatInbox = () => {
         )}
 
         {chats.length === 0 && !isLoading && !chatsLoading && !isError && !chatsLoadingError && (
-          <div className="flex flex-1 items-center justify-center text-center text-accent">
+          <div className="p-4 flex flex-col flex-1 items-center justify-center text-center text-accent">
             <h1>
-              No chats found. <br></br>Start a new conversation!
+              {MESSAGES.NO_CHATS_FOUND} <br></br>
+              {MESSAGES.BROWSE_PROFILES}
             </h1>
+
+            <Link className="btn btn-primary mt-4" to={"/browse"}>
+              Browse
+            </Link>
           </div>
         )}
       </div>
