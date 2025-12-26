@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { ChatCard } from "./ChatCard";
 
 export const ChatInbox = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [chats, setChats] = useState<ChatMetaData[]>([]);
   const [chatsLoading, setChatsLoading] = useState<boolean>(true);
   const [chatsLoadingError, setChatsLoadingError] = useState<boolean>(false);
@@ -25,6 +26,10 @@ export const ChatInbox = () => {
     queryKey: [QUERY_KEYS.USER_ID],
     queryFn: getUserId,
   });
+
+  const handleSearchTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
 
   useEffect(() => {
     if (!userId) return;
@@ -58,7 +63,14 @@ export const ChatInbox = () => {
 
   return (
     <div className="flex min-w-120 flex-col gap-4">
-      <input className="input w-full border-none" type="text" placeholder={"Search chats"} />
+      <input
+        className="input w-full border-none"
+        type="text"
+        placeholder={"Search chats"}
+        value={searchTerm}
+        onChange={handleSearchTermChange}
+      />
+
       <div className="flex flex-1 bg-base-200 rounded-3xl">
         {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
