@@ -27,6 +27,12 @@ export const ChatInbox = () => {
     queryFn: getUserId,
   });
 
+  const filteredChats = chats.filter((chat) => {
+    const otherParticipantId = chat.participants.find((id) => id !== userId)!;
+    const participantName = chat.participantNames[otherParticipantId].toLowerCase();
+    return participantName.includes(searchTerm.toLowerCase());
+  });
+
   const handleSearchTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -100,7 +106,7 @@ export const ChatInbox = () => {
 
         {chats.length > 0 && (
           <div className="p-4 w-full flex flex-col gap-2 overflow-y-auto">
-            {chats.map((chat) => {
+            {filteredChats.map((chat) => {
               return <ChatCard chat={chat} currentUserId={userId ?? ""} />;
             })}
           </div>
