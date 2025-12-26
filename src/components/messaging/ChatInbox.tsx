@@ -69,6 +69,14 @@ export const ChatInbox = () => {
             later.
           </div>
         )}
+
+        {chats.length === 0 && !isLoading && !chatsLoading && !isError && !chatsLoadingError && (
+          <div className="flex flex-1 items-center justify-center text-center text-accent">
+            <h1>
+              No chats found. <br></br>Start a new conversation!
+            </h1>
+          </div>
+        )}
       </div>
     </div>
   );
