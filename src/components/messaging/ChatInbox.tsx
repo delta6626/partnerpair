@@ -58,7 +58,7 @@ export const ChatInbox = () => {
 
   return (
     <div className="flex min-w-100 flex-col gap-4">
-      <input className="input w-full bg-base-200 border-none" type="text" placeholder={"Search chats"} />
+      <input className="input w-full border-none" type="text" placeholder={"Search chats"} />
       <div className="flex flex-1 bg-base-200 rounded-3xl">
         {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
@@ -87,7 +87,7 @@ export const ChatInbox = () => {
         )}
 
         {chats.length > 0 && (
-          <div className="p-4">
+          <div className="p-2 w-full flex flex-col gap-2 overflow-y-auto">
             {chats.map((chat) => {
               return <ChatCard chat={chat} currentUserId={userId ?? ""} />;
             })}
