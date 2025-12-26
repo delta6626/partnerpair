@@ -407,8 +407,8 @@ const getChatExistenceInformation = async (userA: string, userB: string) => {
   } as ChatExistenceInformation;
 };
 
-const createChat = async (userA: string, userB: string) => {
-  const existence = await getChatExistenceInformation(userA, userB);
+const createChat = async (initiatorId: string, otherParticipantId: string) => {
+  const existence = await getChatExistenceInformation(initiatorId, otherParticipantId);
 
   if (existence.chatExists && existence.chatId) {
     return existence.chatId;
@@ -416,14 +416,26 @@ const createChat = async (userA: string, userB: string) => {
 
   // If chat doesn't exist, create a new one
 
+  const initiatorProfileDetails = await fetchUserData(initiatorId);
+  const otherParticipantProfileDetails = await fetchUserData(otherParticipantId);
+
   const newChatRef = await db.collection("chats").add({
+    initiatorId: initiatorId,
     lastMessage: "",
     lastMessageAt: null,
     lastMessageSenderId: "",
-    participants: [userA, userB],
+    participants: [initiatorId, otherParticipantId],
+    participantNames: {
+      [initiatorId]: `${initiatorProfileDetails.basicInfo.firstName} ${initiatorProfileDetails.basicInfo.lastName}`,
+      [otherParticipantId]: `${otherParticipantProfileDetails.basicInfo.firstName} ${otherParticipantProfileDetails.basicInfo.lastName}`,
+    },
+    participantProfilePics: {
+      [initiatorId]: initiatorProfileDetails.basicInfo.profileImageUrl,
+      [otherParticipantId]: otherParticipantProfileDetails.basicInfo.profileImageUrl,
+    },
     unreadCount: {
-      userA: 0,
-      userB: 0,
+      [initiatorId]: 0,
+      [otherParticipantId]: 0,
     },
   } as Omit<ChatMetaData, "id">);
 
