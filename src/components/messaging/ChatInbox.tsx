@@ -89,7 +89,7 @@ export const ChatInbox = () => {
         {chats.length > 0 && (
           <div className="p-4">
             {chats.map((chat) => {
-              return <ChatCard chat={chat} />;
+              return <ChatCard chat={chat} currentUserId={userId ?? ""} />;
             })}
           </div>
         )}
