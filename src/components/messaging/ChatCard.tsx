@@ -1,3 +1,4 @@
+import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import type { ChatMetaData } from "../../../shared/types/ChatMetaData";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
@@ -13,8 +14,8 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
       />
 
       <div className="flex flex-col justify-center items-start">
-        <h1 className="">{chat.participantNames[otherParticipantId]}</h1>
-        <p className="text-accent">{chat.lastMessage ? chat.lastMessage : "No messages yet. Say hi!"}</p>
+        <h1 className="font-medium">{chat.participantNames[otherParticipantId]}</h1>
+        <p className="text-accent">{chat.lastMessage ? chat.lastMessage : MESSAGES.NO_MESSAGES}</p>
       </div>
     </div>
   );
