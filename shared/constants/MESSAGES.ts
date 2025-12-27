@@ -4,4 +4,6 @@ export const MESSAGES = {
   BROWSE_PROFILES: "Browse profiles and start a new conversation!",
   NO_MESSAGES: "No messages yet. Say hi!",
   NO_FILTERED_CHATS: "No chats match your search.",
+  NO_CHAT_OPENED: "No chat opened yet.",
+  START_MESSAGING: "Select a chat to start messaging.",
 };
