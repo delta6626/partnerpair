@@ -2,9 +2,15 @@ import { Trash2 } from "lucide-react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import type { ChatMetaData } from "../../../shared/types/ChatMetaData";
 import type { MouseEvent } from "react";
+import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
+  const { setSelectedChatId } = useSelectedChatStore();
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
+
+  const handleChatClick = () => {
+    setSelectedChatId({ chatId: chat.id });
+  };
 
   const handleChatDeletion = (e: MouseEvent) => {
     e.stopPropagation();
@@ -12,7 +18,10 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   };
 
   return (
-    <button className="btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between">
+    <button
+      className="btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between"
+      onClick={handleChatClick}
+    >
       <div className="flex gap-4">
         <img
           className="rounded-3xl"
