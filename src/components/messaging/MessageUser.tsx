@@ -19,7 +19,7 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
   } = useMutation({
     mutationFn: async () => {
       const response = await initiateChat({ otherParticipantId: otherParticipantId });
-      return response.data as Pick<ChatExistenceInformation, "chatId">;
+      return response.data as ChatExistenceInformation["chatId"];
     },
     onSuccess: (chatId) => {
       setSelectedChatId(chatId);

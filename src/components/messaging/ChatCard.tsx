@@ -9,7 +9,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
 
   const handleChatClick = () => {
-    setSelectedChatId({ chatId: chat.id });
+    setSelectedChatId(chat.id);
   };
 
   const handleChatDeletion = (e: MouseEvent) => {
