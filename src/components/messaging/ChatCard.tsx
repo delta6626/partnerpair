@@ -16,8 +16,8 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         />
 
         <div className="flex flex-col justify-center items-start">
-          <h1 className="font-medium">{chat.participantNames[otherParticipantId]}</h1>
-          <p className="text-accent">{chat.lastMessage ? chat.lastMessage : MESSAGES.NO_MESSAGES}</p>
+          <h1 className="text-base font-medium">{chat.participantNames[otherParticipantId]}</h1>
+          <p className="text-accent font-normal">{chat.lastMessage ? chat.lastMessage : MESSAGES.NO_MESSAGES}</p>
         </div>
       </div>
 
@@ -26,7 +26,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
           <div className="badge badge-error">{chat.unreadCount[currentUserId]}</div>
         )}
 
-        <div className="tooltip" data-tip="Delete Chat">
+        <div className="tooltip font-normal" data-tip="Delete Chat">
           <button className="btn btn-square">
             <Trash2 className="text-error/60" size={20} />
           </button>
