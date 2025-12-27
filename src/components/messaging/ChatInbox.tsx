@@ -77,7 +77,11 @@ export const ChatInbox = () => {
         onChange={handleSearchTermChange}
       />
 
-      <div className="flex flex-1 bg-base-200 rounded-3xl">
+      {/* In the message component, the height of the Navbar, page title and subtitle, input field for filtering chats, and
+      the footer combines to a total of 368px. Therefore, to make the ChatInbox component take the remaining height of
+      the viewport, we subtract 368px from 100vh. */}
+
+      <div className="flex flex-1 max-h-[calc(100vh-368px)] bg-base-200 rounded-3xl">
         {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
             <Loader />
