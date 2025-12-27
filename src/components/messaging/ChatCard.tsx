@@ -1,9 +1,15 @@
 import { Trash2 } from "lucide-react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import type { ChatMetaData } from "../../../shared/types/ChatMetaData";
+import type { MouseEvent } from "react";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
+
+  const handleChatDeletion = (e: MouseEvent) => {
+    e.stopPropagation();
+    // Implement chat deletion logic here
+  };
 
   return (
     <button className="btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between">
@@ -27,7 +33,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         )}
 
         <div className="tooltip font-normal" data-tip="Delete Chat">
-          <button className="btn btn-square">
+          <button className="btn btn-square" onClick={handleChatDeletion}>
             <Trash2 className="text-error/60" size={20} />
           </button>
         </div>
