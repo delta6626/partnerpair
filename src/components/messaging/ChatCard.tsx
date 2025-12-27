@@ -6,7 +6,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
 
   return (
-    <div className="p-4 border-1 border-accent rounded-3xl w-full flex justify-between">
+    <button className="btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between">
       <div className="flex gap-4">
         <img
           className="rounded-3xl"
@@ -32,6 +32,6 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
           </button>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
