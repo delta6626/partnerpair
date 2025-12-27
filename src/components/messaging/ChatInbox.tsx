@@ -115,7 +115,7 @@ export const ChatInbox = () => {
         )}
 
         {filteredChats.length > 0 && (
-          <div className="p-4 w-full flex flex-col gap-2 overflow-y-auto">
+          <div className="p-4 w-full flex flex-col gap-2 overflow-y-auto scrollbar-thin">
             {filteredChats.map((chat) => {
               return <ChatCard chat={chat} currentUserId={userId ?? ""} />;
             })}
