@@ -6,6 +6,7 @@ import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
 import { Footer } from "../components/Footer";
+import { ChatViewer } from "../components/messaging/ChatViewer";
 
 export const Messages = () => {
   useTheme();
@@ -34,8 +35,9 @@ export const Messages = () => {
             </div>
           </div>
 
-          <div className="flex flex-1">
+          <div className="flex flex-1 gap-4">
             <ChatInbox />
+            <ChatViewer />
           </div>
 
           <Footer />
