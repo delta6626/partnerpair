@@ -4,6 +4,7 @@ import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { firestore } from "../../services/firebaseConfig";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
+import { Loader } from "../Loader";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -44,6 +45,12 @@ export const ChatViewer = () => {
           <p>{MESSAGES.NO_CHAT_OPENED}</p>
           <br />
           <p>{MESSAGES.START_MESSAGING}</p>
+        </div>
+      )}
+
+      {messagesLoading && (
+        <div className="flex flex-col flex-1 items-center justify-center">
+          <Loader />
         </div>
       )}
     </div>
