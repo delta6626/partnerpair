@@ -18,10 +18,7 @@ export const ChatViewer = () => {
     );
 
     const unsubscribe = onSnapshot(chatMessagesQuery, (snapshot) => {
-      const messages: ChatMessage[] = [];
-      snapshot.forEach((doc) => {
-        messages.push(doc.data() as ChatMessage);
-      });
+      const messages: ChatMessage[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as ChatMessage));
       setChatMessages(messages);
     });
 
