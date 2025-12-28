@@ -1,15 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
-import { collection, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { firestore } from "../../services/firebaseConfig";
+import type { ChatMessage } from "../../../shared/types/ChatMessage";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
 
   useEffect(() => {
     if (!selectedChatId) return;
-    const chatMessages = query(collection(firestore, "chats", selectedChatId, "messages"), orderBy("sentAt", "asc"));
+
+    const chatMessagesQuery = query(
+      collection(firestore, "chats", selectedChatId, "messages"),
+      orderBy("sentAt", "asc")
+    );
+
+    const unsubscribe = onSnapshot(chatMessagesQuery, (snapshot) => {
+      const messages: ChatMessage[] = [];
+      snapshot.forEach((doc) => {
+        messages.push(doc.data() as ChatMessage);
+      });
+      setChatMessages(messages);
+    });
+
+    return () => unsubscribe();
   }, [selectedChatId]);
 
   return (
