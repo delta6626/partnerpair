@@ -20,10 +20,19 @@ export const ChatViewer = () => {
       orderBy("sentAt", "asc")
     );
 
-    const unsubscribe = onSnapshot(chatMessagesQuery, (snapshot) => {
-      const messages: ChatMessage[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as ChatMessage));
-      setChatMessages(messages);
-    });
+    const unsubscribe = onSnapshot(
+      chatMessagesQuery,
+      (snapshot) => {
+        const messages: ChatMessage[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as ChatMessage));
+        setChatMessages(messages);
+        setMessagesLoading(false);
+      },
+      (error) => {
+        setMessagesLoading(false);
+        setMessagesLoadingError(true);
+        setMessagesLoadingErrorMessage(error.message);
+      }
+    );
 
     return () => unsubscribe();
   }, [selectedChatId]);
