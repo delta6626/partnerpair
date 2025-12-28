@@ -8,6 +8,9 @@ import type { ChatMessage } from "../../../shared/types/ChatMessage";
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [messagesLoading, setMessagesLoading] = useState<boolean>(true);
+  const [messagesLoadingError, setMessagesLoadingError] = useState<boolean>(false);
+  const [messagesLoadingErrorMessage, setMessagesLoadingErrorMessage] = useState<string>("");
 
   useEffect(() => {
     if (!selectedChatId) return;
