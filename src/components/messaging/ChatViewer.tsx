@@ -53,6 +53,14 @@ export const ChatViewer = () => {
           <Loader />
         </div>
       )}
+
+      {!messagesLoadingError && (
+        <div className="flex flex-col flex-1 items-center justify-center text-error/60">
+          <p>An error occured while loading messages.</p>
+          <br />
+          <p>{messagesLoadingErrorMessage}</p>
+        </div>
+      )}
     </div>
   );
 };

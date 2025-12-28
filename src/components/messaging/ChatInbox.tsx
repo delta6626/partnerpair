@@ -89,7 +89,7 @@ export const ChatInbox = () => {
         )}
 
         {(isError || chatsLoadingError) && (
-          <div className="flex flex-1 items-center justify-center text-error">
+          <div className="flex flex-1 items-center justify-center text-error/60">
             Error loading chats: {error instanceof Error ? error.message : chatsLoadingErrorMessage} Please try again
             later.
           </div>
