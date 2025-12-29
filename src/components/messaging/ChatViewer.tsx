@@ -29,6 +29,9 @@ export const ChatViewer = () => {
     queryFn: getUserId,
   });
 
+  const otherParticipantId =
+    selectedChatMetaData && userId ? selectedChatMetaData.participants.find((id) => id !== userId) : null;
+
   useEffect(() => {
     if (!selectedChatId) return;
 
@@ -83,8 +86,21 @@ export const ChatViewer = () => {
         !messagesLoading &&
         !messagesLoadingError &&
         userId &&
+        otherParticipantId &&
         selectedChatId &&
-        selectedChatMetaData && <div className="flex h-fit items-center"></div>}
+        selectedChatMetaData && (
+          <div className="w-full">
+            <div className="flex flex-col h-fit items-center justify-center">
+              <img
+                className="w-30 h-30 rounded-full"
+                src={selectedChatMetaData.participantProfileImageUrls[otherParticipantId]}
+              ></img>
+
+              <h1 className="text-lg font-medium">{selectedChatMetaData.participantNames[otherParticipantId]}</h1>
+              <p className="text-accent">{selectedChatMetaData.participantHeadlines[otherParticipantId]}</p>
+            </div>
+          </div>
+        )}
     </div>
   );
 };
