@@ -14,7 +14,7 @@ import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaDat
 
 export const ChatInbox = () => {
   const { selectedChatId } = useSelectedChatStore();
-  const { setSelectedChatMetaData } = useSelectedChatMetaDataStore();
+  const { selectedChatMetaData, setSelectedChatMetaData } = useSelectedChatMetaDataStore();
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [chats, setChats] = useState<ChatMetaData[]>([]);
@@ -71,12 +71,14 @@ export const ChatInbox = () => {
   }, [userId]);
 
   useEffect(() => {
-    if (!selectedChatId) return;
-    const selectedChatMetaData = chats.find((chat) => chat.id === selectedChatId) || null;
-    setSelectedChatMetaData(selectedChatMetaData);
-  }, [selectedChatId]);
+    if (!selectedChatId) {
+      setSelectedChatMetaData(null);
+      return;
+    }
 
-  console.log(chats);
+    const metaData = chats.find((chat) => chat.id === selectedChatId) || null;
+    setSelectedChatMetaData(metaData);
+  }, [selectedChatId, chats]);
 
   return (
     <div className="flex min-w-120 flex-col gap-4">
