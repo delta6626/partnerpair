@@ -421,6 +421,7 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
 
   const newChatRef = await db.collection("chats").add({
     initiatorId: initiatorId,
+    createdAt: Timestamp.fromDate(new Date()),
     lastMessage: "",
     lastMessageAt: null,
     lastMessageSenderId: "",
@@ -432,6 +433,10 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
     participantProfileImageUrls: {
       [initiatorId]: initiatorProfileDetails.basicInfo.profileImageUrl,
       [otherParticipantId]: otherParticipantProfileDetails.basicInfo.profileImageUrl,
+    },
+    participantHeadlines: {
+      [initiatorId]: initiatorProfileDetails.professionalInfo.headline,
+      [otherParticipantId]: otherParticipantProfileDetails.professionalInfo.headline,
     },
     unreadCount: {
       [initiatorId]: 0,
