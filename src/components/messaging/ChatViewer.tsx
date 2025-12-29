@@ -100,7 +100,7 @@ export const ChatViewer = () => {
               })}
             </h1>
 
-            <div className="flex flex-col h-fit items-center justify-center mt-16">
+            <div className="flex flex-col h-fit items-center justify-center mt-8">
               <img
                 className="w-30 h-30 rounded-full"
                 src={selectedChatMetaData.participantProfileImageUrls[otherParticipantId]}
