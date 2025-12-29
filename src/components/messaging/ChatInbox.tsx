@@ -10,9 +10,11 @@ import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { Link } from "react-router-dom";
 import { ChatCard } from "./ChatCard";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
+import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaData";
 
 export const ChatInbox = () => {
   const { selectedChatId } = useSelectedChatStore();
+  const { setSelectedChatMetaData } = useSelectedChatMetaDataStore();
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [chats, setChats] = useState<ChatMetaData[]>([]);
@@ -70,6 +72,8 @@ export const ChatInbox = () => {
 
   useEffect(() => {
     if (!selectedChatId) return;
+    const selectedChatMetaData = chats.find((chat) => chat.id === selectedChatId) || null;
+    setSelectedChatMetaData(selectedChatMetaData);
   }, [selectedChatId]);
 
   console.log(chats);
