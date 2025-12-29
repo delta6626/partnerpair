@@ -14,7 +14,7 @@ import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaDat
 
 export const ChatInbox = () => {
   const { selectedChatId } = useSelectedChatStore();
-  const { selectedChatMetaData, setSelectedChatMetaData } = useSelectedChatMetaDataStore();
+  const { setSelectedChatMetaData } = useSelectedChatMetaDataStore();
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [chats, setChats] = useState<ChatMetaData[]>([]);
