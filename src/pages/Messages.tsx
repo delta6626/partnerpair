@@ -1,4 +1,3 @@
-import { Loader } from "lucide-react";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
@@ -7,6 +6,7 @@ import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
 import { Footer } from "../components/Footer";
 import { ChatViewer } from "../components/messaging/ChatViewer";
+import { Loader } from "../components/Loader";
 
 export const Messages = () => {
   useTheme();
