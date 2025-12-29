@@ -6,6 +6,9 @@ import { firestore } from "../../services/firebaseConfig";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
 import { Loader } from "../Loader";
 import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaData";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
+import { getUserId } from "../../services/authentication/authServices";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -15,6 +18,16 @@ export const ChatViewer = () => {
   const [messagesLoading, setMessagesLoading] = useState<boolean>(true);
   const [messagesLoadingError, setMessagesLoadingError] = useState<boolean>(false);
   const [messagesLoadingErrorMessage, setMessagesLoadingErrorMessage] = useState<string>("");
+
+  const {
+    data: userId,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.USER_ID],
+    queryFn: getUserId,
+  });
 
   useEffect(() => {
     if (!selectedChatId) return;
@@ -51,17 +64,17 @@ export const ChatViewer = () => {
         </div>
       )}
 
-      {messagesLoading && selectedChatId && (
+      {(isLoading || messagesLoading) && selectedChatId && (
         <div className="flex flex-col flex-1 items-center justify-center">
           <Loader />
         </div>
       )}
 
-      {messagesLoadingError && (
+      {(isError || messagesLoadingError) && (
         <div className="flex flex-col flex-1 items-center justify-center text-error/60">
           <p>An error occured while loading messages.</p>
           <br />
-          <p>{messagesLoadingErrorMessage}</p>
+          <p>{error instanceof Error ? error.message : messagesLoadingErrorMessage}</p>
         </div>
       )}
     </div>
