@@ -9,8 +9,11 @@ import { Loader } from "../Loader";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { Link } from "react-router-dom";
 import { ChatCard } from "./ChatCard";
+import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 
 export const ChatInbox = () => {
+  const { selectedChatId } = useSelectedChatStore();
+
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [chats, setChats] = useState<ChatMetaData[]>([]);
   const [chatsLoading, setChatsLoading] = useState<boolean>(true);
@@ -64,6 +67,10 @@ export const ChatInbox = () => {
 
     return () => unsubscribe();
   }, [userId]);
+
+  useEffect(() => {
+    if (!selectedChatId) return;
+  }, [selectedChatId]);
 
   console.log(chats);
 
