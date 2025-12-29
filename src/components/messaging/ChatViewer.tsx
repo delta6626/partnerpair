@@ -5,9 +5,12 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { firestore } from "../../services/firebaseConfig";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
 import { Loader } from "../Loader";
+import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaData";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
+  const { selectedChatMetaData } = useSelectedChatMetaDataStore();
+
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [messagesLoading, setMessagesLoading] = useState<boolean>(true);
   const [messagesLoadingError, setMessagesLoadingError] = useState<boolean>(false);
