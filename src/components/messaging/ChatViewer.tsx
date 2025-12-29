@@ -77,6 +77,14 @@ export const ChatViewer = () => {
           <p>{error instanceof Error ? error.message : messagesLoadingErrorMessage}</p>
         </div>
       )}
+
+      {!isLoading &&
+        !isError &&
+        !messagesLoading &&
+        !messagesLoadingError &&
+        userId &&
+        selectedChatId &&
+        selectedChatMetaData && <div className="flex h-fit items-center"></div>}
     </div>
   );
 };
