@@ -48,7 +48,7 @@ export const ChatViewer = () => {
         </div>
       )}
 
-      {messagesLoading && (
+      {messagesLoading && selectedChatId && (
         <div className="flex flex-col flex-1 items-center justify-center">
           <Loader />
         </div>
