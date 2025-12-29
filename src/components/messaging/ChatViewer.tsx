@@ -9,6 +9,7 @@ import { useSelectedChatMetaDataStore } from "../../store/useSelectedChatMetaDat
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
+import { formatDate } from "../../../shared/utils/formatDate";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -89,8 +90,17 @@ export const ChatViewer = () => {
         otherParticipantId &&
         selectedChatId &&
         selectedChatMetaData && (
-          <div className="w-full">
-            <div className="flex flex-col h-fit items-center justify-center">
+          <div className="w-full flex-col flex items-center">
+            <h1 className="rounded-3xl text-center text-accent border border-accent mt-16 w-fit py-2 px-4">
+              {formatDate(selectedChatMetaData.createdAt, {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </h1>
+
+            <div className="flex flex-col h-fit items-center justify-center mt-16">
               <img
                 className="w-30 h-30 rounded-full"
                 src={selectedChatMetaData.participantProfileImageUrls[otherParticipantId]}
