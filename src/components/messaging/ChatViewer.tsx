@@ -110,7 +110,11 @@ export const ChatViewer = () => {
               <p className="text-accent">{selectedChatMetaData.participantHeadlines[otherParticipantId]}</p>
             </div>
 
-            <div className="p-4 w-full flex flex-1"></div>
+            {chatMessages && chatMessages.length === 0 && (
+              <div className="w-full flex flex-1 items-center justify-center">
+                <p className="text-accent">{MESSAGES.NO_MESSAGES}</p>
+              </div>
+            )}
 
             <div className="mb-4 flex gap-2">
               <input className="input w-120" placeholder={MESSAGES.WRITE_MESSAGE}></input>
