@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
+import { Loader } from "../Loader";
 
 export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
   const { selectedChatId } = useSelectedChatStore();
@@ -39,8 +40,8 @@ export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
         onChange={(e) => setMessage(e.target.value)}
       />
 
-      <button type="submit" className="btn btn-primary" disabled={sendingMessage || !message.trim()}>
-        Send
+      <button type="submit" className="btn btn-primary min-w-20" disabled={sendingMessage || !message.trim()}>
+        {sendingMessage ? <Loader /> : MESSAGES.SEND}
       </button>
     </form>
   );
