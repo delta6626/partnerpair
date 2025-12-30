@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
@@ -32,6 +32,10 @@ export const ChatViewer = () => {
 
   const otherParticipantId =
     selectedChatMetaData && userId ? selectedChatMetaData.participants.find((id) => id !== userId) : null;
+
+  const handleSendMessage = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     if (!selectedChatId) return;
@@ -124,10 +128,12 @@ export const ChatViewer = () => {
               </div>
             )}
 
-            <div className="mb-4 flex gap-2">
+            <form className="mb-4 flex gap-2" onSubmit={handleSendMessage}>
               <input className="input w-120" placeholder={MESSAGES.WRITE_MESSAGE}></input>
-              <button className="btn btn-primary">Send</button>
-            </div>
+              <button className="btn btn-primary" onClick={handleSendMessage}>
+                Send
+              </button>
+            </form>
           </div>
         )}
     </div>
