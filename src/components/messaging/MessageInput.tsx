@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 
-export const MessageInput = () => {
+export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
   const { selectedChatId } = useSelectedChatStore();
   const [message, setMessage] = useState("");
 

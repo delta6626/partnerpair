@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 import { formatDate } from "../../../shared/utils/formatDate";
+import { MessageInput } from "./MessageInput";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -123,6 +124,8 @@ export const ChatViewer = () => {
                 ))}
               </div>
             )}
+
+            {userId && <MessageInput currentUserId={userId} />}
           </div>
         )}
     </div>
