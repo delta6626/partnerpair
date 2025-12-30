@@ -6,4 +6,5 @@ export const MESSAGES = {
   NO_FILTERED_CHATS: "No chats match your search.",
   NO_CHAT_OPENED: "No chat opened yet.",
   START_MESSAGING: "Select a chat to start messaging.",
+  WRITE_MESSAGE: "Type your message here",
 };

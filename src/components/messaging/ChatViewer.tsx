@@ -112,8 +112,9 @@ export const ChatViewer = () => {
 
             <div className="p-4 w-full flex flex-1"></div>
 
-            <div className="mb-4">
-              <input className="input w-120"></input>
+            <div className="mb-4 flex gap-2">
+              <input className="input w-120" placeholder={MESSAGES.WRITE_MESSAGE}></input>
+              <button className="btn btn-primary">Send</button>
             </div>
           </div>
         )}
