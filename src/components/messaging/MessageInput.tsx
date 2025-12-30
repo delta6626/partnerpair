@@ -20,7 +20,7 @@ export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
     const messageSent = await addChatMessage(selectedChatId, currentUserId, messageContent);
 
     if (typeof messageSent === "string" || (typeof messageSent === "boolean" && !messageSent)) {
-      // handle error case later.
+      // TODO: handle error case later.
       setMessage(messageContent); // reset message input to previous content
       setSendingMessage(false);
       return;

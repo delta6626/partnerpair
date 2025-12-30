@@ -14,7 +14,8 @@ export const addChatMessage = async (chatId: string, senderId: string, content: 
       sentAt: new Date(),
     });
 
-    // await updateChatMetaData(); // Implement this function to update chat metadata after adding a message
+    // await updateChatMetaData(); // TODO: Implement this function to update chat metadata after adding a message
+
     return true;
   } catch (error) {
     return handleFirebaseError(error);

@@ -29,4 +29,6 @@ export const updateUserProfile = async (updatedUserProfile: User) => {
   } catch (error: any) {
     return handleFirebaseError(error);
   }
+
+  // TODO: Update all chat metadata where this user is a participant
 };
