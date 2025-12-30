@@ -109,6 +109,12 @@ export const ChatViewer = () => {
               <h1 className="text-lg font-medium">{selectedChatMetaData.participantNames[otherParticipantId]}</h1>
               <p className="text-accent">{selectedChatMetaData.participantHeadlines[otherParticipantId]}</p>
             </div>
+
+            <div className="p-4 w-full flex flex-1"></div>
+
+            <div className="mb-4">
+              <input className="input w-120"></input>
+            </div>
           </div>
         )}
     </div>
