@@ -116,6 +116,14 @@ export const ChatViewer = () => {
               </div>
             )}
 
+            {chatMessages && chatMessages.length > 0 && (
+              <div className="w-full flex flex-1 items-center justify-center">
+                {chatMessages.map((message) => (
+                  <h1 key={message.id}>{message.content}</h1>
+                ))}
+              </div>
+            )}
+
             <div className="mb-4 flex gap-2">
               <input className="input w-120" placeholder={MESSAGES.WRITE_MESSAGE}></input>
               <button className="btn btn-primary">Send</button>
