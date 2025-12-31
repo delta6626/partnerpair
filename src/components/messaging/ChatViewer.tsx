@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
@@ -16,6 +16,8 @@ import { ChatBubble } from "./ChatBubble";
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
   const { selectedChatMetaData } = useSelectedChatMetaDataStore();
+
+  const scrollToDiv = useRef<HTMLDivElement>(null);
 
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [messagesLoading, setMessagesLoading] = useState<boolean>(true);
@@ -59,6 +61,11 @@ export const ChatViewer = () => {
 
     return () => unsubscribe();
   }, [selectedChatId]);
+
+  useEffect(() => {
+    if (!scrollToDiv.current) return;
+    scrollToDiv.current.scrollIntoView({ behavior: "smooth" });
+  }, [chatMessages]);
 
   return (
     /* The height of the Navbar, page title and subtitle and
@@ -136,6 +143,7 @@ export const ChatViewer = () => {
             )}
 
             {userId && <MessageInput currentUserId={userId} />}
+            <div ref={scrollToDiv}></div>
           </div>
         )}
     </div>
