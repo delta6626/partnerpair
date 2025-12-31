@@ -31,7 +31,7 @@ export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
   };
 
   return (
-    <form className="mb-4 flex gap-2" onSubmit={handleSendMessage}>
+    <form className="py-4 flex gap-2" onSubmit={handleSendMessage}>
       <input
         type="text"
         className="input w-120"
