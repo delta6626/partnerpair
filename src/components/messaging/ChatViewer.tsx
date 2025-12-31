@@ -92,7 +92,7 @@ export const ChatViewer = () => {
         selectedChatId &&
         selectedChatMetaData && (
           <div className="w-full flex-col flex items-center">
-            <h1 className="rounded-3xl text-center text-accent border border-accent mt-16 w-fit py-2 px-4">
+            <h1 className="rounded-3xl text-center text-accent border border-accent mt-8 w-fit py-2 px-4">
               {formatDate(selectedChatMetaData.createdAt, {
                 weekday: "long",
                 year: "numeric",
