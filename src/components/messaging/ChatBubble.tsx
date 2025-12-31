@@ -9,5 +9,14 @@ export const ChatBubble = ({
   currentUserId: string;
   otherParticipantId: string;
 }) => {
-  return <div className="">Chat Bubble</div>;
+  const isSentByCurrentUser = message.senderId === currentUserId;
+  return (
+    <div
+      className={
+        isSentByCurrentUser ? "bg-primary px-4 py-2 rounded-t-3xl rounded-bl-3xl rounded-br-none" : "bg-base-300"
+      }
+    >
+      {message.content}
+    </div>
+  );
 };
