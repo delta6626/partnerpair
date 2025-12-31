@@ -11,6 +11,7 @@ import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 import { formatDate } from "../../../shared/utils/formatDate";
 import { MessageInput } from "./MessageInput";
+import { ChatBubble } from "./ChatBubble";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -120,7 +121,12 @@ export const ChatViewer = () => {
             {chatMessages && chatMessages.length > 0 && (
               <div className="w-full flex flex-1 items-center justify-center">
                 {chatMessages.map((message) => (
-                  <h1 key={message.id}>{message.content}</h1>
+                  <ChatBubble
+                    key={message.id}
+                    message={message}
+                    currentUserId={userId}
+                    otherParticipantId={otherParticipantId}
+                  />
                 ))}
               </div>
             )}
