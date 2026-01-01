@@ -4,7 +4,13 @@ import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
 import { Loader } from "../Loader";
 
-export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
+export const MessageInput = ({
+  currentUserId,
+  otherParticipantId,
+}: {
+  currentUserId: string;
+  otherParticipantId: string;
+}) => {
   const { selectedChatId } = useSelectedChatStore();
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
@@ -17,7 +23,7 @@ export const MessageInput = ({ currentUserId }: { currentUserId: string }) => {
     const messageContent = message.trim();
     if (!messageContent || !selectedChatId) return;
 
-    const messageSent = await addChatMessage(selectedChatId, currentUserId, messageContent);
+    const messageSent = await addChatMessage(selectedChatId, currentUserId, otherParticipantId, messageContent);
 
     if (typeof messageSent === "string" || (typeof messageSent === "boolean" && !messageSent)) {
       // TODO: handle error case later.

@@ -142,7 +142,9 @@ export const ChatViewer = () => {
               </div>
             )}
 
-            {userId && <MessageInput currentUserId={userId} />}
+            {userId && otherParticipantId && (
+              <MessageInput currentUserId={userId} otherParticipantId={otherParticipantId} />
+            )}
             <div ref={scrollToDiv}></div>
           </div>
         )}

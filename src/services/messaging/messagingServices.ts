@@ -1,31 +1,33 @@
-import { addDoc, collection } from "firebase/firestore";
+import { collection, doc, increment, runTransaction } from "firebase/firestore";
 import { firestore } from "../firebaseConfig";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 
-export const addChatMessage = async (chatId: string, senderId: string, content: string) => {
-  if (!chatId || !senderId || !content) return false;
-
-  const messagesCollectionRef = collection(firestore, "chats", chatId, "messages");
+export const addChatMessage = async (chatId: string, senderId: string, otherParticipantId: string, content: string) => {
+  if (!chatId || !senderId || !otherParticipantId || !content) return false;
 
   try {
-    await addDoc(messagesCollectionRef, {
-      senderId,
-      content: content.trim(),
-      sentAt: new Date(),
-    });
+    await runTransaction(firestore, async (transaction) => {
+      const messagesRef = collection(firestore, "chats", chatId, "messages");
+      const chatRef = doc(firestore, "chats", chatId);
 
-    // await updateChatMetaData(); // TODO: Implement this function to update chat metadata after adding a message
+      const messageRef = doc(messagesRef); // generate ID first
+
+      transaction.set(messageRef, {
+        senderId,
+        content: content.trim(),
+        sentAt: new Date(),
+      });
+
+      transaction.update(chatRef, {
+        lastMessage: content.trim(),
+        lastMessageSenderId: senderId,
+        lastMessageAt: new Date(),
+        [`unreadCount.${otherParticipantId}`]: increment(1),
+      });
+    });
 
     return true;
   } catch (error) {
     return handleFirebaseError(error);
   }
 };
-
-const updateChatMetaData = async (
-  chatId: string,
-  lastMessageSenderId: string,
-  lastMessageContent: string,
-  lastMessageAt: Date,
-  otherParticipantId: string
-) => {};
