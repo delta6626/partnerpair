@@ -12,12 +12,14 @@ import { getUserId } from "../../services/authentication/authServices";
 import { formatDate } from "../../../shared/utils/formatDate";
 import { MessageInput } from "./MessageInput";
 import { ChatBubble } from "./ChatBubble";
+import { useInView } from "react-intersection-observer";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
   const { selectedChatMetaData } = useSelectedChatMetaDataStore();
 
   const scrollToDiv = useRef<HTMLDivElement>(null);
+  const { ref: inViewRef, inView } = useInView();
 
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [messagesLoading, setMessagesLoading] = useState<boolean>(true);
@@ -145,7 +147,13 @@ export const ChatViewer = () => {
             {userId && otherParticipantId && (
               <MessageInput currentUserId={userId} otherParticipantId={otherParticipantId} />
             )}
-            <div ref={scrollToDiv}></div>
+
+            <div
+              ref={(node) => {
+                scrollToDiv.current = node;
+                inViewRef(node);
+              }}
+            ></div>
           </div>
         )}
     </div>
