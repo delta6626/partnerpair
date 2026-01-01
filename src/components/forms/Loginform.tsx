@@ -8,12 +8,11 @@ import { loginUserByEmail, signInWithGoogle } from "../../services/authenticatio
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
-import { useUserStore } from "../../store/useUserStore";
 import { useQueryClient } from "@tanstack/react-query";
+import { clearStores } from "../../../shared/utils/clearStores";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
-  const { resetUser } = useUserStore();
   const queryClient = useQueryClient();
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -38,7 +37,7 @@ export const LoginForm = () => {
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    resetUser();
+    clearStores();
     queryClient.clear();
     setLoading(true);
 
@@ -61,7 +60,7 @@ export const LoginForm = () => {
 
   const handleGoogleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    resetUser();
+    clearStores();
     queryClient.clear();
     setLoading(true);
 

@@ -4,20 +4,21 @@ import { LogOut } from "lucide-react";
 import { signOut } from "../../services/authentication/authServices";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { useNavigate } from "react-router-dom";
-import { useUserStore } from "../../store/useUserStore";
 import { useQueryClient } from "@tanstack/react-query";
+import { clearStores } from "../../../shared/utils/clearStores";
 
 export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) => {
   const navigate = useNavigate();
-  const { resetUser } = useUserStore();
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSignOut = async () => {
     setLoading(true);
     const status = await signOut();
-    resetUser();
+
+    clearStores();
     queryClient.clear();
+
     setLoading(false);
 
     if (status === SIGNUP.SIGNOUT_SUCCESS) {

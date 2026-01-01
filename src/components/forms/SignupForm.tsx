@@ -9,11 +9,12 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
 import { useQueryClient } from "@tanstack/react-query";
+import { clearStores } from "../../../shared/utils/clearStores";
 
 export const SignupForm = () => {
   const navigate = useNavigate();
 
-  const { setUser, resetUser } = useUserStore();
+  const { setUser } = useUserStore();
   const queryClient = useQueryClient();
 
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -76,7 +77,7 @@ export const SignupForm = () => {
 
   const handleSignup = async (e: FormEvent) => {
     e.preventDefault();
-    resetUser();
+    clearStores();
     queryClient.clear();
     setLoading(true);
 
@@ -97,7 +98,7 @@ export const SignupForm = () => {
 
   const handleGoogleSignup = async (e: FormEvent) => {
     e.preventDefault();
-    resetUser();
+    clearStores();
     queryClient.clear();
     setLoading(true);
 
