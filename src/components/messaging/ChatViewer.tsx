@@ -13,6 +13,7 @@ import { formatDate } from "../../../shared/utils/formatDate";
 import { MessageInput } from "./MessageInput";
 import { ChatBubble } from "./ChatBubble";
 import { useInView } from "react-intersection-observer";
+import { zeroUnreadCount } from "../../services/messaging/messagingServices";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -70,11 +71,11 @@ export const ChatViewer = () => {
   }, [chatMessages]);
 
   useEffect(() => {
-    if (!userId || !inView || !selectedChatMetaData) return;
+    if (!userId || !inView || !selectedChatId || !selectedChatMetaData) return;
     if (selectedChatMetaData.unreadCount[userId] === 0) return;
 
-    // set unread count to 0
-  }, [inView, chatMessages]);
+    zeroUnreadCount(selectedChatId, userId);
+  }, [inView, selectedChatId]);
 
   return (
     /* The height of the Navbar, page title and subtitle and
