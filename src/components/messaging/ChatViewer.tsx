@@ -69,6 +69,13 @@ export const ChatViewer = () => {
     scrollToDiv.current.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages]);
 
+  useEffect(() => {
+    if (!userId || !inView || !selectedChatMetaData) return;
+    if (selectedChatMetaData.unreadCount[userId] === 0) return;
+
+    // set unread count to 0
+  }, [inView, chatMessages]);
+
   return (
     /* The height of the Navbar, page title and subtitle and
       the footer combines to a total of 312px. Therefore, to make the ChatInbox component take the remaining height of
