@@ -31,3 +31,21 @@ export const addChatMessage = async (chatId: string, senderId: string, otherPart
     return handleFirebaseError(error);
   }
 };
+
+export const zeroUnreadCount = async (chatId: string, userId: string) => {
+  if (!chatId || !userId) return false;
+
+  try {
+    await runTransaction(firestore, async (transaction) => {
+      const chatRef = doc(firestore, "chats", chatId);
+
+      transaction.update(chatRef, {
+        [`unreadCount.${userId}`]: 0,
+      });
+    });
+
+    return true;
+  } catch (error) {
+    return handleFirebaseError(error);
+  }
+};
