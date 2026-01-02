@@ -467,4 +467,20 @@ export const deleteChat = onCall(async (request) => {
 
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this function.");
   if (!chatId) throw new HttpsError("invalid-argument", "One or more arguments are missing.");
+
+  const chatRef = db.doc(`chats/${chatId}`);
+  const chatSnapshot = await chatRef.get();
+
+  if (!chatSnapshot.exists) throw new HttpsError("not-found", "This chat does not exist");
+
+  const chatData = chatSnapshot.data();
+  if (!chatData!.participants.includes(userId))
+    throw new HttpsError("permission-denied", "User does not have the permission to perform this action.");
+
+  try {
+    await db.recursiveDelete(chatRef);
+  } catch (error: unknown) {
+    console.error(error);
+    throw new HttpsError("unknown", "An unknown error occured. Please try again later.");
+  }
 });
