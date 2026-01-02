@@ -14,11 +14,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   const deleteChat = httpsCallable(functions, "deleteChat");
 
-  const {
-    mutate: initiateChatDelete,
-    isError: chatDeleteError,
-    isPending: chatDeletePending,
-  } = useMutation({
+  const { mutate: initiateChatDelete, isPending: chatDeletePending } = useMutation({
     mutationFn: async () => {
       await deleteChat({ chatId: chat.id });
     },
@@ -26,6 +22,10 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
     onSuccess: () => {
       if (chat.id !== selectedChatId) return;
       setSelectedChatId(null);
+    },
+
+    onError: (error) => {
+      // TODO: Show error modal on error;
     },
   });
 
