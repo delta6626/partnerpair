@@ -6,6 +6,7 @@ import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { useMutation } from "@tanstack/react-query";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../../services/firebaseConfig";
+import { Loader } from "../Loader";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
   const { selectedChatId, setSelectedChatId } = useSelectedChatStore();
@@ -15,8 +16,8 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   const {
     mutate: initiateChatDelete,
-    isError,
-    isPending,
+    isError: chatDeleteError,
+    isPending: chatDeletePending,
   } = useMutation({
     mutationFn: async () => {
       await deleteChat({ chatId: chat.id });
@@ -65,7 +66,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
         <div className="tooltip font-normal" data-tip="Delete Chat">
           <button className="btn btn-square" onClick={handleChatDeletion}>
-            <Trash2 className="text-error/60" size={20} />
+            {chatDeletePending ? <Loader /> : <Trash2 className="text-error/60" size={20} />}
           </button>
         </div>
       </div>
