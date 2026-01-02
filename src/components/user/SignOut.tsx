@@ -5,7 +5,7 @@ import { signOut } from "../../services/authentication/authServices";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import { clearStores } from "../../../shared/utils/clearStores";
+import { clearStores } from "../../store/clearStores";
 
 export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) => {
   const navigate = useNavigate();

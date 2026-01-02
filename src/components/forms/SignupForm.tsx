@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
 import { useQueryClient } from "@tanstack/react-query";
-import { clearStores } from "../../../shared/utils/clearStores";
+import { clearStores } from "../../store/clearStores";
 
 export const SignupForm = () => {
   const navigate = useNavigate();
