@@ -8,7 +8,7 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../../services/firebaseConfig";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
-  const { setSelectedChatId } = useSelectedChatStore();
+  const { selectedChatId, setSelectedChatId } = useSelectedChatStore();
   const otherParticipantId = chat.participants.find((id) => id !== currentUserId)!;
 
   const deleteChat = httpsCallable(functions, "deleteChat");
@@ -20,6 +20,11 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   } = useMutation({
     mutationFn: async () => {
       await deleteChat({ chatId: chat.id });
+    },
+
+    onSuccess: () => {
+      if (chat.id !== selectedChatId) return;
+      setSelectedChatId(null);
     },
   });
 
