@@ -49,3 +49,5 @@ export const zeroUnreadCount = async (chatId: string, userId: string) => {
     return handleFirebaseError(error);
   }
 };
+
+export const deleteChat = async () => {};
