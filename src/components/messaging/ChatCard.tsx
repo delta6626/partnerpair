@@ -34,7 +34,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   const handleChatDeletion = (e: MouseEvent) => {
     e.stopPropagation();
-    // Implement chat deletion logic here
+    initiateChatDelete();
   };
 
   return (
