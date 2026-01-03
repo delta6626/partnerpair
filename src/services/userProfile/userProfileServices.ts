@@ -2,7 +2,7 @@ import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore } from "../firebaseConfig";
-import { collection, doc, getDocs, query, setDoc, updateDoc, where, writeBatch } from "firebase/firestore";
+import { collection, doc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
 
 export const setVerificationStatus = async (status: boolean) => {
