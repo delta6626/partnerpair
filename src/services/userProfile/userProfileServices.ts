@@ -2,7 +2,7 @@ import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore } from "../firebaseConfig";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { collection, doc, getDocs, query, setDoc, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
 
 export const setVerificationStatus = async (status: boolean) => {
@@ -19,16 +19,35 @@ export const setVerificationStatus = async (status: boolean) => {
   }
 };
 
-export const updateUserProfile = async (updatedUserProfile: User, ChatMetaDataChanged: boolean) => {
+export const updateUserProfile = async (updatedUserProfile: User, chatMetaDataChanged: boolean) => {
   const userId = await getUserId();
   const userDocRef = doc(firestore, "users", userId);
 
   try {
-    await setDoc(userDocRef, updatedUserProfile);
+    const batch = writeBatch(firestore);
+
+    // Update the user
+    batch.set(userDocRef, updatedUserProfile, { merge: true });
+
+    // Update chat metadata if needed
+    if (chatMetaDataChanged) {
+      const chatsRef = collection(firestore, "chats");
+      const chatsQuery = query(chatsRef, where("participants", "array-contains", userId));
+      const chatsSnapshot = await getDocs(chatsQuery);
+
+      chatsSnapshot.forEach((docSnap) => {
+        batch.update(docSnap.ref, {
+          [`participantNames.${userId}`]: `${updatedUserProfile.basicInfo.firstName} ${updatedUserProfile.basicInfo.lastName}`,
+          [`participantHeadlines.${userId}`]: updatedUserProfile.professionalInfo.headline ?? "",
+          [`participantProfileImageUrls.${userId}`]: updatedUserProfile.basicInfo.profileImageUrl ?? null,
+        });
+      });
+    }
+
+    await batch.commit();
+
     return true;
   } catch (error: any) {
     return handleFirebaseError(error);
   }
-
-  // TODO: Update all chat metadata where this user is a participant
 };
