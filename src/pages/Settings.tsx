@@ -36,7 +36,7 @@ export const Settings = () => {
   };
 
   const handleProfileUpdate = async () => {
-    if (!tempUser) return;
+    if (!user || !tempUser) return;
     setUpdating(true);
 
     const profileStatus = profileComplete(tempUser);
@@ -44,7 +44,14 @@ export const Settings = () => {
       ...tempUser,
       basicInfo: { ...tempUser.basicInfo, profileCompleted: profileStatus === true ? true : false },
     };
-    const userProfileUpdated = await updateUserProfile(updatedUser);
+
+    const chatMetaDataChanged =
+      tempUser.basicInfo.firstName != user.basicInfo.firstName ||
+      tempUser.basicInfo.lastName != user.basicInfo.lastName ||
+      tempUser.professionalInfo.headline != user.professionalInfo.headline ||
+      tempUser.basicInfo.profileImageUrl != user.basicInfo.profileImageUrl;
+
+    const userProfileUpdated = await updateUserProfile(updatedUser, chatMetaDataChanged);
 
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case

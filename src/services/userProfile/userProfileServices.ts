@@ -19,7 +19,7 @@ export const setVerificationStatus = async (status: boolean) => {
   }
 };
 
-export const updateUserProfile = async (updatedUserProfile: User) => {
+export const updateUserProfile = async (updatedUserProfile: User, ChatMetaDataChanged: boolean) => {
   const userId = await getUserId();
   const userDocRef = doc(firestore, "users", userId);
 
