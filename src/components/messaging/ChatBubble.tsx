@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
 
 export const ChatBubble = ({
@@ -9,6 +10,8 @@ export const ChatBubble = ({
   currentUserId: string;
   otherParticipantId: string;
 }) => {
+  const [sentTimeVisible, setSentTimeVisible] = useState<boolean>(false);
+
   const isSentByCurrentUser = message.senderId === currentUserId;
   return (
     <>
@@ -22,9 +25,11 @@ export const ChatBubble = ({
         {message.content}
       </div>
 
-      <p className={isSentByCurrentUser ? "self-end text-accent mt-[-8px]" : "self-start text-accent mt-[-8px]"}>
-        {message.sentAt.seconds}
-      </p>
+      {sentTimeVisible && (
+        <p className={isSentByCurrentUser ? "self-end text-accent mt-[-8px]" : "self-start text-accent mt-[-8px]"}>
+          {message.sentAt.seconds}
+        </p>
+      )}
     </>
   );
 };
