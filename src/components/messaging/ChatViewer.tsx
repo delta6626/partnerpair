@@ -129,7 +129,7 @@ export const ChatViewer = () => {
                 src={selectedChatMetaData.participantProfileImageUrls[otherParticipantId]}
               ></img>
 
-              <h1 className="text-lg font-medium">{selectedChatMetaData.participantNames[otherParticipantId]}</h1>
+              <h1 className="text-lg font-medium mt-2">{selectedChatMetaData.participantNames[otherParticipantId]}</h1>
               <p className="text-accent">{selectedChatMetaData.participantHeadlines[otherParticipantId]}</p>
             </div>
 
