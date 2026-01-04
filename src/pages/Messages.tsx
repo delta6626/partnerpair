@@ -24,20 +24,23 @@ export const Messages = () => {
             <MainNavbar />
           </div>
 
-          <div className="py-8">
+          <div className="pt-8 flex flex-1">
             <div className="mb-4">
               <ProfileStatusMessage />
             </div>
 
-            <div className="">
-              <h1 className="font-bold text-3xl">Messages</h1>
-              <p className="text-accent">{MESSAGES.MESSAGE_SUBTEXT}</p>
-            </div>
-          </div>
+            <div className="flex gap-4 w-full">
+              <div className="flex flex-col gap-4">
+                <div>
+                  <h1 className="font-bold text-3xl">Messages</h1>
+                  <p className="text-accent">{MESSAGES.MESSAGE_SUBTEXT}</p>
+                </div>
 
-          <div className="flex flex-1 gap-4">
-            <ChatInbox />
-            <ChatViewer />
+                <ChatInbox />
+              </div>
+
+              <ChatViewer />
+            </div>
           </div>
 
           <Footer />

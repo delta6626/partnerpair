@@ -78,11 +78,7 @@ export const ChatViewer = () => {
   }, [inView, selectedChatId]);
 
   return (
-    /* The height of the Navbar, page title and subtitle and
-      the footer combines to a total of 312px. Therefore, to make the ChatInbox component take the remaining height of
-      the viewport, we subtract 312px from 100vh. */
-
-    <div className="w-full flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-312px)] overflow-y-scroll scrollbar-none">
+    <div className="w-full flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-208px)] overflow-y-scroll scrollbar-none">
       {!selectedChatId && (
         <div className="flex flex-col flex-1 items-center justify-center text-accent">
           <p>{MESSAGES.NO_CHAT_OPENED}</p>
