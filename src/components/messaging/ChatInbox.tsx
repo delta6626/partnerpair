@@ -106,10 +106,10 @@ export const ChatInbox = () => {
 
         {chats.length === 0 && !isLoading && !chatsLoading && !isError && !chatsLoadingError && (
           <div className="p-4 flex flex-col flex-1 items-center justify-center text-center text-accent">
-            <h1>
+            <p>
               {MESSAGES.NO_CHATS_FOUND} <br></br>
               {MESSAGES.BROWSE_PROFILES}
-            </h1>
+            </p>
 
             <Link className="btn btn-primary mt-4" to={"/browse"}>
               Browse
