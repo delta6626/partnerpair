@@ -10,7 +10,7 @@ import { Loader } from "../components/Loader";
 
 export const Messages = () => {
   useTheme();
-  const { user, loading } = useInitializeUser();
+  const { loading } = useInitializeUser();
 
   return (
     <div className="">
