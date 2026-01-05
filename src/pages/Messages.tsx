@@ -24,7 +24,7 @@ export const Messages = () => {
             <MainNavbar />
           </div>
 
-          <div className="pt-8 flex flex-1">
+          <div className="pt-8 flex flex-col flex-1">
             <div className="mb-4">
               <ProfileStatusMessage />
             </div>
