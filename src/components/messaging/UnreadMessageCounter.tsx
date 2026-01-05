@@ -17,6 +17,7 @@ export const UnreadMessageCounter = () => {
   } = useQuery({
     queryKey: [QUERY_KEYS.UNREAD_COUNT],
     queryFn: getAllUnreadMessageCount,
+    refetchInterval: 15 * 1000,
   });
 
   const handleUnreadMessageCounterClick = () => {
