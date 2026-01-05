@@ -42,8 +42,6 @@ export const Messages = () => {
               <ChatViewer />
             </div>
           </div>
-
-          <Footer />
         </div>
       )}
     </div>
