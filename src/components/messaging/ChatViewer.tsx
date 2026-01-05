@@ -75,7 +75,7 @@ export const ChatViewer = () => {
     if (selectedChatMetaData.unreadCount[userId] === 0) return;
 
     zeroUnreadCount(selectedChatId, userId);
-  }, [inView, selectedChatId]);
+  }, [inView, chatMessages.length, selectedChatId]);
 
   return (
     <div className="w-full flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">

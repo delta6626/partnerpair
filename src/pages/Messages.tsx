@@ -4,7 +4,6 @@ import { useTheme } from "../hooks/useTheme";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
-import { Footer } from "../components/Footer";
 import { ChatViewer } from "../components/messaging/ChatViewer";
 import { Loader } from "../components/Loader";
 
