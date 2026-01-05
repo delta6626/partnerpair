@@ -2,11 +2,21 @@ import { Mail } from "lucide-react";
 import { DASHBOARD } from "../../../shared/constants/DASHBOARD";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
+import { getAllUnreadMessageCount } from "../../services/messaging/messagingServices";
 
 export const UnreadMessageCounter = () => {
   const navigate = useNavigate();
 
-  const { data: unreadMessageCount, isLoading, isError, error } = useQuery({});
+  const {
+    data: unreadMessageCount,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.UNREAD_COUNT],
+    queryFn: getAllUnreadMessageCount,
+  });
 
   const handleUnreadMessageCounterClick = () => {
     navigate("/messages");

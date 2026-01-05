@@ -7,4 +7,5 @@ export const QUERY_KEYS = {
   SUGGESTED_PROFILES: "suggestedProfiles",
   FILTERED_USERS: "filteredUsers",
   USER_SPECIFIC_CHAT_ID: "userSpecificChatId",
+  UNREAD_COUNT: "unreadCount",
 };
