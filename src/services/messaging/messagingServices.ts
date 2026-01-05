@@ -65,7 +65,7 @@ export const getAllUnreadMessageCount = async () => {
 
   chatsSnapshot.docs.forEach((doc) => {
     const chatData = doc.data();
-    unreadCount += chatData[`unreadCount.${userId}`] ?? 0;
+    unreadCount += chatData.unreadCount[userId] ?? 0;
   });
 
   return unreadCount;

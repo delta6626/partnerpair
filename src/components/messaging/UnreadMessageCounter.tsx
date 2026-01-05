@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getAllUnreadMessageCount } from "../../services/messaging/messagingServices";
+import { Loader } from "../Loader";
 
 export const UnreadMessageCounter = () => {
   const navigate = useNavigate();
@@ -22,6 +23,15 @@ export const UnreadMessageCounter = () => {
     navigate("/messages");
   };
 
+  if (isLoading)
+    return (
+      <div className="rounded-3xl bg-base-200 min-w-75 w-fit flex items-center justify-center">
+        <Loader />
+      </div>
+    );
+
+  console.log(unreadMessageCount);
+
   return (
     <button
       className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2"
@@ -32,10 +42,19 @@ export const UnreadMessageCounter = () => {
         Unread Messages
       </div>
 
-      <div className="mt-4 text-center">
-        <h1 className="text-3xl font-bold">{0}</h1>
-        <p className="mt-2 text-accent">{DASHBOARD.UNREAD_MESSAGE_COUNTER_SUBTEXT}</p>
-      </div>
+      {!isError && (
+        <div className="mt-4 text-center">
+          <h1 className="text-3xl font-bold">{unreadMessageCount}</h1>
+          <p className="mt-2 text-accent">{DASHBOARD.UNREAD_MESSAGE_COUNTER_SUBTEXT}</p>
+        </div>
+      )}
+
+      {isError && (
+        <div className="">
+          <h1 className="text-error font-semibold">An error occured</h1>
+          <p className="text-accent">{error.message}</p>
+        </div>
+      )}
     </button>
   );
 };
