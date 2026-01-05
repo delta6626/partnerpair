@@ -1,6 +1,8 @@
-import { collection, doc, increment, runTransaction } from "firebase/firestore";
+import { collection, doc, getDocs, increment, query, runTransaction, where } from "firebase/firestore";
 import { firestore } from "../firebaseConfig";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
+import { getUserId } from "../authentication/authServices";
+import { SIGNUP } from "../../../shared/constants/SIGNUP";
 
 export const addChatMessage = async (chatId: string, senderId: string, otherParticipantId: string, content: string) => {
   if (!chatId || !senderId || !otherParticipantId || !content) return false;
@@ -48,4 +50,23 @@ export const zeroUnreadCount = async (chatId: string, userId: string) => {
   } catch (error) {
     return handleFirebaseError(error);
   }
+};
+
+export const getAllUnreadMessageCount = async () => {
+  const userId = await getUserId();
+
+  if (userId === SIGNUP.UNAUTHENTICATED) throw new Error(SIGNUP.UNAUTHENTICATED);
+
+  const chatsRef = collection(firestore, "chats");
+  const chatsQuery = query(chatsRef, where("participants", "array-contains", userId));
+  const chatsSnapshot = await getDocs(chatsQuery);
+
+  let unreadCount = 0;
+
+  chatsSnapshot.docs.forEach((doc) => {
+    const chatData = doc.data();
+    unreadCount += chatData[`unreadCount.${userId}`] ?? 0;
+  });
+
+  return unreadCount;
 };
