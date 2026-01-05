@@ -37,10 +37,10 @@ export const MessageInput = ({
   };
 
   return (
-    <form className="py-4 flex gap-2" onSubmit={handleSendMessage}>
+    <form className="py-4 flex gap-2 w-full px-16" onSubmit={handleSendMessage}>
       <input
         type="text"
-        className="input w-120"
+        className="input w-full"
         placeholder={MESSAGES.WRITE_MESSAGE}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
