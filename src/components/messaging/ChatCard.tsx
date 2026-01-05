@@ -40,7 +40,9 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   return (
     <button
-      className="btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between"
+      className={`btn h-fit p-4 border-1 border-accent rounded-3xl w-full flex justify-between ${
+        selectedChatId === chat.id ? "bg-base-300" : ""
+      }`}
       onClick={handleChatClick}
     >
       <div className="flex gap-4">
