@@ -39,6 +39,11 @@ export const UnreadMessageCounter = () => {
       <div className="flex gap-2 text-accent items-center">
         <Mail size={20} />
         Unread Messages
+        {unreadMessageCount != 0 ? (
+          <div className="w-2 h-2 rounded-full bg-error animate-[blink_1.5s_ease-in-out_infinite] mt-[1.5px]"></div>
+        ) : (
+          ""
+        )}
       </div>
 
       {!isError && (
