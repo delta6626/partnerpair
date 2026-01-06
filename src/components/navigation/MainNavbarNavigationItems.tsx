@@ -1,28 +1,37 @@
-import { Link } from "react-router-dom";
+import { NavLink, type NavLinkRenderProps } from "react-router-dom";
 import { UpgradeTierButton } from "../user/UpgradeTierButton";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
 
 export const MainNavbarNavigationItems = () => {
   const { user, loading } = useInitializeUser();
 
+  const navClass = ({ isActive }: NavLinkRenderProps) => {
+    return `btn bg-transparent border-none hover:text-primary ${isActive ? "" : "text-accent"}`;
+  };
+
   return (
-    <div className="">
-      {!loading && user?.basicInfo.tier != "Pro" ? <UpgradeTierButton /> : ""}
-      <Link to={"/dashboard"} className="btn bg-transparent border-none hover:text-primary">
+    <div>
+      {!loading && user?.basicInfo.tier !== "Pro" && <UpgradeTierButton />}
+
+      <NavLink to="/dashboard" className={navClass}>
         Dashboard
-      </Link>
-      <Link to={"/browse"} className="btn bg-transparent border-none hover:text-primary">
+      </NavLink>
+
+      <NavLink to="/browse" className={navClass}>
         Browse
-      </Link>
-      <Link to={"/messages"} className="btn bg-transparent border-none hover:text-primary">
+      </NavLink>
+
+      <NavLink to="/messages" className={navClass}>
         Messages
-      </Link>
-      <Link to={"/forum"} className="btn bg-transparent border-none hover:text-primary">
+      </NavLink>
+
+      <NavLink to="/forum" className={navClass}>
         Forum
-      </Link>
-      <Link to={"/blogs"} className="btn bg-transparent border-none hover:text-primary">
+      </NavLink>
+
+      <NavLink to="/blogs" className={navClass}>
         Blogs
-      </Link>
+      </NavLink>
     </div>
   );
 };
