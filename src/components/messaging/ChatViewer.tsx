@@ -14,6 +14,7 @@ import { MessageInput } from "./MessageInput";
 import { ChatBubble } from "./ChatBubble";
 import { useInView } from "react-intersection-observer";
 import { zeroUnreadCount } from "../../services/messaging/messagingServices";
+import { Link } from "react-router-dom";
 
 export const ChatViewer = () => {
   const { selectedChatId } = useSelectedChatStore();
@@ -119,7 +120,7 @@ export const ChatViewer = () => {
               })}
             </p>
 
-            <div className="flex flex-col h-fit items-center justify-center mt-8">
+            <Link to={`/user/${otherParticipantId}`} className="flex flex-col h-fit items-center justify-center mt-8">
               <img
                 className="w-30 h-30 rounded-full"
                 src={selectedChatMetaData.participantProfileImageUrls[otherParticipantId]}
@@ -127,7 +128,7 @@ export const ChatViewer = () => {
 
               <h1 className="text-lg font-medium mt-2">{selectedChatMetaData.participantNames[otherParticipantId]}</h1>
               <p className="text-accent">{selectedChatMetaData.participantHeadlines[otherParticipantId]}</p>
-            </div>
+            </Link>
 
             {chatMessages && chatMessages.length === 0 && (
               <div className="w-full flex flex-1 items-center justify-center">
