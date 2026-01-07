@@ -77,7 +77,7 @@ export const Settings = () => {
     <div className="font-inter">
       <ProfileUpdateSuccessfulModal />
       {loading ? (
-        <div className="w-full min-h-[100vh] flex items-center justify-center">
+        <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />
         </div>
       ) : (
