@@ -22,7 +22,7 @@ export const ContactCounter = () => {
 
   return (
     <div
-      className="cursor-pointer p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2"
+      className="cursor-pointer p-4 border border-base-100 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2"
       onClick={handleCounterClick}
     >
       <div className="flex gap-2 text-accent items-center">
