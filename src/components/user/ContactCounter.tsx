@@ -26,7 +26,7 @@ export const ContactCounter = () => {
       onClick={handleCounterClick}
     >
       <div className="flex gap-2 text-accent items-center">
-        <ContactRound className="mt-[-1px]" size={20} />
+        <ContactRound className="mt-[-2px]" size={20} />
         Saved Contacts
       </div>
 
