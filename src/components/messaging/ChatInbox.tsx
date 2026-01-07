@@ -83,7 +83,7 @@ export const ChatInbox = () => {
   return (
     <div className="flex min-w-120 flex-col gap-4">
       <input
-        className="input w-full border-none"
+        className="input w-full"
         type="text"
         placeholder={"Search chats"}
         value={searchTerm}
