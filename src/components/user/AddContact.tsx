@@ -36,7 +36,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
       basicInfo: { ...user.basicInfo, contactList: [...user.basicInfo.contactList, contactId] },
     };
 
-    const result = await updateUserProfile(updatedUser);
+    const result = await updateUserProfile(updatedUser, false);
     setLoading(false);
 
     if (typeof result === "string") {
@@ -60,7 +60,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
       },
     };
 
-    const result = await updateUserProfile(updatedUser);
+    const result = await updateUserProfile(updatedUser, false);
     setLoading(false);
 
     if (typeof result === "string") {
@@ -98,7 +98,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
         {loading ? (
           <Loader />
         ) : (
-          <>{userIsAContact ? <UserRoundMinus size={20} className="text-error" /> : <UserRoundPlus size={20} />}</>
+          <>{userIsAContact ? <UserRoundMinus size={20} className="text-error/60" /> : <UserRoundPlus size={20} />}</>
         )}
       </button>
     );
