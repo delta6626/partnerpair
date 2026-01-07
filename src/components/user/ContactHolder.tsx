@@ -10,7 +10,7 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border border-accent rounded-3xl">
+    <div className="flex items-center justify-between p-4 border border-base-100 rounded-3xl">
       <div className="cursor-pointer flex items-center gap-4" onClick={handleProfileClick}>
         <img
           className="w-15 h-15 rounded-full"
