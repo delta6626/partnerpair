@@ -83,6 +83,18 @@
   @apply active:scale-95 transition-all ease-in-out duration-200 font-inter shadow-none;
 }
 
+@utility input {
+  @apply bg-base-200 border border-base-100;
+}
+
+@utility select {
+  @apply bg-base-200 border border-base-100;
+}
+
+@utility textarea {
+  @apply bg-base-200 border border-base-100;
+}
+
 p {
   @apply text-sm;
 }
