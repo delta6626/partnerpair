@@ -41,7 +41,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
   return (
     <button
       className={`btn h-fit p-4 border border-base-100 rounded-3xl w-full flex justify-between ${
-        selectedChatId === chat.id ? "bg-base-300" : ""
+        selectedChatId === chat.id ? "bg-base-100" : ""
       }`}
       onClick={handleChatClick}
     >
