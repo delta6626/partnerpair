@@ -78,7 +78,7 @@ export const ChatViewer = () => {
   });
 
   return (
-    <div className="w-full flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">
+    <div className="w-full border border-base-100 flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">
       {!selectedChatId && (
         <div className="flex flex-col flex-1 items-center justify-center text-accent">
           <p>{MESSAGES.NO_CHAT_OPENED}</p>

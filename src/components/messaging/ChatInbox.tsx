@@ -90,7 +90,7 @@ export const ChatInbox = () => {
         onChange={handleSearchTermChange}
       />
 
-      <div className="flex flex-1 max-h-[calc(100vh-264px)] min-h-[calc(100vh-264px)] bg-base-200 rounded-3xl">
+      <div className="flex flex-1 max-h-[calc(100vh-264px)] min-h-[calc(100vh-264px)] bg-base-200 border border-base-100 rounded-3xl">
         {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
             <Loader />
