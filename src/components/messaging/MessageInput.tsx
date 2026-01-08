@@ -25,7 +25,10 @@ export const MessageInput = ({
     setMessage("");
 
     const messageContent = message.trim();
-    if (!messageContent || !selectedChatId) return;
+    if (!messageContent || !selectedChatId) {
+      setSendingMessage(false);
+      return;
+    }
 
     const messageSent = await addChatMessage(selectedChatId, currentUserId, otherParticipantId, messageContent);
 
