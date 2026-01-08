@@ -38,7 +38,7 @@ export const MessageInput = ({
 
   return (
     <form className="py-4 w-full px-16" onSubmit={handleSendMessage}>
-      <div className="flex gap-2 w-full border border-base-100 rounded-2xl">
+      <div className="flex p-4 gap-2 w-full border border-base-100 rounded-full">
         <input
           type="text"
           className="input w-full border-none focus:outline-none"
