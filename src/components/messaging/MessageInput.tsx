@@ -4,6 +4,7 @@ import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
 import { Loader } from "../Loader";
 import TextareaAutoSize from "react-textarea-autosize";
+import { SendHorizonal } from "lucide-react";
 
 export const MessageInput = ({
   currentUserId,
@@ -39,7 +40,7 @@ export const MessageInput = ({
 
   return (
     <form className="py-4 w-full px-16" onSubmit={handleSendMessage}>
-      <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-4xl">
+      <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-[50px]">
         <TextareaAutoSize
           minRows={1}
           maxRows={5}
@@ -49,8 +50,12 @@ export const MessageInput = ({
           onChange={(e) => setMessage(e.target.value)}
         />
 
-        <button type="submit" className="btn btn-primary min-w-20" disabled={sendingMessage || !message.trim()}>
-          {sendingMessage ? <Loader /> : MESSAGES.SEND}
+        <button
+          type="submit"
+          className="btn btn-primary btn-square rounded-full"
+          disabled={sendingMessage || !message.trim()}
+        >
+          {sendingMessage ? <Loader /> : <SendHorizonal size={20} />}
         </button>
       </div>
     </form>
