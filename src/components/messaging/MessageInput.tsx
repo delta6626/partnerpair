@@ -4,7 +4,7 @@ import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
 import { Loader } from "../Loader";
 import TextareaAutoSize from "react-textarea-autosize";
-import { SendHorizonal } from "lucide-react";
+import { Lightbulb, SendHorizonal } from "lucide-react";
 
 export const MessageInput = ({
   currentUserId,
@@ -57,6 +57,10 @@ export const MessageInput = ({
             }
           }}
         />
+
+        <button className="btn btn-soft btn-square rounded-full">
+          <Lightbulb size={20} />
+        </button>
 
         <button
           type="submit"
