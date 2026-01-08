@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent, type MouseEvent } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
@@ -18,6 +18,10 @@ export const MessageInput = ({
 
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
+
+  const handleRandomMessageButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
 
   const handleSendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,7 +65,7 @@ export const MessageInput = ({
           }}
         />
 
-        <button className="btn btn-soft btn-square rounded-full">
+        <button className="btn btn-soft btn-square rounded-full" onClick={handleRandomMessageButtonClick}>
           <Lightbulb size={20} />
         </button>
 
