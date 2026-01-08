@@ -3,6 +3,7 @@ import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
 import { Loader } from "../Loader";
+import TextareaAutoSize from "react-textarea-autosize";
 
 export const MessageInput = ({
   currentUserId,
@@ -38,10 +39,11 @@ export const MessageInput = ({
 
   return (
     <form className="py-4 w-full px-16" onSubmit={handleSendMessage}>
-      <div className="flex p-4 gap-2 w-full border border-base-100 rounded-full">
-        <input
-          type="text"
-          className="input w-full border-none focus:outline-none"
+      <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-4xl">
+        <TextareaAutoSize
+          minRows={1}
+          maxRows={5}
+          className="textarea w-full p-4 rounded-3xl resize-none border-none focus:outline-none min-h-[2rem]"
           placeholder={MESSAGES.WRITE_MESSAGE}
           value={message}
           onChange={(e) => setMessage(e.target.value)}

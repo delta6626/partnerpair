@@ -20,6 +20,7 @@
     "react-international-phone": "^4.6.0",
     "react-intersection-observer": "^10.0.0",
     "react-router-dom": "^7.8.0",
+    "react-textarea-autosize": "^8.5.9",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.11",
     "zustand": "^5.0.7"
