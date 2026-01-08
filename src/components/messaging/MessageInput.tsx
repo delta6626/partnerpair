@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { MESSAGES } from "../../../shared/constants/MESSAGES";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { addChatMessage } from "../../services/messaging/messagingServices";
@@ -14,6 +14,8 @@ export const MessageInput = ({
   otherParticipantId: string;
 }) => {
   const { selectedChatId } = useSelectedChatStore();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
 
@@ -39,7 +41,7 @@ export const MessageInput = ({
   };
 
   return (
-    <form className="py-4 w-full px-16" onSubmit={handleSendMessage}>
+    <form className="py-4 w-full px-16" ref={formRef} onSubmit={handleSendMessage}>
       <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-[50px]">
         <TextareaAutoSize
           minRows={1}
@@ -48,6 +50,12 @@ export const MessageInput = ({
           placeholder={MESSAGES.WRITE_MESSAGE}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey && !e.ctrlKey && !e.metaKey) {
+              e.preventDefault();
+              formRef.current?.requestSubmit();
+            }
+          }}
         />
 
         <button
