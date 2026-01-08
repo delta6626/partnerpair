@@ -37,18 +37,20 @@ export const MessageInput = ({
   };
 
   return (
-    <form className="py-4 flex gap-2 w-full px-16" onSubmit={handleSendMessage}>
-      <input
-        type="text"
-        className="input w-full"
-        placeholder={MESSAGES.WRITE_MESSAGE}
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
+    <form className="py-4 w-full px-16" onSubmit={handleSendMessage}>
+      <div className="flex gap-2 w-full border border-base-100 rounded-2xl">
+        <input
+          type="text"
+          className="input w-full border-none focus:outline-none"
+          placeholder={MESSAGES.WRITE_MESSAGE}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
 
-      <button type="submit" className="btn btn-primary min-w-20" disabled={sendingMessage || !message.trim()}>
-        {sendingMessage ? <Loader /> : MESSAGES.SEND}
-      </button>
+        <button type="submit" className="btn btn-primary min-w-20" disabled={sendingMessage || !message.trim()}>
+          {sendingMessage ? <Loader /> : MESSAGES.SEND}
+        </button>
+      </div>
     </form>
   );
 };
