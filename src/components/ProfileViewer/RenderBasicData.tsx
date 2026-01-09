@@ -181,6 +181,16 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
+        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Commitment Level</p>
+        <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
+      </div>
+
+      <div className="mt-4">
+        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Availability</p>
+        <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
+      </div>
+
+      <div className="mt-4">
         <p className="text-accent uppercase font-bold tracking-wide">My Socials</p>
         <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
       </div>
