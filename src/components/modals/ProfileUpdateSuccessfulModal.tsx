@@ -9,7 +9,7 @@ export const ProfileUpdateSuccessfulModal = () => {
 
   return (
     <dialog id={MODALS.PROFILE_UPDATE_SUCCESS_MODAL.ID} className="modal">
-      <div className="modal-box bg-base-300">
+      <div className="modal-box bg-base-300 border border-base-100">
         <h1 className="text-lg font-medium">{MODALS.PROFILE_UPDATE_SUCCESS_MODAL.TITLE}</h1>
         <p className="mt-2 text-accent">{MODALS.PROFILE_UPDATE_SUCCESS_MODAL.DESCRIPTION}</p>
 

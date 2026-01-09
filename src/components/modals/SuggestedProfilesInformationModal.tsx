@@ -9,7 +9,7 @@ export const SuggestedProfilesInformationModal = () => {
 
   return (
     <dialog id={MODALS.SUGGESTED_PROFILES_INFORMATION_MODAL.ID} className="modal">
-      <div className="modal-box bg-base-300">
+      <div className="modal-box bg-base-300 border border-base-100">
         <h1 className="text-lg font-medium text-accent">{MODALS.SUGGESTED_PROFILES_INFORMATION_MODAL.TITLE}</h1>
         <p className="mt-2">{MODALS.SUGGESTED_PROFILES_INFORMATION_MODAL.DESCRIPTION}</p>
 

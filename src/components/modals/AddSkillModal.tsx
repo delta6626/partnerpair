@@ -85,7 +85,7 @@ export const AddSkillModal = ({ forCurrentUser }: { forCurrentUser: boolean }) =
       id={forCurrentUser ? MODALS.ADD_SKILL_MODAL.ID_CURRENT : MODALS.ADD_SKILL_MODAL.ID_MATCHING}
       className="modal"
     >
-      <div className="modal-box bg-base-300">
+      <div className="modal-box bg-base-300 border border-base-100">
         <h1 className="text-lg font-medium">{MODALS.ADD_SKILL_MODAL.TITLE}</h1>
         <p className="text-accent">
           {forCurrentUser ? MODALS.ADD_SKILL_MODAL.DESCRIPTION_CURRENT : MODALS.ADD_SKILL_MODAL.DESCRIPTION_MATCHING}
