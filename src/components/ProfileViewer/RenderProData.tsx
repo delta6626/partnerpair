@@ -85,7 +85,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">About Me</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">About Me</p>
         <p className={`mt-2 ${visitedUserData.professionalInfo.bio === "" ? "text-center text-accent" : ""}`}>
           {visitedUserData.professionalInfo.bio ||
             `${visitedUserData.basicInfo.firstName + " has not added a bio yet."}`}
@@ -93,7 +93,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">Roles I Play</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">Roles I Play</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.professionalInfo.roles}
@@ -103,7 +103,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">My Skills</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">My Skills</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.professionalInfo.skills}
@@ -115,9 +115,9 @@ export const RenderProData = ({
       <div className="mt-4">
         <div className="">
           {visitedUserData.professionalInfo.wantsToCofound ? (
-            <h1 className="text-lg font-medium">Startup</h1>
+            <p className="text-accent uppercase font-bold tracking-wide">Startup</p>
           ) : (
-            <h1 className="text-lg font-medium">My Startup</h1>
+            <p className="text-accent uppercase font-bold tracking-wide">My Startup</p>
           )}
         </div>
 
@@ -152,7 +152,7 @@ export const RenderProData = ({
 
       {visitedUserData.professionalInfo.wantsToCofound ? (
         <div className="mt-4">
-          <h1 className="text-lg font-medium">My Preferred Startup Stages</h1>
+          <p className="text-accent uppercase font-bold tracking-wide">My Preferred Startup Stages</p>
           <div className="mt-2">
             <GenericChipCollection
               listItems={visitedUserData.matchingPreferences.preferredCompanyStage as string[]}
@@ -165,7 +165,7 @@ export const RenderProData = ({
       )}
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">Roles I am Looking For</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">Roles I am Looking For</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.matchingPreferences.lookingForRoles}
@@ -175,7 +175,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">Skills I am Looking For</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">Skills I am Looking For</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.matchingPreferences.lookingForSkills}
@@ -185,7 +185,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">Preferred Cofounder Commitment Level</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Commitment Level</p>
         <div className="mt-2">
           <GenericChip
             chipText={visitedUserData.matchingPreferences.commitmentLevel!}
@@ -195,7 +195,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">Preferred Cofounder Availability</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Availability</p>
         <div className="mt-2">
           <GenericChip
             chipText={visitedUserData.matchingPreferences.availability!}
@@ -205,7 +205,7 @@ export const RenderProData = ({
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-medium">My Socials</h1>
+        <p className="text-accent uppercase font-bold tracking-wide">My Socials</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {Object.keys(visitedUserData.socialLinks).map((linkItem) => {
             return (
