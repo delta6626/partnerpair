@@ -6,7 +6,7 @@ export const MainNavbarNavigationItems = () => {
   const { user, loading } = useInitializeUser();
 
   const navClass = ({ isActive }: NavLinkRenderProps) => {
-    return `btn bg-transparent border-none hover:text-primary ${isActive ? "" : "text-accent"}`;
+    return `btn bg-transparent border-none hover:text-base-content ${isActive ? "" : "text-accent"}`;
   };
 
   return (
