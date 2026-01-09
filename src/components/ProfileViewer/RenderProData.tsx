@@ -14,7 +14,7 @@ export const RenderProData = ({
   visitedUserId: string;
 }) => {
   return (
-    <div className="w-full max-w-220 border-1 border-accent rounded-3xl p-8">
+    <div className="w-full max-w-220 border border-base-100 rounded-3xl p-8">
       <div className="flex gap-4">
         <div className="min-w-36">
           <img src={visitedUserData.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
