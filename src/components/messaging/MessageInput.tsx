@@ -15,6 +15,7 @@ export const MessageInput = ({
 }) => {
   const { selectedChatId } = useSelectedChatStore();
   const formRef = useRef<HTMLFormElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
@@ -24,6 +25,8 @@ export const MessageInput = ({
     const randomIndex = Math.floor(Math.random() * MESSAGES.ICEBREAKER_MESSAGES.length);
     const randomMessage = MESSAGES.ICEBREAKER_MESSAGES[randomIndex];
     setMessage(randomMessage);
+    e.currentTarget.blur();
+    textAreaRef.current?.focus();
   };
 
   const handleSendMessage = async (e: FormEvent<HTMLFormElement>) => {
@@ -54,6 +57,7 @@ export const MessageInput = ({
     <form className="py-4 w-full px-16" ref={formRef} onSubmit={handleSendMessage}>
       <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-[50px]">
         <TextareaAutoSize
+          ref={textAreaRef}
           minRows={1}
           maxRows={5}
           className="textarea w-full p-4 rounded-3xl resize-none border-none focus:outline-none min-h-[2rem]"
