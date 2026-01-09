@@ -14,7 +14,7 @@ export const MESSAGES = {
     "Hi, I came across your profile and felt it might be worth connecting.",
     "Hey, I am new to connecting with people here and your profile stood out to me.",
 
-    "Hi there, I came across your profile and thought it would be nice to connect andi spend time exploring potential alignment.",
+    "Hi there, I came across your profile and thought it would be nice to connect and spend time exploring potential alignment.",
     "Hey, I am currently meeting interesting people and your profile caught my eye.",
     "Hi, I liked your background and thought it would be good to connect and chat.",
     "Hey, I came across your profile and felt it could be interesting to connect.",

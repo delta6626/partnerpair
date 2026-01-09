@@ -21,6 +21,9 @@ export const MessageInput = ({
 
   const handleRandomMessageButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    const randomIndex = Math.floor(Math.random() * MESSAGES.ICEBREAKER_MESSAGES.length);
+    const randomMessage = MESSAGES.ICEBREAKER_MESSAGES[randomIndex];
+    setMessage(randomMessage);
   };
 
   const handleSendMessage = async (e: FormEvent<HTMLFormElement>) => {
