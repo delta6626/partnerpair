@@ -39,7 +39,7 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
         tabIndex={0}
         className={`mt-2 collapse collapse-arrow ${
           collapseOpen ? "collapse-open" : "collapse-close"
-        } border border-accent`}
+        } border border-base-100`}
       >
         <div className="collapse-title text-sm" onClick={handleCollapseClick}>
           View all roles

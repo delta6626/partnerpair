@@ -33,7 +33,7 @@ export const SkillHolder = ({ skillName, forCurrentUser }: { skillName: string; 
   };
 
   return (
-    <div className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2">
+    <div className="btn inline-flex items-center px-4 py-3 rounded-full border border-base-100 select-none font-medium text-sm gap-2">
       {skillName}
       <button
         className="text-accent hover:text-error focus:text-error ease-in-out duration-200"

@@ -60,7 +60,7 @@ export const CompanyStagesManager = () => {
             return (
               <button
                 key={companyStage}
-                className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
+                className="btn inline-flex items-center px-4 py-3 rounded-full border base-100 select-none font-medium text-sm gap-2"
               >
                 {companyStage}
                 <div
@@ -85,7 +85,7 @@ export const CompanyStagesManager = () => {
         tabIndex={0}
         className={`mt-2 collapse collapse-arrow ${
           collapseOpen ? "collapse-open" : "collapse-close"
-        } border border-accent`}
+        } border border-base-100`}
       >
         <div className="collapse-title text-sm" onClick={handleCollapseClick}>
           View all stages
@@ -95,7 +95,7 @@ export const CompanyStagesManager = () => {
             {possibleStages.map((stage) => {
               return (
                 <button
-                  className="btn inline-flex items-center px-4 py-3 rounded-full border-1 border-accent select-none font-medium text-sm gap-2"
+                  className="btn inline-flex items-center px-4 py-3 rounded-full border border-base-100 select-none font-medium text-sm gap-2"
                   key={stage}
                   disabled={
                     tempUser?.matchingPreferences.preferredCompanyStage.length === SETTINGS.MAX_COMPANY_STAGES_LENGTH ||
