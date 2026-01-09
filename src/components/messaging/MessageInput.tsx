@@ -35,7 +35,7 @@ export const MessageInput = ({
     setMessage("");
 
     const messageContent = message.trim();
-    if (!messageContent || !selectedChatId) {
+    if (!messageContent || !selectedChatId || messageContent.length > 2000) {
       setSendingMessage(false);
       return;
     }
@@ -63,6 +63,7 @@ export const MessageInput = ({
           className="textarea w-full p-4 rounded-3xl resize-none border-none focus:outline-none min-h-[2rem]"
           placeholder={MESSAGES.WRITE_MESSAGE}
           value={message}
+          maxLength={MESSAGES.MESSAGE_MAX_LENGTH}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey && !e.ctrlKey && !e.metaKey) {

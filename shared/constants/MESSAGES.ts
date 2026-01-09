@@ -7,6 +7,7 @@ export const MESSAGES = {
   NO_CHAT_OPENED: "No chat opened yet.",
   START_MESSAGING: "Select a chat to start messaging.",
   WRITE_MESSAGE: "Type your message here",
+  MESSAGE_MAX_LENGTH: 2000,
   ICEBREAKER_MESSAGES: [
     "Hey, I came across your profile and thought it would be great to connect.",
     "Hi there, your profile caught my attention and I wanted to reach out and say hello.",
