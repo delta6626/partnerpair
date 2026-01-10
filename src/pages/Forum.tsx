@@ -9,6 +9,11 @@ export const Forum = () => {
       <div className="py-4">
         <MainNavbar />
       </div>
+
+      <div className="flex flex-col grow items-center justify-center w-full">
+        <h1 className="text-3xl font-bold">Good things take time</h1>
+        <p className="text-accent">This feature will be available soon. Stay tuned.</p>
+      </div>
     </div>
   );
 };
