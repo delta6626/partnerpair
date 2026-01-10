@@ -13,7 +13,7 @@ export const NotFound = () => {
         <h1 className="text-4xl font-bold mt-4">There's nothing here</h1>
         <p className="text-accent text-center mt-2">
           {" "}
-          We couldn’t find the page you requested. The link may be <br /> outdated, or the URL may be incorrect.
+          We couldn’t find the page you requested. The link may be <br /> outdated or incorrect.
         </p>
         <Link className="btn btn-primary mt-2" to={"/"}>
           Go Home
