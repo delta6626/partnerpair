@@ -1,5 +1,4 @@
 import { Logo } from "../branding/Logo";
-import { NotificationOverview } from "../notifications/NotificationOverview";
 import { MainNavbarNavigationItems } from "./MainNavbarNavigationItems";
 import { ProfileDropdown } from "../user/ProfileDropdown";
 
@@ -15,7 +14,7 @@ export const MainNavbar = () => {
       </div>
 
       <div className="flex gap-2">
-        <NotificationOverview />
+        {/* <NotificationOverview /> */}
         <ProfileDropdown />
       </div>
     </div>
