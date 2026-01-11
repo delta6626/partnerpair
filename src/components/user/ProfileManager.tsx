@@ -13,7 +13,14 @@ export const ProfileManager = () => {
   if (!tempUser) return;
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, firstName: e.target.value } });
+    setTempUser({
+      ...tempUser,
+      basicInfo: {
+        ...tempUser.basicInfo,
+        firstName: e.target.value,
+        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${tempUser.basicInfo.firstName}`,
+      },
+    });
   };
 
   const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,16 +37,6 @@ export const ProfileManager = () => {
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
   };
 
-  useEffect(() => {
-    setTempUser({
-      ...tempUser,
-      basicInfo: {
-        ...tempUser.basicInfo,
-        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${tempUser.basicInfo.firstName}`,
-      },
-    });
-  }, [tempUser.basicInfo.firstName]);
-
   return (
     <div className="max-w-200 border border-base-100 rounded-3xl p-8">
       <div className="flex items-center gap-2">
@@ -55,6 +52,7 @@ export const ProfileManager = () => {
             className="mt-2 input w-full"
             placeholder="First name"
             value={tempUser?.basicInfo.firstName}
+            maxLength={SIGNUP.MAXIMUM_FIRST_NAME_LENGTH}
             onChange={handleFirstNameChange}
           />
         </div>
@@ -65,6 +63,7 @@ export const ProfileManager = () => {
             className="mt-2 input w-full"
             placeholder="Last name"
             value={tempUser?.basicInfo.lastName}
+            maxLength={SIGNUP.MAXIMUM_LAST_NAME_LENGTH}
             onChange={handleLastNameChange}
           />
         </div>
