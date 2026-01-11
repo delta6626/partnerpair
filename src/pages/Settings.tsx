@@ -98,16 +98,12 @@ export const Settings = () => {
               </div>
 
               <div className="flex gap-2">
-                <button
-                  className="btn btn-primary w-20"
-                  disabled={equal(user, tempUser) || updating}
-                  onClick={handleResetButtonClick}
-                >
+                <button className="btn" disabled={equal(user, tempUser) || updating} onClick={handleResetButtonClick}>
                   {SETTINGS.RESET_BUTTON_TEXT}
                 </button>
 
                 <button
-                  className="btn btn-primary w-20"
+                  className="btn btn-primary"
                   disabled={!tempUser || equal(user, tempUser) || !basicUserDataValid(tempUser) || updating}
                   onClick={handleProfileUpdate}
                 >
