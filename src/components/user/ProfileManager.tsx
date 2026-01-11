@@ -18,7 +18,7 @@ export const ProfileManager = () => {
       basicInfo: {
         ...tempUser.basicInfo,
         firstName: e.target.value,
-        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${tempUser.basicInfo.firstName}`,
+        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${e.target.value}`,
       },
     });
   };
