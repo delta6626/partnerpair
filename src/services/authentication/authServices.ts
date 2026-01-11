@@ -17,6 +17,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { GoogleAuthProvider } from "firebase/auth";
 import { splitUsername } from "../../../shared/utils/splitUsername";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const createUserByEmail = async (
   email: string,
@@ -39,7 +40,7 @@ export const createUserByEmail = async (
         verified: false,
         tier: "Basic",
         authenticationMethod: "Email",
-        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${firstName}`,
+        profileImageUrl: `${SETTINGS.DICEBEAR_API_URL}${firstName}`,
         profileCompleted: false,
         contactList: [],
         createdAt: new Date(),
@@ -191,8 +192,7 @@ export const signInWithGoogle = async () => {
           verified: true,
           tier: "Basic",
           authenticationMethod: "Google",
-          profileImageUrl:
-            userCredentials.user.photoURL ?? `https://api.dicebear.com/9.x/initials/svg?seed=${googleProfileFirstName}`,
+          profileImageUrl: userCredentials.user.photoURL ?? `${SETTINGS.DICEBEAR_API_URL}${googleProfileFirstName}`,
           profileCompleted: false,
           contactList: [],
           createdAt: new Date(),

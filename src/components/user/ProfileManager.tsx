@@ -6,6 +6,7 @@ import { isValidAge } from "../../../shared/utils/isValidAge";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { PhoneInput } from "./PhoneInput";
 import { CountryPicker } from "./CountryPicker";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const ProfileManager = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -18,7 +19,7 @@ export const ProfileManager = () => {
       basicInfo: {
         ...tempUser.basicInfo,
         firstName: e.target.value,
-        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${e.target.value}`,
+        profileImageUrl: `${SETTINGS.DICEBEAR_API_URL}${e.target.value}`,
       },
     });
   };

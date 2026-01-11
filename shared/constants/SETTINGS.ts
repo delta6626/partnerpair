@@ -17,4 +17,5 @@ export const SETTINGS = {
   COMPLETE_STARTUP_INFORMATION: "Complete your startup information.",
   COMPLETE_MATCHING_PREFERENCES: "Complete your matching preferences.",
   COMPLETE_SOCIAL_PROFILES: "Complete your social profiles.",
+  DICEBEAR_API_URL: "https://api.dicebear.com/9.x/initials/svg?seed=",
 };
