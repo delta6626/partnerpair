@@ -1,5 +1,5 @@
 import { UserCircle2 } from "lucide-react";
-import { type ChangeEvent } from "react";
+import { useEffect, type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { isValidAge } from "../../../shared/utils/isValidAge";
@@ -29,6 +29,16 @@ export const ProfileManager = () => {
     if (!isValidAge(date, SIGNUP.MINIMUM_AGE, SIGNUP.MAXIMUM_AGE)) return;
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, dateOfBirth: date } });
   };
+
+  useEffect(() => {
+    setTempUser({
+      ...tempUser,
+      basicInfo: {
+        ...tempUser.basicInfo,
+        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${tempUser.basicInfo.firstName}`,
+      },
+    });
+  }, [tempUser.basicInfo.firstName]);
 
   return (
     <div className="max-w-200 border border-base-100 rounded-3xl p-8">
