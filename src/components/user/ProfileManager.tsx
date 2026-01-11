@@ -1,5 +1,5 @@
 import { UserCircle2 } from "lucide-react";
-import { useEffect, type ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import { ProfilePhotoSelector } from "./ProfilePhotoSelector";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { isValidAge } from "../../../shared/utils/isValidAge";
