@@ -14,7 +14,9 @@ export const ProfilePhotoSelector = () => {
 
       <div className="flex flex-col gap-2">
         <button className="btn">Upload photo</button>
-        <button className="btn">Reset to default</button>
+        <button className="btn" disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName)}>
+          Reset to default
+        </button>
       </div>
     </div>
   );
