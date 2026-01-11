@@ -40,7 +40,7 @@ export const createUserByEmail = async (
         verified: false,
         tier: "Basic",
         authenticationMethod: "Email",
-        profileImageUrl: SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_1,
+        profileImageUrl: `https://api.dicebear.com/9.x/initials/svg?seed=${firstName}`,
         profileCompleted: false,
         contactList: [],
         createdAt: new Date(),
@@ -173,14 +173,18 @@ export const signInWithGoogle = async () => {
     const extraInformation: AdditionalUserInfo | null = getAdditionalUserInfo(userCredentials);
 
     if (extraInformation?.isNewUser) {
+      let googleProfileFirstName = userCredentials.user.displayName
+        ? splitUsername(userCredentials.user.displayName, 0)
+        : "PartnerPair User";
+
+      let googleProfileLastName = userCredentials.user.displayName
+        ? splitUsername(userCredentials.user.displayName, 1)
+        : "PartnerPair User";
+
       let user: User = {
         basicInfo: {
-          firstName: userCredentials.user.displayName
-            ? splitUsername(userCredentials.user.displayName, 0)
-            : "PartnerPair User",
-          lastName: userCredentials.user.displayName
-            ? splitUsername(userCredentials.user.displayName, 1)
-            : "PartnerPair User",
+          firstName: googleProfileFirstName,
+          lastName: googleProfileLastName,
           dateOfBirth: "",
           email: userCredentials.user.email ? userCredentials.user.email : "No Email",
           phone: "",
@@ -188,7 +192,8 @@ export const signInWithGoogle = async () => {
           verified: true,
           tier: "Basic",
           authenticationMethod: "Google",
-          profileImageUrl: userCredentials.user.photoURL ?? SETTINGS.PROFILE_PHOTOS.PROFILE_PHOTO_1,
+          profileImageUrl:
+            userCredentials.user.photoURL ?? `https://api.dicebear.com/9.x/initials/svg?seed=${googleProfileFirstName}`,
           profileCompleted: false,
           contactList: [],
           createdAt: new Date(),
