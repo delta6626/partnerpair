@@ -26,7 +26,12 @@ export const ProfilePhotoSelector = () => {
       />
 
       <div className="flex flex-col gap-2">
-        <button className="btn">Upload photo</button>
+        <input
+          type="file"
+          className="file-input file-input-primary"
+          accept="image/png, image/jpeg, image/jpg, image/webp"
+        ></input>
+
         <button
           className="btn"
           disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName)}
