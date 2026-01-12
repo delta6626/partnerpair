@@ -1,9 +1,11 @@
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
-import { firestore } from "../firebaseConfig";
+import { firestore, storage } from "../firebaseConfig";
 import { collection, doc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { trimAllSpaces } from "../../../shared/utils/trimAllSpaces";
 
 export const setVerificationStatus = async (status: boolean) => {
   const userId = await getUserId();
@@ -49,5 +51,23 @@ export const updateUserProfile = async (updatedUserProfile: User, chatMetaDataCh
     return true;
   } catch (error: any) {
     return handleFirebaseError(error);
+  }
+};
+
+export const uploadUserPhoto = async (photo: File) => {
+  const userId = await getUserId();
+
+  if (userId === SIGNUP.UNAUTHENTICATED) {
+    return false;
+  }
+
+  try {
+    const storageRef = ref(storage, `profilePhotos/${userId}/${photo.name}`);
+    const snapshot = await uploadBytes(storageRef, photo);
+    const photoURL = await getDownloadURL(snapshot.ref);
+
+    return photoURL;
+  } catch (error: any) {
+    return false;
   }
 };
