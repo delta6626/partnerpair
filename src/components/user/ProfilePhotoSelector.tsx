@@ -32,7 +32,8 @@ export const ProfilePhotoSelector = () => {
         <input
           type="file"
           className="file-input file-input-primary"
-          accept="image/png, image/jpeg, image/jpg, image/webp"
+          accept={SETTINGS.ACCEPTED_IMAGE_TYPES.join(",")}
+          multiple={false}
           onChange={handleFileSelect}
         ></input>
 
