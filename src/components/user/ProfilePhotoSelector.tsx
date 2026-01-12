@@ -1,3 +1,4 @@
+import type { ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 
@@ -5,6 +6,8 @@ export const ProfilePhotoSelector = () => {
   const { tempUser, setTempUser } = useTempUserStore();
 
   if (!tempUser) return;
+
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {};
 
   const handleProfileImageURLReset = () => {
     setTempUser({
@@ -30,6 +33,7 @@ export const ProfilePhotoSelector = () => {
           type="file"
           className="file-input file-input-primary"
           accept="image/png, image/jpeg, image/jpg, image/webp"
+          onChange={handleFileSelect}
         ></input>
 
         <button
