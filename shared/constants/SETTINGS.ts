@@ -19,5 +19,5 @@ export const SETTINGS = {
   COMPLETE_SOCIAL_PROFILES: "Complete your social profiles.",
   DICEBEAR_API_URL: "https://api.dicebear.com/9.x/initials/svg?seed=",
   ACCEPTED_IMAGE_TYPES: ["image/png", "image/jpeg", "image/jpg", "image/webp"],
-  MAX_IMAGE_SIZE_BYTES: 2 * 1024 * 1024,
+  MAX_IMAGE_SIZE_BYTES: 1 * 1024 * 1024,
 };
