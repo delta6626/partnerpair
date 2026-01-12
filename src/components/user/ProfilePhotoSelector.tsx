@@ -16,11 +16,13 @@ export const ProfilePhotoSelector = () => {
     if (selectedFile.size > SETTINGS.MAX_IMAGE_SIZE_BYTES) {
       console.error("File too large");
       e.target.value = "";
+      return;
     }
 
     if (!SETTINGS.ACCEPTED_IMAGE_TYPES.includes(selectedFile.type)) {
       console.error("Unsupported type");
       e.target.value = "";
+      return;
     }
   };
 
