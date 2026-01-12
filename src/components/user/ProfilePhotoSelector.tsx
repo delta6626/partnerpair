@@ -7,7 +7,22 @@ export const ProfilePhotoSelector = () => {
 
   if (!tempUser) return;
 
-  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {};
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files?.length === 0) return; // TO DO: Show no-upload modal
+
+    const selectedFile = files[0];
+
+    if (selectedFile.size > SETTINGS.MAX_IMAGE_SIZE_BYTES) {
+      console.error("File too large");
+      e.target.value = "";
+    }
+
+    if (!SETTINGS.ACCEPTED_IMAGE_TYPES.includes(selectedFile.type)) {
+      console.error("Unsupported type");
+      e.target.value = "";
+    }
+  };
 
   const handleProfileImageURLReset = () => {
     setTempUser({
