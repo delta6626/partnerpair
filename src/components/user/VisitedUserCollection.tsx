@@ -57,7 +57,7 @@ export const VisitedUserCollection = ({
     );
   } else if (viewFilter === "allViews" && filteredVisitedUsers.length != 0) {
     return (
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4 mb-8">
         {filteredVisitedUsers.map((visitedUser, index) => {
           return <VisitedUser key={index} viewerData={visitedUser} />;
         })}
@@ -73,7 +73,7 @@ export const VisitedUserCollection = ({
     );
   } else {
     return (
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4 mb-8">
         {filteredVisitorsUnique.map((visitedUser, index) => {
           return <VisitedUser key={index} viewerData={visitedUser} />;
         })}

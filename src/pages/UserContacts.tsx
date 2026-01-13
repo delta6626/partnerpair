@@ -82,7 +82,7 @@ export const UserContacts = () => {
             <p className="text-accent">{USER_CONTACTS.NO_FILTERED_CONTACTS}</p>
           </div>
         ) : (
-          <div className="w-full flex flex-col gap-4 max-w-200">
+          <div className="w-full flex flex-col gap-4 max-w-200 mb-8">
             {filteredContacts?.map((contact) => {
               return <ContactHolder key={contact.contactId} contactDetails={contact} />;
             })}

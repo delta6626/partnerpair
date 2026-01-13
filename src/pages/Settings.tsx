@@ -124,7 +124,7 @@ export const Settings = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 mb-100">
+            <div className="flex flex-col gap-4 mb-8">
               <ProfileManager />
               <ProfessionalInformationManager />
               <StartupInformationManager />
