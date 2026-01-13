@@ -33,11 +33,18 @@ export const ProfilePhotoSelector = () => {
 
     const photoUploaded = await uploadUserPhoto(selectedFile);
 
+    // Error scenario
+
     if (typeof photoUploaded === "boolean") {
       setIsUploading(false);
       return;
       // TO DO: Show error modal
     }
+
+    // Upload successfull
+
+    setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, profileImageUrl: photoUploaded } });
+    setIsUploading(false);
   };
 
   const handleProfileImageURLReset = () => {
