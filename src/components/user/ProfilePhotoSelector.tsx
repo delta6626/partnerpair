@@ -59,12 +59,7 @@ export const ProfilePhotoSelector = () => {
 
   return (
     <div className="flex flex-wrap justify-between items-center gap-4 w-full">
-      <img
-        className="w-30 h-30 rounded-full"
-        src={tempUser?.basicInfo.profileImageUrl}
-        referrerPolicy="no-referrer"
-        crossOrigin="anonymous"
-      />
+      <img className="w-30 h-30 rounded-full" src={tempUser?.basicInfo.profileImageUrl} referrerPolicy="no-referrer" />
 
       <div className="flex flex-col gap-2">
         <input
