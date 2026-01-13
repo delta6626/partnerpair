@@ -73,6 +73,7 @@ export const ProfilePhotoSelector = () => {
           accept={SETTINGS.ACCEPTED_IMAGE_TYPES.join(",")}
           multiple={false}
           onChange={handleFileSelect}
+          disabled={isUploading}
         ></input>
 
         <button
