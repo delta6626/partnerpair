@@ -64,6 +64,8 @@ export const deleteAllUserPhotos = async () => {
 
   try {
     const existingFiles = await listAll(userFolderRef);
+    if (existingFiles.items.length === 0) return true;
+
     await Promise.all(existingFiles.items.map((fileRef) => deleteObject(fileRef)));
     return true; // all deletes resolved
   } catch (error) {

@@ -11,7 +11,7 @@ import { ProfessionalInformationManager } from "../components/user/ProfessionalI
 import { StartupInformationManager } from "../components/user/StartupInformationManager";
 import { SocialLinksManager } from "../components/user/SocialLinksManager";
 import { AccountManager } from "../components/user/AccountManager";
-import { updateUserProfile } from "../services/userProfile/userProfileServices";
+import { deleteAllUserPhotos, updateUserProfile } from "../services/userProfile/userProfileServices";
 import { useUserStore } from "../store/useUserStore";
 import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
 import { MODALS } from "../../shared/constants/MODALS";
@@ -52,6 +52,12 @@ export const Settings = () => {
       tempUser.basicInfo.profileImageUrl != user.basicInfo.profileImageUrl;
 
     const userProfileUpdated = await updateUserProfile(updatedUser, chatMetaDataChanged);
+
+    // Delete all uploaded profile photos if the user is not using them.
+
+    if (!tempUser.basicInfo.profileImageUrl.includes("firebasestorage.googleapis.com")) {
+      await deleteAllUserPhotos();
+    }
 
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case
