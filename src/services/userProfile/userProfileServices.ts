@@ -5,7 +5,6 @@ import { firestore, storage } from "../firebaseConfig";
 import { collection, doc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
 import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
-import { trimAllSpaces } from "../../../shared/utils/trimAllSpaces";
 
 export const setVerificationStatus = async (status: boolean) => {
   const userId = await getUserId();
