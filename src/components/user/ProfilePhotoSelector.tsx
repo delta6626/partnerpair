@@ -1,11 +1,12 @@
-import { useState, type ChangeEvent } from "react";
+import { useRef, useState, type ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { uploadUserPhoto } from "../../services/userProfile/userProfileServices";
 
 export const ProfilePhotoSelector = () => {
-  const [isUploading, setIsUploading] = useState<boolean>(false);
   const { tempUser, setTempUser } = useTempUserStore();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isUploading, setIsUploading] = useState<boolean>(false);
 
   if (!tempUser) return;
 
@@ -55,6 +56,9 @@ export const ProfilePhotoSelector = () => {
         profileImageUrl: `${SETTINGS.DICEBEAR_API_URL}${tempUser.basicInfo.firstName}`,
       },
     });
+
+    if (!inputRef.current) return;
+    inputRef.current.value = "";
   };
 
   return (
@@ -69,6 +73,7 @@ export const ProfilePhotoSelector = () => {
           multiple={false}
           onChange={handleFileSelect}
           disabled={isUploading}
+          ref={inputRef}
         ></input>
 
         <button
