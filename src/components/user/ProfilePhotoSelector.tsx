@@ -83,7 +83,7 @@ export const ProfilePhotoSelector = () => {
         )}
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="max-w-70 flex flex-col gap-2">
         <input
           type="file"
           className="file-input file-input-primary"
