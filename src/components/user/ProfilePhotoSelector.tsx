@@ -6,12 +6,12 @@ import { deleteAllUserPhotos, uploadUserPhoto } from "../../services/userProfile
 export const ProfilePhotoSelector = () => {
   const { tempUser, setTempUser } = useTempUserStore();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isUploading, setIsUploading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   if (!tempUser) return;
 
   const handleFileSelect = async (e: ChangeEvent<HTMLInputElement>) => {
-    setIsUploading(true);
+    setIsLoading(true);
 
     const files = e.target.files;
     if (!files || files?.length === 0) return; // TO DO: Show no-upload modal
@@ -21,14 +21,14 @@ export const ProfilePhotoSelector = () => {
     if (selectedFile.size > SETTINGS.MAX_IMAGE_SIZE_BYTES) {
       console.error("File too large");
       e.target.value = "";
-      setIsUploading(false);
+      setIsLoading(false);
       return;
     }
 
     if (!SETTINGS.ACCEPTED_IMAGE_TYPES.includes(selectedFile.type)) {
       console.error("Unsupported type");
       e.target.value = "";
-      setIsUploading(false);
+      setIsLoading(false);
       return;
     }
 
@@ -37,7 +37,7 @@ export const ProfilePhotoSelector = () => {
     // Error scenario
 
     if (typeof photoUploaded === "boolean") {
-      setIsUploading(false);
+      setIsLoading(false);
       return;
       // TO DO: Show error modal
     }
@@ -45,11 +45,11 @@ export const ProfilePhotoSelector = () => {
     // Upload successfull
 
     setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, profileImageUrl: photoUploaded } });
-    setIsUploading(false);
+    setIsLoading(false);
   };
 
   const handleProfileImageURLReset = async () => {
-    setIsUploading(true);
+    setIsLoading(true);
 
     setTempUser({
       ...tempUser,
@@ -63,7 +63,7 @@ export const ProfilePhotoSelector = () => {
     inputRef.current.value = "";
 
     await deleteAllUserPhotos();
-    setIsUploading(false);
+    setIsLoading(false);
   };
 
   return (
@@ -77,13 +77,13 @@ export const ProfilePhotoSelector = () => {
           accept={SETTINGS.ACCEPTED_IMAGE_TYPES.join(",")}
           multiple={false}
           onChange={handleFileSelect}
-          disabled={isUploading}
+          disabled={isLoading}
           ref={inputRef}
         ></input>
 
         <button
           className="btn"
-          disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName) || isUploading}
+          disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName) || isLoading}
           onClick={handleProfileImageURLReset}
         >
           Reset to default
