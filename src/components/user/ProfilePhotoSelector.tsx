@@ -2,6 +2,7 @@ import { useRef, useState, type ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { deleteAllUserPhotos, uploadUserPhoto } from "../../services/userProfile/userProfileServices";
+import { Loader } from "../Loader";
 
 export const ProfilePhotoSelector = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -68,7 +69,19 @@ export const ProfilePhotoSelector = () => {
 
   return (
     <div className="flex flex-wrap justify-between items-center gap-4 w-full">
-      <img className="w-30 h-30 rounded-full" src={tempUser?.basicInfo.profileImageUrl} referrerPolicy="no-referrer" />
+      <div className="relative">
+        <img
+          className={`w-30 h-30 rounded-full`}
+          src={tempUser?.basicInfo.profileImageUrl}
+          referrerPolicy="no-referrer"
+        />
+
+        {isLoading && (
+          <div className="absolute inset-0 rounded-full flex items-center justify-center bg-black opacity-80">
+            <Loader />
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-col gap-2">
         <input
