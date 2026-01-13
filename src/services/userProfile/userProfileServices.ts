@@ -53,7 +53,15 @@ export const updateUserProfile = async (updatedUserProfile: User, chatMetaDataCh
   }
 };
 
-const deleteAllUserPhotos = async (userFolderRef: StorageReference) => {
+export const deleteAllUserPhotos = async () => {
+  const userId = await getUserId();
+
+  if (userId === SIGNUP.UNAUTHENTICATED) {
+    return false;
+  }
+
+  const userFolderRef = ref(storage, `profilePhotos/${userId}/`);
+
   try {
     const existingFiles = await listAll(userFolderRef);
     await Promise.all(existingFiles.items.map((fileRef) => deleteObject(fileRef)));
@@ -72,10 +80,8 @@ export const uploadUserPhoto = async (photo: File) => {
   }
 
   try {
-    const userFolderRef = ref(storage, `profilePhotos/${userId}/`);
-
     // Delete existing profile photos
-    const photosDeleted = await deleteAllUserPhotos(userFolderRef);
+    const photosDeleted = await deleteAllUserPhotos();
     if (!photosDeleted) return false; // If photos cannot be deleted, cancel upload operation.
 
     const newPhotoRef = ref(storage, `profilePhotos/${userId}/${photo.name}`);

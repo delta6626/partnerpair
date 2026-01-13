@@ -1,7 +1,7 @@
 import { useRef, useState, type ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { uploadUserPhoto } from "../../services/userProfile/userProfileServices";
+import { deleteAllUserPhotos, uploadUserPhoto } from "../../services/userProfile/userProfileServices";
 
 export const ProfilePhotoSelector = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -48,7 +48,9 @@ export const ProfilePhotoSelector = () => {
     setIsUploading(false);
   };
 
-  const handleProfileImageURLReset = () => {
+  const handleProfileImageURLReset = async () => {
+    setIsUploading(true);
+
     setTempUser({
       ...tempUser,
       basicInfo: {
@@ -59,6 +61,9 @@ export const ProfilePhotoSelector = () => {
 
     if (!inputRef.current) return;
     inputRef.current.value = "";
+
+    await deleteAllUserPhotos();
+    setIsUploading(false);
   };
 
   return (
@@ -78,7 +83,7 @@ export const ProfilePhotoSelector = () => {
 
         <button
           className="btn"
-          disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName)}
+          disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName) || isUploading}
           onClick={handleProfileImageURLReset}
         >
           Reset to default
