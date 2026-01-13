@@ -24,11 +24,11 @@ export const RolesManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =>
       <div className="mt-2 flex flex-wrap gap-2">
         {hasRoles && forCurrentUser ? (
           tempUser?.professionalInfo.roles.map((role) => {
-            return <RoleHolder roleName={role} isSelector={false} forCurrentUser={true} />;
+            return <RoleHolder key={role} roleName={role} isSelector={false} forCurrentUser={true} />;
           })
         ) : hasRoles && !forCurrentUser ? (
           tempUser?.matchingPreferences.lookingForRoles.map((role) => {
-            return <RoleHolder roleName={role} isSelector={false} forCurrentUser={false} />;
+            return <RoleHolder key={role} roleName={role} isSelector={false} forCurrentUser={false} />;
           })
         ) : (
           <p className="w-full text-accent text-center">{SETTINGS.NO_ROLES_PARAGRAPH_TEXT}</p>
