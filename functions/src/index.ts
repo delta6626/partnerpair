@@ -128,7 +128,7 @@ const addProfileViewRecord = async (userId: string, visitedUserId: string) => {
 };
 
 // Responsible for updating all profil view records left by a user, when said user makes a profile change
-export const updateProfileViewRecords = onCall(async (request) => {});
+export const updateProfileViewRecords = onCall(async () => {});
 
 export const getContactDetails = async (contactId: string): Promise<Contact> => {
   const fullContactData: User = await fetchUserData(contactId);
@@ -221,8 +221,17 @@ export const getUserContacts = onCall(async (request) => {
     return getContactDetails(contact);
   });
 
-  const contactDetailsCollection: Contact[] = await Promise.all(contactDetailsPromises);
-  return contactDetailsCollection;
+  const results = await Promise.allSettled(contactDetailsPromises);
+
+  const contactsDetailCollection: Contact[] = [];
+
+  results.forEach((result) => {
+    if (result.status === "fulfilled") {
+      contactsDetailCollection.push(result.value);
+    }
+  });
+
+  return contactsDetailCollection;
 });
 
 export const getSuggestedProfiles = onCall(async (request) => {
