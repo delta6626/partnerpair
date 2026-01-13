@@ -1,13 +1,17 @@
-import type { ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { uploadUserPhoto } from "../../services/userProfile/userProfileServices";
 
 export const ProfilePhotoSelector = () => {
+  const [isUploading, setIsUploading] = useState<boolean>(false);
   const { tempUser, setTempUser } = useTempUserStore();
 
   if (!tempUser) return;
 
-  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = async (e: ChangeEvent<HTMLInputElement>) => {
+    setIsUploading(true);
+
     const files = e.target.files;
     if (!files || files?.length === 0) return; // TO DO: Show no-upload modal
 
@@ -16,13 +20,23 @@ export const ProfilePhotoSelector = () => {
     if (selectedFile.size > SETTINGS.MAX_IMAGE_SIZE_BYTES) {
       console.error("File too large");
       e.target.value = "";
+      setIsUploading(false);
       return;
     }
 
     if (!SETTINGS.ACCEPTED_IMAGE_TYPES.includes(selectedFile.type)) {
       console.error("Unsupported type");
       e.target.value = "";
+      setIsUploading(false);
       return;
+    }
+
+    const photoUploaded = await uploadUserPhoto(selectedFile);
+
+    if (typeof photoUploaded === "boolean") {
+      setIsUploading(false);
+      return;
+      // TO DO: Show error modal
     }
   };
 

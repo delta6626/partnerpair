@@ -85,6 +85,7 @@ export const uploadUserPhoto = async (photo: File) => {
 
     return photoURL;
   } catch (error: any) {
+    console.error(error);
     return false;
   }
 };
