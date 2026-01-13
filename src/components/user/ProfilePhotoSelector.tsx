@@ -1,7 +1,7 @@
 import { useRef, useState, type ChangeEvent } from "react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
-import { deleteAllUserPhotos, uploadUserPhoto } from "../../services/userProfile/userProfileServices";
+import { uploadUserPhoto } from "../../services/userProfile/userProfileServices";
 import { Loader } from "../Loader";
 
 export const ProfilePhotoSelector = () => {
@@ -49,9 +49,7 @@ export const ProfilePhotoSelector = () => {
     setIsLoading(false);
   };
 
-  const handleProfileImageURLReset = async () => {
-    setIsLoading(true);
-
+  const handleProfileImageURLReset = () => {
     setTempUser({
       ...tempUser,
       basicInfo: {
@@ -62,9 +60,6 @@ export const ProfilePhotoSelector = () => {
 
     if (!inputRef.current) return;
     inputRef.current.value = "";
-
-    await deleteAllUserPhotos();
-    setIsLoading(false);
   };
 
   return (
