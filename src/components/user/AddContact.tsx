@@ -81,7 +81,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
   if (!buttonType || buttonType === "default") {
     return (
       <button
-        className={`btn ${userIsAContact ? "btn-error" : ""}`}
+        className={`btn ${userIsAContact ? "btn bg-error/60" : ""}`}
         onClick={handleContactChange}
         disabled={userIdLoading || loading || userId === contactId}
       >
