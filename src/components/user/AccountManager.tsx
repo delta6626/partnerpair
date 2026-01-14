@@ -4,9 +4,21 @@ import type { ChangeEvent } from "react";
 import type { AppTheme } from "../../../shared/types/AppTheme";
 import { SignOut } from "./SignOut";
 import { DeleteAccount } from "./DeleteAccount";
+import { useTempUserStore } from "../../store/useTempUserStore";
 
 export const AccountManager = () => {
   const { theme, setTheme } = useTheme();
+
+  const { tempUser, setTempUser } = useTempUserStore();
+
+  if (!tempUser) return;
+
+  const handleEmailPermissionsChange = (permission: boolean) => {
+    setTempUser({
+      ...tempUser,
+      basicInfo: { ...tempUser.basicInfo, emailNotificationsAllowed: permission },
+    });
+  };
 
   const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value as AppTheme);
@@ -24,11 +36,27 @@ export const AccountManager = () => {
         <div className="flex gap-4 ">
           <div className="flex gap-2">
             <p>Yes</p>
-            <input type="radio" className="radio radio-primary" />
+            <input
+              type="radio"
+              name="emailNotifications"
+              className="radio radio-primary"
+              checked={tempUser.basicInfo.emailNotificationsAllowed}
+              onChange={() => {
+                handleEmailPermissionsChange(true);
+              }}
+            />
           </div>
           <div className="flex gap-2">
             <p>No</p>
-            <input type="radio" className="radio radio-primary" />
+            <input
+              type="radio"
+              name="emailNotifications"
+              className="radio radio-primary"
+              checked={!tempUser.basicInfo.emailNotificationsAllowed}
+              onChange={() => {
+                handleEmailPermissionsChange(false);
+              }}
+            />
           </div>
         </div>
       </div>
