@@ -4,3 +4,5 @@ TO DO:
 3. Subscription system
 4. Mobile responsiveness
 5. Implement blogs page
+6. Privacy policy and terms
+7. Landing page
