@@ -37,7 +37,9 @@ export const CommitmentLevelManager = ({ forCurrentUser }: { forCurrentUser: boo
 
   return (
     <div className="mt-4 flex items-center justify-between">
-      <p>{forCurrentUser ? "How committed are you?" : "How committed do you want cofounders to be?"}</p>
+      <p className="text-accent">
+        {forCurrentUser ? "How committed are you?" : "How committed do you want cofounders to be?"}
+      </p>
       <select
         className="select"
         onChange={handleCommitmentLevelChange}

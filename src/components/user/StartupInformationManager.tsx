@@ -76,7 +76,7 @@ export const StartupInformationManager = () => {
 
       <div className="mt-4">
         <div className="flex items-center justify-between">
-          <p>Do you have a startup?</p>
+          <p className="text-accent">Do you have a startup?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
               <p>Yes</p>
@@ -100,7 +100,7 @@ export const StartupInformationManager = () => {
         </div>
 
         <div className="mt-2 flex items-center justify-between">
-          <p>Do you want to join someone else's startup as a cofounder?</p>
+          <p className="text-accent">Do you want to join someone else's startup as a cofounder?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
               <p>Yes</p>

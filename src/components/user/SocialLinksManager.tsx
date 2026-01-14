@@ -32,7 +32,7 @@ export const SocialLinksManager = () => {
 
       <div className="mt-4">
         <div className="flex items-center justify-between gap-12">
-          <p>LinkedIn</p>
+          <p className="text-accent">LinkedIn</p>
           <input
             type="text"
             className="mt-2 input w-full max-w-120"
@@ -42,7 +42,7 @@ export const SocialLinksManager = () => {
           />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
-          <p>Twitter / X</p>
+          <p className="text-accent">Twitter / X</p>
           <input
             type="text"
             className="mt-2 input w-full max-w-120"
@@ -52,7 +52,7 @@ export const SocialLinksManager = () => {
           />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
-          <p>GitHub</p>
+          <p className="text-accent">GitHub</p>
           <input
             type="text"
             className="mt-2 input w-full max-w-120"
@@ -62,7 +62,7 @@ export const SocialLinksManager = () => {
           />
         </div>
         <div className="mt-2 flex items-center justify-between gap-12">
-          <p>Personal Website</p>
+          <p className="text-accent">Personal Website</p>
           <input
             type="text"
             className="mt-2 input w-full max-w-120"

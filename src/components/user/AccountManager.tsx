@@ -32,7 +32,7 @@ export const AccountManager = () => {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p>Allow email notifications</p>
+        <p className="text-accent">Allow email notifications</p>
         <div className="flex gap-4 ">
           <div className="flex gap-2">
             <p>Yes</p>
@@ -62,7 +62,7 @@ export const AccountManager = () => {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p>Theme preference</p>
+        <p className="text-accent">Theme preference</p>
         <select className="select max-w-45" value={theme} onChange={handleThemeChange}>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
@@ -71,12 +71,12 @@ export const AccountManager = () => {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p>Sign out</p>
+        <p className="text-accent">Sign out</p>
         <SignOut applyMinimumWidth={true} />
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p>Delete account</p>
+        <p className="text-accent">Delete account</p>
         <DeleteAccount />
       </div>
     </div>

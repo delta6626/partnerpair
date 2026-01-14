@@ -47,7 +47,7 @@ export const ProfileManager = () => {
 
       <div className="flex flex-row gap-2">
         <div className="w-full">
-          <p className="mt-4">First name</p>
+          <p className="mt-4 text-accent">First name</p>
           <input
             type="text"
             className="mt-2 input w-full"
@@ -58,7 +58,7 @@ export const ProfileManager = () => {
           />
         </div>
         <div className="w-full">
-          <p className="mt-4">Last name</p>
+          <p className="mt-4 text-accent">Last name</p>
           <input
             type="text"
             className="mt-2 input w-full"
@@ -72,7 +72,7 @@ export const ProfileManager = () => {
 
       <div className="flex flex-row gap-2">
         <div className="w-full">
-          <p className="mt-4">Email</p>
+          <p className="mt-4 text-accent">Email</p>
           <input
             type="email"
             className="mt-2 input w-full"
@@ -83,7 +83,7 @@ export const ProfileManager = () => {
           />
         </div>
         <div className="w-full">
-          <p className="mt-4">Location</p>
+          <p className="mt-4 text-accent">Location</p>
           <div className="mt-2">
             <CountryPicker />
           </div>
@@ -92,7 +92,7 @@ export const ProfileManager = () => {
 
       <div className="flex flex-row gap-2">
         <div className="w-full">
-          <p className="mt-4">Date of birth</p>
+          <p className="mt-4 text-accent">Date of birth</p>
           <input
             type="date"
             className="mt-2 input w-full"
@@ -104,7 +104,7 @@ export const ProfileManager = () => {
           />
         </div>
         <div className="w-full">
-          <p className="mt-4">Phone</p>
+          <p className="mt-4 text-accent">Phone</p>
           <div className="mt-2">
             <PhoneInput />
           </div>
@@ -112,7 +112,7 @@ export const ProfileManager = () => {
       </div>
 
       <div className="">
-        <p className="mt-4">Profile photo</p>
+        <p className="mt-4 text-accent">Profile photo</p>
         <div className="mt-2">
           <ProfilePhotoSelector />
         </div>

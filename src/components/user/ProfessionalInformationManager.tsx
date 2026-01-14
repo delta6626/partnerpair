@@ -40,7 +40,7 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <p className="mt-4">Headline</p>
+        <p className="mt-4 text-accent">Headline</p>
         <input
           type="text"
           className="mt-2 input w-full"
@@ -52,7 +52,7 @@ export const ProfessionalInformationManager = () => {
       </div>
 
       <div className="w-full">
-        <p className="mt-4">What makes you a great cofounder?</p>
+        <p className="mt-4 text-accent">What makes you a great cofounder?</p>
         <textarea
           className="mt-2 textarea w-full max-h-100"
           placeholder="Explain your skills, experience, and vision that make you an ideal cofounder"

@@ -27,7 +27,9 @@ export const SkillsManager = ({ forCurrentUser }: { forCurrentUser: boolean }) =
       <AddSkillModal forCurrentUser={forCurrentUser} />
 
       <div className="mt-4 flex items-center justify-between">
-        <p>{forCurrentUser ? "What skills do you have?" : "What skills are you looking for in a cofounder?"}</p>
+        <p className="text-accent">
+          {forCurrentUser ? "What skills do you have?" : "What skills are you looking for in a cofounder?"}
+        </p>
         <button
           className="btn btn-primary"
           disabled={skills.length === SETTINGS.MAX_SKILL_COUNT}
