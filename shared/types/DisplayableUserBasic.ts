@@ -12,6 +12,7 @@ export interface DisplayableUserBasic {
     | "profileViews"
     | "contactList"
     | "createdAt"
+    | "emailNotificationsAllowed"
   >;
 
   professionalInfo: Omit<User["professionalInfo"], "commitmentLevel" | "availability" | "education">;

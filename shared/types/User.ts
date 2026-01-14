@@ -22,6 +22,7 @@ export interface User {
     contactList: string[];
     createdAt: Date;
     lastActiveAt: Date;
+    emailNotificationsAllowed: boolean;
   };
 
   professionalInfo: {
