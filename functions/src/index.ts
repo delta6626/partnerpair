@@ -135,11 +135,14 @@ export const getContactDetails = async (contactId: string): Promise<Contact> => 
   const contactFirstName = fullContactData.basicInfo.firstName;
   const contactLastName = fullContactData.basicInfo.lastName;
   const contactProfileImageURL = fullContactData.basicInfo.profileImageUrl;
+  const contactHeadline = fullContactData.professionalInfo.headline;
+
   return {
     contactId: contactId,
     contactFirstName: contactFirstName,
     contactLastName: contactLastName,
     contactProfileImageURL: contactProfileImageURL,
+    contactHeadline: contactHeadline,
   };
 };
 

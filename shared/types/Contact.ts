@@ -3,4 +3,5 @@ export interface Contact {
   contactFirstName: string;
   contactLastName: string;
   contactProfileImageURL: string;
+  contactHeadline: string;
 }

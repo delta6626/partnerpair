@@ -17,7 +17,11 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
           src={contactDetails.contactProfileImageURL}
           alt={`${contactDetails.contactFirstName} ${contactDetails.contactLastName}`}
         />
-        <h1 className="flex gap-2">{contactDetails.contactFirstName + " " + contactDetails.contactLastName}</h1>
+
+        <div className="">
+          <h1 className="">{contactDetails.contactFirstName + " " + contactDetails.contactLastName}</h1>
+          <p className="text-accent">{contactDetails.contactHeadline ?? "No headline"}</p>
+        </div>
       </div>
 
       <div className="flex gap-2">
