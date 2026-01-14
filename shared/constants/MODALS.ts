@@ -23,4 +23,10 @@ export const MODALS = {
     DESCRIPTION:
       "Suggested profiles are users who best match your skills, roles, availability, and commitment preferences. Complete your profile to get more accurate matches.",
   },
+
+  PROFILE_UPDATE_ERROR_MODAL: {
+    ID: "profileUpdateErrorModal",
+    TITLE: "Update Failed",
+    DESCRIPTION: "Your profile changes could not be saved. Please try again.",
+  },
 };
