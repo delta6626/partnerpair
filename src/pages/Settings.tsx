@@ -20,6 +20,7 @@ import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../../shared/utils/basicUserDataValid";
 import { profileComplete } from "../../shared/utils/profileComplete";
 import type { User } from "../../shared/types/User";
+import { GenericErrorModal } from "../components/modals/GenericErrorModal";
 
 export const Settings = () => {
   useTheme();
@@ -61,6 +62,11 @@ export const Settings = () => {
 
     if (typeof userProfileUpdated === "string") {
       // TODO: handle error case
+      const profileUpdateErrorModal = document.getElementById(
+        MODALS.PROFILE_UPDATE_ERROR_MODAL.ID
+      ) as HTMLDialogElement;
+
+      profileUpdateErrorModal.showModal();
       return;
     }
 
@@ -82,6 +88,12 @@ export const Settings = () => {
   return (
     <div className="font-inter">
       <ProfileUpdateSuccessfulModal />
+      <GenericErrorModal
+        modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
+        errorTitle={MODALS.PROFILE_UPDATE_ERROR_MODAL.TITLE}
+        errorText={MODALS.PROFILE_UPDATE_ERROR_MODAL.DESCRIPTION}
+      />
+
       {loading ? (
         <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />
