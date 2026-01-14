@@ -17,8 +17,8 @@ export const GenericErrorModal = ({
   return (
     <dialog id={modalId} className="modal">
       <div className="modal-box bg-base-300 border border-base-100">
-        <h1 className="text-lg font-medium">{errorTitle}</h1>
-        <p className="mt-2 text-accent">{errorText}</p>
+        <h1 className="text-lg text-error font-medium">{errorTitle}</h1>
+        <p className="mt-2 text-error/60">{errorText}</p>
 
         <div className="flex justify-end mt-4">
           <button type="button" className="btn" onClick={closeModal}>

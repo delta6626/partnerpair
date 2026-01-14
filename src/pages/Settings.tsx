@@ -57,16 +57,17 @@ export const Settings = () => {
     // Delete all uploaded profile photos if the user is not using them.
 
     if (!tempUser.basicInfo.profileImageUrl.includes("firebasestorage.googleapis.com")) {
-      await deleteAllUserPhotos();
+      deleteAllUserPhotos(); // fire and forget
     }
 
     if (typeof userProfileUpdated === "string") {
-      // TODO: handle error case
+      setUpdating(false);
+
       const profileUpdateErrorModal = document.getElementById(
         MODALS.PROFILE_UPDATE_ERROR_MODAL.ID
       ) as HTMLDialogElement;
-
       profileUpdateErrorModal.showModal();
+
       return;
     }
 
