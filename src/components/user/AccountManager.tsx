@@ -20,6 +20,20 @@ export const AccountManager = () => {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
+        <p>Allow email notifications</p>
+        <div className="flex gap-4 ">
+          <div className="flex gap-2">
+            <p>Yes</p>
+            <input type="radio" className="radio radio-primary" />
+          </div>
+          <div className="flex gap-2">
+            <p>No</p>
+            <input type="radio" className="radio radio-primary" />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 flex items-center justify-between">
         <p>Theme preference</p>
         <select className="select max-w-45" value={theme} onChange={handleThemeChange}>
           <option value="light">Light</option>
@@ -28,12 +42,12 @@ export const AccountManager = () => {
         </select>
       </div>
 
-      <div className="mt-2 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between">
         <p>Sign out</p>
         <SignOut applyMinimumWidth={true} />
       </div>
 
-      <div className="mt-2 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between">
         <p>Delete account</p>
         <DeleteAccount />
       </div>
