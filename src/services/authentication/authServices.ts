@@ -45,6 +45,7 @@ export const createUserByEmail = async (
         contactList: [],
         createdAt: new Date(),
         lastActiveAt: new Date(),
+        emailNotificationsAllowed: true,
       },
 
       professionalInfo: {
@@ -197,6 +198,7 @@ export const signInWithGoogle = async () => {
           contactList: [],
           createdAt: new Date(),
           lastActiveAt: new Date(),
+          emailNotificationsAllowed: true,
         },
 
         professionalInfo: {
