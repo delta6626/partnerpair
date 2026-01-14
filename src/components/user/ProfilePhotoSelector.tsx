@@ -89,11 +89,7 @@ export const ProfilePhotoSelector = () => {
           ref={inputRef}
         ></input>
 
-        <button
-          className="btn"
-          disabled={tempUser?.basicInfo.profileImageUrl.includes(tempUser.basicInfo.firstName) || isLoading}
-          onClick={handleProfileImageURLReset}
-        >
+        <button className="btn" disabled={isLoading} onClick={handleProfileImageURLReset}>
           Reset to default
         </button>
       </div>
