@@ -5,6 +5,7 @@ import { addChatMessage } from "../../services/messaging/messagingServices";
 import { Loader } from "../Loader";
 import TextareaAutoSize from "react-textarea-autosize";
 import { Lightbulb, SendHorizonal } from "lucide-react";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const MessageInput = ({
   currentUserId,
@@ -43,7 +44,9 @@ export const MessageInput = ({
     const messageSent = await addChatMessage(selectedChatId, currentUserId, otherParticipantId, messageContent);
 
     if (typeof messageSent === "string" || (typeof messageSent === "boolean" && !messageSent)) {
-      // TODO: handle error case later.
+      const errorModal = document.getElementById(MODALS.FAILED_MESSAGE_ERROR_MODAL.ID) as HTMLDialogElement;
+      errorModal.showModal();
+
       setMessage(messageContent); // reset message input to previous content
       setSendingMessage(false);
       return;

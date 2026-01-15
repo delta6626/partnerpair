@@ -35,4 +35,10 @@ export const MODALS = {
     TITLE: "Failed to Delete Chat",
     DESCRIPTION: "This chat could not be deleted at the moment. Please try again later.",
   },
+
+  FAILED_MESSAGE_ERROR_MODAL: {
+    ID: "failedMessageErrorModal",
+    TITLE: "Failed to Send Message",
+    DESCRIPTION: "This message could not be sent at the moment. Please try again.",
+  },
 };
