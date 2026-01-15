@@ -41,4 +41,16 @@ export const MODALS = {
     TITLE: "Failed to Send Message",
     DESCRIPTION: "This message could not be sent at the moment. Please try again.",
   },
+
+  CONTACT_ADDITION_FAILED_ERROR_MODAL: {
+    ID: "contactAdditionFailedErrorModal",
+    TITLE: "Failed to Add Contact",
+    DESCRIPTION: "The contact could not be added at this time. Please try again later.",
+  },
+
+  CONTACT_DELETION_FAILED_ERROR_MODAL: {
+    ID: "contactDeletionFailedErrorModal",
+    TITLE: "Failed to Remove Contact",
+    DESCRIPTION: "The contact could not be removed at this time. Please try again later.",
+  },
 };
