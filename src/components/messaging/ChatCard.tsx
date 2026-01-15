@@ -7,6 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../../services/firebaseConfig";
 import { Loader } from "../Loader";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentUserId: string }) => {
   const { selectedChatId, setSelectedChatId } = useSelectedChatStore();
@@ -25,7 +26,9 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
     },
 
     onError: (error) => {
-      // TODO: Show error modal on error;
+      console.error(error.message);
+      const modal = document.getElementById(MODALS.CHAT_DELETE_ERROR_MODAL.ID) as HTMLDialogElement;
+      modal.showModal();
     },
   });
 

@@ -6,6 +6,8 @@ import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
 import { ChatViewer } from "../components/messaging/ChatViewer";
 import { Loader } from "../components/Loader";
+import { GenericErrorModal } from "../components/modals/GenericErrorModal";
+import { MODALS } from "../../shared/constants/MODALS";
 
 export const Messages = () => {
   useTheme();
@@ -26,6 +28,12 @@ export const Messages = () => {
           <div className="pt-8 flex flex-col flex-1">
             <div className="mb-4">
               <ProfileStatusMessage />
+
+              <GenericErrorModal
+                modalId={MODALS.CHAT_DELETE_ERROR_MODAL.ID}
+                errorTitle={MODALS.CHAT_DELETE_ERROR_MODAL.TITLE}
+                errorText={MODALS.CHAT_DELETE_ERROR_MODAL.DESCRIPTION}
+              />
             </div>
 
             <div className="flex gap-4 w-full">
