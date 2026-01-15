@@ -53,4 +53,22 @@ export const MODALS = {
     TITLE: "Failed to Remove Contact",
     DESCRIPTION: "The contact could not be removed at this time. Please try again later.",
   },
+
+  PHOTO_UPLOAD_FAILED_ERROR_MODAL: {
+    ID: "photoUploadFailedErrorModal",
+    TITLE: "Failed to Upload Photo",
+    DESCRIPTION: "The photo could not be uploaded at this time. Please try again.",
+  },
+
+  PHOTO_UPLOAD_FAILED_FILE_SIZE_ERROR_MODAL: {
+    ID: "photoUploadFailedFileSizeErrorModal",
+    TITLE: "Failed to Upload Photo",
+    DESCRIPTION: "This photo exceeds the maximum allowed file size. Please choose a smaller file and try again.",
+  },
+
+  PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL: {
+    ID: "photoUploadFailedUnsupportedTypeErrorModal",
+    TITLE: "Failed to Upload Photo",
+    DESCRIPTION: "This file type is not supported. Please upload a photo in a supported format and try again.",
+  },
 };

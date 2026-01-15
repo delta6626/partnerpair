@@ -3,6 +3,7 @@ import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { uploadUserPhoto } from "../../services/userProfile/userProfileServices";
 import { Loader } from "../Loader";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const ProfilePhotoSelector = () => {
   const { tempUser, setTempUser } = useTempUserStore();
@@ -23,6 +24,13 @@ export const ProfilePhotoSelector = () => {
       console.error("File too large");
       e.target.value = "";
       setIsLoading(false);
+
+      const errorModal = document.getElementById(
+        MODALS.PHOTO_UPLOAD_FAILED_FILE_SIZE_ERROR_MODAL.ID
+      ) as HTMLDialogElement;
+
+      errorModal.showModal();
+
       return;
     }
 
@@ -30,6 +38,13 @@ export const ProfilePhotoSelector = () => {
       console.error("Unsupported type");
       e.target.value = "";
       setIsLoading(false);
+
+      const errorModal = document.getElementById(
+        MODALS.PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL.ID
+      ) as HTMLDialogElement;
+
+      errorModal.showModal();
+
       return;
     }
 
@@ -39,8 +54,11 @@ export const ProfilePhotoSelector = () => {
 
     if (typeof photoUploaded === "boolean") {
       setIsLoading(false);
+
+      const errorModal = document.getElementById(MODALS.PHOTO_UPLOAD_FAILED_ERROR_MODAL.ID) as HTMLDialogElement;
+      errorModal.showModal();
+
       return;
-      // TO DO: Show error modal
     }
 
     // Upload successfull
