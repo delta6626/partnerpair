@@ -29,4 +29,10 @@ export const MODALS = {
     TITLE: "Update Failed",
     DESCRIPTION: "Your profile changes could not be saved. Please try again.",
   },
+
+  CHAT_DELETE_ERROR_MODAL: {
+    ID: "chatDeleteErrorModal",
+    TITLE: "Failed to Delete Chat",
+    DESCRIPTION: "This chat could not be deleted at the moment. Please try again later.",
+  },
 };
