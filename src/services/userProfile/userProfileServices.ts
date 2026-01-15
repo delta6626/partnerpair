@@ -4,7 +4,7 @@ import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore, storage } from "../firebaseConfig";
 import { collection, doc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
-import { deleteObject, getDownloadURL, listAll, ref, uploadBytes, type StorageReference } from "firebase/storage";
+import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 
 export const setVerificationStatus = async (status: boolean) => {
   const userId = await getUserId();
