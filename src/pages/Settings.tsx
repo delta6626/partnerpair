@@ -88,13 +88,6 @@ export const Settings = () => {
 
   return (
     <div className="font-inter">
-      <ProfileUpdateSuccessfulModal />
-      <GenericErrorModal
-        modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
-        errorTitle={MODALS.PROFILE_UPDATE_ERROR_MODAL.TITLE}
-        errorText={MODALS.PROFILE_UPDATE_ERROR_MODAL.DESCRIPTION}
-      />
-
       {loading ? (
         <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />

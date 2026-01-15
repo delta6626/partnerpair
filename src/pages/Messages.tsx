@@ -28,18 +28,6 @@ export const Messages = () => {
           <div className="pt-8 flex flex-col flex-1">
             <div className="mb-4">
               <ProfileStatusMessage />
-
-              <GenericErrorModal
-                modalId={MODALS.CHAT_DELETE_ERROR_MODAL.ID}
-                errorTitle={MODALS.CHAT_DELETE_ERROR_MODAL.TITLE}
-                errorText={MODALS.CHAT_DELETE_ERROR_MODAL.DESCRIPTION}
-              />
-
-              <GenericErrorModal
-                modalId={MODALS.FAILED_MESSAGE_ERROR_MODAL.ID}
-                errorTitle={MODALS.FAILED_MESSAGE_ERROR_MODAL.TITLE}
-                errorText={MODALS.FAILED_MESSAGE_ERROR_MODAL.DESCRIPTION}
-              />
             </div>
 
             <div className="flex gap-4 w-full">
