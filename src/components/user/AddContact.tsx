@@ -9,6 +9,7 @@ import { QUERY_KEYS } from "../../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../../services/authentication/authServices";
 import type { AddContactButtonVariant } from "../../../shared/types/AddContactButtonVariant";
 import { UserRoundPlus, UserRoundMinus } from "lucide-react";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactButtonVariant; contactId: string }) => {
   const { user } = useInitializeUser();
@@ -40,7 +41,9 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
     setLoading(false);
 
     if (typeof result === "string") {
-      return; // TO DO: handle error case;
+      const modal = document.getElementById(MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.ID) as HTMLDialogElement;
+      modal.showModal();
+      return;
     }
 
     setUser(updatedUser);
@@ -64,7 +67,9 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
     setLoading(false);
 
     if (typeof result === "string") {
-      return; // TO DO: handle error case;
+      const modal = document.getElementById(MODALS.CONTACT_DELETION_FAILED_ERROR_MODAL.ID) as HTMLDialogElement;
+      modal.showModal();
+      return;
     }
 
     setUser(updatedUser);
