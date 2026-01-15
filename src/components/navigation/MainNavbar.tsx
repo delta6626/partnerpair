@@ -43,6 +43,18 @@ export const MainNavbar = () => {
         errorTitle={MODALS.FAILED_MESSAGE_ERROR_MODAL.TITLE}
         errorText={MODALS.FAILED_MESSAGE_ERROR_MODAL.DESCRIPTION}
       />
+
+      <GenericErrorModal
+        modalId={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.ID}
+        errorTitle={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.TITLE}
+        errorText={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.DESCRIPTION}
+      />
+
+      <GenericErrorModal
+        modalId={MODALS.CONTACT_DELETION_FAILED_ERROR_MODAL.ID}
+        errorTitle={MODALS.CONTACT_DELETION_FAILED_ERROR_MODAL.TITLE}
+        errorText={MODALS.CONTACT_DELETION_FAILED_ERROR_MODAL.DESCRIPTION}
+      />
     </div>
   );
 };
