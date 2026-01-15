@@ -16,7 +16,7 @@ export const ProfilePhotoSelector = () => {
     setIsLoading(true);
 
     const files = e.target.files;
-    if (!files || files?.length === 0) return; // TO DO: Show no-upload modal
+    if (!files || files?.length === 0) return;
 
     const selectedFile = files[0];
 
