@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { DashboardHeader } from "../components/DashboardHeader";
-import { Footer } from "../components/Footer";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { SuggestedProfiles } from "../components/ProfileViewer/SuggestedProfiles";
@@ -31,7 +30,6 @@ export const Dashboard = () => {
           </div>
           <DashboardHeader user={user} />
           <SuggestedProfiles />
-          <Footer />
         </div>
       )}
     </div>
