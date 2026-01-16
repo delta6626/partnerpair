@@ -5,3 +5,4 @@
 5. Implement blogs page ❌ Cancelled for the time being.
 6. Privacy policy and terms
 7. Landing page
+9. Create footer
