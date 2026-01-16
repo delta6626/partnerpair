@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Blogs } from "./pages/Blogs";
 import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Verify } from "./pages/Verify";
@@ -27,11 +26,11 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/verify" element={<Verify />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          {/* <Route path="/browse" element={<Browse />}></Route> */}
+          <Route path="/browse" element={<Browse />}></Route>
           <Route path="/user/:id" element={<ViewUserProfile />}></Route>
           <Route path="/messages" element={<Messages />}></Route>
           <Route path="/forum" element={<Forum />}></Route>
-          <Route path="/blogs" element={<Blogs />}></Route>
+          {/* <Route path="/blogs" element={<Blogs />}></Route> */}
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/profileInsights" element={<ProfileInsights />}></Route>
           <Route path="/contacts" element={<UserContacts />}></Route>
