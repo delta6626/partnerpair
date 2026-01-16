@@ -7,6 +7,7 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../services/authentication/authServices";
+import { Footer } from "../components/navigation/Footer";
 
 export const Dashboard = () => {
   useTheme();
@@ -32,6 +33,8 @@ export const Dashboard = () => {
           <SuggestedProfiles />
         </div>
       )}
+
+      <Footer />
     </div>
   );
 };
