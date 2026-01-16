@@ -34,8 +34,14 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="flex flex-col gap-8">
         <h1 className="text-lg font-semibold">Legal</h1>
+        <div className="text-accent flex flex-col gap-2">
+          <Link to={"/privacy-policy"}>Privacy Policy</Link>
+          <Link to={"/terms-of-service"}>Terms of Service</Link>
+          <Link to={"/disclaimer"}>Community Guidelines</Link>
+          <Link to={"/disclaimer"}>Disclaimer</Link>
+        </div>
       </div>
 
       <div className="">
