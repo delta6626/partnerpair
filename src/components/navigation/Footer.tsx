@@ -44,8 +44,13 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="flex flex-col gap-8">
         <h1 className="text-lg font-semibold">Contact</h1>
+        <div className="text-accent flex flex-col gap-2">
+          <Link to={FOOTER.PERSONAL_GITHUB_LINK}>Developer Github</Link>
+          <Link to={FOOTER.PERSONAL_TWITTER_LINK}>Twitter</Link>
+          <Link to={`mailto:${FOOTER.PERSONAL_MAIL_ADDRESS}`}>Mail</Link>
+        </div>
       </div>
     </div>
   );
