@@ -6,19 +6,19 @@ export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
     // The menu items of the Navbar
 
     <div className={forMobile ? "flex flex-col" : ""}>
-      <a href="#about" className="btn bg-transparent border-none hover:text-primary">
+      <a href="#about" className="btn bg-transparent border-none text-accent hover:text-base-content">
         About
       </a>
-      <a href="#pricing" className="btn bg-transparent border-none hover:text-primary">
+      <a href="#pricing" className="btn bg-transparent border-none text-accent hover:text-base-content">
         Pricing
       </a>
-      <a href="#faq" className="btn bg-transparent border-none hover:text-primary">
+      <a href="#faq" className="btn bg-transparent border-none text-accent hover:text-base-content">
         FAQ
       </a>
       {/* <Link to={"/blogs"} className="btn bg-transparent border-none hover:text-primary">
         Blog
       </Link> */}
-      <Link to={"/login"} className="btn bg-transparent border-none hover:text-primary">
+      <Link to={"/login"} className="btn bg-transparent border-none text-accent hover:text-base-content">
         Log In
       </Link>
       <Link to={"/signup"} className="btn btn-primary border-none">
