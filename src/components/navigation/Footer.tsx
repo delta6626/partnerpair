@@ -23,8 +23,15 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="flex flex-col gap-8">
         <h1 className="text-lg font-semibold">Product</h1>
+        <div className="text-accent flex flex-col gap-2">
+          <Link to={"/settings"}>Manage Subscription</Link>
+          <Link to={"/#about"}>About</Link>
+          <Link to={"/#pricing"}>Pricing</Link>
+          <Link to={"/#faq"}>FAQ</Link>
+          <Link to={FOOTER.GITHUB_REPO_LINK}>Source code</Link>
+        </div>
       </div>
 
       <div className="">
