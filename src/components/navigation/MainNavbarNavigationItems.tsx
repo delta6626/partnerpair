@@ -29,9 +29,9 @@ export const MainNavbarNavigationItems = () => {
         Forum
       </NavLink>
 
-      <NavLink to="/blogs" className={navClass}>
+      {/* <NavLink to="/blogs" className={navClass}>
         Blogs
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
-1. Perform all TODOs written in the codebase ✅
+1. Perform all TODOs written in the codebase ✅ Done.
 2. Email notifications with Resend
 3. Subscription system
 4. Mobile responsiveness
-5. Implement blogs page
+5. Implement blogs page ❌ Cancelled for the time being.
 6. Privacy policy and terms
 7. Landing page

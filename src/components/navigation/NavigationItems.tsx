@@ -12,9 +12,9 @@ export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
       <a href="#pricing" className="btn bg-transparent border-none hover:text-primary">
         Pricing
       </a>
-      <Link to={"/blogs"} className="btn bg-transparent border-none hover:text-primary">
+      {/* <Link to={"/blogs"} className="btn bg-transparent border-none hover:text-primary">
         Blog
-      </Link>
+      </Link> */}
       <Link to={"/login"} className="btn bg-transparent border-none hover:text-primary">
         Log In
       </Link>
