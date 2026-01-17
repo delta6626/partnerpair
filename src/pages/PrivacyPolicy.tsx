@@ -320,7 +320,7 @@ export const PrivacyPolicy = () => {
             </section>
 
             <section className="mt-8">
-              <h1 className="text-2xl font-semibold pb-4">13. Changes to This Policy</h1>
+              <h1 className="text-2xl font-semibold pb-4">13. Changes to this Policy</h1>
 
               <h1 className="">
                 We may update this Privacy Policy from time to time. When changes are made, the updated version will be
