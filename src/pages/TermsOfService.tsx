@@ -20,6 +20,21 @@ export const TermsOfService = () => {
               bound by these Terms.
               <h1 className="pt-2">If you do not agree to these Terms, do not use PartnerPair.</h1>
             </section>
+
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">1. Eligibility</h1>
+
+              <ul className="list-disc pl-4">
+                <li>You must be at least 16 years old to use PartnerPair.</li>
+                <li>
+                  By using the platform, you represent and warrant that you meet the age requirement and have the legal
+                  capacity to enter into these Terms.
+                </li>
+                <li>
+                  Users are responsible for complying with all local laws when accessing PartnerPair internationally.
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
       </div>
