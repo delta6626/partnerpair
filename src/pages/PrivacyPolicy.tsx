@@ -25,8 +25,8 @@ export const PrivacyPolicy = () => {
               platform, you agree to the practices described in this Privacy Policy.
             </section>
 
-            <section className="">
-              <h1 className="">1. Information We Collect</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">1. Information We Collect</h1>
 
               <h1 className="">
                 We collect information you provide directly, information generated through your use of the platform, and
@@ -34,7 +34,7 @@ export const PrivacyPolicy = () => {
               </h1>
 
               <section>
-                <h1 className="">1.1 Required Information</h1>
+                <h1 className="text-xl font-medium py-4">1.1 Required Information</h1>
 
                 <h1 className="">The following information is required to create an account:</h1>
                 <ul className="list-disc pl-4">
@@ -46,7 +46,7 @@ export const PrivacyPolicy = () => {
               </section>
 
               <section>
-                <h1 className="">1.2 Optional Profile Information</h1>
+                <h1 className="text-xl font-medium py-4">1.2 Optional Profile Information</h1>
 
                 <h1 className="">
                   You may choose to provide additional information to improve matching quality and user experience,
@@ -68,7 +68,7 @@ export const PrivacyPolicy = () => {
               </section>
 
               <section>
-                <h1 className="">1.3 Account & Activity Data</h1>
+                <h1 className="text-xl font-medium py-4">1.3 Account & Activity Data</h1>
 
                 <h1 className="">
                   We automatically generate and store the following information to operate, secure, and improve the
@@ -88,7 +88,7 @@ export const PrivacyPolicy = () => {
               </section>
 
               <section>
-                <h1 className="">1.4 Communication Data</h1>
+                <h1 className="text-xl font-medium py-4">1.4 Communication Data</h1>
 
                 <h1 className="">
                   PartnerPair enables in-app messaging between users. We collect and store the following communication
@@ -105,7 +105,7 @@ export const PrivacyPolicy = () => {
               </section>
 
               <section>
-                <h1 className="">1.5 Profile View Data</h1>
+                <h1 className="text-xl font-medium py-4">1.5 Profile View Data</h1>
 
                 <h1 className="">
                   When you view another user’s profile, we collect and display the following information:
@@ -123,8 +123,8 @@ export const PrivacyPolicy = () => {
               </section>
             </section>
 
-            <section>
-              <h1 className="">2. How We Use Your Information</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">2. How We Use Your Information</h1>
 
               <h1 className="">We use the information we collect for the following purposes:</h1>
 
@@ -142,8 +142,8 @@ export const PrivacyPolicy = () => {
               <h1>We only use your information as necessary to provide and improve the PartnerPair platform.</h1>
             </section>
 
-            <section>
-              <h1 className="">3. Matching Algorithm</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">3. Matching Algorithm</h1>
 
               <h1 className="">PartnerPair uses an automated matching algorithm to suggest potential co-founders.</h1>
 
@@ -156,8 +156,8 @@ export const PrivacyPolicy = () => {
               <h1>The algorithm is designed to provide transparent, deterministic matching results.</h1>
             </section>
 
-            <section>
-              <h1 className="">4. Payments</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">4. Payments</h1>
 
               <h1 className="">PartnerPair operates on a freemium subscription model.</h1>
 
@@ -170,8 +170,8 @@ export const PrivacyPolicy = () => {
               <h1>PartnerPair does not have access to or retain sensitive payment information.</h1>
             </section>
 
-            <section>
-              <h1 className="">5. Cookies &amp; Local Storage</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">5. Cookies &amp; Local Storage</h1>
 
               <h1 className="">PartnerPair does not use cookies for tracking or advertising purposes.</h1>
 
@@ -185,8 +185,8 @@ export const PrivacyPolicy = () => {
               </h1>
             </section>
 
-            <section>
-              <h1 className="">6. Third-Party Services</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">6. Third-Party Services</h1>
 
               <h1 className="">
                 We rely on trusted third-party infrastructure providers to operate the platform. These providers process
@@ -210,8 +210,8 @@ export const PrivacyPolicy = () => {
               </h1>
             </section>
 
-            <section>
-              <h1 className="">7. Data Storage &amp; Security</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">7. Data Storage &amp; Security</h1>
 
               <h1 className="">PartnerPair takes data security seriously and implements the following measures:</h1>
 
@@ -225,8 +225,8 @@ export const PrivacyPolicy = () => {
               <h1>These measures help protect your information from unauthorized access, alteration, or disclosure.</h1>
             </section>
 
-            <section>
-              <h1 className="">8. Admin Access</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">8. Admin Access</h1>
 
               <h1 className="">
                 The platform is administered by a single administrator (the owner). The administrator has technical
@@ -241,8 +241,8 @@ export const PrivacyPolicy = () => {
               <h1>Administrator access exists solely to ensure platform functionality, safety, and compliance.</h1>
             </section>
 
-            <section>
-              <h1 className="">9. Data Retention</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">9. Data Retention</h1>
 
               <h1 className="">
                 Your data is retained for as long as your account is active. When you delete your account, all personal
@@ -256,8 +256,8 @@ export const PrivacyPolicy = () => {
               <h1>This exception is necessary to preserve the integrity of other users’ activity histories.</h1>
             </section>
 
-            <section>
-              <h1 className="">10. Your Rights</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">10. Your Rights</h1>
 
               <h1 className="">
                 Depending on your location, you have the right to manage your personal data, including:
@@ -274,8 +274,8 @@ export const PrivacyPolicy = () => {
               <h1>Requests can be made by contacting us at: 📧 hasan04.asm@gmail.com</h1>
             </section>
 
-            <section>
-              <h1 className="">11. International Users</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">11. International Users</h1>
 
               <h1 className="">
                 PartnerPair is available worldwide. By using the platform, you acknowledge that your data may be
@@ -291,8 +291,8 @@ export const PrivacyPolicy = () => {
               </ul>
             </section>
 
-            <section>
-              <h1 className="">12. Children’s Privacy</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">12. Children’s Privacy</h1>
 
               <h1 className="">
                 PartnerPair is not intended for users under the age of 16. We do not knowingly collect personal data
@@ -300,8 +300,8 @@ export const PrivacyPolicy = () => {
               </h1>
             </section>
 
-            <section>
-              <h1 className="">13. Changes to This Policy</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">13. Changes to This Policy</h1>
 
               <h1 className="">
                 We may update this Privacy Policy from time to time. When changes are made, the updated version will be
@@ -309,8 +309,8 @@ export const PrivacyPolicy = () => {
               </h1>
             </section>
 
-            <section>
-              <h1 className="">14. Contact Information</h1>
+            <section className="mt-8">
+              <h1 className="text-2xl font-semibold pb-4">14. Contact Information</h1>
 
               <h1 className="">For any questions, concerns, or privacy requests, contact:</h1>
 
