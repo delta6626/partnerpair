@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     fs: {
-      allow: [path.resolve(__dirname, "src"), path.resolve(__dirname, "shared")],
+      allow: [path.resolve(__dirname), path.resolve(__dirname, "src"), path.resolve(__dirname, "shared")],
     },
     host: true,
   },
