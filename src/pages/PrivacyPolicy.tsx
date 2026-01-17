@@ -1,5 +1,5 @@
 import { Footer } from "../components/navigation/Footer";
-import { MainNavbar } from "../components/navigation/MainNavbar";
+import { Navbar } from "../components/navigation/Navbar";
 import { useTheme } from "../hooks/useTheme";
 
 export const PrivacyPolicy = () => {
@@ -9,7 +9,7 @@ export const PrivacyPolicy = () => {
     <>
       <div className="w-full min-h-[100vh] flex flex-col font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
         <div className="py-4">
-          <MainNavbar />
+          <Navbar />
         </div>
 
         <div className="flex flex-col items-center">
