@@ -64,10 +64,6 @@ export const Footer = () => {
           <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/terms-of-service"}>
             Terms of Service
           </Link>
-
-          <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/disclaimer"}>
-            Disclaimer
-          </Link>
         </div>
       </div>
 
