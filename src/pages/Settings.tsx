@@ -13,14 +13,12 @@ import { SocialLinksManager } from "../components/user/SocialLinksManager";
 import { AccountManager } from "../components/user/AccountManager";
 import { deleteAllUserPhotos, updateUserProfile } from "../services/userProfile/userProfileServices";
 import { useUserStore } from "../store/useUserStore";
-import { ProfileUpdateSuccessfulModal } from "../components/modals/ProfileUpdateSuccessfulModal";
 import { MODALS } from "../../shared/constants/MODALS";
 import { MatchingPreferenceManager } from "../components/user/MatchingPreferenceManager";
 import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../../shared/utils/basicUserDataValid";
 import { profileComplete } from "../../shared/utils/profileComplete";
 import type { User } from "../../shared/types/User";
-import { GenericErrorModal } from "../components/modals/GenericErrorModal";
 
 export const Settings = () => {
   useTheme();
@@ -64,7 +62,7 @@ export const Settings = () => {
       setUpdating(false);
 
       const profileUpdateErrorModal = document.getElementById(
-        MODALS.PROFILE_UPDATE_ERROR_MODAL.ID
+        MODALS.PROFILE_UPDATE_ERROR_MODAL.ID,
       ) as HTMLDialogElement;
       profileUpdateErrorModal.showModal();
 
