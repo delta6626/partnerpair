@@ -187,7 +187,7 @@ export const TermsOfService = () => {
             </section>
 
             <section className="mt-8">
-              <h1 className="text-2xl font-semibold pb-4">12. Changes to these Terms</h1>
+              <h1 className="text-2xl font-semibold pb-4">11. Changes to these Terms</h1>
 
               <h1 className="">
                 We may update these terms from time to time. When changes are made, the updated version will be posted
