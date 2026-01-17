@@ -277,9 +277,7 @@ export const PrivacyPolicy = () => {
             <section className="mt-8">
               <h1 className="text-2xl font-semibold pb-4">10. Your Rights</h1>
 
-              <h1 className="pb-2">
-                Depending on your location, you have the right to manage your personal data, including:
-              </h1>
+              <h1 className="pb-2">You have the right to manage your personal data, including:</h1>
 
               <ul className="list-disc pl-4">
                 <li>Access your personal data</li>
@@ -289,7 +287,9 @@ export const PrivacyPolicy = () => {
                 <li>Withdraw consent for email notifications</li>
               </ul>
 
-              <h1 className="pt-2">Requests can be made by contacting us at: 📧 hasan04.asm@gmail.com</h1>
+              <h1 className="pt-2">
+                Specific requests regarding your data can be made by contacting us at: hasan04.asm@gmail.com.
+              </h1>
             </section>
 
             <section className="mt-8">
