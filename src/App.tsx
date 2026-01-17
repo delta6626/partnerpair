@@ -13,6 +13,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ProfileInsights } from "./pages/ProfileInsights";
 import { UserContacts } from "./pages/UserContacts";
 import { NotFound } from "./pages/NotFound";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/profileInsights" element={<ProfileInsights />}></Route>
           <Route path="/contacts" element={<UserContacts />}></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
