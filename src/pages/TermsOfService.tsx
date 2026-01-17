@@ -1,7 +1,11 @@
 import { FOOTER } from "../../shared/constants/FOOTER";
+import { Footer } from "../components/navigation/Footer";
 import { Navbar } from "../components/navigation/Navbar";
+import { useTheme } from "../hooks/useTheme";
 
 export const TermsOfService = () => {
+  useTheme();
+
   return (
     <>
       <div className="w-full min-h-[100vh] flex flex-col font-inter bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
@@ -195,6 +199,10 @@ export const TermsOfService = () => {
           </div>
         </div>
       </div>
+
+      <div className="bg-base-300 py-16"></div>
+
+      <Footer />
     </>
   );
 };

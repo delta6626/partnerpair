@@ -1,3 +1,4 @@
+import { FOOTER } from "../../shared/constants/FOOTER";
 import { Footer } from "../components/navigation/Footer";
 import { Navbar } from "../components/navigation/Navbar";
 import { useTheme } from "../hooks/useTheme";
@@ -333,7 +334,7 @@ export const PrivacyPolicy = () => {
               <h1 className="pb-2">For any questions, concerns, or privacy requests, contact:</h1>
 
               <ul className="list-disc pl-4">
-                <li>Email: hasan04.asm@gmail.com</li>
+                <li>{"Email: " + FOOTER.PERSONAL_MAIL_ADDRESS}</li>
                 <li>Designation: Developer / Creator / Owner of PartnerPair.</li>
               </ul>
             </section>
