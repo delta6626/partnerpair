@@ -11,7 +11,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile | Fil
       <div className="flex items-center gap-4">
         <div className="h-15 w-15 flex items-center">
           <Link to={`/user/${userData.id}`} className="h-15 w-15">
-            <img src={userData.profileImageURL} className="rounded-full" />
+            <img src={userData.profileImageURL} className="h-15 w-15 rounded-full" />
           </Link>
         </div>
         <div className="w-full flex gap-4 items-center justify-between">
