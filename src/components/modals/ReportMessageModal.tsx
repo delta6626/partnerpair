@@ -2,8 +2,10 @@ import { Flag } from "lucide-react";
 import { MODALS } from "../../../shared/constants/MODALS";
 import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { useState } from "react";
+import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 
 export const ReportMessageModal = () => {
+  const { selectedMessage, setSelectedMessage } = useSelectedMessageStore();
   const [selectedReason, setSelectedReason] = useState<string>("");
 
   const handleReasonClick = (reason: string) => {
@@ -21,6 +23,7 @@ export const ReportMessageModal = () => {
       className="modal"
       onClose={() => {
         setSelectedReason("");
+        setSelectedMessage(null);
       }}
     >
       <div className="modal-box bg-base-300 border border-base-100">
