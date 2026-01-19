@@ -74,7 +74,7 @@ export const MODALS = {
 
   REPORT_MESSAGE_MODAL: {
     ID: "reportMessageModal",
-    TITLE: "Report this Message",
+    TITLE: "Report Message",
     REASONS: [
       "Harassment or bullying",
       "Hate speech or threats",

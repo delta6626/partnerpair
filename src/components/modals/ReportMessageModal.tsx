@@ -7,7 +7,7 @@ export const ReportMessageModal = () => {
     <dialog id={MODALS.REPORT_MESSAGE_MODAL.ID} className="modal">
       <div className="modal-box bg-base-300 border border-base-100">
         <div className="flex items-center gap-2">
-          <Flag size={20} className="text-error" />
+          <Flag size={20} className="text-error/60" />
           <h1 className="text-lg font-medium">{MODALS.REPORT_MESSAGE_MODAL.TITLE}</h1>
         </div>
 
@@ -16,7 +16,7 @@ export const ReportMessageModal = () => {
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <button type="button" className="btn btn-error">
+          <button type="button" className="btn bg-error/60 hover:bg-error">
             {MODAL_ACTIONS.ACTION_REPORT}
           </button>
         </div>
