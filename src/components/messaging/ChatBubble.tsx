@@ -11,7 +11,7 @@ export const ChatBubble = ({
   currentUserId: string;
   otherParticipantId: string;
 }) => {
-  const [sentTimeVisible, setSentTimeVisible] = useState<boolean>(false);
+  const [hiddenItemsVisible, setHiddenItemsVisible] = useState<boolean>(false);
 
   const isSentByCurrentUser = message.senderId === currentUserId;
   return (
@@ -23,13 +23,13 @@ export const ChatBubble = ({
             : "max-w-[70%] bg-base-300 px-4 py-2 rounded-t-3xl rounded-bl-md rounded-br-3xl self-start cursor-pointer break-all"
         }
         onClick={() => {
-          setSentTimeVisible(!sentTimeVisible);
+          setHiddenItemsVisible(!hiddenItemsVisible);
         }}
       >
         {message.content}
       </div>
 
-      {sentTimeVisible && (
+      {hiddenItemsVisible && (
         <p className={isSentByCurrentUser ? "self-end text-accent mt-[-8px]" : "self-start text-accent mt-[-8px]"}>
           {formatDate(message.sentAt, {
             day: "2-digit",
