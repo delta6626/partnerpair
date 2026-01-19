@@ -10,8 +10,19 @@ export const ReportMessageModal = () => {
     setSelectedReason(reason);
   };
 
+  const handleModalClose = () => {
+    const modal = document.getElementById(MODALS.REPORT_MESSAGE_MODAL.ID) as HTMLDialogElement;
+    modal.close();
+  };
+
   return (
-    <dialog id={MODALS.REPORT_MESSAGE_MODAL.ID} className="modal">
+    <dialog
+      id={MODALS.REPORT_MESSAGE_MODAL.ID}
+      className="modal"
+      onClose={() => {
+        setSelectedReason("");
+      }}
+    >
       <div className="modal-box bg-base-300 border border-base-100">
         <div className="flex items-center gap-2">
           <Flag size={20} className="text-error/60" />
@@ -37,11 +48,11 @@ export const ReportMessageModal = () => {
         </div>
 
         <div className="flex justify-end mt-4 gap-2">
-          <button type="button" className="btn">
+          <button type="button" className="btn" onClick={handleModalClose}>
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <button type="button" className="btn bg-error/60 hover:bg-error">
+          <button type="button" className="btn bg-error/60 hover:bg-error" disabled={selectedReason === ""}>
             {MODAL_ACTIONS.ACTION_REPORT}
           </button>
         </div>
