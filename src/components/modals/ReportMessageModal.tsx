@@ -41,7 +41,7 @@ export const ReportMessageModal = () => {
             return (
               <button
                 key={index}
-                className={`btn w-full border-1 ${selectedReason !== reason ? "bg-transparent" : ""}`}
+                className={`btn w-full border-1 border-base-100 ${selectedReason !== reason ? "bg-transparent" : "bg-base-100"}`}
                 onClick={() => {
                   handleReasonClick(reason);
                 }}
