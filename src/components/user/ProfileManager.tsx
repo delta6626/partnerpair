@@ -14,14 +14,24 @@ export const ProfileManager = () => {
   if (!tempUser) return;
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTempUser({
-      ...tempUser,
-      basicInfo: {
-        ...tempUser.basicInfo,
-        firstName: e.target.value,
-        profileImageUrl: `${SETTINGS.DICEBEAR_API_URL}${e.target.value}`,
-      },
-    });
+    if (tempUser.basicInfo.profileImageUrl.includes(SETTINGS.DICEBEAR_API_URL)) {
+      setTempUser({
+        ...tempUser,
+        basicInfo: {
+          ...tempUser.basicInfo,
+          firstName: e.target.value,
+          profileImageUrl: `${SETTINGS.DICEBEAR_API_URL}${e.target.value}`,
+        },
+      });
+    } else {
+      setTempUser({
+        ...tempUser,
+        basicInfo: {
+          ...tempUser.basicInfo,
+          firstName: e.target.value,
+        },
+      });
+    }
   };
 
   const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {

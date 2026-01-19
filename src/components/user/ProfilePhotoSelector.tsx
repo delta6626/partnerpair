@@ -26,7 +26,7 @@ export const ProfilePhotoSelector = () => {
       setIsLoading(false);
 
       const errorModal = document.getElementById(
-        MODALS.PHOTO_UPLOAD_FAILED_FILE_SIZE_ERROR_MODAL.ID
+        MODALS.PHOTO_UPLOAD_FAILED_FILE_SIZE_ERROR_MODAL.ID,
       ) as HTMLDialogElement;
 
       errorModal.showModal();
@@ -40,7 +40,7 @@ export const ProfilePhotoSelector = () => {
       setIsLoading(false);
 
       const errorModal = document.getElementById(
-        MODALS.PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL.ID
+        MODALS.PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL.ID,
       ) as HTMLDialogElement;
 
       errorModal.showModal();
