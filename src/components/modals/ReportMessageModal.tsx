@@ -6,6 +6,10 @@ import { useState } from "react";
 export const ReportMessageModal = () => {
   const [selectedReason, setSelectedReason] = useState<string>("");
 
+  const handleReasonClick = (reason: string) => {
+    setSelectedReason(reason);
+  };
+
   return (
     <dialog id={MODALS.REPORT_MESSAGE_MODAL.ID} className="modal">
       <div className="modal-box bg-base-300 border border-base-100">
@@ -17,8 +21,18 @@ export const ReportMessageModal = () => {
         <p className="text-accent">{MODALS.REPORT_MESSAGE_MODAL.SUBTITLE}</p>
 
         <div className="flex flex-col gap-2 mt-4">
-          {MODALS.REPORT_MESSAGE_MODAL.REASONS.map((reason) => {
-            return <button className="btn w-full bg-transparent border-1">{reason}</button>;
+          {MODALS.REPORT_MESSAGE_MODAL.REASONS.map((reason, index) => {
+            return (
+              <button
+                key={index}
+                className={`btn w-full border-1 ${selectedReason !== reason ? "bg-transparent" : ""}`}
+                onClick={() => {
+                  handleReasonClick(reason);
+                }}
+              >
+                {reason}
+              </button>
+            );
           })}
         </div>
 
