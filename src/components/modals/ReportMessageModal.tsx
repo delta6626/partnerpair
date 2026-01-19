@@ -11,7 +11,7 @@ export const ReportMessageModal = () => {
           <h1 className="text-lg font-medium">{MODALS.REPORT_MESSAGE_MODAL.TITLE}</h1>
         </div>
 
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-end mt-4 gap-2">
           <button type="button" className="btn">
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
