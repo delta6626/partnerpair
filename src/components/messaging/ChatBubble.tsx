@@ -52,7 +52,7 @@ export const ChatBubble = ({
 
       {!isSentByCurrentUser && hiddenItemsVisible && (
         <button
-          className="btn btn-sm bg-base-300 mt-1 h-0 p-0 self-start text-error/60 hover:text-error border-none"
+          className="btn btn-sm bg-base-300 mt-1 mb-4 h-0 p-0 self-start text-error/60 hover:text-error border-none"
           onClick={handleReportAbuseClick}
         >
           Report abuse
