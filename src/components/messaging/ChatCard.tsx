@@ -50,10 +50,9 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
     >
       <div className="flex gap-4">
         <img
-          className="rounded-3xl"
+          className="rounded-full h-15 w-15"
           src={chat.participantProfileImageUrls[otherParticipantId]}
           alt="Profile"
-          width={50}
         />
 
         <div className="flex flex-col justify-center items-start">
