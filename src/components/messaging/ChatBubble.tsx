@@ -19,8 +19,8 @@ export const ChatBubble = ({
       <div
         className={
           isSentByCurrentUser
-            ? "text-white max-w-[70%] bg-primary px-4 py-2 rounded-t-3xl rounded-bl-3xl rounded-br-md self-end cursor-pointer break-all"
-            : "max-w-[70%] bg-base-300 px-4 py-2 rounded-t-3xl rounded-bl-md rounded-br-3xl self-start cursor-pointer break-all"
+            ? "text-white max-w-[70%] bg-primary px-4 py-2 rounded-t-3xl rounded-bl-3xl rounded-br-md self-end cursor-pointer break-all select-none"
+            : "max-w-[70%] bg-base-300 px-4 py-2 rounded-t-3xl rounded-bl-md rounded-br-3xl self-start cursor-pointer break-all select-none"
         }
         onClick={() => {
           setHiddenItemsVisible(!hiddenItemsVisible);
