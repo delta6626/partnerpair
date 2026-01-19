@@ -30,7 +30,7 @@ export const ChatBubble = ({
       </div>
 
       {hiddenItemsVisible && (
-        <p className={isSentByCurrentUser ? "self-end text-accent mt-[-8px]" : "self-start text-accent mt-[-8px]"}>
+        <p className={isSentByCurrentUser ? "self-end text-accent mt-[-8px]" : "self-start text-accent mt-[-4px]"}>
           {formatDate(message.sentAt, {
             day: "2-digit",
             month: "long",
