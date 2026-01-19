@@ -76,7 +76,7 @@ export const ChatViewer = () => {
 
   useEffect(() => {
     if (!scrollToDiv.current) return;
-    scrollToDiv.current.scrollIntoView({ behavior: "smooth" });
+    scrollToDiv.current.scrollIntoView({ behavior: "auto" });
   }, [selectedChatId, chatMessages.length]);
 
   return (
