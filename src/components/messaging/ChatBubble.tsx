@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
 import { formatDate } from "../../../shared/utils/formatDate";
+import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 
 export const ChatBubble = ({
   message,
@@ -11,9 +12,16 @@ export const ChatBubble = ({
   currentUserId: string;
   otherParticipantId: string;
 }) => {
+  const { setSelectedMessage } = useSelectedMessageStore();
+
   const [hiddenItemsVisible, setHiddenItemsVisible] = useState<boolean>(false);
 
   const isSentByCurrentUser = message.senderId === currentUserId;
+
+  const handleReportAbuseClick = () => {
+    setSelectedMessage(message);
+  };
+
   return (
     <>
       <div
@@ -43,7 +51,10 @@ export const ChatBubble = ({
       )}
 
       {!isSentByCurrentUser && hiddenItemsVisible && (
-        <button className="btn btn-sm bg-base-300 mt-1 h-0 p-0 self-start text-error/60 hover:text-error border-none">
+        <button
+          className="btn btn-sm bg-base-300 mt-1 h-0 p-0 self-start text-error/60 hover:text-error border-none"
+          onClick={handleReportAbuseClick}
+        >
           Report abuse
         </button>
       )}
