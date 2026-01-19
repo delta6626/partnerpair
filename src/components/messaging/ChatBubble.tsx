@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ChatMessage } from "../../../shared/types/ChatMessage";
 import { formatDate } from "../../../shared/utils/formatDate";
 import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const ChatBubble = ({
   message,
@@ -20,6 +21,8 @@ export const ChatBubble = ({
 
   const handleReportAbuseClick = () => {
     setSelectedMessage({ ...message, reporterId: currentUserId });
+    const reportMessageModal = document.getElementById(MODALS.REPORT_MESSAGE_MODAL.ID) as HTMLDialogElement;
+    reportMessageModal.showModal();
   };
 
   return (
