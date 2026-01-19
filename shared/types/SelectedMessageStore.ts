@@ -1,6 +1,6 @@
-import type { ChatMessage } from "./ChatMessage";
+import type { ReportedMessage } from "./ReportedMessage";
 
 export interface SelectedMessageStore {
-  selectedMessage: ChatMessage | null;
-  setSelectedMessage: (message: ChatMessage | null) => void;
+  selectedMessage: ReportedMessage | null;
+  setSelectedMessage: (message: ReportedMessage | null) => void;
 }

@@ -19,7 +19,7 @@ export const ChatBubble = ({
   const isSentByCurrentUser = message.senderId === currentUserId;
 
   const handleReportAbuseClick = () => {
-    setSelectedMessage(message);
+    setSelectedMessage({ ...message, reporterId: currentUserId });
   };
 
   return (

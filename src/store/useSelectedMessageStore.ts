@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import type { SelectedMessageStore } from "../../shared/types/SelectedMessageStore";
-import type { ChatMessage } from "../../shared/types/ChatMessage";
+import type { ReportedMessage } from "../../shared/types/ReportedMessage";
 
 export const useSelectedMessageStore = create<SelectedMessageStore>((set) => ({
   selectedMessage: null,
-  setSelectedMessage: (message: ChatMessage | null) => set({ selectedMessage: message }),
+  setSelectedMessage: (message: ReportedMessage | null) => set({ selectedMessage: message }),
 }));
