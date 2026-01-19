@@ -3,7 +3,7 @@
 3. Subscription system
 4. Mobile responsiveness
 5. Implement blogs page ❌ Cancelled for the time being.
-6. Privacy policy, terms of service, disclaimer and user guidelines
+6. Privacy policy, terms of service ✅
 7. Landing page
 9. Create footer ✅
 10. Abuse reporting for chats
