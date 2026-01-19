@@ -14,9 +14,11 @@ export const ReportMessageModal = () => {
           <h1 className="text-lg font-medium">{MODALS.REPORT_MESSAGE_MODAL.TITLE}</h1>
         </div>
 
-        <div className="flex flex-col gap-4 mt-4">
+        <p className="text-accent">{MODALS.REPORT_MESSAGE_MODAL.SUBTITLE}</p>
+
+        <div className="flex flex-col gap-2 mt-4">
           {MODALS.REPORT_MESSAGE_MODAL.REASONS.map((reason) => {
-            return <button className="btn w-full">{reason}</button>;
+            return <button className="btn w-full bg-transparent border-1">{reason}</button>;
           })}
         </div>
 
