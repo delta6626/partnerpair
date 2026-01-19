@@ -17,6 +17,8 @@ export const ReportMessageModal = () => {
     modal.close();
   };
 
+  const handleSubmitReport = () => {};
+
   return (
     <dialog
       id={MODALS.REPORT_MESSAGE_MODAL.ID}
@@ -55,7 +57,12 @@ export const ReportMessageModal = () => {
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <button type="button" className="btn bg-error/60 hover:bg-error" disabled={selectedReason === ""}>
+          <button
+            type="button"
+            className="btn bg-error/60 hover:bg-error"
+            disabled={selectedReason === ""}
+            onClick={handleSubmitReport}
+          >
             {MODAL_ACTIONS.ACTION_REPORT}
           </button>
         </div>
