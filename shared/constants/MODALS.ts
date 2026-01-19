@@ -71,4 +71,16 @@ export const MODALS = {
     TITLE: "Failed to Upload Photo",
     DESCRIPTION: "This file type is not supported. Please upload a photo in a supported format and try again.",
   },
+
+  REPORT_MESSAGE_MODAL: {
+    ID: "reportMessageModal",
+    TITLE: "Report this Message",
+    REASONS: [
+      "Harassment or bullying",
+      "Hate speech or threats",
+      "Spam or scam",
+      "Sexual or explicit content",
+      "Other",
+    ],
+  },
 };
