@@ -46,13 +46,13 @@ export const ChatViewer = () => {
 
     const chatMessagesQuery = query(
       collection(firestore, "chats", selectedChatId, "messages"),
-      orderBy("sentAt", "asc")
+      orderBy("sentAt", "asc"),
     );
 
     const unsubscribe = onSnapshot(
       chatMessagesQuery,
       (snapshot) => {
-        const messages: ChatMessage[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as ChatMessage));
+        const messages: ChatMessage[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }) as ChatMessage);
         setChatMessages(messages);
         setMessagesLoading(false);
       },
@@ -60,7 +60,7 @@ export const ChatViewer = () => {
         setMessagesLoading(false);
         setMessagesLoadingError(true);
         setMessagesLoadingErrorMessage(error.message);
-      }
+      },
     );
 
     return () => unsubscribe();
@@ -76,7 +76,7 @@ export const ChatViewer = () => {
   useEffect(() => {
     if (!scrollToDiv.current) return;
     scrollToDiv.current.scrollIntoView({ behavior: "smooth" });
-  });
+  }, [selectedChatId, chatMessages.length]);
 
   return (
     <div className="w-full border border-base-100 flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">
