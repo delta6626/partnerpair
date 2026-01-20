@@ -3,6 +3,7 @@ import { MODALS } from "../../../shared/constants/MODALS";
 import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { useState } from "react";
 import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
+import type { AbuseReport } from "../../../shared/types/AbuseReport";
 
 export const ReportMessageModal = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessageStore();

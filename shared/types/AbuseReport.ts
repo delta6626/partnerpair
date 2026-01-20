@@ -1,8 +1,10 @@
 import type { Timestamp } from "firebase/firestore";
 import type { ChatMessage } from "./ChatMessage";
 
-export type AbuseReport = Pick<ChatMessage, "senderId" | "content"> & {
+export interface AbuseReport {
+  reportedUserId: ChatMessage["id"];
+  reportedId: string;
+  reportedMessage: ChatMessage["content"];
   reportReason: string;
-  reporterId: string;
   reportCreatedAt: Timestamp;
-};
+}
