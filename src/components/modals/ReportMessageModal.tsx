@@ -6,6 +6,7 @@ import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 import type { AbuseReport } from "../../../shared/types/AbuseReport";
 import { Timestamp } from "firebase/firestore";
 import { submitAbuseReport } from "../../services/messaging/messagingServices";
+import { Loader } from "../Loader";
 
 export const ReportMessageModal = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessageStore();
@@ -93,7 +94,7 @@ export const ReportMessageModal = () => {
             disabled={selectedReason === ""}
             onClick={handleSubmitReport}
           >
-            {MODAL_ACTIONS.ACTION_REPORT}
+            {loading ? <Loader /> : MODAL_ACTIONS.ACTION_REPORT}
           </button>
         </div>
       </div>
