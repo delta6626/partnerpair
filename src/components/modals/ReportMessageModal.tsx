@@ -46,6 +46,8 @@ export const ReportMessageModal = () => {
     }
 
     if (success) {
+      const successModal = document.getElementById(MODALS.ABUSE_REPORT_SUCCESSFUL_MODAL.ID) as HTMLDialogElement;
+      successModal.showModal();
       handleModalClose();
     }
   };
