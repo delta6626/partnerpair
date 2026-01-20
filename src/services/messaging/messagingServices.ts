@@ -1,8 +1,9 @@
-import { collection, doc, getDocs, increment, query, runTransaction, where } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, increment, query, runTransaction, where } from "firebase/firestore";
 import { firestore } from "../firebaseConfig";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { getUserId } from "../authentication/authServices";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
+import type { AbuseReport } from "../../../shared/types/AbuseReport";
 
 export const addChatMessage = async (chatId: string, senderId: string, otherParticipantId: string, content: string) => {
   if (!chatId || !senderId || !otherParticipantId || !content) return false;
@@ -69,4 +70,16 @@ export const getAllUnreadMessageCount = async () => {
   });
 
   return unreadCount;
+};
+
+export const submitAbuseReport = async (abuseReport: AbuseReport) => {
+  const abuseReportsCollection = collection(firestore, "abuseReports");
+
+  try {
+    await addDoc(abuseReportsCollection, abuseReport);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 };
