@@ -5,10 +5,13 @@ import { useState } from "react";
 import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 import type { AbuseReport } from "../../../shared/types/AbuseReport";
 import { Timestamp } from "firebase/firestore";
+import { submitAbuseReport } from "../../services/messaging/messagingServices";
 
 export const ReportMessageModal = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessageStore();
+
   const [selectedReason, setSelectedReason] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   if (!selectedMessage) return;
 
@@ -21,7 +24,9 @@ export const ReportMessageModal = () => {
     modal.close();
   };
 
-  const handleSubmitReport = () => {
+  const handleSubmitReport = async () => {
+    setLoading(true);
+
     const abuseReport: AbuseReport = {
       reportedUserId: selectedMessage.id,
       reporterId: selectedMessage.reporterId,
@@ -29,6 +34,19 @@ export const ReportMessageModal = () => {
       reportReason: selectedReason,
       reportCreatedAt: Timestamp.now(),
     };
+
+    const success = await submitAbuseReport(abuseReport);
+    setLoading(false);
+
+    if (!success) {
+      handleModalClose();
+      // Open generic error modal
+    }
+
+    if (success) {
+      handleModalClose();
+      // Open success modal
+    }
   };
 
   return (
