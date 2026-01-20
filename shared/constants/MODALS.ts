@@ -72,6 +72,12 @@ export const MODALS = {
     DESCRIPTION: "This file type is not supported. Please upload a photo in a supported format and try again.",
   },
 
+  ABUSE_REPORT_FAILED_ERROR_MODAL: {
+    ID: "abuseReportFailedErrorModal",
+    TITLE: "Failed to Report Abuse",
+    DESCRIPTION: "This report could not be made at the moment. Please try again later.",
+  },
+
   REPORT_MESSAGE_MODAL: {
     ID: "reportMessageModal",
     TITLE: "Report Message",
