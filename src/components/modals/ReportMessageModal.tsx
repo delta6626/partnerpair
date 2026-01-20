@@ -4,10 +4,13 @@ import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { useState } from "react";
 import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 import type { AbuseReport } from "../../../shared/types/AbuseReport";
+import { Timestamp } from "firebase/firestore";
 
 export const ReportMessageModal = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessageStore();
   const [selectedReason, setSelectedReason] = useState<string>("");
+
+  if (!selectedMessage) return;
 
   const handleReasonClick = (reason: string) => {
     setSelectedReason(reason);
@@ -18,7 +21,15 @@ export const ReportMessageModal = () => {
     modal.close();
   };
 
-  const handleSubmitReport = () => {};
+  const handleSubmitReport = () => {
+    const abuseReport: AbuseReport = {
+      reportedUserId: selectedMessage.id,
+      reporterId: selectedMessage.reporterId,
+      reportedMessage: selectedMessage.content,
+      reportReason: selectedReason,
+      reportCreatedAt: Timestamp.now(),
+    };
+  };
 
   return (
     <dialog

@@ -3,7 +3,7 @@ import type { ChatMessage } from "./ChatMessage";
 
 export interface AbuseReport {
   reportedUserId: ChatMessage["id"];
-  reportedId: string;
+  reporterId: string;
   reportedMessage: ChatMessage["content"];
   reportReason: string;
   reportCreatedAt: Timestamp;
