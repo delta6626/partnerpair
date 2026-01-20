@@ -73,6 +73,12 @@ export const MainNavbar = () => {
         errorTitle={MODALS.PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL.TITLE}
         errorText={MODALS.PHOTO_UPLOAD_FAILED_UNSUPPORTED_TYPE_ERROR_MODAL.DESCRIPTION}
       />
+
+      <GenericErrorModal
+        modalId={MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.ID}
+        errorTitle={MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.TITLE}
+        errorText={MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.DESCRIPTION}
+      />
     </div>
   );
 };
