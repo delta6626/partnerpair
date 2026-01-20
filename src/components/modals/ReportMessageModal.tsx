@@ -47,7 +47,6 @@ export const ReportMessageModal = () => {
 
     if (success) {
       handleModalClose();
-      // Open success modal
     }
   };
 
