@@ -29,8 +29,9 @@ export const ReportMessageModal = () => {
     setLoading(true);
 
     const abuseReport: AbuseReport = {
-      reportedUserId: selectedMessage.id,
+      reportedUserId: selectedMessage.senderId,
       reporterId: selectedMessage.reporterId,
+      reportedMessageId: selectedMessage.id,
       reportedMessage: selectedMessage.content,
       reportReason: selectedReason,
       reportCreatedAt: Timestamp.now(),
