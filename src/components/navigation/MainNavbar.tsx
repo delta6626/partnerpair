@@ -5,6 +5,7 @@ import { ProfileUpdateSuccessfulModal } from "../modals/ProfileUpdateSuccessfulM
 import { SuggestedProfilesInformationModal } from "../modals/SuggestedProfilesInformationModal";
 import { MODALS } from "../../../shared/constants/MODALS";
 import { GenericErrorModal } from "../modals/GenericErrorModal";
+import { AbuseReportSuccessfulModal } from "../modals/AbuseReportSuccessfulModal";
 
 export const MainNavbar = () => {
   return (
@@ -25,6 +26,8 @@ export const MainNavbar = () => {
       <ProfileUpdateSuccessfulModal />
 
       <SuggestedProfilesInformationModal />
+
+      <AbuseReportSuccessfulModal />
 
       <GenericErrorModal
         modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}

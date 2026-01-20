@@ -72,8 +72,8 @@ export const MODALS = {
     DESCRIPTION: "This file type is not supported. Please upload a photo in a supported format and try again.",
   },
 
-  ABUSE_REPORT_SUCCESS_MODAL: {
-    ID: "abuseReportSuccessModal",
+  ABUSE_REPORT_SUCCESSFUL_MODAL: {
+    ID: "abuseReportSuccessfulModal",
     TITLE: "Report Submitted",
     DESCRIPTION: "Thank you for letting us know. Our moderation team will review your report promptly.",
   },
