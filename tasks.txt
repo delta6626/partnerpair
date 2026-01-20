@@ -6,4 +6,4 @@
 6. Privacy policy, terms of service ✅
 7. Landing page
 9. Create footer ✅
-10. Abuse reporting for chats => WIP.
+10. Abuse reporting for chats ✅
