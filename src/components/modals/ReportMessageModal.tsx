@@ -40,8 +40,9 @@ export const ReportMessageModal = () => {
     setLoading(false);
 
     if (!success) {
+      const errorModal = document.getElementById(MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.ID) as HTMLDialogElement;
+      errorModal.showModal();
       handleModalClose();
-      // Open generic error modal
     }
 
     if (success) {
