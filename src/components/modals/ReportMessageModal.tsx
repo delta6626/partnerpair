@@ -14,8 +14,6 @@ export const ReportMessageModal = () => {
   const [selectedReason, setSelectedReason] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  if (!selectedMessage) return;
-
   const handleReasonClick = (reason: string) => {
     setSelectedReason(reason);
   };
@@ -27,6 +25,7 @@ export const ReportMessageModal = () => {
 
   const handleSubmitReport = async () => {
     setLoading(true);
+    if (!selectedMessage) return;
 
     const abuseReport: AbuseReport = {
       reportedUserId: selectedMessage.senderId,
