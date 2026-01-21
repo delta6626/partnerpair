@@ -8,6 +8,8 @@ export const Home = () => {
         <Navbar></Navbar>
       </div>
 
+      <div className="border-b border-base-100"></div>
+
       <section className="py-32 paddingContainer">
         <h1 className="text-6xl font-semibold">
           Great Ideas Deserve<br></br>
@@ -27,6 +29,8 @@ export const Home = () => {
           <button className="btn">Watch Demo</button>
         </div>
       </section>
+
+      <div className="border-b border-base-100"></div>
     </div>
   );
 };
