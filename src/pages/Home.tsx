@@ -3,12 +3,12 @@ import { Navbar } from "../components/navigation/Navbar";
 
 export const Home = () => {
   return (
-    <div className="w-full font-inter min-h-[100vh] bg-base-300 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28">
-      <div className="py-4">
+    <div className="w-full font-inter min-h-[100vh] bg-base-300">
+      <div className="py-4 paddingContainer">
         <Navbar></Navbar>
       </div>
 
-      <section className="py-32">
+      <section className="py-32 paddingContainer">
         <h1 className="text-6xl font-semibold">
           Great Ideas Deserve<br></br>
           <span className="text-primary">Great Partners</span>

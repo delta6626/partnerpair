@@ -95,6 +95,10 @@
   @apply bg-base-200 border border-base-100;
 }
 
+.paddingContainer {
+  @apply px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28;
+}
+
 .modal {
   scrollbar-gutter: auto !important;
 }
