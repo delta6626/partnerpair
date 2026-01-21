@@ -6,7 +6,7 @@ import { TwitterIcon } from "../../assets/customIcons/TwitterIcon";
 
 export const Footer = () => {
   return (
-    <div className="w-full flex justify-between font-inter bg-base-200 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 py-8">
+    <div className="w-full flex justify-between font-inter bg-base-200 paddingContainer py-8">
       <div className="flex flex-col gap-8 max-w-50">
         <Logo />
 
