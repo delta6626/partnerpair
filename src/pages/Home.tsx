@@ -19,7 +19,7 @@ export const Home = () => {
           joining one, this is where teams begin.
         </h1>
 
-        <div className="mt-4 flex gap-4">
+        <div className="mt-8 flex gap-4">
           <button className="btn btn-primary">
             Get started <ArrowRight size={20} />
           </button>
