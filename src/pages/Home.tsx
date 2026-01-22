@@ -10,7 +10,7 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-32 paddingContainer flex items-center justify-between">
+      <section className="py-16 paddingContainer flex items-center justify-between">
         <div className="flex flex-col gap-8">
           <h1 className="text-6xl font-semibold">
             Great Ideas Deserve<br></br>
@@ -41,6 +41,17 @@ export const Home = () => {
             allowFullScreen
           ></iframe>
         </div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 paddingContainer">
+        <div className="w-full text-center">
+          <h1 className="text-4xl font-medium">How it Works</h1>
+          <h1 className="text-lg text-accent">Three steps to find your co-founder</h1>
+        </div>
+
+        <div className=""></div>
       </section>
     </div>
   );
