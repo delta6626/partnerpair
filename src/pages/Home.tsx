@@ -10,7 +10,7 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-32 paddingContainer">
+      <section className="py-32 paddingContainer flex items-center justify-between">
         <div className="flex flex-col gap-8">
           <h1 className="text-6xl font-semibold">
             Great Ideas Deserve<br></br>
@@ -31,7 +31,16 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className=""></div>
+        <div className="">
+          <iframe
+            className="w-2xl aspect-video rounded-3xl"
+            src="https://www.youtube.com/embed/LDU_Txk06tM?si=XP-eVunKEDvgdu8x" // Change source later.
+            title="PartnerPair Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       </section>
     </div>
   );
