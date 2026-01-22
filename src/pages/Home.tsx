@@ -10,27 +10,29 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-32 paddingContainer flex flex-col gap-8">
-        <h1 className="text-6xl font-semibold">
-          Great Ideas Deserve<br></br>
-          <span className="text-primary">Great Partners</span>
-        </h1>
+      <section className="py-32 paddingContainer">
+        <div className="flex flex-col gap-8">
+          <h1 className="text-6xl font-semibold">
+            Great Ideas Deserve<br></br>
+            <span className="text-primary">Great Partners</span>
+          </h1>
 
-        <h1 className="text-lg text-accent max-w-lg">
-          Discover and connect with co-founders who complement your skills and vision. Whether you’re starting up or
-          joining one, this is where teams begin.
-        </h1>
+          <h1 className="text-lg text-accent max-w-lg">
+            Discover and connect with co-founders who complement your skills and vision. Whether you’re starting up or
+            joining one, this is where teams begin.
+          </h1>
 
-        <div className="flex gap-4">
-          <button className="btn btn-primary">
-            Get started <ArrowRight size={20} />
-          </button>
+          <div className="flex gap-4">
+            <button className="btn btn-primary">
+              Get started <ArrowRight size={20} />
+            </button>
 
-          <button className="btn">Watch Demo</button>
+            <button className="btn">Watch Demo</button>
+          </div>
         </div>
-      </section>
 
-      <div className="border-b border-base-100"></div>
+        <div className=""></div>
+      </section>
     </div>
   );
 };
