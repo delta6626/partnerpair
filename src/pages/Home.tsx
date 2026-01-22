@@ -59,15 +59,11 @@ export const Home = () => {
             stepContent="Add your skills, experience, and what you're looking for in a co-founder."
           />
 
-          <ArrowRight className="text-accent" size={40} />
-
           <StepCard
             step="02"
             stepTitle="Browse and filter"
             stepContent="Search by location, skills, availability, commitment level, startup stage and more."
           />
-
-          <ArrowRight className="text-accent" size={40} />
 
           <StepCard
             step="03"
