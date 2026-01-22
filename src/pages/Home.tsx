@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
+import { StepCard } from "../components/landing/StepCard";
 
 export const Home = () => {
   return (
@@ -45,13 +46,35 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 paddingContainer">
+      <section className="py-16 flex flex-col gap-8 paddingContainer">
         <div className="w-full text-center">
           <h1 className="text-4xl font-medium">How it Works</h1>
           <h1 className="text-lg text-accent">Three steps to find your co-founder</h1>
         </div>
 
-        <div className=""></div>
+        <div className="flex items-center justify-between">
+          <StepCard
+            step="01"
+            stepTitle="Create your profile"
+            stepContent="Add your skills, experience, and what you're looking for in a co-founder."
+          />
+
+          <ArrowRight className="text-accent" size={40} />
+
+          <StepCard
+            step="02"
+            stepTitle="Browse and filter"
+            stepContent="Search by location, skills, availability, commitment level, startup stage and more."
+          />
+
+          <ArrowRight className="text-accent" size={40} />
+
+          <StepCard
+            step="03"
+            stepTitle="Connect directly"
+            stepContent="Message potential co-founders and start conversations that matter."
+          />
+        </div>
       </section>
     </div>
   );
