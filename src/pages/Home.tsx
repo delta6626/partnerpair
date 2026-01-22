@@ -47,13 +47,13 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 flex flex-col gap-8 paddingContainer">
+      <section className="py-16 flex flex-col items-center gap-16 paddingContainer">
         <div className="w-full text-center">
           <h1 className="text-4xl font-medium">How it Works</h1>
           <h1 className="text-lg text-accent">Three steps to find your co-founder</h1>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           <StepCard
             step="01"
             stepTitle="Create your profile"
