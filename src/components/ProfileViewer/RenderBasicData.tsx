@@ -81,7 +81,7 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">About Me</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">About Me</p>
         <p className={`mt-2 ${visitedUserData.professionalInfo.bio === "" ? "text-center text-accent" : ""}`}>
           {visitedUserData.professionalInfo.bio ||
             `${visitedUserData.basicInfo.firstName + " has not added a bio yet."}`}
@@ -89,7 +89,7 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">Roles I Play</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">Roles I Play</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.professionalInfo.roles}
@@ -99,7 +99,7 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">My Skills</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">My Skills</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.professionalInfo.skills}
@@ -111,9 +111,9 @@ export const RenderBasicData = ({
       <div className="mt-4">
         <div className="">
           {visitedUserData.professionalInfo.wantsToCofound ? (
-            <p className="text-accent uppercase font-bold tracking-wide">Startup</p>
+            <p className="text-accent uppercase font-semibold tracking-wide">Startup</p>
           ) : (
-            <p className="text-accent uppercase font-bold tracking-wide">My Startup</p>
+            <p className="text-accent uppercase font-semibold tracking-wide">My Startup</p>
           )}
         </div>
 
@@ -148,7 +148,7 @@ export const RenderBasicData = ({
 
       {visitedUserData.professionalInfo.wantsToCofound ? (
         <div className="mt-4">
-          <p className="text-accent uppercase font-bold tracking-wide">My Preferred Startup Stages</p>
+          <p className="text-accent uppercase font-semibold tracking-wide">My Preferred Startup Stages</p>
           <div className="mt-2">
             <GenericChipCollection
               listItems={visitedUserData.matchingPreferences.preferredCompanyStage as string[]}
@@ -161,7 +161,7 @@ export const RenderBasicData = ({
       )}
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">Roles I am Looking For</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">Roles I am Looking For</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.matchingPreferences.lookingForRoles}
@@ -171,7 +171,7 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">Skills I am Looking For</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">Skills I am Looking For</p>
         <div className="mt-2">
           <GenericChipCollection
             listItems={visitedUserData.matchingPreferences.lookingForSkills}
@@ -181,17 +181,17 @@ export const RenderBasicData = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Commitment Level</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">Preferred Cofounder Commitment Level</p>
         <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">Preferred Cofounder Availability</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">Preferred Cofounder Availability</p>
         <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
       </div>
 
       <div className="mt-4">
-        <p className="text-accent uppercase font-bold tracking-wide">My Socials</p>
+        <p className="text-accent uppercase font-semibold tracking-wide">My Socials</p>
         <div className="mt-2 text-center text-accent">{PROFILE_VIEWER.PRO_ONLY_DESCRIPTIVE}</div>
       </div>
     </div>

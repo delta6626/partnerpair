@@ -15,7 +15,7 @@ export const TermsOfService = () => {
 
         <div className="flex flex-col items-center">
           <div className="py-8 w-full max-w-200 mt-4">
-            <h1 className="text-3xl font-bold">Terms of Service</h1>
+            <h1 className="text-3xl font-semibold">Terms of Service</h1>
             <p className="text-accent">Last Updated: January 18, 2026</p>
 
             <section className="mt-8">

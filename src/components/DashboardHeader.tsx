@@ -12,7 +12,7 @@ export const DashboardHeader = ({ user }: { user: User | null }) => {
         <ProfileStatusMessage />
       </div>
       <div className="">
-        <h1 className="text-3xl font-bold">Hello, {user?.basicInfo.firstName}</h1>
+        <h1 className="text-3xl font-semibold">Hello, {user?.basicInfo.firstName}</h1>
         <h1 className="text-xl text-accent">{DASHBOARD.HEADER_SUB_TEXT}</h1>
       </div>
 

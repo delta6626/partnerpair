@@ -25,7 +25,7 @@ export const Blogs = () => {
               <ProfileStatusMessage />
             </div>
 
-            <h1 className="font-bold text-3xl">Blogs</h1>
+            <h1 className="font-semibold text-3xl">Blogs</h1>
             <p className="text-accent">Insights, tutorials, and stories worth reading.</p>
           </div>
         </div>

@@ -33,7 +33,7 @@ export const Messages = () => {
             <div className="flex gap-4 w-full">
               <div className="flex flex-col gap-4">
                 <div>
-                  <h1 className="font-bold text-3xl">Messages</h1>
+                  <h1 className="font-semibold text-3xl">Messages</h1>
                   <p className="text-accent">{MESSAGES.MESSAGE_SUBTEXT}</p>
                 </div>
 

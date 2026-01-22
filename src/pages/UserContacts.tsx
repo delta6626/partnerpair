@@ -51,7 +51,7 @@ export const UserContacts = () => {
       <div className="flex flex-col items-center grow">
         <div className="py-10 w-full flex items-center justify-between max-w-200">
           <div className="">
-            <h1 className="font-bold text-3xl">Contacts</h1>
+            <h1 className="font-semibold text-3xl">Contacts</h1>
             <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
           </div>
           <div className="relative">

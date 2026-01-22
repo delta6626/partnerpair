@@ -10,7 +10,7 @@ export const NotFound = () => {
 
       <div className="flex flex-col items-center justify-center grow w-full">
         <h1 className="text-9xl font-black">404</h1>
-        <h1 className="text-4xl font-bold mt-4">There's nothing here</h1>
+        <h1 className="text-4xl font-semibold mt-4">There's nothing here</h1>
         <p className="text-accent text-center mt-2">
           {" "}
           We couldn’t find the page you requested. The link may be <br /> outdated or incorrect.

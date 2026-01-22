@@ -48,7 +48,7 @@ export const UnreadMessageCounter = () => {
 
       {!isError && (
         <div className="mt-4 text-center">
-          <h1 className="text-3xl font-bold">{unreadMessageCount}</h1>
+          <h1 className="text-3xl font-semibold">{unreadMessageCount}</h1>
           <p className="mt-2 text-accent">{DASHBOARD.UNREAD_MESSAGE_COUNTER_SUBTEXT}</p>
         </div>
       )}

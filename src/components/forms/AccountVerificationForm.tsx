@@ -79,7 +79,7 @@ export const AccountVerificationForm = () => {
   return (
     <div className="flex flex-grow items-center justify-center">
       <div className="w-full max-w-md">
-        <h1 className="font-bold text-3xl md:text-4xl text-center">
+        <h1 className="font-semibold text-3xl md:text-4xl text-center">
           {VERIFY.WELCOME_MESSAGE + ", " + user?.basicInfo.firstName + "."}
         </h1>
         <h4 className="text-lg mt-8">{VERIFY.VERIFICATON_INSTRUCTIONS}</h4>

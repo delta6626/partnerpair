@@ -132,7 +132,7 @@ export const Browse = () => {
 
             <div className="flex items-center justify-between">
               <div className="">
-                <h1 className="font-bold text-3xl">Browse</h1>
+                <h1 className="font-semibold text-3xl">Browse</h1>
                 <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
               </div>
 
@@ -164,7 +164,7 @@ export const Browse = () => {
 
           {isError && (
             <div className="flex w-full flex-col flex-1 items-center justify-center">
-              <h1 className="text-4xl font-bold">{BROWSE.SEARCH_ERROR}</h1>
+              <h1 className="text-4xl font-semibold">{BROWSE.SEARCH_ERROR}</h1>
               <p className="text-accent">Error: {error.message}</p>
             </div>
           )}

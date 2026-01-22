@@ -31,7 +31,7 @@ export const ContactCounter = () => {
       </div>
 
       <div className="mt-4 text-center">
-        <h1 className="text-3xl font-bold">{user?.basicInfo.contactList.length}</h1>
+        <h1 className="text-3xl font-semibold">{user?.basicInfo.contactList.length}</h1>
         <p className="mt-2 text-accent">
           {user?.basicInfo.contactList.length === 0
             ? DASHBOARD.CONTACT_COUNTER_NO_CONTACTS

@@ -62,7 +62,7 @@ export const ProfileInsights = () => {
               } w-full max-w-200 flex items-center justify-between`}
             >
               <div className="">
-                <h1 className="font-bold text-3xl">Profile Views</h1>
+                <h1 className="font-semibold text-3xl">Profile Views</h1>
                 <p className="text-accent">{PROFILE_INSIGHTS.SUBTITLE_TEXT}</p>
               </div>
 

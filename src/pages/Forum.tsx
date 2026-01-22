@@ -11,7 +11,7 @@ export const Forum = () => {
       </div>
 
       <div className="flex flex-col grow items-center justify-center w-full">
-        <h1 className="text-4xl font-bold">Good things take time</h1>
+        <h1 className="text-4xl font-semibold">Good things take time</h1>
         <p className="text-accent">This feature will be available soon. Stay tuned.</p>
       </div>
     </div>

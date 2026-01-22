@@ -15,7 +15,7 @@ export const PrivacyPolicy = () => {
 
         <div className="flex flex-col items-center">
           <div className="py-8 w-full max-w-200 mt-4">
-            <h1 className="text-3xl font-bold">Privacy Policy</h1>
+            <h1 className="text-3xl font-semibold">Privacy Policy</h1>
             <p className="text-accent">Last Updated: January 17, 2026</p>
 
             <section className="mt-8">

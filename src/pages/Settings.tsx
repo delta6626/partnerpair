@@ -103,7 +103,7 @@ export const Settings = () => {
 
             <div className="w-full max-w-200 py-10 flex items-center justify-between">
               <div className="">
-                <h1 className="font-bold text-3xl">Settings</h1>
+                <h1 className="font-semibold text-3xl">Settings</h1>
                 <p className="text-accent">{SETTINGS.SUBTITLE_TEXT}</p>
               </div>
 
