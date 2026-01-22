@@ -29,7 +29,7 @@ export const Home = () => {
               Get started <ArrowRight size={20} />
             </button>
 
-            <button className="btn">Watch Demo</button>
+            <button className="btn">Explore features</button>
           </div>
         </div>
 
