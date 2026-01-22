@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
+import { Footer } from "../components/navigation/Footer";
 
 export const Home = () => {
   return (
@@ -72,6 +73,8 @@ export const Home = () => {
           />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
