@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FOOTER } from "../../../shared/constants/FOOTER";
-import { Logo } from "../branding/Logo";
+import { Logo } from "../landing/Logo";
 import { GithubIcon } from "../../assets/customIcons/GithubIcon";
 import { TwitterIcon } from "../../assets/customIcons/TwitterIcon";
 

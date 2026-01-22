@@ -1,4 +1,4 @@
-import { Logo } from "../branding/Logo";
+import { Logo } from "../landing/Logo";
 import { MainNavbarNavigationItems } from "./MainNavbarNavigationItems";
 import { ProfileDropdown } from "../user/ProfileDropdown";
 import { ProfileUpdateSuccessfulModal } from "../modals/ProfileUpdateSuccessfulModal";

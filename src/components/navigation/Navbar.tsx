@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Logo } from "../branding/Logo";
+import { Logo } from "../landing/Logo";
 import { NavigationItems } from "./NavigationItems";
 import { ThemeChanger } from "../ThemeChanger";
 
