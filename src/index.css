@@ -99,6 +99,25 @@
   @apply px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28;
 }
 
+.glowingItem {
+  box-shadow: 0 0 20px oklch(54% 0.245 262.881);
+  animation: glowingAnimation 2s ease-in-out infinite;
+}
+
+@keyframes glowingAnimation {
+  0% {
+    box-shadow: 0 0 20px oklch(54% 0.245 262.881);
+  }
+
+  50% {
+    box-shadow: 0 0 60px oklch(54% 0.245 262.881);
+  }
+
+  100% {
+    box-shadow: 0 0 20px oklch(54% 0.245 262.881);
+  }
+}
+
 .modal {
   scrollbar-gutter: auto !important;
 }

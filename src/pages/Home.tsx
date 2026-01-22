@@ -23,7 +23,7 @@ export const Home = () => {
           </h1>
 
           <div className="flex gap-4">
-            <button className="btn btn-primary">
+            <button className="btn btn-primary glowingItem">
               Get started <ArrowRight size={20} />
             </button>
 
