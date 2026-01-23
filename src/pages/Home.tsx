@@ -1,4 +1,4 @@
-import { ArrowRight, Target, Users2, Zap } from "lucide-react";
+import { ArrowRight, Stars, Target, Users2, Zap } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
@@ -79,6 +79,8 @@ export const Home = () => {
 
       <section className="py-16 flex items-center justify-between gap-16 paddingContainer">
         <div className="max-w-lg flex flex-col gap-8">
+          <IconText icon={Stars} text={"Smart Matching"} topTag={true} />
+
           <h1 className="text-4xl font-medium">Data Driven Co-founder Matching</h1>
 
           <h1 className="text-accent text-lg">
