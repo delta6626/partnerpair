@@ -123,6 +123,8 @@ export const Home = () => {
         <div></div>
       </section>
 
+      <div className="border-b border-base-100"></div>
+
       <Footer />
     </div>
   );
