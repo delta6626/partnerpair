@@ -11,7 +11,7 @@ export const StepCard = ({
     <div className="flex flex-col gap-2">
       <h1 className="text-6xl font-semibold text-accent">{step}</h1>
       <h1 className="text-2xl">{stepTitle}</h1>
-      <p className="text-accent max-w-xs">{stepContent}</p>
+      <h1 className="text-accent max-w-xs">{stepContent}</h1>
     </div>
   );
 };
