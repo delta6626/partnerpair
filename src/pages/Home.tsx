@@ -1,4 +1,19 @@
-import { ArrowRight, Briefcase, Clock, Filter, MapPin, Stars, Target, Users2, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Briefcase,
+  Clock,
+  Filter,
+  MapPin,
+  Stars,
+  Target,
+  Users2,
+  Zap,
+  UserCheck,
+  Sparkles,
+  ClockIcon,
+  TrendingUp,
+} from "lucide-react";
+import { TwitterIcon } from "../assets/customIcons/TwitterIcon";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
