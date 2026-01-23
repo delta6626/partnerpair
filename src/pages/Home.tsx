@@ -1,4 +1,4 @@
-import { ArrowRight, Stars, Target, Users2, Zap } from "lucide-react";
+import { ArrowRight, Briefcase, Clock, Filter, MapPin, Stars, Target, Users2, Zap } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
@@ -95,6 +95,31 @@ export const Home = () => {
           </div>
         </div>
 
+        {/* Insert image later */}
+        <div></div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-row-reverse items-center justify-between gap-16 paddingContainer">
+        <div className="max-w-lg flex flex-col gap-8">
+          <IconText icon={Filter} text={"Advanced Search"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Find Exactly Who You Need</h1>
+
+          <h1 className="text-accent text-lg">
+            Multi-filter search lets you narrow down candidates by skills, roles, commitment level, availability,
+            startup stage, and location.
+          </h1>
+
+          <div className="flex flex-col gap-2">
+            <IconText icon={Briefcase} text={"Filter by startup stages"} />
+            <IconText icon={MapPin} text={"Search worldwide or by specific country/region"} />
+            <IconText icon={Clock} text={"Filter by availability and time commitment"} />
+          </div>
+        </div>
+
+        {/* Insert image later */}
         <div></div>
       </section>
 
