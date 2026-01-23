@@ -1,7 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Target, Users2, Zap } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
+import { IconText } from "../components/landing/IconText";
 
 export const Home = () => {
   return (
@@ -83,6 +84,12 @@ export const Home = () => {
             Our matching algorithm analyzes skills, roles, and preferences. You get suggested profiles tailored
             specifically to what you bring and what you need.
           </h1>
+
+          <div className="flex flex-col gap-2">
+            <IconText icon={Target} text={"Compatibility scoring based on complementary skills"} />
+            <IconText icon={Zap} text={"Automatic suggestions on your dashboard"} />
+            <IconText icon={Users2} text={"Dual-sided matching: find people looking for what you offer"} />
+          </div>
         </div>
 
         <div></div>
