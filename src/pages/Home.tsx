@@ -74,6 +74,16 @@ export const Home = () => {
         </div>
       </section>
 
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex items-center justify-between gap-16 paddingContainer">
+        <div>
+          <h1 className="text-4xl font-medium max-w-lg">Data Driven Co-founder Matching</h1>
+        </div>
+
+        <div></div>
+      </section>
+
       <Footer />
     </div>
   );
