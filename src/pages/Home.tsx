@@ -140,6 +140,19 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
+      <section className="py-16 gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-4">
+          <IconText icon={UserCheck} text={"Comprehensive Profiles"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Show Everything that Matters</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            Your profile displays your skills, roles, experience, availability, social links and more. A completion
+            tracker guides you to build a complete profile.
+          </h1>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
