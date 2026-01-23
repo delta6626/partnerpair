@@ -77,8 +77,12 @@ export const Home = () => {
       <div className="border-b border-base-100"></div>
 
       <section className="py-16 flex items-center justify-between gap-16 paddingContainer">
-        <div>
-          <h1 className="text-4xl font-medium max-w-lg">Data Driven Co-founder Matching</h1>
+        <div className="max-w-lg flex flex-col gap-8">
+          <h1 className="text-4xl font-medium">Data Driven Co-founder Matching</h1>
+          <h1 className="text-accent text-lg">
+            Our matching algorithm analyzes skills, roles, and preferences. You get suggested profiles tailored
+            specifically to what you bring and what you need.
+          </h1>
         </div>
 
         <div></div>
