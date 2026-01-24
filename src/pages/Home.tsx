@@ -18,6 +18,7 @@ import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
 import { IconText } from "../components/landing/IconText";
+import { FeatureCard } from "../components/landing/FeatureCard";
 
 export const Home = () => {
   return (
@@ -150,6 +151,44 @@ export const Home = () => {
             Your profile displays your skills, roles, experience, availability, social links and more. A completion
             tracker guides you to build a complete profile.
           </h1>
+        </div>
+
+        <div className="grid grid-cols-3 place-items-center gap-8">
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
+
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
+
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
+
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
+
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
+
+          <FeatureCard
+            icon={Sparkles}
+            title={"Skills Showcase"}
+            description={"Display technical and non-technical skills with tags that help matches find you."}
+          />
         </div>
       </section>
 
