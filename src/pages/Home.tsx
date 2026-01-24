@@ -12,8 +12,9 @@ import {
   Sparkles,
   ClockIcon,
   TrendingUp,
+  BookOpen,
+  Link,
 } from "lucide-react";
-import { TwitterIcon } from "../assets/customIcons/TwitterIcon";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
@@ -161,33 +162,33 @@ export const Home = () => {
           />
 
           <FeatureCard
-            icon={Sparkles}
-            title={"Skills Showcase"}
-            description={"Display technical and non-technical skills with tags that help matches find you."}
+            icon={Briefcase}
+            title={"Roles & Experience"}
+            description={"Highlight co-founder roles that you can fulfill as well as roles you are looking for."}
           />
 
           <FeatureCard
-            icon={Sparkles}
-            title={"Skills Showcase"}
-            description={"Display technical and non-technical skills with tags that help matches find you."}
+            icon={BookOpen}
+            title={"Bio for a Story"}
+            description={"Share your story in the Bio and highlight what makes you an ideal co-founder."}
           />
 
           <FeatureCard
-            icon={Sparkles}
-            title={"Skills Showcase"}
-            description={"Display technical and non-technical skills with tags that help matches find you."}
+            icon={Clock}
+            title={"Availability & Commitment"}
+            description={"Indicate the commitment and availability you offer, and what you expect from others."}
           />
 
           <FeatureCard
-            icon={Sparkles}
-            title={"Skills Showcase"}
-            description={"Display technical and non-technical skills with tags that help matches find you."}
+            icon={Link}
+            title={"Social Proof"}
+            description={"Link your LinkedIn, GitHub, Twitter, and personal website to showcase your credibility."}
           />
 
           <FeatureCard
-            icon={Sparkles}
-            title={"Skills Showcase"}
-            description={"Display technical and non-technical skills with tags that help matches find you."}
+            icon={TrendingUp}
+            title={"Completion Tracking"}
+            description={"A complete profile increases your visibility. The system guides you to achieve it."}
           />
         </div>
       </section>
