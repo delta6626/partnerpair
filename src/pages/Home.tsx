@@ -141,7 +141,7 @@ export const Home = () => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 gap-16 paddingContainer">
+      <section className="py-16 flex flex-col gap-8 paddingContainer">
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={UserCheck} text={"Comprehensive Profiles"} topTag={true} />
 
