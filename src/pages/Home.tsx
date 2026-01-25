@@ -20,6 +20,10 @@ import {
   BarChart2,
   Eye,
   Bookmark,
+  Shield,
+  CircleCheck,
+  Flag,
+  Ban,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -269,6 +273,47 @@ export const Home = () => {
 
         {/* Insert image later */}
         <div></div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-col gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-8">
+          <IconText icon={Shield} text={"Safety and Trust"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">A Safe Place to Find Co-founders</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            Verify your email to protect the community. Report misuse anytime. Our moderation team reviews every report
+            and takes action.
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-4 place-items-center gap-8">
+          <FeatureCard
+            icon={CircleCheck}
+            title={"Verified Profiles"}
+            description={"Email verification required for all users before accessing the platform."}
+          />
+
+          <FeatureCard
+            icon={Flag}
+            title={"Abuse Reporting"}
+            description={"Report harrasment, spam or scams and keep the community safe."}
+          />
+
+          <FeatureCard
+            icon={Shield}
+            title={"Active Moderation"}
+            description={"Every report is reviewed by our moderation team."}
+          />
+
+          <FeatureCard
+            icon={Ban}
+            title={"Account Suspension"}
+            description={"Violators are suspended or terminated from the platform."}
+          />
+        </div>
       </section>
 
       <Footer />
