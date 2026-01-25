@@ -9,3 +9,4 @@
 10. Abuse reporting for chats ✅
 11. Chat message search
 12. Account deletion
+13. Prevent access to banned / suspended user accounts
