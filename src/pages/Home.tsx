@@ -19,6 +19,7 @@ import {
   Search,
   BarChart2,
   Eye,
+  Bookmark,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -239,6 +240,30 @@ export const Home = () => {
             <IconText icon={Eye} text={"View count with unique visitor tracking"} />
             <IconText icon={UserCheck} text={"See who specifically viewed your profile"} />
             <IconText icon={Clock} text={"Filter views by time period"} />
+          </div>
+        </div>
+
+        {/* Insert image later */}
+        <div></div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex items-center justify-between gap-16 paddingContainer">
+        <div className="max-w-lg flex flex-col gap-8">
+          <IconText icon={Bookmark} text={"Save Contacts"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Keep Track of Interesting Profiles</h1>
+
+          <h1 className="text-accent text-lg">
+            Save potential co-founders to review later. Organize and manage your list, search through saved contacts,
+            and access them quickly from your dashboard.
+          </h1>
+
+          <div className="flex flex-col gap-2">
+            <IconText icon={Bookmark} text={"Save profiles with one click"} />
+            <IconText icon={Search} text={"Search and filter saved contacts"} />
+            <IconText icon={Zap} text={"Quick access from your dashboard"} />
           </div>
         </div>
 
