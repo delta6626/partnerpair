@@ -17,6 +17,8 @@ import {
   MessageSquare,
   MessageCircle,
   Search,
+  BarChart2,
+  Eye,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -213,6 +215,30 @@ export const Home = () => {
             <IconText icon={MessageCircle} text={"Instant chat with no connection requests needed"} />
             <IconText icon={Zap} text={"Pre-written icebreaker templates to start conversations"} />
             <IconText icon={Search} text={"Search through your message history"} />
+          </div>
+        </div>
+
+        {/* Insert image later */}
+        <div></div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-row-reverse items-center justify-between gap-16 paddingContainer">
+        <div className="max-w-lg flex flex-col gap-8">
+          <IconText icon={BarChart2} text={"Profile Insights"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Know Who is Viewing Your Profile</h1>
+
+          <h1 className="text-accent text-lg">
+            See exactly how many people viewed your profile and who they are. Filter by time period, track unique vs.
+            repeat visitors, and monitor your profile performance over time.
+          </h1>
+
+          <div className="flex flex-col gap-2">
+            <IconText icon={Eye} text={"View count with unique visitor tracking"} />
+            <IconText icon={UserCheck} text={"See who specifically viewed your profile"} />
+            <IconText icon={Clock} text={"Filter views by time period"} />
           </div>
         </div>
 
