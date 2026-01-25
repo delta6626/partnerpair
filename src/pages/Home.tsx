@@ -200,19 +200,19 @@ export const Home = () => {
 
       <section className="py-16 flex items-center justify-between gap-16 paddingContainer">
         <div className="max-w-lg flex flex-col gap-8">
-          <IconText icon={MessageSquare} text={"Advanced Search"} topTag={true} />
+          <IconText icon={MessageSquare} text={"Real-Time Messaging"} topTag={true} />
 
-          <h1 className="text-4xl font-medium">Find Exactly Who You Need</h1>
+          <h1 className="text-4xl font-medium">Start Conversations Directly</h1>
 
           <h1 className="text-accent text-lg">
-            Multi-filter search lets you narrow down candidates by skills, roles, commitment level, availability,
-            startup stage, and location.
+            Direct messaging with potential co-founders. Smart icebreakers help you start conversations, with full chat
+            history and search built in.
           </h1>
 
           <div className="flex flex-col gap-2">
-            <IconText icon={MessageCircle} text={"Filter by startup stages"} />
-            <IconText icon={Zap} text={"Search worldwide or by specific country/region"} />
-            <IconText icon={Search} text={"Filter by availability and time commitment"} />
+            <IconText icon={MessageCircle} text={"Instant chat with no connection requests needed"} />
+            <IconText icon={Zap} text={"Pre-written icebreaker templates to start conversations"} />
+            <IconText icon={Search} text={"Search through your message history"} />
           </div>
         </div>
 
