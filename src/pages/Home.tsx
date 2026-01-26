@@ -31,6 +31,7 @@ import { StepCard } from "../components/landing/StepCard";
 import { Footer } from "../components/navigation/Footer";
 import { IconText } from "../components/landing/IconText";
 import { FeatureCard } from "../components/landing/FeatureCard";
+import { PricingCard } from "../components/landing/PricingCard";
 
 export const Home = () => {
   return (
