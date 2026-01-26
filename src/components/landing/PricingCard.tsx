@@ -19,9 +19,12 @@ export const PricingCard = ({
 }) => {
   return (
     <div className="">
-      <h1>{tierName}</h1>
-      <h1>{tierSubtitle}</h1>
-      <h1>{tierPrice}</h1>
+      <h1 className="text-3xl">{tierName}</h1>
+      <h1 className="text-lg text-accent">{tierSubtitle}</h1>
+      <h1 className="text-3xl font-medium">
+        {`$${tierPrice}`}
+        <span className="text-accent text-sm">{` /month`}</span>
+      </h1>
 
       {tierFeatures.map((tier, index) => {
         return <IconText key={index} icon={Check} text={tier}></IconText>;
