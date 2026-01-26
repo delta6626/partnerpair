@@ -1,3 +1,7 @@
+import { Check } from "lucide-react";
+import { IconText } from "./IconText";
+import { Link } from "react-router-dom";
+
 export const PricingCard = ({
   tierName,
   tierSubtitle,
@@ -13,5 +17,19 @@ export const PricingCard = ({
   tierLink: string;
   isRecommended: boolean;
 }) => {
-  return <div className=""></div>;
+  return (
+    <div className="">
+      <h1>{tierName}</h1>
+      <h1>{tierSubtitle}</h1>
+      <h1>{tierPrice}</h1>
+
+      {tierFeatures.map((tier, index) => {
+        return <IconText key={index} icon={Check} text={tier}></IconText>;
+      })}
+
+      <Link to={`/signup/${tierLink}`} className={`btn ${isRecommended ? "btn-primary" : ""}`}>
+        Get started
+      </Link>
+    </div>
+  );
 };
