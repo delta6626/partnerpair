@@ -24,6 +24,7 @@ import {
   CircleCheck,
   Flag,
   Ban,
+  Crown,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -317,6 +318,20 @@ export const Home = () => {
       </section>
 
       <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-col gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-8">
+          <IconText icon={Crown} text={"Pricing"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Choose Your Plan</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            Start free with everything you need. Go Pro to unlock premium features and exclusive benefits.
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-4 place-items-center gap-8"></div>
+      </section>
 
       <Footer />
     </div>
