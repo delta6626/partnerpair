@@ -30,7 +30,7 @@ export const PricingCard = ({
         return <IconText key={index} icon={Check} text={tier}></IconText>;
       })}
 
-      <Link to={`/signup/${tierLink}`} className={`btn ${isRecommended ? "btn-primary" : ""}`}>
+      <Link to={`/signup/${tierLink}`} className={`btn mt-4 w-full ${isRecommended ? "btn-primary" : ""}`}>
         Get started
       </Link>
     </div>
