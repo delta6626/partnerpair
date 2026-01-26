@@ -331,7 +331,25 @@ export const Home = () => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-4 place-items-center gap-8"></div>
+        <div className="w-full flex justify-center gap-4">
+          <PricingCard
+            tierName={"Basic"}
+            tierSubtitle={"Free access to core features"}
+            tierPrice={"0"}
+            tierFeatures={[]}
+            tierLink={""}
+            isRecommended={false}
+          />
+
+          <PricingCard
+            tierName={"Pro"}
+            tierSubtitle={"Enhanced features for serious founders"}
+            tierPrice={"5.99"}
+            tierFeatures={[]}
+            tierLink={""}
+            isRecommended={false}
+          />
+        </div>
       </section>
 
       <Footer />
