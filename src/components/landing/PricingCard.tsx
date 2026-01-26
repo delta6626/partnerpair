@@ -18,10 +18,10 @@ export const PricingCard = ({
   isRecommended: boolean;
 }) => {
   return (
-    <div className="">
+    <div className="w-lg max-w-lg border border-base-100 p-8 rounded-3xl">
       <h1 className="text-3xl">{tierName}</h1>
       <h1 className="text-lg text-accent">{tierSubtitle}</h1>
-      <h1 className="text-3xl font-medium">
+      <h1 className="text-3xl font-medium my-4">
         {`$${tierPrice}`}
         <span className="text-accent text-sm">{` /month`}</span>
       </h1>
