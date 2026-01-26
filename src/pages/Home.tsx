@@ -219,7 +219,7 @@ export const Home = () => {
           <div className="flex flex-col gap-2">
             <IconText icon={MessageCircle} text={"Instant chat with no connection requests needed"} />
             <IconText icon={Zap} text={"Pre-written icebreaker templates to start conversations"} />
-            <IconText icon={Search} text={"Search through your message history"} />
+            <IconText icon={Search} text={"Search through your chats"} />
           </div>
         </div>
 
