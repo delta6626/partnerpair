@@ -10,7 +10,6 @@ import {
   Zap,
   UserCheck,
   Sparkles,
-  ClockIcon,
   TrendingUp,
   BookOpen,
   Link,
