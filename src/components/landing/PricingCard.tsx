@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 import { IconText } from "./IconText";
-import { Link } from "react-router-dom";
 import { GetStartedButton } from "./GetStartedButton";
 
 export const PricingCard = ({
