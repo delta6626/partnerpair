@@ -24,6 +24,7 @@ import {
   Ban,
   Crown,
   Hourglass,
+  MessagesSquare,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -361,6 +362,20 @@ export const Home = () => {
           <h1 className="text-accent text-center text-lg max-w-lg">
             New features are on the way, all built to help you connect more easily and grow over time.
           </h1>
+        </div>
+
+        <div className="grid grid-cols-2 place-items-center gap-8">
+          <FeatureCard
+            icon={MessagesSquare}
+            title="Community Forums"
+            description="Discussion threads for co-founding strategies, fundraising, and market trends. Connect with founders beyond direct messaging. Share resources and experiences."
+          />
+
+          <FeatureCard
+            icon={BookOpen}
+            title="Industry Blogs"
+            description="Expert articles on co-founder relationships, fundraising, product-market fit, and scaling. Content from experienced founders and investors."
+          />
         </div>
       </section>
 
