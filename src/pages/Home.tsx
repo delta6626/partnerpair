@@ -349,6 +349,8 @@ export const Home = () => {
         </div>
       </section>
 
+      <div className="border border-base-100"></div>
+
       <Footer />
     </div>
   );
