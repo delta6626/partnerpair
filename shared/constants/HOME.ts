@@ -1,11 +1,13 @@
+import { SETTINGS } from "./SETTINGS";
+
 export const HOME = {
   BASIC_FEATURES: [
     "Create your profile",
     "Search and browse co-founders",
     "Limited search filters",
     "Limited access to other profiles",
-    `Start up to 5 chats`,
-    `Save up to 5 contacts`,
+    `Start up to ${SETTINGS.BASIC_MAX_CHATS} chats`,
+    `Save up to ${SETTINGS.BASIC_MAX_CONTACTS} contacts`,
   ],
   PRO_FEATURES: [
     "Create your profile",
