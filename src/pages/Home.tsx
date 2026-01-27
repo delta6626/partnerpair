@@ -394,6 +394,20 @@ export const Home = () => {
         </div>
       </section>
 
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-col gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-8">
+          <h1 className="text-4xl font-medium">Ready to Find Your Co-founder?</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            Create your profile and start connecting with founders who complement your skills.
+          </h1>
+
+          <GetStartedButton route={"/signup"} variant="btn-primary" className="glowingItem" />
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
