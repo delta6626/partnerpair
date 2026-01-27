@@ -17,4 +17,5 @@ export const HOME = {
     "Unlimited saved contacts",
     "Priority support",
   ],
+  PRO_PRICE: "4.99",
 };

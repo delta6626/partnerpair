@@ -344,10 +344,10 @@ export const Home = () => {
           <PricingCard
             tierName={"Pro"}
             tierSubtitle={"Enhanced features for serious founders"}
-            tierPrice={"5.99"}
+            tierPrice={HOME.PRO_PRICE}
             tierFeatures={HOME.PRO_FEATURES}
             tierLink={""}
-            isRecommended={false}
+            isRecommended={true}
           />
         </div>
       </section>
