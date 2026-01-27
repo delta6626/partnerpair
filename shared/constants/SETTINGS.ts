@@ -20,4 +20,6 @@ export const SETTINGS = {
   DICEBEAR_API_URL: "https://api.dicebear.com/9.x/initials/svg?seed=",
   ACCEPTED_IMAGE_TYPES: ["image/png", "image/jpeg", "image/jpg", "image/webp"],
   MAX_IMAGE_SIZE_BYTES: 1 * 1024 * 1024,
+  BASIC_MAX_CONTACTS: 5,
+  BASIC_MAX_CHATS: 5,
 };
