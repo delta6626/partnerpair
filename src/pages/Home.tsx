@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Briefcase,
   Clock,
   Filter,
