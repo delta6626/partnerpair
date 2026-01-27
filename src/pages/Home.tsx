@@ -25,6 +25,7 @@ import {
   Crown,
   Hourglass,
   MessagesSquare,
+  HelpCircle,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -376,6 +377,20 @@ export const Home = () => {
             title="Industry Blogs"
             description="Expert articles on co-founder relationships, fundraising, product-market fit, and scaling. Content from experienced founders and investors."
           />
+        </div>
+      </section>
+
+      <div className="border-b border-base-100"></div>
+
+      <section className="py-16 flex flex-col gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-8">
+          <IconText icon={HelpCircle} text={"FAQ"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">Commonly Asked Questions</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            We’ve got answers to commonly asked questions to help you get started faster.
+          </h1>
         </div>
       </section>
 
