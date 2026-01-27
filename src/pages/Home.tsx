@@ -23,6 +23,7 @@ import {
   Flag,
   Ban,
   Crown,
+  Hourglass,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -350,6 +351,18 @@ export const Home = () => {
       </section>
 
       <div className="border border-base-100"></div>
+
+      <section className="py-16 flex flex-col gap-16 paddingContainer">
+        <div className="w-full flex items-center flex-col gap-8">
+          <IconText icon={Hourglass} text={"Coming soon"} topTag={true} />
+
+          <h1 className="text-4xl font-medium">On the Roadmap</h1>
+
+          <h1 className="text-accent text-center text-lg max-w-lg">
+            New features are on the way, all built to help you connect more easily and grow over time.
+          </h1>
+        </div>
+      </section>
 
       <Footer />
     </div>
