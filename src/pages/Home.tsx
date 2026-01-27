@@ -32,6 +32,7 @@ import { IconText } from "../components/landing/IconText";
 import { FeatureCard } from "../components/landing/FeatureCard";
 import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
+import { GetStartedButton } from "../components/landing/GetStartedButton";
 
 export const Home = () => {
   return (
@@ -55,10 +56,7 @@ export const Home = () => {
           </h1>
 
           <div className="flex gap-4">
-            <button className="btn btn-primary glowingItem">
-              Get started <ArrowRight size={20} />
-            </button>
-
+            <GetStartedButton route="/signup" variant="btn-primary" className="glowingItem" />
             <button className="btn">Explore features</button>
           </div>
         </div>
