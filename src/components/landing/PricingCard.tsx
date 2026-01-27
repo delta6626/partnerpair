@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { IconText } from "./IconText";
 import { Link } from "react-router-dom";
+import { GetStartedButton } from "./GetStartedButton";
 
 export const PricingCard = ({
   tierName,
@@ -30,9 +31,11 @@ export const PricingCard = ({
         return <IconText key={index} icon={Check} text={tier}></IconText>;
       })}
 
-      <Link to={`/signup/${tierLink}`} className={`btn mt-4 w-full ${isRecommended ? "btn-primary" : ""}`}>
-        Get started
-      </Link>
+      <GetStartedButton
+        route={`/signup/${tierLink}`}
+        variant={isRecommended ? "btn-primary" : ""}
+        className="mt-4 w-full"
+      />
     </div>
   );
 };
