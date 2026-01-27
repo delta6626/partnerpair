@@ -20,7 +20,7 @@ export const PricingCard = ({
 }) => {
   return (
     <div className={`w-lg max-w-lg border p-8 rounded-3xl ${isRecommended ? "border-primary" : "border-base-100"}`}>
-      <h1 className="text-3xl">{tierName}</h1>
+      <h1 className="text-3xl font-medium">{tierName}</h1>
       <h1 className="text-lg text-accent">{tierSubtitle}</h1>
       <h1 className="text-3xl font-medium my-4">
         {`$${tierPrice}`}
