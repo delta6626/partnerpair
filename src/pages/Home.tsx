@@ -55,7 +55,7 @@ export const Home = () => {
           </h1>
 
           <div className="flex gap-4">
-            <GetStartedButton route="/signup" variant="btn-primary" className="glowingItem" />
+            <GetStartedButton route={`/signup?tier=pro`} variant="btn-primary" className="glowingItem" />
             <button className="btn">Explore features</button>
           </div>
         </div>
@@ -334,7 +334,7 @@ export const Home = () => {
             tierSubtitle={"Free access to core features"}
             tierPrice={"0"}
             tierFeatures={HOME.BASIC_FEATURES}
-            tierLink={""}
+            tierLink={"basic"}
             isRecommended={false}
           />
 
@@ -343,7 +343,7 @@ export const Home = () => {
             tierSubtitle={"Enhanced features for serious founders"}
             tierPrice={HOME.PRO_PRICE}
             tierFeatures={HOME.PRO_FEATURES}
-            tierLink={""}
+            tierLink={"pro"}
             isRecommended={true}
           />
         </div>

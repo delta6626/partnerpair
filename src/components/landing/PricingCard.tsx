@@ -31,7 +31,7 @@ export const PricingCard = ({
       })}
 
       <GetStartedButton
-        route={`/signup/${tierLink}`}
+        route={`/signup?tier=${tierLink}`}
         variant={isRecommended ? "btn-primary" : ""}
         className="mt-4 w-full"
       />
