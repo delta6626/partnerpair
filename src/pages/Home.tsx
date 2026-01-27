@@ -31,6 +31,7 @@ import { Footer } from "../components/navigation/Footer";
 import { IconText } from "../components/landing/IconText";
 import { FeatureCard } from "../components/landing/FeatureCard";
 import { PricingCard } from "../components/landing/PricingCard";
+import { HOME } from "../../shared/constants/HOME";
 
 export const Home = () => {
   return (
@@ -335,7 +336,7 @@ export const Home = () => {
             tierName={"Basic"}
             tierSubtitle={"Free access to core features"}
             tierPrice={"0"}
-            tierFeatures={[]}
+            tierFeatures={HOME.BASIC_FEATURES}
             tierLink={""}
             isRecommended={false}
           />
@@ -344,7 +345,7 @@ export const Home = () => {
             tierName={"Pro"}
             tierSubtitle={"Enhanced features for serious founders"}
             tierPrice={"5.99"}
-            tierFeatures={[]}
+            tierFeatures={HOME.PRO_FEATURES}
             tierLink={""}
             isRecommended={false}
           />
