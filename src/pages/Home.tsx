@@ -35,6 +35,7 @@ import { FeatureCard } from "../components/landing/FeatureCard";
 import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { GetStartedButton } from "../components/landing/GetStartedButton";
+import { Collapse } from "../components/landing/Collapse";
 
 export const Home = () => {
   return (
@@ -391,6 +392,12 @@ export const Home = () => {
           <h1 className="text-accent text-center text-lg max-w-lg">
             We’ve got answers to commonly asked questions to help you get started faster.
           </h1>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {HOME.FAQ.map((item, id) => {
+            return <Collapse key={id} question={item.question} answer={item.answer} />;
+          })}
         </div>
       </section>
 
