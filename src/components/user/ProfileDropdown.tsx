@@ -17,7 +17,7 @@ export const ProfileDropdown = () => {
       />
       <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 shadow-sm">
         <Link to={"/settings"} className="btn">
-          <Settings size={20} />
+          <Settings size={20} className="text-accent" />
           Settings
         </Link>
         <SignOut applyMinimumWidth={false} />
