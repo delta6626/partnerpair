@@ -6,6 +6,7 @@ import { SuggestedProfilesInformationModal } from "../modals/SuggestedProfilesIn
 import { MODALS } from "../../../shared/constants/MODALS";
 import { GenericErrorModal } from "../modals/GenericErrorModal";
 import { AbuseReportSuccessfulModal } from "../modals/AbuseReportSuccessfulModal";
+import { Menu } from "lucide-react";
 
 export const MainNavbar = () => {
   return (
@@ -14,13 +15,16 @@ export const MainNavbar = () => {
         <Logo />
       </div>
 
-      <div className="">
+      <div className="hidden md:block">
         <MainNavbarNavigationItems />
       </div>
 
       <div className="flex gap-2">
         {/* <NotificationOverview /> */}
         <ProfileDropdown />
+        <button className="btn btn-square md:hidden">
+          <Menu size={20} />
+        </button>
       </div>
 
       <ProfileUpdateSuccessfulModal />
