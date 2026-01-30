@@ -179,7 +179,7 @@ export const Browse = () => {
             <div className="">
               {
                 <>
-                  <div className="grid grid-cols-2 gap-4 pt-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-8">
                     {allUsers &&
                       allUsers.map((user) => {
                         return <UserProfileCard userData={user} />;
