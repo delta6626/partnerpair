@@ -8,6 +8,8 @@ import { useTheme } from "../hooks/useTheme";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../services/authentication/authServices";
 import { Footer } from "../components/navigation/Footer";
+import { Browse } from "./Browse";
+import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
   useTheme();
@@ -31,6 +33,13 @@ export const Dashboard = () => {
           </div>
           <DashboardHeader user={user} />
           <SuggestedProfiles />
+
+          <div className="py-8 w-full flex flex-col items-center gap-2">
+            <p className="text-accent">Not what you're looking for?</p>
+            <Link className="btn" to={"/browse"}>
+              Browse more
+            </Link>
+          </div>
         </div>
       )}
     </div>
