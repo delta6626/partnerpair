@@ -26,6 +26,7 @@ import {
   Hourglass,
   MessagesSquare,
   HelpCircle,
+  Route,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -79,9 +80,12 @@ export const Home = () => {
       <div className="border-b border-base-100"></div>
 
       <section className="py-16 flex flex-col items-center gap-16 paddingContainer">
-        <div className="w-full text-center">
+        <div className="max-w-lg flex items-center flex-col gap-8">
+          <IconText icon={Route} text={"Easy Process"} topTag={true} />
           <h1 className="text-4xl font-medium">How it Works</h1>
-          <h1 className="text-lg text-accent">Three steps to find your co-founder</h1>
+          <h1 className="text-lg text-accent text-center">
+            Three easy and simple steps to find the co-founder that best matches your need.
+          </h1>
         </div>
 
         <div className="w-full flex items-center justify-between">
