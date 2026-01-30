@@ -42,6 +42,8 @@ export const MainNavbar = () => {
               <X size={20} />
             </button>
           </div>
+
+          <MainNavbarNavigationItems forMobile={true} />
         </div>
       )}
 
