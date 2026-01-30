@@ -31,7 +31,7 @@ export const Navbar = () => {
       {/* Mobile menu */}
 
       {menuOpen && (
-        <div className="bg-base-300 px-8 py-4 fixed inset-0 md:hidden z-10">
+        <div className="bg-base-300 paddingContainer py-4 fixed inset-0 md:hidden z-10">
           <div className="flex justify-between items-center">
             <Logo />
             <button className="btn btn-square" onClick={handleMenuButtonClick}>
