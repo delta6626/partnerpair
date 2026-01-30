@@ -59,7 +59,7 @@ export const SuggestedProfiles = () => {
           <p className="text-accent">{DASHBOARD.SUGGESTED_PROFILE_LOADING_ERROR + " " + error}</p>
         </div>
       ) : (
-        <div className="columns-3 gap-4 mt-4 space-y-4">
+        <div className="lg:columns-2 2xl:columns-3 gap-4 mt-4 space-y-4">
           {suggestedProfiles.map((suggestedUser) => {
             return <UserProfileCard key={suggestedUser.id} userData={suggestedUser} />;
           })}
