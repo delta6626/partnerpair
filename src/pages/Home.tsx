@@ -59,7 +59,7 @@ export const Home = () => {
           </h1>
 
           <div className="flex gap-4">
-            <GetStartedButton route={`/signup?tier=pro`} variant="btn-primary" className="glowingItem" />
+            <GetStartedButton route={`/signup`} variant="btn-primary" className="glowingItem" />
             <button className="btn">Explore features</button>
           </div>
         </div>
