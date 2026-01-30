@@ -6,9 +6,16 @@ import { SuggestedProfilesInformationModal } from "../modals/SuggestedProfilesIn
 import { MODALS } from "../../../shared/constants/MODALS";
 import { GenericErrorModal } from "../modals/GenericErrorModal";
 import { AbuseReportSuccessfulModal } from "../modals/AbuseReportSuccessfulModal";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export const MainNavbar = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const handleMenuButtonClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="flex items-center justify-between">
       <div className="">
@@ -22,10 +29,21 @@ export const MainNavbar = () => {
       <div className="flex gap-2">
         {/* <NotificationOverview /> */}
         <ProfileDropdown />
-        <button className="btn btn-square md:hidden">
+        <button className="btn btn-square md:hidden" onClick={handleMenuButtonClick}>
           <Menu size={20} />
         </button>
       </div>
+
+      {menuOpen && (
+        <div className="bg-base-300 paddingContainer py-4 fixed inset-0 md:hidden z-10">
+          <div className="flex justify-between items-center">
+            <Logo />
+            <button className="btn btn-square" onClick={handleMenuButtonClick}>
+              <X size={20} />
+            </button>
+          </div>
+        </div>
+      )}
 
       <ProfileUpdateSuccessfulModal />
 
