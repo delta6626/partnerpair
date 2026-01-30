@@ -6,8 +6,6 @@ import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
 import { ChatViewer } from "../components/messaging/ChatViewer";
 import { Loader } from "../components/Loader";
-import { GenericErrorModal } from "../components/modals/GenericErrorModal";
-import { MODALS } from "../../shared/constants/MODALS";
 
 export const Messages = () => {
   useTheme();
