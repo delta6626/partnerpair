@@ -35,7 +35,7 @@ export const Navbar = () => {
           <div className="flex justify-between items-center">
             <Logo />
             <button className="btn btn-square" onClick={handleMenuButtonClick}>
-              <X />
+              <X size={20} />
             </button>
           </div>
           <NavigationItems forMobile={true} />
