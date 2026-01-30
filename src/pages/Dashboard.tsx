@@ -19,7 +19,7 @@ export const Dashboard = () => {
   });
 
   return (
-    <div className="">
+    <div>
       {loading || userIdLoading ? (
         <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
           <Loader />
