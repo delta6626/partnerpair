@@ -33,8 +33,6 @@ export const Dashboard = () => {
           <SuggestedProfiles />
         </div>
       )}
-
-      <Footer />
     </div>
   );
 };
