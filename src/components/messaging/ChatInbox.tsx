@@ -55,7 +55,7 @@ export const ChatInbox = () => {
             ({
               id: doc.id,
               ...doc.data(),
-            } as ChatMetaData)
+            }) as ChatMetaData,
         );
         setChats(updatedChats);
         setChatsLoading(false);
@@ -64,7 +64,7 @@ export const ChatInbox = () => {
         setChatsLoadingError(true);
         setChatsLoadingErrorMessage(error.message);
         setChatsLoading(false);
-      }
+      },
     );
 
     return () => unsubscribe();
@@ -81,7 +81,7 @@ export const ChatInbox = () => {
   }, [selectedChatId, chats]);
 
   return (
-    <div className="flex min-w-120 flex-col gap-4">
+    <div className="flex xl:min-w-100 2xl:min-w-120 flex-col gap-4">
       <input
         className="input w-full"
         type="text"
@@ -90,7 +90,7 @@ export const ChatInbox = () => {
         onChange={handleSearchTermChange}
       />
 
-      <div className="flex flex-1 max-h-[calc(100vh-264px)] min-h-[calc(100vh-264px)] bg-base-200 border border-base-100 rounded-3xl">
+      <div className="flex flex-1 xl:max-h-[calc(100vh-264px)] xl:min-h-[calc(100vh-264px)] bg-base-200 border border-base-100 rounded-3xl">
         {(isLoading || chatsLoading) && (
           <div className="flex flex-1 items-center justify-center">
             <Loader />
@@ -124,7 +124,7 @@ export const ChatInbox = () => {
         )}
 
         {filteredChats.length > 0 && (
-          <div className="p-4 w-full flex flex-col gap-2 overflow-y-auto scrollbar-none">
+          <div className="p-4 w-full flex xl:flex-col gap-2 overflow-y-auto scrollbar-thin xl:scrollbar-none">
             {filteredChats.map((chat) => {
               return <ChatCard chat={chat} currentUserId={userId ?? ""} />;
             })}
