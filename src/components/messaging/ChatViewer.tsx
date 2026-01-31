@@ -80,7 +80,7 @@ export const ChatViewer = () => {
   }, [selectedChatId, chatMessages.length]);
 
   return (
-    <div className="w-full border border-base-100 flex flex-1 bg-base-200 rounded-3xl max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">
+    <div className="w-full border border-base-100 flex flex-1 bg-base-200 rounded-3xl min-h-[calc(100vh-410px)] xl:max-h-[calc(100vh-136px)] overflow-y-scroll scrollbar-none">
       <ReportMessageModal />
 
       {!selectedChatId && (
