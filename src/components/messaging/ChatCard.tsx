@@ -43,7 +43,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   return (
     <button
-      className={`btn h-fit p-4 border border-base-100 rounded-3xl w-full flex justify-between ${
+      className={`btn h-fit p-4 border border-base-100 rounded-3xl xl:w-full flex justify-between gap-4 ${
         selectedChatId === chat.id ? "bg-base-100" : ""
       }`}
       onClick={handleChatClick}
@@ -56,8 +56,10 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         />
 
         <div className="flex flex-col justify-center items-start">
-          <h1 className="text-base font-medium max-w-60 truncate">{chat.participantNames[otherParticipantId]}</h1>
-          <p className="text-accent font-normal max-w-60 truncate">
+          <h1 className="text-base font-medium max-w-30 md:max-w-45 xl:max-w-60 truncate">
+            {chat.participantNames[otherParticipantId]}
+          </h1>
+          <p className="text-accent font-normal max-w-30 md:max-w-45 xl:max-w-60 truncate">
             {chat.lastMessage
               ? `${chat.lastMessageSenderId !== otherParticipantId ? "You:" : ""} ${chat.lastMessage}`
               : MESSAGES.NO_MESSAGES}
@@ -65,7 +67,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2s">
         {chat.unreadCount[currentUserId] > 0 && (
           <div className="badge badge-error">{chat.unreadCount[currentUserId]}</div>
         )}
