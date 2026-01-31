@@ -43,14 +43,14 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
 
   return (
     <button
-      className={`btn h-fit p-4 border border-base-100 rounded-3xl xl:w-full flex justify-between gap-4 ${
+      className={`btn h-fit p-2 xl:p-4 border border-base-100 rounded-3xl xl:w-full flex justify-between gap-4 ${
         selectedChatId === chat.id ? "bg-base-100" : ""
       }`}
       onClick={handleChatClick}
     >
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4">
         <img
-          className="rounded-full h-15 w-15"
+          className="rounded-full w-10 h-10 xl:h-15 xl:w-15"
           src={chat.participantProfileImageUrls[otherParticipantId]}
           alt="Profile"
         />
