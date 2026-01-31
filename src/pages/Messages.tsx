@@ -28,7 +28,7 @@ export const Messages = () => {
               <ProfileStatusMessage />
             </div>
 
-            <div className="flex gap-4 w-full">
+            <div className="flex flex-col xl:flex-row gap-4 w-full">
               <div className="flex flex-col gap-4">
                 <div>
                   <h1 className="font-semibold text-3xl">Messages</h1>
