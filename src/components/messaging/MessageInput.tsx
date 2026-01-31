@@ -57,7 +57,7 @@ export const MessageInput = ({
   };
 
   return (
-    <form className="py-4 w-full px-16" ref={formRef} onSubmit={handleSendMessage}>
+    <form className="py-4 w-full px-8 xl:px-16" ref={formRef} onSubmit={handleSendMessage}>
       <div className="flex items-center p-2 gap-2 w-full border border-base-100 rounded-[50px]">
         <TextareaAutoSize
           ref={textAreaRef}
