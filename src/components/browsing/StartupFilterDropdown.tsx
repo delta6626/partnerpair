@@ -75,7 +75,7 @@ export const StartupFilterDropdown = () => {
   }, [profileType, preferredStartupStages]);
 
   return (
-    <div className="dropdown dropdown-center">
+    <div className="dropdown dropdown-start">
       <button tabIndex={0} role="button" className="btn w-full">
         Startup Preferences
         <ChevronDown size={20} />

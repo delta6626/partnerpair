@@ -44,7 +44,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
   };
 
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className="dropdown dropdown-end">
       <button tabIndex={0} role="button" className="btn w-full" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability they Seek</p>

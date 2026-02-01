@@ -41,7 +41,7 @@ export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: Use
   };
 
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className="dropdown dropdown-center">
       <button tabIndex={0} role="button" className="btn w-full" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Commitment they Seek</p>

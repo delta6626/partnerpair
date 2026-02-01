@@ -73,7 +73,7 @@ export const LookingForRolesFilterDropdown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-bottom dropdown-end">
+    <div className="dropdown dropdown-center">
       <button tabIndex={0} role="button" className="btn w-full">
         Roles they seek
         <ChevronDown size={20} />
