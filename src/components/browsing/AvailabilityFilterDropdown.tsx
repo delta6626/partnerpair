@@ -19,7 +19,7 @@ export const AvailabilityFilterDropdown = ({ userTier }: { userTier: UserTier })
 
   const availabilities = searchParams.get(BROWSE.PARAM_AVAILABILITY)?.split(",") ?? [];
   const validParameterAvailabilities = availabilities.filter((availability) =>
-    validAvailabilities.includes(availability as UserAvailability)
+    validAvailabilities.includes(availability as UserAvailability),
   );
 
   const handleAvailabilityAddition = (availability: UserAvailability) => {
@@ -42,7 +42,7 @@ export const AvailabilityFilterDropdown = ({ userTier }: { userTier: UserTier })
   };
 
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className="dropdown dropdown-center">
       <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability</p>

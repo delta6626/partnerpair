@@ -21,7 +21,7 @@ export const StartupFilterDropdown = () => {
   const profileType = searchParams.get(BROWSE.PARAM_PROFILE_TYPE) ?? "";
   const preferredStartupStages = searchParams.get(BROWSE.PARAM_PREFERRED_STARTUP_STAGES)?.split(",") || [];
   const validParameterPreferredStartupStages = preferredStartupStages.filter((stage) =>
-    validPreferredStartupStages.includes(stage as UserPreferredCompanyStage)
+    validPreferredStartupStages.includes(stage as UserPreferredCompanyStage),
   );
 
   const handleShowStartupOwners = () => {
@@ -75,7 +75,7 @@ export const StartupFilterDropdown = () => {
   }, [profileType, preferredStartupStages]);
 
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className="dropdown dropdown-center">
       <button tabIndex={0} role="button" className="btn">
         Startup Preferences
         <ChevronDown size={20} />

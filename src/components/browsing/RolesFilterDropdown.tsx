@@ -73,7 +73,7 @@ export const RolesFilterDropdown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className="dropdown dropdown-center">
       <button tabIndex={0} role="button" className="btn">
         Roles
         <ChevronDown size={20} />

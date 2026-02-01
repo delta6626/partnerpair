@@ -20,7 +20,7 @@ export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: Use
 
   const commitmentLevels = searchParams.get(BROWSE.PARAM_COMMITMENT_LEVELS_SOUGHT)?.split(",") ?? [];
   const validParameterCommitmentLevels = commitmentLevels.filter((level: string) =>
-    validCommitmentLevels.includes(level as UserCommitmentLevel)
+    validCommitmentLevels.includes(level as UserCommitmentLevel),
   );
 
   const handleCommitmentLevelAddition = (commitmentLevel: string) => {
@@ -41,7 +41,7 @@ export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: Use
   };
 
   return (
-    <div className="dropdown dropdown-bottom dropdown-end">
+    <div className="dropdown dropdown-bottom">
       <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Commitment they Seek</p>
