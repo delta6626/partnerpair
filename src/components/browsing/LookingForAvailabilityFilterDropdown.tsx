@@ -18,7 +18,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
   const [searchParams, setSearchParams] = useSearchParams();
   const availabilitiesSought = searchParams.get(BROWSE.PARAM_AVAILABILITY_SOUGHT)?.split(",") ?? [];
   const validParameterAvailabilitiesSought = availabilitiesSought.filter((availability) =>
-    validAvailabilities.includes(availability as UserAvailability)
+    validAvailabilities.includes(availability as UserAvailability),
   );
 
   const handleAvailabilityAddition = (availability: string) => {
@@ -31,7 +31,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
 
   const handleAvailabilityDeletion = (availabilityToDelete: string) => {
     const updatedAvailabilitiesSought = validParameterAvailabilitiesSought.filter(
-      (availability) => availability != availabilityToDelete
+      (availability) => availability != availabilityToDelete,
     );
 
     if (updatedAvailabilitiesSought.length === 0) {
@@ -45,7 +45,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn" disabled={userTier === "Basic"}>
+      <button tabIndex={0} role="button" className="btn w-full" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability they Seek</p>
         <ChevronDown size={20} />

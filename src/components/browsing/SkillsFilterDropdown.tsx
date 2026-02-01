@@ -39,7 +39,7 @@ export const SkillsFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn">
+      <button tabIndex={0} role="button" className="btn w-full">
         Skills
         <ChevronDown size={20} />
       </button>

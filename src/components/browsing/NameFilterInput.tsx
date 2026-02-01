@@ -24,7 +24,7 @@ export const NameFilterInput = () => {
     <input
       type="text"
       value={name}
-      className="input"
+      className="input w-full"
       placeholder={BROWSE.NAME_SEARCH_PLACEHOLDER}
       onChange={handleNameParamChange}
     />

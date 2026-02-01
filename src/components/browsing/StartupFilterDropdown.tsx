@@ -76,7 +76,7 @@ export const StartupFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-center">
-      <button tabIndex={0} role="button" className="btn">
+      <button tabIndex={0} role="button" className="btn w-full">
         Startup Preferences
         <ChevronDown size={20} />
       </button>
