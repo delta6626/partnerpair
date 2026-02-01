@@ -37,7 +37,7 @@ export const LocationFilterDropdown = ({ userTier }: { userTier: UserTier }) => 
 
   return (
     <div className="dropdown dropdown-bottom">
-      <button tabIndex={0} role="button" className="btn w-full" disabled={userTier === "Basic"}>
+      <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p className="text-left w-25 max-w-25 text-nowrap overflow-hidden text-ellipsis">
           {location === BROWSE.PARAM_VALUE_ANY_COUNTRY ? "Anywhere" : countriesObject[location]}

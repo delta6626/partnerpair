@@ -45,7 +45,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
 
   return (
     <div className="dropdown dropdown-end">
-      <button tabIndex={0} role="button" className="btn w-full" disabled={userTier === "Basic"}>
+      <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability they Seek</p>
         <ChevronDown size={20} />

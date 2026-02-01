@@ -74,7 +74,7 @@ export const LookingForRolesFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-center">
-      <button tabIndex={0} role="button" className="btn w-full">
+      <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Roles they seek
         <ChevronDown size={20} />
       </button>

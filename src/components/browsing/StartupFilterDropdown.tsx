@@ -76,7 +76,7 @@ export const StartupFilterDropdown = () => {
 
   return (
     <div className="dropdown dropdown-start">
-      <button tabIndex={0} role="button" className="btn w-full">
+      <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Startup Preferences
         <ChevronDown size={20} />
       </button>
