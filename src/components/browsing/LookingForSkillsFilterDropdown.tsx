@@ -68,7 +68,11 @@ export const LookingForSkillsFilterDropDown = () => {
         </div>
 
         <form className="flex gap-2" onSubmit={handleSubmit}>
-          <input className="input w-100" type="text" placeholder={BROWSE.LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER} />
+          <input
+            className="input w-80 lg:w-100"
+            type="text"
+            placeholder={BROWSE.LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER}
+          />
           <button type="submit" className="btn btn-primary">
             Add
           </button>

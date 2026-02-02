@@ -49,7 +49,7 @@ export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-170 mt-2 p-4">
+      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-160 lg:w-170 mt-2 p-4">
         <div>
           {validParameterCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}
           {validParameterCommitmentLevels.length > 0 && (
