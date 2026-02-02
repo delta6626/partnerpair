@@ -46,7 +46,7 @@ export const SkillsFilterDropdown = () => {
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box z-1 w-full md:w-fit mt-2 p-4 border border-base-100"
       >
         <div className="">
           {skills.length > 0 && <h1 className="text-accent">Added</h1>}
@@ -70,8 +70,8 @@ export const SkillsFilterDropdown = () => {
           )}
         </div>
 
-        <form className="flex gap-2" onSubmit={handleSubmit}>
-          <input className="input w-80 lg:w-100" type="text" placeholder={BROWSE.SKILL_SEARCH_PLACEHOLDER} />
+        <form className="flex gap-2 w-full" onSubmit={handleSubmit}>
+          <input className="input w-full md:w-80 lg:w-100" type="text" placeholder={BROWSE.SKILL_SEARCH_PLACEHOLDER} />
           <button type="submit" className="btn btn-primary">
             Add
           </button>

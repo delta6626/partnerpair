@@ -44,7 +44,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
   };
 
   return (
-    <div className="dropdown dropdown-center lg:dropdown-end xl:dropdown-start 2xl:dropdown-end">
+    <div className="dropdown dropdown-top md:dropdown-bottom md:dropdown-center lg:dropdown-end xl:dropdown-start 2xl:dropdown-end">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability they Seek</p>
@@ -53,7 +53,7 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box w-160 z-1 mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box overflow-y-scroll scrollbar-thin w-full max-h-60 md:max-h-fit md:w-160 z-1 mt-2 p-4 border border-base-100"
       >
         <div className="">
           {validParameterAvailabilitiesSought.length > 0 && <h1 className="text-accent">Selected</h1>}

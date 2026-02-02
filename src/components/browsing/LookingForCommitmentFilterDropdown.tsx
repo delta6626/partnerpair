@@ -41,7 +41,7 @@ export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: Use
   };
 
   return (
-    <div className="dropdown dropdown-start lg:dropdown-center xl:dropdown-end 2xl:dropdown-center">
+    <div className="dropdown dropdown-top md:dropdown-bottom md:dropdown-start lg:dropdown-center xl:dropdown-end 2xl:dropdown-center">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Commitment they Seek</p>
@@ -50,7 +50,7 @@ export const LookingForCommitmentFilterDropdown = ({ userTier }: { userTier: Use
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-1 w-160 lg:w-170 mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box z-1 scrollbar-thin overflow-y-scroll max-h-60 w-full md:max-h-fit md:w-160 lg:w-170 mt-2 p-4 border border-base-100"
       >
         <div>
           {validParameterCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}

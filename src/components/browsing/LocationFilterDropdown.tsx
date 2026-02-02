@@ -47,7 +47,7 @@ export const LocationFilterDropdown = ({ userTier }: { userTier: UserTier }) => 
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-10 w-80 mt-2 max-h-80 grid grid-cols-1 overflow-y-auto scrollbar-thin border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box z-10 w-full md:w-80 mt-2 max-h-60 md:max-h-80 grid grid-cols-1 overflow-y-auto scrollbar-thin border border-base-100"
       >
         <li key={"any"}>
           <button

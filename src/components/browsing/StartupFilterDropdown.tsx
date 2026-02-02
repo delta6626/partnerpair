@@ -75,7 +75,7 @@ export const StartupFilterDropdown = () => {
   }, [profileType, preferredStartupStages]);
 
   return (
-    <div className="dropdown dropdown-start">
+    <div className="dropdown dropdown-top md:dropdown-bottom md:dropdown-start">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Startup Preferences
         <ChevronDown size={20} />
@@ -83,7 +83,7 @@ export const StartupFilterDropdown = () => {
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 w-100 rounded-box z-1 mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 w-full md:w-100 rounded-box z-1 mt-2 p-4 border border-base-100"
       >
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">

@@ -73,7 +73,7 @@ export const LookingForRolesFilterDropdown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-end lg:dropdown-start xl:dropdown-center">
+    <div className="dropdown dropdown-top md:dropdown-bottom md:dropdown-end lg:dropdown-start xl:dropdown-center">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Roles they seek
         <ChevronDown size={20} />
@@ -81,7 +81,7 @@ export const LookingForRolesFilterDropdown = () => {
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-1 w-140 lg:w-200 mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box z-1 w-full max-h-60 md:w-140 md:max-h-fit overflow-y-scroll scrollbar-thin lg:w-200 mt-2 p-4 border border-base-100"
       >
         <div>
           {validParameterRoles.length > 0 && <h1 className="text-accent">Selected</h1>}

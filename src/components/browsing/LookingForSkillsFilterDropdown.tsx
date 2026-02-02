@@ -39,7 +39,7 @@ export const LookingForSkillsFilterDropDown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-end xl:dropdown-start">
+    <div className="dropdown dropdown-top md:dropdown-bottom md:dropdown-end xl:dropdown-start">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Skills they seek
         <ChevronDown size={20} />
@@ -47,7 +47,7 @@ export const LookingForSkillsFilterDropDown = () => {
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4 border border-base-100"
+        className="dropdown-content menu bg-base-200 rounded-box z-1 w-full md:w-fit mt-2 p-4 border border-base-100"
       >
         <div className="">
           {skillsSought.length > 0 && <h1 className="text-accent">Added</h1>}
@@ -72,7 +72,7 @@ export const LookingForSkillsFilterDropDown = () => {
 
         <form className="flex gap-2" onSubmit={handleSubmit}>
           <input
-            className="input w-80 lg:w-100"
+            className="input w-full md:w-80 lg:w-100"
             type="text"
             placeholder={BROWSE.LOOKING_FOR_SKILL_SEARCH_PLACEHOLDER}
           />
