@@ -70,7 +70,7 @@ export const SearchFiltersMenu = () => {
           <p className="text-accent">{BROWSE.USER_TIER_LOADING_ERROR}</p>
         </div>
       ) : (
-        <div className="grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
           <NameFilterInput />
           <LocationFilterDropdown userTier={userTier ?? "Basic"} />
           <SkillsFilterDropdown />

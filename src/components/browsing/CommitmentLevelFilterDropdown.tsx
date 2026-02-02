@@ -42,7 +42,7 @@ export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier
   };
 
   return (
-    <div className="dropdown dropdown-start xl:dropdown-end">
+    <div className="dropdown md:dropdown-center lg:dropdown-start xl:dropdown-end">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Commitment Level</p>

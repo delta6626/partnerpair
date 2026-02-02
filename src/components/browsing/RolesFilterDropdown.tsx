@@ -73,7 +73,7 @@ export const RolesFilterDropdown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-end xl:dropdown-center">
+    <div className="dropdown dropdown-start lg:dropdown-end xl:dropdown-center">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Roles
         <ChevronDown size={20} />
