@@ -39,7 +39,7 @@ export const LookingForSkillsFilterDropDown = () => {
   };
 
   return (
-    <div className="dropdown dropdown-start">
+    <div className="dropdown dropdown-end xl:dropdown-start">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between">
         Skills they seek
         <ChevronDown size={20} />
