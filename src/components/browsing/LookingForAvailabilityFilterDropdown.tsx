@@ -51,7 +51,10 @@ export const LookingForAvailabilityFilterDropdown = ({ userTier }: { userTier: U
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box w-160 z-1 mt-2 p-4">
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu bg-base-200 rounded-box w-160 z-1 mt-2 p-4 border border-base-100"
+      >
         <div className="">
           {validParameterAvailabilitiesSought.length > 0 && <h1 className="text-accent">Selected</h1>}
           {validParameterAvailabilitiesSought.length > 0 && (

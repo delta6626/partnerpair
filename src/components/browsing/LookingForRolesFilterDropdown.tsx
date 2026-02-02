@@ -79,7 +79,10 @@ export const LookingForRolesFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-140 lg:w-200 mt-2 p-4">
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu bg-base-200 rounded-box z-1 w-140 lg:w-200 mt-2 p-4 border border-base-100"
+      >
         <div>
           {validParameterRoles.length > 0 && <h1 className="text-accent">Selected</h1>}
           {validParameterRoles.length > 0 && (

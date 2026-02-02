@@ -45,7 +45,10 @@ export const LookingForSkillsFilterDropDown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4">
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu bg-base-200 rounded-box z-1 w-fit mt-2 p-4 border border-base-100"
+      >
         <div className="">
           {skillsSought.length > 0 && <h1 className="text-accent">Added</h1>}
           {skillsSought.length > 0 && (

@@ -81,7 +81,10 @@ export const StartupFilterDropdown = () => {
         <ChevronDown size={20} />
       </button>
 
-      <ul tabIndex={0} className="dropdown-content menu bg-base-200 w-100 rounded-box z-1 mt-2 p-4">
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu bg-base-200 w-100 rounded-box z-1 mt-2 p-4 border border-base-100"
+      >
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <h1>Show users with startups</h1>
