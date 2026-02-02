@@ -42,7 +42,7 @@ export const AvailabilityFilterDropdown = ({ userTier }: { userTier: UserTier })
   };
 
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown 2xl:dropdown-end">
       <button tabIndex={0} role="button" className="btn w-full flex justify-between" disabled={userTier === "Basic"}>
         {userTier === "Basic" && <ProBadge />}
         <p>Availability</p>
