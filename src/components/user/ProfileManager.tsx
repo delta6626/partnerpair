@@ -55,7 +55,7 @@ export const ProfileManager = () => {
         <h1 className="text-lg font-medium">Basic Profile</h1>
       </div>
 
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="w-full">
           <p className="mt-4 text-accent">First name</p>
           <input
@@ -80,7 +80,7 @@ export const ProfileManager = () => {
         </div>
       </div>
 
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="w-full">
           <p className="mt-4 text-accent">Email</p>
           <input
@@ -100,7 +100,7 @@ export const ProfileManager = () => {
         </div>
       </div>
 
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="w-full">
           <p className="mt-4 text-accent">Date of birth</p>
           <input

@@ -96,10 +96,10 @@ export const ProfilePhotoSelector = () => {
         )}
       </div>
 
-      <div className="max-w-70 flex flex-col gap-2">
+      <div className="w-full sm:max-w-70 flex flex-col gap-2">
         <input
           type="file"
-          className="file-input file-input-primary"
+          className="file-input file-input-primary w-full"
           accept={SETTINGS.ACCEPTED_IMAGE_TYPES.join(",")}
           multiple={false}
           onChange={handleFileSelect}
