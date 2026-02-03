@@ -36,17 +36,17 @@ export const CommitmentLevelManager = ({ forCurrentUser }: { forCurrentUser: boo
   };
 
   return (
-    <div className="mt-4 flex items-center justify-between">
+    <div className="mt-4 flex gap-2 md:gap-0 flex-col md:flex-row items-start md:items-center justify-between">
       <p className="text-accent">
         {forCurrentUser ? "How committed are you?" : "How committed do you want cofounders to be?"}
       </p>
       <select
-        className="select"
+        className="select w-full md:w-fit"
         onChange={handleCommitmentLevelChange}
         value={
           forCurrentUser
-            ? tempUser?.professionalInfo.commitmentLevel ?? ""
-            : tempUser?.matchingPreferences.commitmentLevel ?? ""
+            ? (tempUser?.professionalInfo.commitmentLevel ?? "")
+            : (tempUser?.matchingPreferences.commitmentLevel ?? "")
         }
       >
         <option value="" disabled>

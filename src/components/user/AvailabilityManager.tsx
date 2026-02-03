@@ -35,16 +35,16 @@ export const AvailabilityManager = ({ forCurrentUser }: { forCurrentUser: boolea
   };
 
   return (
-    <div className="mt-4 w-full flex items-center justify-between">
+    <div className="mt-4 w-full flex flex-col gap-2 md:gap-0 items-start md:flex-row md:items-center justify-between">
       <p className="text-accent">
         {forCurrentUser ? "When are you available?" : "When do you want cofounders to be available?"}
       </p>
       <select
-        className="select"
+        className="select w-full md:w-fit"
         value={
           forCurrentUser
-            ? tempUser?.professionalInfo.availability ?? ""
-            : tempUser?.matchingPreferences.availability ?? ""
+            ? (tempUser?.professionalInfo.availability ?? "")
+            : (tempUser?.matchingPreferences.availability ?? "")
         }
         onChange={handleAvailabilityChange}
       >
