@@ -31,7 +31,7 @@ export const SocialLinksManager = () => {
       </div>
 
       <div className="mt-4">
-        <div className="flex items-center justify-between gap-12">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between sm:gap-12">
           <p className="text-accent">LinkedIn</p>
           <input
             type="text"
@@ -41,7 +41,7 @@ export const SocialLinksManager = () => {
             onChange={handleLinkedInChange}
           />
         </div>
-        <div className="mt-2 flex items-center justify-between gap-12">
+        <div className="mt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between sm:gap-12">
           <p className="text-accent">Twitter / X</p>
           <input
             type="text"
@@ -51,7 +51,7 @@ export const SocialLinksManager = () => {
             onChange={handleTwitterChange}
           />
         </div>
-        <div className="mt-2 flex items-center justify-between gap-12">
+        <div className="mt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between sm:gap-12">
           <p className="text-accent">GitHub</p>
           <input
             type="text"
@@ -61,7 +61,7 @@ export const SocialLinksManager = () => {
             onChange={handleGithubChange}
           />
         </div>
-        <div className="mt-2 flex items-center justify-between gap-12">
+        <div className="mt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between sm:gap-12">
           <p className="text-accent">Personal Website</p>
           <input
             type="text"
