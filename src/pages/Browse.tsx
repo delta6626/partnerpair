@@ -137,11 +137,15 @@ export const Browse = () => {
               </div>
 
               <div className="flex gap-2">
-                <button className="btn" onClick={() => setIsOpen(!isOpen)}>
+                <button className="btn flex-1 sm:flex-none" onClick={() => setIsOpen(!isOpen)}>
                   {isOpen ? "Close Filters" : "Open Filters"}
                 </button>
 
-                <button className="btn btn-primary" disabled={searchParams.size === 0} onClick={handleSearch}>
+                <button
+                  className="btn btn-primary flex-1 sm:flex-none"
+                  disabled={searchParams.size === 0}
+                  onClick={handleSearch}
+                >
                   Search
                 </button>
               </div>
