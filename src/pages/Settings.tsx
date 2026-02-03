@@ -101,19 +101,23 @@ export const Settings = () => {
               <ProfileStatusMessage />
             </div>
 
-            <div className="w-full max-w-200 py-10 flex items-center justify-between">
+            <div className="w-full max-w-200 py-10 flex flex-col gap-4 items-start md:gap-0 md:flex-row md:items-center justify-between">
               <div className="">
                 <h1 className="font-semibold text-3xl">Settings</h1>
                 <p className="text-accent">{SETTINGS.SUBTITLE_TEXT}</p>
               </div>
 
-              <div className="flex gap-2">
-                <button className="btn" disabled={equal(user, tempUser) || updating} onClick={handleResetButtonClick}>
+              <div className="w-full md:w-fit flex gap-2">
+                <button
+                  className="btn flex-1 md:flex-none"
+                  disabled={equal(user, tempUser) || updating}
+                  onClick={handleResetButtonClick}
+                >
                   {SETTINGS.RESET_BUTTON_TEXT}
                 </button>
 
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary flex-1 md:flex-none"
                   disabled={!tempUser || equal(user, tempUser) || !basicUserDataValid(tempUser) || updating}
                   onClick={handleProfileUpdate}
                 >
