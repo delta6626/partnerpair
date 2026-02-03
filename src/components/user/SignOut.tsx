@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { clearStores } from "../../store/clearStores";
 
-export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) => {
+export const SignOut = ({ applyMinimumWidth, className }: { applyMinimumWidth: boolean; className?: string }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState<boolean>(false);
@@ -29,7 +29,7 @@ export const SignOut = ({ applyMinimumWidth }: { applyMinimumWidth: boolean }) =
   };
 
   return (
-    <button className={applyMinimumWidth ? "btn min-w-45" : "btn"} onClick={handleSignOut}>
+    <button className={`${applyMinimumWidth ? "btn min-w-45" : "btn"} ${className ?? ""}`} onClick={handleSignOut}>
       {loading ? <Loader /> : <LogOut size={20} className="text-accent" />}
       Sign out
     </button>

@@ -31,7 +31,7 @@ export const AccountManager = () => {
         <h1 className="text-lg font-medium">Account</h1>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Allow email notifications</p>
         <div className="flex gap-4 ">
           <div className="flex gap-2">
@@ -61,23 +61,23 @@ export const AccountManager = () => {
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Theme preference</p>
-        <select className="select max-w-45" value={theme} onChange={handleThemeChange}>
+        <select className="select w-full sm:max-w-45" value={theme} onChange={handleThemeChange}>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
           <option value="system">System</option>
         </select>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Sign out</p>
-        <SignOut applyMinimumWidth={true} />
+        <SignOut className="w-full sm:w-fit" applyMinimumWidth={true} />
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Delete account</p>
-        <DeleteAccount />
+        <DeleteAccount className="w-full sm:w-fit" />
       </div>
     </div>
   );
