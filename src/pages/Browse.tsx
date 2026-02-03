@@ -155,7 +155,7 @@ export const Browse = () => {
           {isOpen && <SearchFiltersMenu />}
 
           {!data && !isLoading && !isError && (
-            <div className="flex w-full flex-1 items-center justify-center">
+            <div className="mt-4 sm:mt-0 text-center flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
             </div>
           )}
@@ -167,14 +167,14 @@ export const Browse = () => {
           )}
 
           {isError && (
-            <div className="flex w-full flex-col flex-1 items-center justify-center">
+            <div className="mt-4 sm:mt-0 text-center flex w-full flex-col flex-1 items-center justify-center">
               <h1 className="text-4xl font-semibold">{BROWSE.SEARCH_ERROR}</h1>
               <p className="text-accent">Error: {error.message}</p>
             </div>
           )}
 
           {data && data.pages.length <= 1 && data.pages[0].users.length === 0 && !isRefetching && (
-            <div className="flex w-full flex-1 items-center justify-center">
+            <div className="mt-4 sm:mt-0 text-center flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_RESULTS_EMPTY}</h1>
             </div>
           )}
