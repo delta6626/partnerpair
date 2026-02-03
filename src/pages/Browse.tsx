@@ -130,7 +130,7 @@ export const Browse = () => {
               <ProfileStatusMessage />
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-0 sm:items-center justify-between">
               <div className="">
                 <h1 className="font-semibold text-3xl">Browse</h1>
                 <p className="text-accent">{BROWSE.HEADER_SUB_TEXT}</p>
