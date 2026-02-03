@@ -75,7 +75,7 @@ export const StartupInformationManager = () => {
       </div>
 
       <div className="mt-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2 md:gap-0 md:flex-row items-start md:items-center justify-between">
           <p className="text-accent">Do you have a startup?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
@@ -99,7 +99,7 @@ export const StartupInformationManager = () => {
           </div>
         </div>
 
-        <div className="mt-2 flex items-center justify-between">
+        <div className="mt-2 flex flex-col gap-2 md:gap-0 md:flex-row items-start md:items-center justify-between">
           <p className="text-accent">Do you want to join someone else's startup as a cofounder?</p>
           <div className="flex gap-4 ">
             <div className="flex gap-2">
@@ -126,11 +126,11 @@ export const StartupInformationManager = () => {
         <div
           className={`mt-4 ${
             tempUser.professionalInfo.hasStartup ? "visible" : "hidden"
-          } flex items-center justify-between`}
+          } flex flex-col gap-2 md:gap-0 md:flex-row items-start md:items-center justify-between`}
         >
           <p>What stage is your startup in?</p>
           <select
-            className="select max-w-45"
+            className="select w-full md:w-fit md:max-w-45"
             value={tempUser.professionalInfo.startupStage ?? ""}
             onChange={handleStartupStageChange}
           >
