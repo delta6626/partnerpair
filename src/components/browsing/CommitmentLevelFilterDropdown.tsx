@@ -51,7 +51,7 @@ export const CommitmentLevelFilterDropdown = ({ userTier }: { userTier: UserTier
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-200 rounded-box z-1 scrollbar-thin overflow-y-scroll max-h-60 w-full md:max-h-fit md:w-160 lg:w-170 mt-2 p-4 border border-base-100"
+        className="flex flex-row dropdown-content menu bg-base-200 rounded-box z-1 scrollbar-thin overflow-y-scroll max-h-60 w-full md:max-h-fit md:w-160 lg:w-170 mt-2 p-4 border border-base-100"
       >
         <div>
           {validParameterCommitmentLevels.length > 0 && <h1 className="text-accent">Selected</h1>}
