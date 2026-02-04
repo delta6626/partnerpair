@@ -24,7 +24,7 @@ export const createUserByEmail = async (
   password: string,
   firstName: string,
   lastName: string,
-  dateOfBirth: string
+  dateOfBirth: string,
 ) => {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
@@ -168,6 +168,10 @@ export const getVerificationStatus = async () => {
 
 export const signInWithGoogle = async () => {
   const provider: GoogleAuthProvider = new GoogleAuthProvider();
+
+  provider.setCustomParameters({
+    prompt: "select_account",
+  });
 
   try {
     const userCredentials: UserCredential = await signInWithPopup(auth, provider);
