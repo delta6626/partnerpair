@@ -12,7 +12,7 @@ export const MainNavbarNavigationItems = ({ forMobile }: { forMobile?: boolean }
 
   return (
     <div className={`${forMobile ? "flex flex-col" : ""}`}>
-      {!loading && user?.basicInfo.tier !== "Pro" && <UpgradeTierButton />}
+      {!loading && user?.basicInfo.tier !== "Pro" && <UpgradeTierButton className={`${forMobile ? "mt-4" : ""}`} />}
 
       <NavLink to="/dashboard" className={navClass}>
         Dashboard
