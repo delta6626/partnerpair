@@ -22,20 +22,20 @@ export const MainNavbar = () => {
         <Logo />
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <MainNavbarNavigationItems />
       </div>
 
       <div className="flex gap-2">
         {/* <NotificationOverview /> */}
         <ProfileDropdown />
-        <button className="btn btn-square md:hidden" onClick={handleMenuButtonClick}>
+        <button className="btn btn-square lg:hidden" onClick={handleMenuButtonClick}>
           <Menu size={20} />
         </button>
       </div>
 
       {menuOpen && (
-        <div className="bg-base-300 paddingContainer py-4 fixed inset-0 md:hidden z-10">
+        <div className="bg-base-300 paddingContainer py-4 fixed inset-0 lg:hidden z-10">
           <div className="flex justify-between items-center">
             <Logo />
             <button className="btn btn-square" onClick={handleMenuButtonClick}>
