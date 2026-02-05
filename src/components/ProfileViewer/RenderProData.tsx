@@ -48,7 +48,7 @@ export const RenderProData = ({
                     <div className="tooltip tooltip-top" data-tip="Location">
                       <MapPin size={20} className="text-accent cursor-pointer" />
                     </div>
-                    <span>{visitedUserData.basicInfo.location}</span>
+                    <span className="text-neutral/80">{visitedUserData.basicInfo.location}</span>
                   </div>
                 )}
 
@@ -57,7 +57,7 @@ export const RenderProData = ({
                     <div className="tooltip tooltip-top" data-tip="Commitment Level">
                       <Clock size={20} className="text-accent cursor-pointer" />
                     </div>
-                    <span>{visitedUserData.professionalInfo.commitmentLevel}</span>
+                    <span className="text-neutral/80">{visitedUserData.professionalInfo.commitmentLevel}</span>
                   </div>
                 )}
 
@@ -66,7 +66,7 @@ export const RenderProData = ({
                     <div className="tooltip tooltip-top" data-tip="Phone">
                       <Phone size={20} className="text-accent cursor-pointer" />
                     </div>
-                    <span>{visitedUserData.basicInfo.phone}</span>
+                    <span className="text-neutral/80">{visitedUserData.basicInfo.phone}</span>
                   </div>
                 )}
 
@@ -75,7 +75,7 @@ export const RenderProData = ({
                     <div className="tooltip tooltip-top" data-tip="Availability">
                       <Zap size={20} className="text-accent cursor-pointer" />
                     </div>
-                    <span>{visitedUserData.professionalInfo.availability}</span>
+                    <span className="text-neutral/80">{visitedUserData.professionalInfo.availability}</span>
                   </div>
                 )}
               </div>
@@ -86,7 +86,9 @@ export const RenderProData = ({
 
       <div className="mt-4">
         <p className="text-accent uppercase font-semibold tracking-wide">About Me</p>
-        <p className={`mt-2 ${visitedUserData.professionalInfo.bio === "" ? "text-center text-accent" : ""}`}>
+        <p
+          className={`mt-2 ${visitedUserData.professionalInfo.bio === "" ? "text-center text-accent" : "text-neutral/80"}`}
+        >
           {visitedUserData.professionalInfo.bio ||
             `${visitedUserData.basicInfo.firstName + " has not added a bio yet."}`}
         </p>
@@ -123,7 +125,7 @@ export const RenderProData = ({
 
         {visitedUserData.professionalInfo.wantsToCofound ? (
           <div className="mt-2 flex justify-between">
-            <p>I want to join someone else's startup as a cofounder</p>
+            <p className="text-neutral/80">I want to join someone else's startup as a cofounder</p>
             <input
               type="checkbox"
               className="checkbox checkbox-primary checkbox-sm"
@@ -137,7 +139,7 @@ export const RenderProData = ({
                 {visitedUserData.basicInfo.firstName + " is still working on this section."}
               </p>
             ) : (
-              <p>{visitedUserData.professionalInfo.startupDescription}</p>
+              <p className="text-neutral/80">{visitedUserData.professionalInfo.startupDescription}</p>
             )}
             <div className="mt-2">
               {visitedUserData.professionalInfo.startupStage ? (
