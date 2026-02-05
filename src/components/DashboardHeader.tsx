@@ -16,7 +16,7 @@ export const DashboardHeader = ({ user }: { user: User | null }) => {
         <h1 className="text-xl text-accent">{DASHBOARD.HEADER_SUB_TEXT}</h1>
       </div>
 
-      <div className="mt-4 flex gap-4">
+      <div className="mt-4 flex flex-col sm:flex-row flex-nowrap sm:flex-wrap gap-4">
         <ProfileViewCount />
         <ContactCounter />
         <UnreadMessageCounter />
