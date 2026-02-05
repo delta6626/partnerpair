@@ -71,7 +71,7 @@ export const ProfileViewCount = () => {
         </h1>
 
         <select
-          className="select select-sm bg-base-200"
+          className="select select-sm bg-base-200 hidden lg:block"
           value={timePeriod}
           disabled={userTier === "Basic" || isUserTierLoading || isUserTierError}
           onClick={handleTimePeriodClick}
@@ -111,6 +111,21 @@ export const ProfileViewCount = () => {
           </p>
         </div>
       )}
+
+      <div className="w-full flex items-center justify-center lg:hidden">
+        <select
+          className="select select-sm bg-base-200 w-fit"
+          value={timePeriod}
+          disabled={userTier === "Basic" || isUserTierLoading || isUserTierError}
+          onClick={handleTimePeriodClick}
+          onChange={handleTimePeriodChange}
+        >
+          <option value="last24Hours">Last 24 Hours</option>
+          <option value="last7Days">Last 7 Days</option>
+          <option value="last30Days">Last 30 Days</option>
+          <option value="last90Days">Last 90 Days</option>
+        </select>
+      </div>
     </div>
   );
 };
