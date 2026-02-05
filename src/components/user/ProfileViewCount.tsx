@@ -61,7 +61,7 @@ export const ProfileViewCount = () => {
     <div
       className={`${
         userTier && userTier === "Pro" ? "cursor-pointer" : ""
-      } p-4 rounded-3xl bg-base-200 min-w-75 w-fit flex flex-col gap-2 border border-base-100`}
+      } p-4 rounded-3xl bg-base-200 min-w-65 xl:min-w-75 w-fit flex flex-col gap-2 border border-base-100`}
       onClick={handleViewCountClick}
     >
       <div className="flex items-start gap-4">
