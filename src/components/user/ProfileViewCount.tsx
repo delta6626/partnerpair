@@ -61,17 +61,17 @@ export const ProfileViewCount = () => {
     <div
       className={`${
         userTier && userTier === "Pro" ? "cursor-pointer" : ""
-      } p-4 rounded-3xl bg-base-200 min-w-65 xl:min-w-75 w-fit flex flex-col gap-2 border border-base-100`}
+      } p-4 rounded-3xl bg-base-200 min-w-full sm:min-w-65 xl:min-w-75 w-fit flex flex-col gap-2 border border-base-100`}
       onClick={handleViewCountClick}
     >
-      <div className="flex items-start gap-4">
+      <div className="flex justify-between sm:items-start gap-4">
         <h1 className="flex shrink-0 gap-2 items-center text-accent">
           <Eye size={20} />
           Profile Views
         </h1>
 
         <select
-          className="select select-sm bg-base-200 hidden lg:block"
+          className="select select-sm max-w-fit bg-base-200 block sm:hidden lg:block"
           value={timePeriod}
           disabled={userTier === "Basic" || isUserTierLoading || isUserTierError}
           onClick={handleTimePeriodClick}
@@ -112,7 +112,7 @@ export const ProfileViewCount = () => {
         </div>
       )}
 
-      <div className="w-full flex items-center justify-center lg:hidden">
+      <div className="w-full hidden items-center justify-center sm:flex lg:hidden">
         <select
           className="select select-sm bg-base-200 w-fit"
           value={timePeriod}
