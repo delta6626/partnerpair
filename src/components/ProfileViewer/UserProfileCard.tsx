@@ -7,7 +7,7 @@ import type { FilteredUser } from "../../../shared/types/FilteredProfile";
 
 export const UserProfileCard = ({ userData }: { userData: SuggestedProfile | FilteredUser }) => {
   return (
-    <div className="break-inside-avoid p-4 border border-base-100 bg-base-200 min-w-105 rounded-3xl">
+    <div className="break-inside-avoid p-4 border border-base-100 bg-base-200 min-w-fit sm:min-w-105 rounded-3xl">
       <div className="flex items-center gap-4">
         <div className="h-15 w-15 flex items-center">
           <Link to={`/user/${userData.id}`} className="h-15 w-15">
