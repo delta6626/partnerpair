@@ -33,7 +33,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile | Fil
 
       <div className="mt-2">
         <p className="text-accent">Bio</p>
-        <h1>{userData.bio}</h1>
+        <h1 className="text-neutral/75">{userData.bio}</h1>
       </div>
 
       <div className="mt-2 flex flex-col gap-2">
@@ -46,7 +46,7 @@ export const UserProfileCard = ({ userData }: { userData: SuggestedProfile | Fil
 
       <div className="mt-2">
         <p className="text-accent">{userData.wantsToCofound ? "Looking to Cofound" : "My Startup"}</p>
-        <h1>
+        <h1 className="text-neutral/75">
           {userData.wantsToCofound
             ? "I want to join someone else's startup as a cofounder."
             : userData.startupDescription}
