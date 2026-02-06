@@ -10,7 +10,7 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border border-base-100 rounded-3xl">
+    <div className="flex gap-4 sm:gap-0 flex-col sm:flex-row sm:items-center sm:justify-between p-4 border border-base-100 rounded-3xl">
       <div className="cursor-pointer flex items-center gap-4" onClick={handleProfileClick}>
         <img
           className="w-15 h-15 rounded-full"
@@ -24,8 +24,13 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex sm:hidden md:flex gap-2">
         <AddContact contactId={contactDetails.contactId} />
+        <MessageUser otherParticipantId={contactDetails.contactId} />
+      </div>
+
+      <div className="hidden sm:flex md:hidden gap-2">
+        <AddContact buttonType={"icon"} contactId={contactDetails.contactId} />
         <MessageUser otherParticipantId={contactDetails.contactId} />
       </div>
     </div>
