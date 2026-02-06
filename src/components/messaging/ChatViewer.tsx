@@ -86,7 +86,6 @@ export const ChatViewer = () => {
       {!selectedChatId && (
         <div className="flex flex-col flex-1 items-center justify-center text-accent">
           <p>{MESSAGES.NO_CHAT_OPENED}</p>
-          <br />
           <p>{MESSAGES.START_MESSAGING}</p>
         </div>
       )}
