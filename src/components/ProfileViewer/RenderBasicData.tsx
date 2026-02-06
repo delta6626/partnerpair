@@ -17,14 +17,14 @@ export const RenderBasicData = ({
   return (
     <div className="w-full max-w-220 border border-base-100 rounded-3xl p-8">
       <div className="flex gap-4">
-        <div className="min-w-36">
-          <img src={visitedUserData.basicInfo.profileImageUrl} className="w-36 h-36 rounded-full" />
+        <div className="min-w-26 lg:min-w-36">
+          <img src={visitedUserData.basicInfo.profileImageUrl} className="w-26 h-26 lg:w-36 lg:h-36 rounded-full" />
         </div>
 
-        <div className="w-full">
-          <div className="flex justify-between">
-            <div className="w-full">
-              <div className="flex items-center justify-between">
+        <div className="w-full flex">
+          <div className="flex flex-1 justify-between">
+            <div className="w-full flex flex-col">
+              <div className="flex flex-1 flex-col lg:flex-row items-start lg:items-center justify-center gap-4 lg:gap-0 lg:justify-between">
                 <div className="">
                   <div className="flex items-center gap-2">
                     <h1 className="text-2xl font-medium">
@@ -44,7 +44,7 @@ export const RenderBasicData = ({
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-x-8 gap-y-2 mt-4 w-fit">
+              <div className="hidden lg:grid grid-cols-2 gap-x-8 gap-y-2 mt-4 w-fit">
                 {visitedUserData.basicInfo.location && (
                   <div className="flex items-center gap-2">
                     <div className="tooltip tooltip-top" data-tip="Location">
@@ -77,6 +77,38 @@ export const RenderBasicData = ({
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-col gap-2 lg:hidden">
+        {visitedUserData.basicInfo.location && (
+          <div className="flex items-center gap-2">
+            <div className="tooltip tooltip-top" data-tip="Location">
+              <MapPin size={20} className="text-accent cursor-pointer" />
+            </div>
+            <span className="text-neutral/80">{visitedUserData.basicInfo.location}</span>
+          </div>
+        )}
+
+        <div className="flex gap-2 items-center text-accent">
+          <div className="tooltip tooltip-top" data-tip={"Commitment"}>
+            <Clock size={20} />
+          </div>
+          {PROFILE_VIEWER.PRO_ONLY}
+        </div>
+
+        <div className="flex gap-2 items-center text-accent">
+          <div className="tooltip tooltip-top" data-tip={"Phone"}>
+            <Phone size={20} />
+          </div>
+          {PROFILE_VIEWER.PRO_ONLY}
+        </div>
+
+        <div className="flex gap-2 items-center text-accent">
+          <div className="tooltip tooltip-top" data-tip={"Availability"}>
+            <Zap size={20} />
+          </div>
+          {PROFILE_VIEWER.PRO_ONLY}
         </div>
       </div>
 
