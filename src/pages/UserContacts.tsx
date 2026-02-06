@@ -49,7 +49,7 @@ export const UserContacts = () => {
       </div>
 
       <div className="flex flex-col items-center grow">
-        <div className="py-10 w-full flex items-center justify-between max-w-200">
+        <div className="py-10 w-full flex md:flex-row flex-col gap-4 md:gap-0 md:items-center md:justify-between max-w-200">
           <div className="">
             <h1 className="font-semibold text-3xl">Contacts</h1>
             <p className="text-accent">{USER_CONTACTS.SUBTITLE_TEXT}</p>
@@ -57,7 +57,7 @@ export const UserContacts = () => {
           <div className="relative">
             <Search size={20} className="text-accent absolute left-4 top-1/2 -translate-y-1/2 z-10" />
             <input
-              className="input pl-12 min-w-100"
+              className="input pl-12 min-w-full md:min-w-100"
               placeholder={USER_CONTACTS.SEARCH_PLACEHOLDER}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
