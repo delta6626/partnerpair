@@ -11,7 +11,15 @@ import type { AddContactButtonVariant } from "../../../shared/types/AddContactBu
 import { UserRoundPlus, UserRoundMinus } from "lucide-react";
 import { MODALS } from "../../../shared/constants/MODALS";
 
-export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactButtonVariant; contactId: string }) => {
+export const AddContact = ({
+  buttonType,
+  contactId,
+  className,
+}: {
+  buttonType?: AddContactButtonVariant;
+  contactId: string;
+  className?: string;
+}) => {
   const { user } = useInitializeUser();
   const { setUser } = useUserStore();
   const {
@@ -86,7 +94,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
   if (!buttonType || buttonType === "default") {
     return (
       <button
-        className={`btn ${userIsAContact ? "btn bg-error/60" : ""}`}
+        className={`btn ${userIsAContact ? "btn bg-error/60" : ""} ${className || ""}`}
         onClick={handleContactChange}
         disabled={userIdLoading || loading || userId === contactId}
       >
@@ -96,7 +104,7 @@ export const AddContact = ({ buttonType, contactId }: { buttonType?: AddContactB
   } else {
     return (
       <button
-        className={"btn btn-square"}
+        className={`btn btn-square ${className || ""}`}
         onClick={handleContactChange}
         disabled={userIdLoading || loading || userId === contactId}
       >

@@ -25,8 +25,8 @@ export const ContactHolder = ({ contactDetails }: { contactDetails: Contact }) =
       </div>
 
       <div className="flex sm:hidden md:flex gap-2">
-        <AddContact contactId={contactDetails.contactId} />
-        <MessageUser otherParticipantId={contactDetails.contactId} />
+        <AddContact className="min-w-fit flex-1" contactId={contactDetails.contactId} />
+        <MessageUser className="min-w-fit flex-1" otherParticipantId={contactDetails.contactId} />
       </div>
 
       <div className="hidden sm:flex md:hidden gap-2">

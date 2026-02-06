@@ -6,7 +6,7 @@ import { Loader } from "../Loader";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { useNavigate } from "react-router-dom";
 
-export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string }) => {
+export const MessageUser = ({ otherParticipantId, className }: { otherParticipantId: string; className?: string }) => {
   const navigate = useNavigate();
 
   const initiateChat = httpsCallable(functions, "initiateChat");
@@ -35,7 +35,7 @@ export const MessageUser = ({ otherParticipantId }: { otherParticipantId: string
 
   return (
     <button
-      className={`btn ${isError ? "btn-error" : "btn-primary"}`}
+      className={`btn ${isError ? "btn-error" : "btn-primary"} ${className || ""}`}
       onClick={handleMessageButtonClick}
       disabled={isPending}
     >
