@@ -23,7 +23,7 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border border-base-100 rounded-3xl">
+    <div className="flex flex-col gap-4 md:gap-0 md:flex-row md:items-center md:justify-between p-4 border border-base-100 rounded-3xl">
       <div className="flex items-center gap-4">
         <img
           className="w-15 h-15 rounded-full"
@@ -46,10 +46,10 @@ export const VisitedUser = ({ viewerData }: { viewerData: ViewerMetaData }) => {
       </div>
 
       <div className="flex gap-2">
-        <button className="btn" onClick={handleVisitUserProfile}>
+        <button className="btn flex-1 min-w-fit" onClick={handleVisitUserProfile}>
           View Profile
         </button>
-        <MessageUser otherParticipantId={viewerData.viewerId} />
+        <MessageUser otherParticipantId={viewerData.viewerId} className="flex-1" />
       </div>
     </div>
   );

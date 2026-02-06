@@ -59,7 +59,7 @@ export const ProfileInsights = () => {
             <div
               className={`${
                 isLoading || isError ? "pt-10" : "py-10"
-              } w-full max-w-200 flex items-center justify-between`}
+              } w-full max-w-200 flex md:flex-row md:items-center md:justify-between md:gap-0 flex-col gap-4`}
             >
               <div className="">
                 <h1 className="font-semibold text-3xl">Profile Views</h1>
@@ -67,12 +67,12 @@ export const ProfileInsights = () => {
               </div>
 
               <div className="flex gap-2">
-                <select className="select max-w-50" value={viewFilter} onChange={handleViewFilterChange}>
+                <select className="select w-full md:max-w-50" value={viewFilter} onChange={handleViewFilterChange}>
                   <option value={"uniqueViews"}>Unique Views</option>
                   <option value={"allViews"}>All Views</option>
                 </select>
 
-                <select className="select max-w-50" value={timePeriod} onChange={handleTimePeriodChange}>
+                <select className="select w-full md:max-w-50" value={timePeriod} onChange={handleTimePeriodChange}>
                   <option value="last24Hours">Last 24 Hours</option>
                   <option value="last7Days">Last 7 Days</option>
                   <option value="last30Days">Last 30 Days</option>
