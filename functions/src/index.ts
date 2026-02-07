@@ -446,7 +446,7 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
   // Enforce max chat limit for basic users.
 
   if (initiatorProfileDetails.basicInfo.tier === "Basic" && initiatorChatCount >= SETTINGS.BASIC_MAX_CHATS) {
-    throw new HttpsError("permission-denied", "Pro tier required to add more contacts");
+    throw new HttpsError("permission-denied", SETTINGS.PRO_TIER_REQUIRED);
   }
 
   const newChatRef = await db.collection("chats").add({

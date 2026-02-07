@@ -17,6 +17,7 @@ export const SETTINGS = {
   COMPLETE_STARTUP_INFORMATION: "Complete your startup information.",
   COMPLETE_MATCHING_PREFERENCES: "Complete your matching preferences.",
   COMPLETE_SOCIAL_PROFILES: "Complete your social profiles.",
+  PRO_TIER_REQUIRED: "Pro tier required",
   DICEBEAR_API_URL: "https://api.dicebear.com/9.x/initials/svg?seed=",
   ACCEPTED_IMAGE_TYPES: ["image/png", "image/jpeg", "image/jpg", "image/webp"],
   MAX_IMAGE_SIZE_BYTES: 1 * 1024 * 1024,
