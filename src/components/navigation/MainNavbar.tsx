@@ -9,6 +9,7 @@ import { AbuseReportSuccessfulModal } from "../modals/AbuseReportSuccessfulModal
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { MaxContactsReachedModal } from "../modals/MaxContactsReachedModal";
+import { MaxChatsReachedModal } from "../modals/MaxChatsReachedErrorModal";
 
 export const MainNavbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -56,6 +57,8 @@ export const MainNavbar = () => {
 
       <MaxContactsReachedModal />
 
+      <MaxChatsReachedModal />
+
       <GenericErrorModal
         modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
         errorTitle={MODALS.PROFILE_UPDATE_ERROR_MODAL.TITLE}
@@ -78,6 +81,12 @@ export const MainNavbar = () => {
         modalId={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.ID}
         errorTitle={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.TITLE}
         errorText={MODALS.CONTACT_ADDITION_FAILED_ERROR_MODAL.DESCRIPTION}
+      />
+
+      <GenericErrorModal
+        modalId={MODALS.CHAT_CREATION_FAILED_ERROR_MODAL.ID}
+        errorTitle={MODALS.CHAT_CREATION_FAILED_ERROR_MODAL.TITLE}
+        errorText={MODALS.CHAT_CREATION_FAILED_ERROR_MODAL.DESCRIPTION}
       />
 
       <GenericErrorModal
