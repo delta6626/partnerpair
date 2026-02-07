@@ -402,6 +402,13 @@ export const getFilteredUsers = onCall(async (request) => {
 
 // Messaging
 
+const getTotalChatsCount = async (userId: string) => {
+  const chatsRef = db.collection("chats");
+  const querySnapshot = await chatsRef.where("participants", "array-contains", userId).count().get();
+  const chatCount = querySnapshot.data().count;
+  return chatCount;
+};
+
 const getChatExistenceInformation = async (userA: string, userB: string) => {
   const chatsRef = db.collection("chats");
   const querySnapshot = await chatsRef.where("participants", "array-contains", userA).get();
@@ -434,13 +441,11 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
 
   const initiatorProfileDetails = await fetchUserData(initiatorId);
   const otherParticipantProfileDetails = await fetchUserData(otherParticipantId);
+  const initiatorChatCount = await getTotalChatsCount(initiatorId);
 
   // Enforce max chat limit for basic users.
 
-  if (
-    initiatorProfileDetails.basicInfo.tier === "Basic" &&
-    initiatorProfileDetails.basicInfo.contactList.length >= SETTINGS.BASIC_MAX_CHATS
-  ) {
+  if (initiatorProfileDetails.basicInfo.tier === "Basic" && initiatorChatCount >= SETTINGS.BASIC_MAX_CHATS) {
     throw new HttpsError("permission-denied", "Pro tier required to add more contacts");
   }
 
