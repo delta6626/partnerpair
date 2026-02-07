@@ -8,6 +8,7 @@ import { GenericErrorModal } from "../modals/GenericErrorModal";
 import { AbuseReportSuccessfulModal } from "../modals/AbuseReportSuccessfulModal";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { MaxContactsReachedModal } from "../modals/MaxContactsReachedModal";
 
 export const MainNavbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -52,6 +53,8 @@ export const MainNavbar = () => {
       <SuggestedProfilesInformationModal />
 
       <AbuseReportSuccessfulModal />
+
+      <MaxContactsReachedModal />
 
       <GenericErrorModal
         modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
