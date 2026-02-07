@@ -18,6 +18,7 @@ import { FilteredUsersPayload } from "./shared/types/FilteredUsersPayload";
 import { FilteredUser } from "./shared/types/FilteredProfile";
 import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformation";
 import { ChatMetaData } from "./shared/types/ChatMetaData";
+import { SETTINGS } from "./shared/constants/SETTINGS";
 
 admin.initializeApp();
 
@@ -433,6 +434,15 @@ const createChat = async (initiatorId: string, otherParticipantId: string) => {
 
   const initiatorProfileDetails = await fetchUserData(initiatorId);
   const otherParticipantProfileDetails = await fetchUserData(otherParticipantId);
+
+  // Enforce max chat limit for basic users.
+
+  if (
+    initiatorProfileDetails.basicInfo.tier === "Basic" &&
+    initiatorProfileDetails.basicInfo.contactList.length >= SETTINGS.BASIC_MAX_CHATS
+  ) {
+    throw new HttpsError("permission-denied", "Pro tier required to add more contacts");
+  }
 
   const newChatRef = await db.collection("chats").add({
     initiatorId: initiatorId,
