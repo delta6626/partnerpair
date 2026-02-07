@@ -2,7 +2,7 @@ import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { getUserId } from "../authentication/authServices";
 import { handleFirebaseError } from "../authentication/firebaseErrorHandler";
 import { firestore, storage } from "../firebaseConfig";
-import { collection, doc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
 import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 
@@ -96,4 +96,18 @@ export const uploadUserPhoto = async (photo: File) => {
     console.error(error);
     return false;
   }
+};
+
+export const getSavedContactsCount = async () => {
+  const userId = await getUserId();
+
+  if (userId === SIGNUP.UNAUTHENTICATED) return false;
+
+  const documentRef = doc(firestore, "users", userId);
+  const documentSnap = await getDoc(documentRef);
+  if (!documentSnap.exists()) return false;
+
+  const userData: User = documentSnap.data() as User;
+
+  return userData.basicInfo.contactList.length;
 };
