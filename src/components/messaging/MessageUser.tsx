@@ -5,6 +5,8 @@ import type { ChatExistenceInformation } from "../../../shared/types/ChatExisten
 import { Loader } from "../Loader";
 import { useSelectedChatStore } from "../../store/useSelectedChatStore";
 import { useNavigate } from "react-router-dom";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const MessageUser = ({ otherParticipantId, className }: { otherParticipantId: string; className?: string }) => {
   const navigate = useNavigate();
@@ -12,11 +14,7 @@ export const MessageUser = ({ otherParticipantId, className }: { otherParticipan
   const initiateChat = httpsCallable(functions, "initiateChat");
   const { setSelectedChatId } = useSelectedChatStore();
 
-  const {
-    mutate: initiateChatMutate,
-    isPending,
-    isError,
-  } = useMutation({
+  const { mutate: initiateChatMutate, isPending } = useMutation({
     mutationFn: async () => {
       const response = await initiateChat({ otherParticipantId: otherParticipantId });
       return response.data as ChatExistenceInformation["chatId"];
@@ -24,6 +22,15 @@ export const MessageUser = ({ otherParticipantId, className }: { otherParticipan
     onSuccess: (chatId) => {
       setSelectedChatId(chatId);
       navigate("/messages");
+    },
+    onError: (error) => {
+      if (error.message === SETTINGS.PRO_TIER_REQUIRED) {
+        const modal = document.getElementById(MODALS.MAX_CHATS_REACHED_ERROR_MODAL.ID) as HTMLDialogElement;
+        modal.showModal();
+      } else {
+        const modal = document.getElementById(MODALS.CHAT_CREATION_FAILED_ERROR_MODAL.ID) as HTMLDialogElement;
+        modal.showModal();
+      }
     },
   });
 
@@ -34,12 +41,8 @@ export const MessageUser = ({ otherParticipantId, className }: { otherParticipan
   };
 
   return (
-    <button
-      className={`btn ${isError ? "btn-error" : "btn-primary"} ${className || ""}`}
-      onClick={handleMessageButtonClick}
-      disabled={isPending}
-    >
-      {isPending ? <Loader /> : isError ? <p>Error occurred. Try again.</p> : "Message"}
+    <button className={`btn btn-primary ${className || ""}`} onClick={handleMessageButtonClick} disabled={isPending}>
+      {isPending ? <Loader /> : "Message"}
     </button>
   );
 };
