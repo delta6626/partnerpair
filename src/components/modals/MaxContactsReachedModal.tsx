@@ -1,4 +1,4 @@
-import { AlertCircle, CheckCircle2 } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { MODALS } from "../../../shared/constants/MODALS";
 import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { UpgradeTierButton } from "../user/UpgradeTierButton";
