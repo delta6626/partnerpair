@@ -1,7 +1,10 @@
 import { useState } from "react";
 import type { User } from "../../../shared/types/User";
 import { useInitializeUser } from "../../hooks/useInitializeUser";
-import { updateUserProfile } from "../../services/userProfile/userProfileServices";
+import {
+  getContactAdditionElligibilityStatus,
+  updateUserProfile,
+} from "../../services/userProfile/userProfileServices";
 import { useUserStore } from "../../store/useUserStore";
 import { Loader } from "../Loader";
 import { useQuery } from "@tanstack/react-query";
@@ -10,6 +13,7 @@ import { getUserId } from "../../services/authentication/authServices";
 import type { AddContactButtonVariant } from "../../../shared/types/AddContactButtonVariant";
 import { UserRoundPlus, UserRoundMinus } from "lucide-react";
 import { MODALS } from "../../../shared/constants/MODALS";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const AddContact = ({
   buttonType,
@@ -40,6 +44,16 @@ export const AddContact = ({
     if (userId === contactId) return; // User cannot add themselves as a contact
 
     setLoading(true);
+
+    const elligibleToAddContact = await getContactAdditionElligibilityStatus();
+
+    if (!elligibleToAddContact) {
+      setLoading(false);
+      const modal = document.getElementById(MODALS.MAX_CONTACTS_REACHED_ERROR_MODAL.ID) as HTMLDialogElement;
+      modal.showModal();
+      return;
+    }
+
     const updatedUser: User = {
       ...user,
       basicInfo: { ...user.basicInfo, contactList: [...user.basicInfo.contactList, contactId] },
