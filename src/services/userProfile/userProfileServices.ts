@@ -5,6 +5,7 @@ import { firestore, storage } from "../firebaseConfig";
 import { collection, doc, getDoc, getDocs, query, updateDoc, where, writeBatch } from "firebase/firestore";
 import type { User } from "../../../shared/types/User";
 import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const setVerificationStatus = async (status: boolean) => {
   const userId = await getUserId();
@@ -98,7 +99,7 @@ export const uploadUserPhoto = async (photo: File) => {
   }
 };
 
-export const getSavedContactsCount = async () => {
+export const getContactAdditionElligibilityStatus = async () => {
   const userId = await getUserId();
 
   if (userId === SIGNUP.UNAUTHENTICATED) return false;
@@ -109,5 +110,9 @@ export const getSavedContactsCount = async () => {
 
   const userData: User = documentSnap.data() as User;
 
-  return userData.basicInfo.contactList.length;
+  if (userData.basicInfo.tier === "Pro") return true;
+  if (userData.basicInfo.tier === "Basic" && userData.basicInfo.contactList.length < SETTINGS.BASIC_MAX_CONTACTS)
+    return true;
+
+  return false;
 };
