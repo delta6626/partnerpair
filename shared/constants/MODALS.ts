@@ -61,6 +61,13 @@ export const MODALS = {
       "You have reached the maximum number of contacts allowed on the Basic plan. Upgrade to Pro to save more contacts.",
   },
 
+  MAX_CHATS_REACHED_ERROR_MODAL: {
+    ID: "maxChatsReachedErrorModal",
+    TITLE: "Upgrade to Start More Chats",
+    DESCRIPTION:
+      "You have reached the maximum number of chats allowed on the Basic plan. Upgrade to Pro to start more chats.",
+  },
+
   PHOTO_UPLOAD_FAILED_ERROR_MODAL: {
     ID: "photoUploadFailedErrorModal",
     TITLE: "Failed to Upload Photo",
@@ -89,6 +96,12 @@ export const MODALS = {
     ID: "abuseReportFailedErrorModal",
     TITLE: "Failed to Report Abuse",
     DESCRIPTION: "This report could not be made at the moment. Please try again later.",
+  },
+
+  CHAT_CREATION_FAILED_ERROR_MODAL: {
+    ID: "chatCreationFailedErrorModal",
+    TITLE: "Failed to Create Chat",
+    DESCRIPTION: "We could not create a new chat at this time. Please try again later.",
   },
 
   REPORT_MESSAGE_MODAL: {
