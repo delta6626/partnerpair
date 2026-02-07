@@ -10,5 +10,5 @@
 11. Chat message search ❌ Cancelled for the time being.
 12. Account deletion
 13. Prevent access to banned / suspended user accounts
-14. Limit number of created chats possible for basic users
-15. Limit number of created contacts for basic users
+14. Limit number of created chats possible for basic users ✅
+15. Limit number of created contacts for basic users ✅
