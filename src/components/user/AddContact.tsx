@@ -13,7 +13,6 @@ import { getUserId } from "../../services/authentication/authServices";
 import type { AddContactButtonVariant } from "../../../shared/types/AddContactButtonVariant";
 import { UserRoundPlus, UserRoundMinus } from "lucide-react";
 import { MODALS } from "../../../shared/constants/MODALS";
-import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const AddContact = ({
   buttonType,
