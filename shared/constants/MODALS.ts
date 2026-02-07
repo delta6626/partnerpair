@@ -54,6 +54,13 @@ export const MODALS = {
     DESCRIPTION: "The contact could not be removed at this time. Please try again later.",
   },
 
+  MAX_CONTACTS_REACHED_ERROR_MODAL: {
+    ID: "maxContactsReachedErrorModal",
+    TITLE: "Upgrade to Add More Contacts",
+    DESCRIPTION:
+      "You have reached the maximum number of contacts allowed on the Basic plan. Upgrade to Pro to save more contacts.",
+  },
+
   PHOTO_UPLOAD_FAILED_ERROR_MODAL: {
     ID: "photoUploadFailedErrorModal",
     TITLE: "Failed to Upload Photo",
