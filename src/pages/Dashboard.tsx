@@ -7,8 +7,6 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../services/authentication/authServices";
-import { Footer } from "../components/navigation/Footer";
-import { Browse } from "./Browse";
 import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
