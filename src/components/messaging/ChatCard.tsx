@@ -67,7 +67,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         </div>
       </div>
 
-      <div className="flex items-center gap-2s">
+      <div className="flex items-center gap-2">
         {chat.unreadCount[currentUserId] > 0 && (
           <div className="badge badge-error">{chat.unreadCount[currentUserId]}</div>
         )}
