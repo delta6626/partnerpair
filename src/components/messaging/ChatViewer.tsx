@@ -141,12 +141,7 @@ export const ChatViewer = () => {
             {chatMessages && chatMessages.length > 0 && (
               <div className="w-full flex flex-col gap-2 p-4 flex-1 items-center justify-center">
                 {chatMessages.map((message) => (
-                  <ChatBubble
-                    key={message.id}
-                    message={message}
-                    currentUserId={userId}
-                    otherParticipantId={otherParticipantId}
-                  />
+                  <ChatBubble key={message.id} message={message} currentUserId={userId} />
                 ))}
               </div>
             )}

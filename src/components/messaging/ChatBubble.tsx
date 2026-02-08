@@ -4,15 +4,7 @@ import { formatDate } from "../../../shared/utils/formatDate";
 import { useSelectedMessageStore } from "../../store/useSelectedMessageStore";
 import { MODALS } from "../../../shared/constants/MODALS";
 
-export const ChatBubble = ({
-  message,
-  currentUserId,
-  otherParticipantId,
-}: {
-  message: ChatMessage;
-  currentUserId: string;
-  otherParticipantId: string;
-}) => {
+export const ChatBubble = ({ message, currentUserId }: { message: ChatMessage; currentUserId: string }) => {
   const { setSelectedMessage } = useSelectedMessageStore();
 
   const [hiddenItemsVisible, setHiddenItemsVisible] = useState<boolean>(false);
