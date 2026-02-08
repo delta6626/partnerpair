@@ -4,13 +4,12 @@ import { useTempUserStore } from "../../store/useTempUserStore";
 export const PhoneInput = () => {
   const { tempUser, setTempUser } = useTempUserStore();
 
-  if (!tempUser) return;
-
   const { inputValue, handlePhoneValueChange, inputRef, country, setCountry } = usePhoneInput({
     defaultCountry: "us",
-    value: tempUser.basicInfo.phone,
+    value: tempUser?.basicInfo.phone,
     countries: defaultCountries,
     onChange: (data) => {
+      if (!tempUser) return;
       setTempUser({ ...tempUser, basicInfo: { ...tempUser.basicInfo, phone: data.phone } });
     },
   });
