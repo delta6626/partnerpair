@@ -16,7 +16,7 @@ export const setVerificationStatus = async (status: boolean) => {
   try {
     await updateDoc(userDocRef, { "basicInfo.verified": status });
     return true;
-  } catch (error: any) {
+  } catch (error: unknown) {
     return handleFirebaseError(error);
   }
 };
@@ -49,7 +49,7 @@ export const updateUserProfile = async (updatedUserProfile: User, chatMetaDataCh
     await batch.commit();
 
     return true;
-  } catch (error: any) {
+  } catch (error: unknown) {
     return handleFirebaseError(error);
   }
 };
@@ -93,7 +93,7 @@ export const uploadUserPhoto = async (photo: File) => {
     const photoURL = await getDownloadURL(snapshot.ref);
 
     return photoURL;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error);
     return false;
   }
