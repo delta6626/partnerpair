@@ -18,21 +18,21 @@ export const RoleHolder = ({
 
   const handleRoleAddition = () => {
     if (forCurrentUser) {
-      if (tempUser?.professionalInfo?.roles.includes(roleName)) return;
+      if (tempUser.professionalInfo.roles.includes(roleName)) return;
       setTempUser({
         ...tempUser,
-        professionalInfo: { ...tempUser?.professionalInfo, roles: [...tempUser?.professionalInfo.roles, roleName] },
+        professionalInfo: { ...tempUser.professionalInfo, roles: [...tempUser.professionalInfo.roles, roleName] },
       });
 
       return;
     }
 
-    if (tempUser?.matchingPreferences.lookingForRoles.includes(roleName)) return;
+    if (tempUser.matchingPreferences.lookingForRoles.includes(roleName)) return;
     setTempUser({
       ...tempUser,
       matchingPreferences: {
         ...tempUser.matchingPreferences,
-        lookingForRoles: [...tempUser?.matchingPreferences.lookingForRoles, roleName],
+        lookingForRoles: [...tempUser.matchingPreferences.lookingForRoles, roleName],
       },
     });
   };
