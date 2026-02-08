@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 import type { Timestamp } from "firebase-admin/firestore";
 
 export interface ViewerMetaData {

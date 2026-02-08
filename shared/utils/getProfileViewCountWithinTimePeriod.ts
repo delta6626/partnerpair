@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 import type { DocumentData } from "firebase-admin/firestore";
 import type { ViewerMetaData } from "../types/ViewerMetaData";
 
