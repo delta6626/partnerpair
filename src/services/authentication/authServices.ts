@@ -29,7 +29,7 @@ export const createUserByEmail = async (
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
 
-    let user: User = {
+    const user: User = {
       basicInfo: {
         firstName: firstName,
         lastName: lastName,
@@ -178,15 +178,15 @@ export const signInWithGoogle = async () => {
     const extraInformation: AdditionalUserInfo | null = getAdditionalUserInfo(userCredentials);
 
     if (extraInformation?.isNewUser) {
-      let googleProfileFirstName = userCredentials.user.displayName
+      const googleProfileFirstName = userCredentials.user.displayName
         ? splitUsername(userCredentials.user.displayName, 0)
         : "PartnerPair User";
 
-      let googleProfileLastName = userCredentials.user.displayName
+      const googleProfileLastName = userCredentials.user.displayName
         ? splitUsername(userCredentials.user.displayName, 1)
         : "PartnerPair User";
 
-      let user: User = {
+      const user: User = {
         basicInfo: {
           firstName: googleProfileFirstName,
           lastName: googleProfileLastName,
