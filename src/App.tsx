@@ -15,6 +15,7 @@ import { UserContacts } from "./pages/UserContacts";
 import { NotFound } from "./pages/NotFound";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { TermsOfService } from "./pages/TermsOfService";
+import { Upgrade } from "./pages/Upgrade";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/verify" element={<Verify />}></Route>
-          <Route path="/upgrade" element={""}></Route>
+          <Route path="/upgrade" element={<Upgrade />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/browse" element={<Browse />}></Route>
           <Route path="/user/:id" element={<ViewUserProfile />}></Route>
