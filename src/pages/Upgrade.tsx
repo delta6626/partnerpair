@@ -15,6 +15,10 @@ export const Upgrade = () => {
     );
   }
 
+  if (user?.basicInfo.tier === "Pro") {
+    return <div className=""></div>;
+  }
+
   return (
     <div className="w-full min-h-[100vh] font-inter bg-base-300 paddingContainer">
       <div className="py-4">
