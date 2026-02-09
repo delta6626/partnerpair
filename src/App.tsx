@@ -27,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/verify" element={<Verify />}></Route>
+          <Route path="/upgrade" element={""}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/browse" element={<Browse />}></Route>
           <Route path="/user/:id" element={<ViewUserProfile />}></Route>
