@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import { IconText } from "./IconText";
 import { GetStartedButton } from "./GetStartedButton";
 import type { TierFeature } from "../../../shared/types/TierFeature";
@@ -37,7 +37,7 @@ export const PricingCard = ({
         return (
           <IconText
             key={index}
-            icon={Check}
+            icon={tier.isLimited ? Minus : Check}
             text={tier.feature}
             iconClassName={tier.isLimited ? "text-warning" : ""}
           ></IconText>
