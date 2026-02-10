@@ -4,6 +4,8 @@ import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
+import { PricingCard } from "../components/landing/PricingCard";
+import { HOME } from "../../shared/constants/HOME";
 
 export const Upgrade = () => {
   useTheme();
@@ -42,6 +44,26 @@ export const Upgrade = () => {
           PartnerPair Pro unlocks advanced features designed to help you connect with the right co-founder faster and
           more confidently.
         </h2>
+
+        <div className="w-full flex justify-center gap-4">
+          <PricingCard
+            tierName={"Basic"}
+            tierSubtitle={"Free access to core features"}
+            tierPrice={"0"}
+            tierFeatures={HOME.BASIC_FEATURES}
+            tierLink={"basic"}
+            isRecommended={false}
+          />
+
+          <PricingCard
+            tierName={"Pro"}
+            tierSubtitle={"Enhanced features for serious founders"}
+            tierPrice={HOME.PRO_PRICE}
+            tierFeatures={HOME.PRO_FEATURES}
+            tierLink={"pro"}
+            isRecommended={true}
+          />
+        </div>
       </div>
     </div>
   );
