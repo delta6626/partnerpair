@@ -2,22 +2,64 @@ import { SETTINGS } from "./SETTINGS";
 
 export const HOME = {
   BASIC_FEATURES: [
-    "Create your profile",
-    "Search and browse co-founders",
-    "Limited search filters",
-    "Limited access to other profiles",
-    `Start up to ${SETTINGS.BASIC_MAX_CHATS} chats`,
-    `Save up to ${SETTINGS.BASIC_MAX_CONTACTS} contacts`,
+    {
+      feature: "Create your profile",
+      isLimited: false,
+    },
+    {
+      feature: "Search and browse co-founders",
+      isLimited: false,
+    },
+    {
+      feature: "Limited search filters",
+      isLimited: true,
+    },
+    {
+      feature: "Limited access to other profiles",
+      isLimited: true,
+    },
+    {
+      feature: `Start up to ${SETTINGS.BASIC_MAX_CHATS} chats`,
+      isLimited: true,
+    },
+    {
+      feature: `Save up to ${SETTINGS.BASIC_MAX_CONTACTS} contacts`,
+      isLimited: true,
+    },
   ],
   PRO_FEATURES: [
-    "Create your profile",
-    "Search and browse co-founders",
-    "Full access to all search filters",
-    "Full access to other profiles",
-    "See who viewed your profile",
-    "Unlimited chats",
-    "Unlimited saved contacts",
-    "Priority support",
+    {
+      feature: "Create your profile",
+      isLimited: false,
+    },
+    {
+      feature: "Search and browse co-founders",
+      isLimited: false,
+    },
+    {
+      feature: "Full access to all search filters",
+      isLimited: false,
+    },
+    {
+      feature: "Full access to other profiles",
+      isLimited: false,
+    },
+    {
+      feature: "See who viewed your profile",
+      isLimited: false,
+    },
+    {
+      feature: "Unlimited chats",
+      isLimited: false,
+    },
+    {
+      feature: "Unlimited saved contacts",
+      isLimited: false,
+    },
+    {
+      feature: "Priority support",
+      isLimited: false,
+    },
   ],
   PRO_PRICE: "4.99",
   FAQ: [

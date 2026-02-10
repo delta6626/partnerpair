@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { IconText } from "./IconText";
 import { GetStartedButton } from "./GetStartedButton";
+import type { TierFeature } from "../../../shared/types/TierFeature";
 
 export const PricingCard = ({
   tierName,
@@ -13,7 +14,7 @@ export const PricingCard = ({
   tierName: string;
   tierSubtitle: string;
   tierPrice: string;
-  tierFeatures: string[];
+  tierFeatures: TierFeature[];
   tierLink: string;
   isRecommended: boolean;
 }) => {
@@ -27,7 +28,14 @@ export const PricingCard = ({
       </h1>
 
       {tierFeatures.map((tier, index) => {
-        return <IconText key={index} icon={Check} text={tier}></IconText>;
+        return (
+          <IconText
+            key={index}
+            icon={Check}
+            text={tier.feature}
+            iconClassName={tier.isLimited ? "text-warning" : ""}
+          ></IconText>
+        );
       })}
 
       <GetStartedButton
