@@ -342,8 +342,8 @@ export const Home = () => {
             tierSubtitle={"Free access to core features"}
             tierPrice={"0"}
             tierFeatures={HOME.BASIC_FEATURES}
-            tierLink={"basic"}
             isRecommended={false}
+            showGetStartedButton={true}
           />
 
           <PricingCard
@@ -353,6 +353,7 @@ export const Home = () => {
             tierFeatures={HOME.PRO_FEATURES}
             tierLink={"pro"}
             isRecommended={true}
+            showGetStartedButton={true}
           />
         </div>
       </section>

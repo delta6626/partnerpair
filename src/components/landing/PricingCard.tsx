@@ -10,13 +10,17 @@ export const PricingCard = ({
   tierFeatures,
   tierLink,
   isRecommended,
+  showGetStartedButton,
+  showSubscribeButton,
 }: {
   tierName: string;
   tierSubtitle: string;
   tierPrice: string;
   tierFeatures: TierFeature[];
-  tierLink: string;
+  tierLink?: string;
   isRecommended: boolean;
+  showGetStartedButton?: boolean;
+  showSubscribeButton?: boolean;
 }) => {
   return (
     <div className={`w-lg max-w-lg border p-8 rounded-3xl ${isRecommended ? "border-primary" : "border-base-100"}`}>
@@ -38,11 +42,15 @@ export const PricingCard = ({
         );
       })}
 
-      <GetStartedButton
-        route={`/signup?tier=${tierLink}`}
-        variant={isRecommended ? "btn-primary" : ""}
-        className="mt-4 w-full"
-      />
+      {showGetStartedButton && (
+        <GetStartedButton
+          route={tierLink ? `/signup?tier=${tierLink}` : "/signup"}
+          variant={isRecommended ? "btn-primary" : ""}
+          className="mt-4 w-full"
+        />
+      )}
+
+      {showSubscribeButton && <button className=""></button>}
     </div>
   );
 };
