@@ -12,6 +12,7 @@ export const PricingCard = ({
   isRecommended,
   showGetStartedButton,
   showSubscribeButton,
+  handleSubscribeButtonClick,
 }: {
   tierName: string;
   tierSubtitle: string;
@@ -21,6 +22,7 @@ export const PricingCard = ({
   isRecommended: boolean;
   showGetStartedButton?: boolean;
   showSubscribeButton?: boolean;
+  handleSubscribeButtonClick?: () => void;
 }) => {
   return (
     <div className={`w-lg max-w-lg border p-8 rounded-3xl ${isRecommended ? "border-primary" : "border-base-100"}`}>
@@ -50,7 +52,11 @@ export const PricingCard = ({
         />
       )}
 
-      {showSubscribeButton && <button className=""></button>}
+      {showSubscribeButton && (
+        <button className="btn btn-primary w-full mt-4" onClick={handleSubscribeButtonClick}>
+          Subscribe
+        </button>
+      )}
     </div>
   );
 };

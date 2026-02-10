@@ -62,6 +62,7 @@ export const Upgrade = () => {
             tierFeatures={HOME.PRO_FEATURES}
             tierLink={"pro"}
             isRecommended={true}
+            showSubscribeButton={true}
           />
         </div>
       </div>
