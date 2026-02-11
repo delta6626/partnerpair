@@ -30,6 +30,26 @@ const clientId = process.env.PAYPAL_CLIENT_ID;
 const secretKey = process.env.PAYPAL_SECRET_KEY;
 const planId = process.env.PAYPAL_PLAN_ID;
 const webhookId = process.env.PAYPAL_WEBHOOK_ID;
+const PAYPAL_BASE_URL = "https://api-m.sandbox.paypal.com";
+
+// Subscription system
+
+const getAccessToken = async () => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "client_credentials");
+
+  const response = await fetch(`${PAYPAL_BASE_URL}/v1/oauth2/token`, {
+    method: "POST",
+    headers: {
+      Authorization: "Basic " + Buffer.from(`${clientId}:${secretKey}`).toString("base64"),
+      "Content-type": "application/x-www-form-urlencoded",
+    },
+    body: params.toString(),
+  });
+
+  const data = await response.json();
+  return data.access_token;
+};
 
 // shared internal functions
 
