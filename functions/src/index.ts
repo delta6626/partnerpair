@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import { onCall, HttpsError } from "firebase-functions/v2/https";
+import { onCall, HttpsError, onRequest } from "firebase-functions/v2/https";
 import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
@@ -50,6 +50,12 @@ const getAccessToken = async () => {
   const data = await response.json();
   return data.access_token;
 };
+
+const verifyWebhookSignature = async () => {};
+
+export const createSubscription = onCall(async (req) => {});
+export const cancelSubscription = onCall(async (req) => {});
+export const paypalWebhook = onRequest(async (req, res) => {});
 
 // shared internal functions
 
