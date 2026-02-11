@@ -24,6 +24,10 @@ admin.initializeApp();
 
 const db = getFirestore();
 
+// Domain
+
+const appRootDomain = "partnerpair.vercel.app";
+
 // PayPal SECRET
 
 const clientId = process.env.PAYPAL_CLIENT_ID;
@@ -59,7 +63,46 @@ export const createSubscription = onCall(async (req) => {
   const userId = req.auth?.uid;
   if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this feature.");
 
+  const userData = await fetchUserData(userId);
+  if (userData.basicInfo.tier === "Pro") throw new HttpsError("permission-denied", "User has already subscribed.");
+
   const token = await getAccessToken();
+
+  const requestBody = {
+    plan_id: planId,
+    quantity: 1,
+    subscriber: {
+      name: {
+        given_name: userData.basicInfo.firstName,
+        last_name: userData.basicInfo.lastName,
+      },
+      email_address: userData.basicInfo.email,
+    },
+    application_context: {
+      brand_name: "PartnerPair",
+      user_action: "SUBSCRIBE_NOW",
+      return_url: `${appRootDomain}/upgrade?approved=1`,
+      cancel_url: `${appRootDomain}/upgrade?approved=0`,
+    },
+  };
+
+  const response = await fetch(`${PAYPAL_BASE_URL}v1/billing/subscriptions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  if (!response.ok) throw new HttpsError("internal", "PayPal subscription creation failed.");
+
+  const data = await response.json();
+  const approvalLink = data.links.find((link: any) => link.rel === "approve").href;
+  if (!approvalLink) throw new HttpsError("internal", "No approval link returned by PayPal.");
+
+  return approvalLink;
 });
 
 export const cancelSubscription = onCall(async (req) => {});
