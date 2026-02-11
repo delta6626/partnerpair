@@ -55,7 +55,13 @@ const verifyWebhookSignature = async () => {
   const token = await getAccessToken();
 };
 
-export const createSubscription = onCall(async (req) => {});
+export const createSubscription = onCall(async (req) => {
+  const userId = req.auth?.uid;
+  if (!userId) throw new HttpsError("unauthenticated", "User must be logged in to access this feature.");
+
+  const token = await getAccessToken();
+});
+
 export const cancelSubscription = onCall(async (req) => {});
 export const paypalWebhook = onRequest(async (req, res) => {});
 
