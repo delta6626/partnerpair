@@ -51,7 +51,9 @@ const getAccessToken = async () => {
   return data.access_token;
 };
 
-const verifyWebhookSignature = async () => {};
+const verifyWebhookSignature = async () => {
+  const token = await getAccessToken();
+};
 
 export const createSubscription = onCall(async (req) => {});
 export const cancelSubscription = onCall(async (req) => {});
