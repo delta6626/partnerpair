@@ -6,10 +6,15 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
+import { useSearchParams } from "react-router-dom";
 
 export const Upgrade = () => {
   useTheme();
+
   const { user, loading } = useInitializeUser();
+  const [searchParams] = useSearchParams();
+
+  const approveStatus = searchParams.get("approved") ?? null;
 
   if (loading) {
     return (
