@@ -7,6 +7,7 @@ import { useTheme } from "../hooks/useTheme";
 import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { useSearchParams } from "react-router-dom";
+import { FOOTER } from "../../shared/constants/FOOTER";
 
 export const Upgrade = () => {
   useTheme();
@@ -64,10 +65,10 @@ export const Upgrade = () => {
 
           <h1 className="text-4xl font-medium">Upgrade for a Superior Experience</h1>
 
-          <h2 className="text-accent text-lg max-w-lg">
+          <h1 className="text-accent text-lg max-w-lg">
             PartnerPair Pro unlocks advanced features designed to help you connect with the right co-founder faster and
             more confidently.
-          </h2>
+          </h1>
 
           <div className="w-full flex justify-center gap-4">
             <PricingCard
@@ -89,6 +90,31 @@ export const Upgrade = () => {
               showSubscribeButton={true}
             />
           </div>
+        </div>
+      )}
+
+      {approvedStatus === "1" && (
+        <div className="w-full text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <h1 className="text-4xl text-center font-medium">Thank You</h1>
+
+          <h1 className="text-accent text-center text-lg mx-auto max-w-lg mt-4">
+            Your subscription has been approved. We're finalizing your payment and activating your Pro features. If you
+            don’t see your access update within a few moments, please refresh this page.
+          </h1>
+
+          <button className="btn btn-primary mt-4">Refresh</button>
+
+          <h1 className="text-accent text-center mx-auto max-w-lg mt-16">
+            Completed your payment but don’t see your Pro access yet? Please{" "}
+            <a
+              href={`mailto:${FOOTER.PERSONAL_MAIL_ADDRESS}?subject=Pro%20Access%20Not%20Activated`}
+              className="text-primary underline"
+            >
+              email us
+            </a>{" "}
+            with the <span className="text-primary">subject “Pro Access Not Activated”</span> and we’ll take care of it
+            right away.
+          </h1>
         </div>
       )}
     </div>
