@@ -8,7 +8,6 @@ import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { useSearchParams } from "react-router-dom";
 import { FOOTER } from "../../shared/constants/FOOTER";
-import { useEffect } from "react";
 
 export const Upgrade = () => {
   useTheme();
@@ -18,6 +17,11 @@ export const Upgrade = () => {
 
   const approvedStatus = searchParams.get("approved") ?? null;
 
+  if (approvedStatus === "1" && user?.basicInfo.tier === "Pro") {
+    searchParams.delete("approved");
+    setSearchParams(searchParams);
+  }
+
   const handleApprovalFailDismiss = () => {
     searchParams.delete("approved");
     setSearchParams(searchParams);
@@ -26,13 +30,6 @@ export const Upgrade = () => {
   const handleRefresh = () => {
     window.location.reload();
   };
-
-  useEffect(() => {
-    if (approvedStatus === "1" && user?.basicInfo.tier === "Pro") {
-      searchParams.delete("approved");
-      setSearchParams(searchParams);
-    }
-  }, []);
 
   if (loading) {
     return (
@@ -44,9 +41,29 @@ export const Upgrade = () => {
 
   if (user?.basicInfo.tier === "Pro") {
     return (
-      <div className="w-full min-h-[100vh] font-inter bg-base-300 paddingContainer">
+      <div className="w-full min-h-[100vh] text-center font-inter bg-base-300 paddingContainer">
         <div className="py-4">
           <MainNavbar />
+        </div>
+
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <h1 className="text-4xl font-medium">Welcome to Pro.</h1>
+
+          <h2 className="text-accent text-lg max-w-lg mx-auto mt-4">
+            You’re now part of the Pro Club. Enjoy enhanced features designed to help you connect with the right
+            co-founder faster and more confidently.
+          </h2>
+
+          <h2 className="text-accent max-w-lg mx-auto mt-6">
+            If you experience any issues, feel free to{" "}
+            <a
+              href={`mailto:${FOOTER.PERSONAL_MAIL_ADDRESS}?subject=Pro%20Support%20Request`}
+              className="text-primary underline"
+            >
+              contact us
+            </a>{" "}
+            anytime - we’re here to help.
+          </h2>
         </div>
       </div>
     );
@@ -107,7 +124,7 @@ export const Upgrade = () => {
 
       {approvedStatus === "1" && (
         <div className="w-full text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-          <h1 className="text-4xl text-center font-medium">Thank You</h1>
+          <h1 className="text-4xl text-center font-medium">Thank You.</h1>
 
           <h1 className="text-accent text-center text-lg mx-auto max-w-lg mt-4">
             Your subscription has been approved. We're finalizing your payment and activating your Pro features. If you
