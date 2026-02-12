@@ -22,6 +22,10 @@ export const Upgrade = () => {
     setSearchParams(searchParams);
   };
 
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   if (loading) {
     return (
       <div className="w-full min-h-[100vh] bg-base-300 flex items-center justify-center">
@@ -102,7 +106,9 @@ export const Upgrade = () => {
             don’t see your access update within a few moments, please refresh this page.
           </h1>
 
-          <button className="btn btn-primary mt-4">Refresh</button>
+          <button className="btn btn-primary mt-4" onClick={handleRefresh}>
+            Refresh
+          </button>
 
           <h1 className="text-accent text-center mx-auto max-w-lg mt-16">
             Completed your payment but don’t see your Pro access yet? Please{" "}
