@@ -6,7 +6,7 @@ import { useInitializeUser } from "../hooks/useInitializeUser";
 import { useTheme } from "../hooks/useTheme";
 import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { FOOTER } from "../../shared/constants/FOOTER";
 
 export const Upgrade = () => {
@@ -54,7 +54,11 @@ export const Upgrade = () => {
             co-founder faster and more confidently.
           </h2>
 
-          <h2 className="text-accent max-w-lg mx-auto mt-6">
+          <Link className="btn btn-primary mt-4" to={"/dashboard"}>
+            Go to Dashboard
+          </Link>
+
+          <h2 className="text-accent max-w-lg mx-auto mt-8">
             If you experience any issues, feel free to{" "}
             <a
               href={`mailto:${FOOTER.PERSONAL_MAIL_ADDRESS}?subject=Pro%20Support%20Request`}
