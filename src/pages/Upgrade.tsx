@@ -8,6 +8,7 @@ import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { useSearchParams } from "react-router-dom";
 import { FOOTER } from "../../shared/constants/FOOTER";
+import { useEffect } from "react";
 
 export const Upgrade = () => {
   useTheme();
@@ -25,6 +26,13 @@ export const Upgrade = () => {
   const handleRefresh = () => {
     window.location.reload();
   };
+
+  useEffect(() => {
+    if (approvedStatus === "1" && user?.basicInfo.tier === "Pro") {
+      searchParams.delete("approved");
+      setSearchParams(searchParams);
+    }
+  }, []);
 
   if (loading) {
     return (
