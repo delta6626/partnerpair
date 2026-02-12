@@ -1,4 +1,4 @@
-import { Crown } from "lucide-react";
+import { Crown, X } from "lucide-react";
 import { IconText } from "../components/landing/IconText";
 import { Loader } from "../components/Loader";
 import { MainNavbar } from "../components/navigation/MainNavbar";
@@ -12,9 +12,14 @@ export const Upgrade = () => {
   useTheme();
 
   const { user, loading } = useInitializeUser();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const approveStatus = searchParams.get("approved") ?? null;
+  const approvedStatus = searchParams.get("approved") ?? null;
+
+  const handleApprovalFailDismiss = () => {
+    searchParams.delete("approved");
+    setSearchParams(searchParams);
+  };
 
   if (loading) {
     return (
@@ -40,37 +45,52 @@ export const Upgrade = () => {
         <MainNavbar />
       </div>
 
-      <div className="w-full py-8 mt-4 flex flex-col items-center text-center gap-8">
-        <IconText icon={Crown} text={"Upgrade to Pro"} topTag={true} />
+      {approvedStatus != "1" && (
+        <div className="w-full py-8 mt-4 flex flex-col items-center text-center gap-8">
+          {approvedStatus === "0" && (
+            <div className="flex items-center justify-between w-full bg-error/60 rounded-2xl p-4">
+              <div className="text-start">
+                <h1 className="">Subscription not completed</h1>
+                <p>Your subscription wasn’t finalized. You can try again anytime.</p>
+              </div>
 
-        <h1 className="text-4xl font-medium">Upgrade for a Superior Experience</h1>
+              <button className="cursor-pointer" onClick={handleApprovalFailDismiss}>
+                <X size={20} />
+              </button>
+            </div>
+          )}
 
-        <h2 className="text-accent text-lg max-w-lg">
-          PartnerPair Pro unlocks advanced features designed to help you connect with the right co-founder faster and
-          more confidently.
-        </h2>
+          <IconText icon={Crown} text={"Upgrade to Pro"} topTag={true} />
 
-        <div className="w-full flex justify-center gap-4">
-          <PricingCard
-            tierName={"Basic"}
-            tierSubtitle={"Free access to core features"}
-            tierPrice={"0"}
-            tierFeatures={HOME.BASIC_FEATURES}
-            tierLink={"basic"}
-            isRecommended={false}
-          />
+          <h1 className="text-4xl font-medium">Upgrade for a Superior Experience</h1>
 
-          <PricingCard
-            tierName={"Pro"}
-            tierSubtitle={"Enhanced features for serious founders"}
-            tierPrice={HOME.PRO_PRICE}
-            tierFeatures={HOME.PRO_FEATURES}
-            tierLink={"pro"}
-            isRecommended={true}
-            showSubscribeButton={true}
-          />
+          <h2 className="text-accent text-lg max-w-lg">
+            PartnerPair Pro unlocks advanced features designed to help you connect with the right co-founder faster and
+            more confidently.
+          </h2>
+
+          <div className="w-full flex justify-center gap-4">
+            <PricingCard
+              tierName={"Basic"}
+              tierSubtitle={"Free access to core features"}
+              tierPrice={"0"}
+              tierFeatures={HOME.BASIC_FEATURES}
+              tierLink={"basic"}
+              isRecommended={false}
+            />
+
+            <PricingCard
+              tierName={"Pro"}
+              tierSubtitle={"Enhanced features for serious founders"}
+              tierPrice={HOME.PRO_PRICE}
+              tierFeatures={HOME.PRO_FEATURES}
+              tierLink={"pro"}
+              isRecommended={true}
+              showSubscribeButton={true}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
