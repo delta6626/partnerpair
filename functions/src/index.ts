@@ -130,7 +130,11 @@ export const createSubscription = onCall(async (req) => {
 });
 
 export const cancelSubscription = onCall(async (req) => {});
-export const paypalWebhook = onRequest(async (req, res) => {});
+
+export const paypalWebhook = onRequest(async (req, res) => {
+  const webhookVerified = await verifyWebhookSignature(req);
+  if (!webhookVerified) res.status(400).send("Webhook is not authentic.");
+});
 
 // shared internal functions
 
