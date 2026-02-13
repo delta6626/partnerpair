@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import { onCall, HttpsError, onRequest } from "firebase-functions/v2/https";
+import { onCall, HttpsError, onRequest, Request } from "firebase-functions/v2/https";
 import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
@@ -55,8 +55,32 @@ const getAccessToken = async () => {
   return data.access_token;
 };
 
-const verifyWebhookSignature = async () => {
+const verifyWebhookSignature = async (req: Request) => {
   const token = await getAccessToken();
+
+  const requestBody = {
+    auth_algo: req.headers["paypal-auth-algo"],
+    cert_url: req.headers["paypal-cert-url"],
+    transmission_id: req.headers["paypal-transmission-id"],
+    transmission_sig: req.headers["paypal-transmission-sig"],
+    transmission_time: req.headers["paypal-transmission-time"],
+    webhook_id: webhookId,
+    webhook_event: req.body,
+  };
+
+  const response = await fetch(`${PAYPAL_BASE_URL}/v1/notifications/verify-webhook-signature`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  if (!response.ok) throw new Error("Webhook verification failed.");
+
+  const responseData = await response.json();
+  return responseData.verification_status === "SUCCESS";
 };
 
 export const createSubscription = onCall(async (req) => {
