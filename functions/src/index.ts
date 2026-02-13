@@ -94,6 +94,7 @@ export const createSubscription = onCall(async (req) => {
 
   const requestBody = {
     plan_id: planId,
+    custom_id: userId,
     quantity: 1,
     subscriber: {
       name: {
