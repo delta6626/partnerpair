@@ -1,5 +1,6 @@
 import * as admin from "firebase-admin";
-import { onCall, HttpsError, onRequest, Request } from "firebase-functions/v2/https";
+import { onCall, HttpsError, onRequest } from "firebase-functions/v2/https";
+import { Request, Response } from "express";
 import { getFirestore } from "firebase-admin/firestore";
 import { UserTier } from "./shared/types/UserTier";
 import { User } from "./shared/types/User";
@@ -132,9 +133,54 @@ export const createSubscription = onCall(async (req) => {
 
 export const cancelSubscription = onCall(async (req) => {});
 
-export const paypalWebhook = onRequest(async (req, res) => {
+export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
   const webhookVerified = await verifyWebhookSignature(req);
-  if (!webhookVerified) res.status(400).send("Webhook is not authentic.");
+
+  if (!webhookVerified) {
+    res.status(400).send("Webhook is not authentic.");
+    return;
+  }
+
+  const eventType = req.body?.event_type;
+  const subscriptionId = req.body?.resource?.id;
+  const associatedUserId = req.body?.resource?.custom_id;
+
+  if (!eventType || !subscriptionId || !associatedUserId) {
+    res.status(400).send("Invalid webhook payload");
+    return;
+  }
+
+  try {
+    switch (eventType) {
+      case "BILLING.SUBSCRIPTION.ACTIVATED":
+        await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Pro" });
+        await db.collection("subscriptions").doc(subscriptionId).set({
+          userId: associatedUserId,
+          status: "ACTIVE",
+        });
+
+        break;
+
+      case "BILLING.SUBSCRIPTION.CANCELLED":
+        await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Basic" });
+        await db.collection("subscriptions").doc(subscriptionId).update({ status: "CANCELLED" });
+
+        break;
+
+      case "BILLING.SUBSCRIPTION.SUSPENDED":
+        await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Basic" });
+        await db.collection("subscriptions").doc(subscriptionId).update({ status: "SUSPENDED" });
+
+        break;
+    }
+
+    res.status(200).send("OK");
+    return;
+  } catch (error) {
+    console.error("Webhook error:", error);
+    res.status(500).send("Server error.");
+    return;
+  }
 });
 
 // shared internal functions
