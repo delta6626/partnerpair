@@ -34,6 +34,8 @@ export const Upgrade = () => {
   };
 
   const handleSubscribeButtonClick = async () => {
+    if (subscriptionLinkLoading) return;
+
     try {
       setSubscriptionLinkLoading(true);
       const response = await createSubscription();
