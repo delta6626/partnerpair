@@ -8,11 +8,31 @@ import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { Link, useSearchParams } from "react-router-dom";
 import { FOOTER } from "../../shared/constants/FOOTER";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../services/firebaseConfig";
 
 export const Upgrade = () => {
   useTheme();
 
+  const createSubscription = httpsCallable(functions, "createSubscription");
+
   const { user, loading } = useInitializeUser();
+  const {
+    data: subscriptionCreationLink,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: [QUERY_KEYS.SUBSCRIPTION_CREATION_LINK],
+    queryFn: async () => {
+      const response = await createSubscription();
+      return response.data as string;
+    },
+    enabled: false,
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const approvedStatus = searchParams.get("approved") ?? null;
@@ -29,6 +49,10 @@ export const Upgrade = () => {
 
   const handleRefresh = () => {
     window.location.reload();
+  };
+
+  const handleSubscribeButtonClick = () => {
+    console.log(1);
   };
 
   if (loading) {
@@ -121,6 +145,7 @@ export const Upgrade = () => {
               tierLink={"pro"}
               isRecommended={true}
               showSubscribeButton={true}
+              handleSubscribeButtonClick={handleSubscribeButtonClick}
             />
           </div>
         </div>
