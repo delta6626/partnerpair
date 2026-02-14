@@ -156,13 +156,13 @@ export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
         await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Pro" });
         await db.collection("subscriptions").doc(associatedUserId).set({
           subscriptionId: subscriptionId,
-          status: "ACTIVE",
+          status: eventType,
         });
 
         break;
 
       case "BILLING.SUBSCRIPTION.CANCELLED":
-        await db.collection("subscriptions").doc(associatedUserId).update({ status: "CANCELLED" });
+        await db.collection("subscriptions").doc(associatedUserId).update({ status: eventType });
 
         break;
 
@@ -170,7 +170,7 @@ export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
       case "BILLING.SUBSCRIPTION.SUSPENDED":
       case "BILLING.SUBSCRIPTION.PAYMENT.FAILED":
         await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Basic" });
-        await db.collection("subscriptions").doc(associatedUserId).update({ status: "SUSPENDED" });
+        await db.collection("subscriptions").doc(associatedUserId).update({ status: eventType });
 
         break;
     }
