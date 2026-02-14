@@ -37,15 +37,15 @@ const CLIENT_ID =
 const SECRET_KEY =
   process.env.ENVIRONMENT === "PRODUCTION"
     ? process.env.PAYPAL_SECRET_KEY_PRODUCTION
-    : process.env.PAYPAL_CLIENT_ID_DEV;
+    : process.env.PAYPAL_SECRET_KEY_DEV;
 
 const PLAN_ID =
-  process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_PLAN_ID_PRODUCTION : process.env.PAYPAL_CLIENT_ID_DEV;
+  process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_PLAN_ID_PRODUCTION : process.env.PAYPAL_PLAN_ID_DEV;
 
 const WEBHOOK_ID =
   process.env.ENVIRONMENT === "PRODUCTION"
     ? process.env.PAYPAL_WEBHOOK_ID_PRODUCTION
-    : process.env.PAYPAL_CLIENT_ID_DEV;
+    : process.env.PAYPAL_WEBHOOK_ID_DEV;
 
 const PAYPAL_BASE_URL =
   process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_BASE_URL_PRODUCTION : process.env.PAYPAL_BASE_URL_DEV;
