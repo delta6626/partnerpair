@@ -56,7 +56,11 @@ export const PricingCard = ({
       )}
 
       {showSubscribeButton && (
-        <button className="btn btn-primary w-full mt-4" onClick={handleSubscribeButtonClick}>
+        <button
+          className="btn btn-primary w-full mt-4"
+          onClick={handleSubscribeButtonClick}
+          disabled={subscribeButtonLoading}
+        >
           {subscribeButtonLoading ? <Loader /> : "Subscribe"}
         </button>
       )}
