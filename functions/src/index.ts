@@ -162,12 +162,13 @@ export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
         break;
 
       case "BILLING.SUBSCRIPTION.CANCELLED":
-        await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Basic" });
         await db.collection("subscriptions").doc(associatedUserId).update({ status: "CANCELLED" });
 
         break;
 
+      case "BILLING.SUBSCRIPTION.EXPIRED":
       case "BILLING.SUBSCRIPTION.SUSPENDED":
+      case "BILLING.SUBSCRIPTION.PAYMENT.FAILED":
         await db.doc(`users/${associatedUserId}`).update({ ["basicInfo.tier"]: "Basic" });
         await db.collection("subscriptions").doc(associatedUserId).update({ status: "SUSPENDED" });
 
