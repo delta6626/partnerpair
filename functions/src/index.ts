@@ -132,7 +132,7 @@ export const createSubscription = onCall(async (req) => {
   return approvalLink;
 });
 
-export const cancelSubscription = onCall(async (req) => {});
+// export const cancelSubscription = onCall(async (req) => {});
 
 export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
   const webhookVerified = await verifyWebhookSignature(req);
