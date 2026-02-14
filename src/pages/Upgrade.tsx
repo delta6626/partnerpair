@@ -12,6 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
+import { useEffect } from "react";
 
 export const Upgrade = () => {
   useTheme();
@@ -37,11 +38,6 @@ export const Upgrade = () => {
 
   const approvedStatus = searchParams.get("approved") ?? null;
 
-  if (approvedStatus === "1" && user?.basicInfo.tier === "Pro") {
-    searchParams.delete("approved");
-    setSearchParams(searchParams);
-  }
-
   const handleApprovalFailDismiss = () => {
     searchParams.delete("approved");
     setSearchParams(searchParams);
@@ -54,6 +50,18 @@ export const Upgrade = () => {
   const handleSubscribeButtonClick = () => {
     refetch();
   };
+
+  useEffect(() => {
+    if (approvedStatus === "1" && user?.basicInfo.tier === "Pro") {
+      searchParams.delete("approved");
+      setSearchParams(searchParams);
+    }
+  }, [approvedStatus, user, searchParams]);
+
+  useEffect(() => {
+    if (!subscriptionCreationLink) return;
+    window.location.href = subscriptionCreationLink;
+  }, [subscriptionCreationLink]);
 
   if (loading) {
     return (
