@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 // @ts-ignore
 import type { Timestamp } from "firebase-admin/firestore";
 
