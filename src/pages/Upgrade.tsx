@@ -23,7 +23,7 @@ export const Upgrade = () => {
   const {
     data: subscriptionCreationLink,
     isLoading: subscriptionCreationLinkLoading,
-    isError: subscriptionCreationLinkError,
+    // isError: subscriptionCreationLinkError,
     refetch,
   } = useQuery({
     queryKey: [QUERY_KEYS.SUBSCRIPTION_CREATION_LINK],
