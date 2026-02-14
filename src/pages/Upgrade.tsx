@@ -52,7 +52,7 @@ export const Upgrade = () => {
   };
 
   const handleSubscribeButtonClick = () => {
-    console.log(1);
+    refetch();
   };
 
   if (loading) {
