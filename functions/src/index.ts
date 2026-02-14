@@ -27,7 +27,7 @@ const db = getFirestore();
 
 // Domain
 
-const appRootDomain = "partnerpair.vercel.app";
+const appRootDomain = "https://partnerpair.vercel.app";
 
 // PayPal SECRET
 
@@ -135,7 +135,12 @@ export const createSubscription = onCall(async (req) => {
     body: JSON.stringify(requestBody),
   });
 
-  if (!response.ok) throw new HttpsError("internal", "PayPal subscription creation failed.");
+  if (!response.ok) {
+    const errorJson = await response.json().catch(() => null);
+    console.error("PayPal Status:", response.status);
+    console.error("PayPal Error JSON:", JSON.stringify(errorJson, null, 2));
+    throw new HttpsError("internal", JSON.stringify(errorJson));
+  }
 
   const data = await response.json();
   const approvalLink = data.links.find((link: any) => link.rel === "approve").href;
