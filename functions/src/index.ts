@@ -35,7 +35,8 @@ const clientId = process.env.PAYPAL_CLIENT_ID;
 const secretKey = process.env.PAYPAL_SECRET_KEY;
 const planId = process.env.PAYPAL_PLAN_ID;
 const webhookId = process.env.PAYPAL_WEBHOOK_ID;
-const PAYPAL_BASE_URL = "https://api-m.sandbox.paypal.com";
+const PAYPAL_BASE_URL =
+  process.env.ENVIRONMENT === "PROD" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
 
 // Subscription system
 
