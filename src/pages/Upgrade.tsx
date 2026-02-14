@@ -8,11 +8,9 @@ import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { Link, useSearchParams } from "react-router-dom";
 import { FOOTER } from "../../shared/constants/FOOTER";
-import { useQuery } from "@tanstack/react-query";
-import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Upgrade = () => {
   useTheme();
@@ -20,21 +18,9 @@ export const Upgrade = () => {
   const createSubscription = httpsCallable(functions, "createSubscription");
 
   const { user, loading } = useInitializeUser();
-  const {
-    data: subscriptionCreationLink,
-    isLoading: subscriptionCreationLinkLoading,
-    // isError: subscriptionCreationLinkError,
-    refetch,
-  } = useQuery({
-    queryKey: [QUERY_KEYS.SUBSCRIPTION_CREATION_LINK],
-    queryFn: async () => {
-      const response = await createSubscription();
-      return response.data as string;
-    },
-    enabled: false,
-  });
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const [subscriptionLinkLoading, setSubscriptionLinkLoading] = useState<boolean>(false);
 
   const approvedStatus = searchParams.get("approved") ?? null;
 
@@ -47,8 +33,18 @@ export const Upgrade = () => {
     window.location.reload();
   };
 
-  const handleSubscribeButtonClick = () => {
-    refetch();
+  const handleSubscribeButtonClick = async () => {
+    try {
+      setSubscriptionLinkLoading(true);
+      const response = await createSubscription();
+      const approvalLink = response.data as string;
+      window.location.href = approvalLink;
+    } catch (error) {
+      // TO DO: Show error modal
+      console.error("Subscription creation failed:", error);
+    } finally {
+      setSubscriptionLinkLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -57,11 +53,6 @@ export const Upgrade = () => {
       setSearchParams(searchParams);
     }
   }, [approvedStatus, user, searchParams]);
-
-  useEffect(() => {
-    if (!subscriptionCreationLink) return;
-    window.location.href = subscriptionCreationLink;
-  }, [subscriptionCreationLink]);
 
   if (loading) {
     return (
@@ -153,7 +144,7 @@ export const Upgrade = () => {
               tierLink={"pro"}
               isRecommended={true}
               showSubscribeButton={true}
-              subscribeButtonLoading={subscriptionCreationLinkLoading}
+              subscribeButtonLoading={subscriptionLinkLoading}
               handleSubscribeButtonClick={handleSubscribeButtonClick}
             />
           </div>

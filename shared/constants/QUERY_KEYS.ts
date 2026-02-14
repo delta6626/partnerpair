@@ -8,5 +8,4 @@ export const QUERY_KEYS = {
   FILTERED_USERS: "filteredUsers",
   USER_SPECIFIC_CHAT_ID: "userSpecificChatId",
   UNREAD_COUNT: "unreadCount",
-  SUBSCRIPTION_CREATION_LINK: "subscriptionCreationLink",
 };
