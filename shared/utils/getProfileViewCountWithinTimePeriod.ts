@@ -1,4 +1,4 @@
-// @ts-expect-error : This type is shared by the server and the client, but firebase-admin/firestore is not accessible from the client.
+// @ts-ignore
 import type { DocumentData } from "firebase-admin/firestore";
 import type { ViewerMetaData } from "../types/ViewerMetaData";
 
