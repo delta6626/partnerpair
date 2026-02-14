@@ -31,12 +31,24 @@ const appRootDomain = "partnerpair.vercel.app";
 
 // PayPal SECRET
 
-const clientId = process.env.PAYPAL_CLIENT_ID;
-const secretKey = process.env.PAYPAL_SECRET_KEY;
-const planId = process.env.PAYPAL_PLAN_ID;
-const webhookId = process.env.PAYPAL_WEBHOOK_ID;
+const CLIENT_ID =
+  process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_CLIENT_ID_PRODUCTION : process.env.PAYPAL_CLIENT_ID_DEV;
+
+const SECRET_KEY =
+  process.env.ENVIRONMENT === "PRODUCTION"
+    ? process.env.PAYPAL_SECRET_KEY_PRODUCTION
+    : process.env.PAYPAL_CLIENT_ID_DEV;
+
+const PLAN_ID =
+  process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_PLAN_ID_PRODUCTION : process.env.PAYPAL_CLIENT_ID_DEV;
+
+const WEBHOOK_ID =
+  process.env.ENVIRONMENT === "PRODUCTION"
+    ? process.env.PAYPAL_WEBHOOK_ID_PRODUCTION
+    : process.env.PAYPAL_CLIENT_ID_DEV;
+
 const PAYPAL_BASE_URL =
-  process.env.ENVIRONMENT === "PROD" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
+  process.env.ENVIRONMENT === "PRODUCTION" ? process.env.PAYPAL_BASE_URL_PRODUCTION : process.env.PAYPAL_BASE_URL_DEV;
 
 // Subscription system
 
@@ -47,7 +59,7 @@ const getAccessToken = async () => {
   const response = await fetch(`${PAYPAL_BASE_URL}/v1/oauth2/token`, {
     method: "POST",
     headers: {
-      Authorization: "Basic " + Buffer.from(`${clientId}:${secretKey}`).toString("base64"),
+      Authorization: "Basic " + Buffer.from(`${CLIENT_ID}:${SECRET_KEY}`).toString("base64"),
       "Content-type": "application/x-www-form-urlencoded",
     },
     body: params.toString(),
@@ -66,7 +78,7 @@ const verifyWebhookSignature = async (req: Request) => {
     transmission_id: req.headers["paypal-transmission-id"],
     transmission_sig: req.headers["paypal-transmission-sig"],
     transmission_time: req.headers["paypal-transmission-time"],
-    webhook_id: webhookId,
+    webhook_id: WEBHOOK_ID,
     webhook_event: req.body,
   };
 
@@ -95,7 +107,7 @@ export const createSubscription = onCall(async (req) => {
   const token = await getAccessToken();
 
   const requestBody = {
-    plan_id: planId,
+    plan_id: PLAN_ID,
     custom_id: userId,
     quantity: 1,
     subscriber: {
