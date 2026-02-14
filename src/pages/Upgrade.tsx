@@ -21,8 +21,8 @@ export const Upgrade = () => {
   const { user, loading } = useInitializeUser();
   const {
     data: subscriptionCreationLink,
-    isLoading,
-    isError,
+    isLoading: subscriptionCreationLinkLoading,
+    isError: subscriptionCreationLinkError,
     refetch,
   } = useQuery({
     queryKey: [QUERY_KEYS.SUBSCRIPTION_CREATION_LINK],
@@ -145,6 +145,7 @@ export const Upgrade = () => {
               tierLink={"pro"}
               isRecommended={true}
               showSubscribeButton={true}
+              subscribeButtonLoading={subscriptionCreationLinkLoading}
               handleSubscribeButtonClick={handleSubscribeButtonClick}
             />
           </div>

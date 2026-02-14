@@ -2,6 +2,7 @@ import { Check, Minus } from "lucide-react";
 import { IconText } from "./IconText";
 import { GetStartedButton } from "./GetStartedButton";
 import type { TierFeature } from "../../../shared/types/TierFeature";
+import { Loader } from "../Loader";
 
 export const PricingCard = ({
   tierName,
@@ -12,6 +13,7 @@ export const PricingCard = ({
   isRecommended,
   showGetStartedButton,
   showSubscribeButton,
+  subscribeButtonLoading,
   handleSubscribeButtonClick,
 }: {
   tierName: string;
@@ -22,6 +24,7 @@ export const PricingCard = ({
   isRecommended: boolean;
   showGetStartedButton?: boolean;
   showSubscribeButton?: boolean;
+  subscribeButtonLoading?: boolean;
   handleSubscribeButtonClick?: () => void;
 }) => {
   return (
@@ -54,7 +57,7 @@ export const PricingCard = ({
 
       {showSubscribeButton && (
         <button className="btn btn-primary w-full mt-4" onClick={handleSubscribeButtonClick}>
-          Subscribe
+          {subscribeButtonLoading ? <Loader /> : "Subscribe"}
         </button>
       )}
     </div>
