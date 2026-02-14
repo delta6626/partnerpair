@@ -113,7 +113,7 @@ export const createSubscription = onCall(async (req) => {
     },
   };
 
-  const response = await fetch(`${PAYPAL_BASE_URL}v1/billing/subscriptions`, {
+  const response = await fetch(`${PAYPAL_BASE_URL}/v1/billing/subscriptions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
