@@ -1,10 +1,11 @@
-import { UserRoundCog } from "lucide-react";
+import { ExternalLink, UserRoundCog } from "lucide-react";
 import { useTheme } from "../../hooks/useTheme";
 import type { ChangeEvent } from "react";
 import type { AppTheme } from "../../../shared/types/AppTheme";
 import { SignOut } from "./SignOut";
 import { DeleteAccount } from "./DeleteAccount";
 import { useTempUserStore } from "../../store/useTempUserStore";
+import { SETTINGS } from "../../../shared/constants/SETTINGS";
 
 export const AccountManager = () => {
   const { theme, setTheme } = useTheme();
@@ -68,6 +69,20 @@ export const AccountManager = () => {
           <option value="dark">Dark</option>
           <option value="system">System</option>
         </select>
+      </div>
+
+      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
+        <p className="text-accent">Manage subscription</p>
+        <a
+          href={
+            import.meta.env.VITE_ENVIRONMENT === "PRODUCTION"
+              ? SETTINGS.PRODUCTION_SUBSCRIPTION_MANAGEMENT_LINK
+              : SETTINGS.DEVELOPMENT_SUBSCRIPTION_MANAGEMENT_LINK
+          }
+          className="btn w-full min-w-45 sm:w-fit"
+        >
+          Go to PayPal <ExternalLink className="text-accent" size={20} />
+        </a>
       </div>
 
       <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
