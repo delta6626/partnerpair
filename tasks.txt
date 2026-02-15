@@ -1,10 +1,10 @@
 1. Perform all TODOs written in the codebase ✅ Done.
-2. Email notifications with Resend
-3. Subscription system
+2. Email notifications with Resend ❌ Cancelled for the time being.
+3. Subscription system ✅
 4. Mobile responsiveness
 5. Implement blogs page ❌ Cancelled for the time being.
 6. Privacy policy, terms of service ✅
-7. Landing page
+7. Landing page ✅
 9. Create footer ✅
 10. Abuse reporting for chats ✅
 11. Chat message search ❌ Cancelled for the time being.
