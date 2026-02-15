@@ -81,7 +81,7 @@ export const AccountManager = () => {
           }
           className="btn w-full min-w-45 sm:w-fit"
         >
-          Go to PayPal <ExternalLink className="text-accent" size={20} />
+          Open PayPal <ExternalLink className="text-accent" size={20} />
         </a>
       </div>
 
