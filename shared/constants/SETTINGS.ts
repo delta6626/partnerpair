@@ -23,4 +23,6 @@ export const SETTINGS = {
   MAX_IMAGE_SIZE_BYTES: 1 * 1024 * 1024,
   BASIC_MAX_CONTACTS: 5,
   BASIC_MAX_CHATS: 5,
+  PRODUCTION_SUBSCRIPTION_MANAGEMENT_LINK: "https://www.paypal.com/myaccount/",
+  DEVELOPMENT_SUBSCRIPTION_MANAGEMENT_LINK: "https://www.sandbox.paypal.com/myaccount/",
 };
