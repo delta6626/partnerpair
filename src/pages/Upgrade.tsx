@@ -11,6 +11,7 @@ import { FOOTER } from "../../shared/constants/FOOTER";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import { useEffect, useState } from "react";
+import { MODALS } from "../../shared/constants/MODALS";
 
 export const Upgrade = () => {
   useTheme();
@@ -42,7 +43,10 @@ export const Upgrade = () => {
       const approvalLink = response.data as string;
       window.location.href = approvalLink;
     } catch (error) {
-      // TO DO: Show error modal
+      const errorModal = document.getElementById(
+        MODALS.SUBSCRIPTION_CREATION_FAILED_ERROR_MODAL.ID,
+      ) as HTMLDialogElement;
+      errorModal.showModal();
       console.error("Subscription creation failed:", error);
     } finally {
       setSubscriptionLinkLoading(false);
