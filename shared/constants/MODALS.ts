@@ -104,6 +104,12 @@ export const MODALS = {
     DESCRIPTION: "We could not create a new chat at this time. Please try again later.",
   },
 
+  SUBSCRIPTION_CREATION_FAILED_ERROR_MODAL: {
+    ID: "subscriptionCreationFailedErrorModal",
+    TITLE: "Failed to Create Subscription",
+    DESCRIPTION: "We were not able to create your subscription at this time. Please try again in a few minutes.",
+  },
+
   REPORT_MESSAGE_MODAL: {
     ID: "reportMessageModal",
     TITLE: "Report Message",
