@@ -71,19 +71,21 @@ export const AccountManager = () => {
         </select>
       </div>
 
-      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
-        <p className="text-accent">Manage subscription</p>
-        <a
-          href={
-            import.meta.env.VITE_ENVIRONMENT === "PRODUCTION"
-              ? SETTINGS.PRODUCTION_SUBSCRIPTION_MANAGEMENT_LINK
-              : SETTINGS.DEVELOPMENT_SUBSCRIPTION_MANAGEMENT_LINK
-          }
-          className="btn w-full min-w-45 sm:w-fit"
-        >
-          Open PayPal <ExternalLink className="text-accent" size={20} />
-        </a>
-      </div>
+      {tempUser.basicInfo.tier === "Pro" && (
+        <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
+          <p className="text-accent">Manage subscription</p>
+          <a
+            href={
+              import.meta.env.VITE_ENVIRONMENT === "PRODUCTION"
+                ? SETTINGS.PRODUCTION_SUBSCRIPTION_MANAGEMENT_LINK
+                : SETTINGS.DEVELOPMENT_SUBSCRIPTION_MANAGEMENT_LINK
+            }
+            className="btn w-full min-w-45 sm:w-fit"
+          >
+            Open PayPal <ExternalLink className="text-accent" size={20} />
+          </a>
+        </div>
+      )}
 
       <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Sign out</p>
