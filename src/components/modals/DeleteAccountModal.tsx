@@ -37,7 +37,7 @@ export const DeleteAccountModal = () => {
 
         <input
           className="input w-full mt-2"
-          placeholder="Type the passphrase"
+          placeholder="Type your confirmation"
           value={passPhrase}
           onChange={handlePassPhraseChange}
         />
