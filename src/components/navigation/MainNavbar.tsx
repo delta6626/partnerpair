@@ -10,6 +10,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { MaxContactsReachedModal } from "../modals/MaxContactsReachedModal";
 import { MaxChatsReachedModal } from "../modals/MaxChatsReachedErrorModal";
+import { DeleteAccountModal } from "../modals/DeleteAccountModal";
 
 export const MainNavbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -58,6 +59,8 @@ export const MainNavbar = () => {
       <MaxContactsReachedModal />
 
       <MaxChatsReachedModal />
+
+      <DeleteAccountModal />
 
       <GenericErrorModal
         modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
