@@ -25,4 +25,5 @@ export const SETTINGS = {
   BASIC_MAX_CHATS: 5,
   PRODUCTION_SUBSCRIPTION_MANAGEMENT_LINK: "https://www.paypal.com/myaccount/",
   DEVELOPMENT_SUBSCRIPTION_MANAGEMENT_LINK: "https://www.sandbox.paypal.com/myaccount/",
+  ACCOUNT_DELETION_INPUT_PHRASE: "delete my account",
 };
