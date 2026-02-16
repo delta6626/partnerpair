@@ -1,8 +1,16 @@
 import { HeartCrack } from "lucide-react";
 
-export const DeleteAccount = ({ className, onClickHandler }: { className?: string; onClickHandler?: () => void }) => {
+export const DeleteAccount = ({
+  className,
+  disabled,
+  onClickHandler,
+}: {
+  className?: string;
+  disabled?: boolean;
+  onClickHandler?: () => void;
+}) => {
   return (
-    <button className={`btn btn-error min-w-45 ${className ?? ""}`} onClick={onClickHandler}>
+    <button className={`btn btn-error min-w-45 ${className ?? ""}`} disabled={disabled} onClick={onClickHandler}>
       <HeartCrack size={20} />
       Delete account
     </button>
