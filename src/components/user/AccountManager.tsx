@@ -6,6 +6,7 @@ import { SignOut } from "./SignOut";
 import { DeleteAccount } from "./DeleteAccount";
 import { useTempUserStore } from "../../store/useTempUserStore";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const AccountManager = () => {
   const { theme, setTheme } = useTheme();
@@ -23,6 +24,11 @@ export const AccountManager = () => {
 
   const handleThemeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setTheme(e.target.value as AppTheme);
+  };
+
+  const handleDeleteAccountClick = () => {
+    const deleteAccountModal = document.getElementById(MODALS.DELETE_ACCOUNT_MODAL.ID) as HTMLDialogElement;
+    deleteAccountModal.showModal();
   };
 
   return (
@@ -94,7 +100,7 @@ export const AccountManager = () => {
 
       <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-12">
         <p className="text-accent">Delete account</p>
-        <DeleteAccount className="w-full sm:w-fit" />
+        <DeleteAccount className="w-full sm:w-fit" onClickHandler={handleDeleteAccountClick} />
       </div>
     </div>
   );
