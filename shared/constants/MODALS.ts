@@ -1,5 +1,3 @@
-import { SETTINGS } from "./SETTINGS";
-
 export const MODALS = {
   ADD_SKILL_MODAL: {
     ID_CURRENT: "addSkillModalCurrent",
@@ -128,6 +126,6 @@ export const MODALS = {
   DELETE_ACCOUNT_MODAL: {
     ID: "deleteAccountModal",
     TITLE: "Delete your account?",
-    DESCRIPTION: `Deleting your account is a permanent action and cannot be undone. All data associated with your account will be permanently deleted, except for information we are required to retain as outlined in our Privacy Policy.\n\nIf you have an active Pro tier subscription, it will be automatically canceled when your account is deleted. If your subscription is billed through PayPal, you may also need to cancel the recurring payment directly in your PayPal account to avoid future charges.\n\nThis is a critical action. To confirm, please type ${SETTINGS.ACCOUNT_DELETION_INPUT_PHRASE} below.`,
+    DESCRIPTION: `All data associated with your account will be permanently deleted, except for the information we retain as outlined in our Privacy Policy. If you have a Pro tier subscription, it will be automatically canceled when your account is deleted.`,
   },
 };
