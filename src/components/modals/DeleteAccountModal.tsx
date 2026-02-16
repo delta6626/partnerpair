@@ -30,7 +30,8 @@ export const DeleteAccountModal = () => {
           <AlertCircle size={20} className="text-error" />
           <h1 className="text-lg font-medium text-error">{MODALS.DELETE_ACCOUNT_MODAL.TITLE}</h1>
         </div>
-        <p className="mt-2">
+
+        <p className="mt-2 cursor-default select-none">
           {MODALS.DELETE_ACCOUNT_MODAL.DESCRIPTION} To confirm, type{" "}
           <span className="text-error">{SETTINGS.ACCOUNT_DELETION_PASS_PHRASE}</span> below.
         </p>
