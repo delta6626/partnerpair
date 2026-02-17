@@ -704,4 +704,7 @@ export const deleteAccount = onCall(async (request) => {
     4. Delete user object
     5. Delete from auth system
   */
+
+  const subscriptionDocSnap = await db.collection("subscriptions").doc(uid).get();
+  const subscriptionDocData = subscriptionDocSnap.data();
 });
