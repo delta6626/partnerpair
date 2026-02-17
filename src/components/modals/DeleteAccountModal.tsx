@@ -4,9 +4,14 @@ import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import { DeleteAccount } from "../user/DeleteAccount";
 import { useState, type ChangeEvent } from "react";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../../services/firebaseConfig";
 
 export const DeleteAccountModal = () => {
+  const deleteAccount = httpsCallable(functions, "deleteAccount");
+
   const [passPhrase, setPassPhrase] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handlePassPhraseChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassPhrase(e.target.value);
@@ -15,6 +20,18 @@ export const DeleteAccountModal = () => {
   const closeModal = () => {
     const modal = document.getElementById(MODALS.DELETE_ACCOUNT_MODAL.ID) as HTMLDialogElement;
     modal.close();
+  };
+
+  const handleAccountDeletion = async () => {
+    setLoading(true);
+    try {
+      await deleteAccount();
+      // TODO: Show success modal.
+    } catch (error) {
+      // TODO: Show error modal.
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,7 +65,12 @@ export const DeleteAccountModal = () => {
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <DeleteAccount className="flex-1" disabled={passPhrase !== SETTINGS.ACCOUNT_DELETION_PASS_PHRASE} />
+          <DeleteAccount
+            className="flex-1"
+            disabled={passPhrase !== SETTINGS.ACCOUNT_DELETION_PASS_PHRASE}
+            onClickHandler={handleAccountDeletion}
+            showLoadingAnimation={loading}
+          />
         </div>
       </div>
     </dialog>
