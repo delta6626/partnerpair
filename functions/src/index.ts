@@ -695,6 +695,13 @@ export const deleteChat = onCall(async (request) => {
 
 export const deleteAccount = onCall(async (request) => {
   const uid = request.auth?.uid;
-
   if (!uid) throw new HttpsError("unauthenticated", "User must be logged in to perform this operation.");
+
+  /* Tasks to perform: 
+    1. Cancel user's subscription, if it exists
+    2. Delete any photo uploaded
+    3. Delete subscription record
+    4. Delete user object
+    5. Delete from auth system
+  */
 });
