@@ -37,13 +37,13 @@ export const DeleteAccountModal = () => {
         </p>
 
         <input
-          className="input w-full mt-2"
+          className="input w-full mt-4"
           placeholder="Type your confirmation"
           value={passPhrase}
           onChange={handlePassPhraseChange}
         />
 
-        <div className="flex gap-x-2 mt-4">
+        <div className="flex gap-x-2 mt-2">
           <button type="button" className="btn flex-1" onClick={closeModal}>
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
