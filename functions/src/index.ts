@@ -725,9 +725,7 @@ export const deleteAccount = onCall(async (request) => {
   if (!uid) throw new HttpsError("unauthenticated", "User must be logged in to perform this operation.");
 
   try {
-    const subscriptionCancelled = await cancelSubscription(uid);
-    if (subscriptionCancelled) {
-    }
+    await cancelSubscription(uid);
   } catch (error: unknown) {
     console.error(error);
     throw new HttpsError("internal", `An error occured: ${error}`);
