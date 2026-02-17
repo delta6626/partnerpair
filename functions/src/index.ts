@@ -692,3 +692,9 @@ export const deleteChat = onCall(async (request) => {
     throw new HttpsError("unknown", "An unknown error occured. Please try again later.");
   }
 });
+
+export const deleteAccount = onCall(async (request) => {
+  const uid = request.auth?.uid;
+
+  if (!uid) throw new HttpsError("unauthenticated", "User must be logged in to perform this operation.");
+});
