@@ -169,12 +169,13 @@ const cancelSubscription = async (userId: string) => {
     body: JSON.stringify({ reason: "User requested account deletion." }),
   });
 
+  if (response.status === 204) return true;
+  if (response.status === 422) return true; // Already cancelled or invalid state. Treat as success.
+
   if (!response.ok) {
     console.error(response.text());
     throw new Error("An error occured cancelling the subscription");
   }
-
-  return true;
 };
 
 export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
@@ -716,5 +717,19 @@ export const deleteChat = onCall(async (request) => {
   } catch (error: unknown) {
     console.error(error);
     throw new HttpsError("unknown", "An unknown error occured. Please try again later.");
+  }
+});
+
+export const deleteAccount = onCall(async (request) => {
+  const uid = request.auth?.uid;
+  if (!uid) throw new HttpsError("unauthenticated", "User must be logged in to perform this operation.");
+
+  try {
+    const subscriptionCancelled = await cancelSubscription(uid);
+    if (subscriptionCancelled) {
+    }
+  } catch (error: unknown) {
+    console.error(error);
+    throw new HttpsError("internal", `An error occured: ${error}`);
   }
 });
