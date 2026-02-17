@@ -20,6 +20,7 @@ import { FilteredUser } from "./shared/types/FilteredProfile";
 import { ChatExistenceInformation } from "./shared/types/ChatExistenceInformation";
 import { ChatMetaData } from "./shared/types/ChatMetaData";
 import { SETTINGS } from "./shared/constants/SETTINGS";
+import { SubscriptionDocument } from "./shared/types/SubscriptionDocument";
 
 admin.initializeApp();
 
@@ -149,7 +150,32 @@ export const createSubscription = onCall(async (req) => {
   return approvalLink;
 });
 
-// export const cancelSubscription = onCall(async (req) => {});
+const cancelSubscription = async (userId: string) => {
+  const subscriptionDocSnap = await db.collection("subscriptions").doc(userId).get();
+  if (!subscriptionDocSnap.exists) throw new Error("Subscription does not exist.");
+
+  const subscriptionData: SubscriptionDocument = subscriptionDocSnap.data() as SubscriptionDocument;
+  const subscriptionId = subscriptionData.subscriptionId;
+
+  const token = await getAccessToken();
+
+  const response = await fetch(`${PAYPAL_BASE_URL}/v1/billing/subscriptions/${subscriptionId}/cancel`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ reason: "User requested account deletion." }),
+  });
+
+  if (!response.ok) {
+    console.error(response.text());
+    throw new Error("An error occured cancelling the subscription");
+  }
+
+  return true;
+};
 
 export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
   const webhookVerified = await verifyWebhookSignature(req);
@@ -691,20 +717,4 @@ export const deleteChat = onCall(async (request) => {
     console.error(error);
     throw new HttpsError("unknown", "An unknown error occured. Please try again later.");
   }
-});
-
-export const deleteAccount = onCall(async (request) => {
-  const uid = request.auth?.uid;
-  if (!uid) throw new HttpsError("unauthenticated", "User must be logged in to perform this operation.");
-
-  /* Tasks to perform: 
-    1. Cancel user's subscription, if it exists
-    2. Delete any photo uploaded
-    3. Delete subscription record
-    4. Delete user object
-    5. Delete from auth system
-  */
-
-  const subscriptionDocSnap = await db.collection("subscriptions").doc(uid).get();
-  const subscriptionDocData = subscriptionDocSnap.data();
 });
