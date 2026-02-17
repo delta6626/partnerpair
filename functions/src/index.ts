@@ -177,6 +177,8 @@ const cancelSubscription = async (userId: string) => {
     console.error(response.text());
     throw new Error("An error occured cancelling the subscription");
   }
+
+  return;
 };
 
 export const paypalWebhook = onRequest(async (req: Request, res: Response) => {
