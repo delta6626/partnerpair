@@ -25,6 +25,7 @@ import { SubscriptionDocument } from "./shared/types/SubscriptionDocument";
 admin.initializeApp();
 
 const db = getFirestore();
+const storageBucket = admin.storage().bucket();
 
 // Domain
 
@@ -726,6 +727,11 @@ export const deleteAccount = onCall(async (request) => {
 
   try {
     await cancelSubscription(uid);
+    await storageBucket.deleteFiles({ prefix: `profilePhotos/${uid}` });
+    await db.collection("users").doc(uid).delete();
+    await admin.auth().deleteUser(uid);
+
+    return true;
   } catch (error: unknown) {
     console.error(error);
     throw new HttpsError("internal", `An error occured: ${error}`);
