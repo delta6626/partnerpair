@@ -153,7 +153,9 @@ export const createSubscription = onCall(async (req) => {
 
 const cancelSubscription = async (userId: string) => {
   const subscriptionDocSnap = await db.collection("subscriptions").doc(userId).get();
-  if (!subscriptionDocSnap.exists) throw new Error("Subscription does not exist.");
+  if (!subscriptionDocSnap.exists) {
+    return true; // No subscription exists. Treat as success.
+  }
 
   const subscriptionData: SubscriptionDocument = subscriptionDocSnap.data() as SubscriptionDocument;
   const subscriptionId = subscriptionData.subscriptionId;
