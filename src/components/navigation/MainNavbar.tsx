@@ -11,6 +11,7 @@ import { useState } from "react";
 import { MaxContactsReachedModal } from "../modals/MaxContactsReachedModal";
 import { MaxChatsReachedModal } from "../modals/MaxChatsReachedErrorModal";
 import { DeleteAccountModal } from "../modals/DeleteAccountModal";
+import { AccountDeletionSuccessfulModal } from "../modals/AccountDeletionSuccessfulModal";
 
 export const MainNavbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -61,6 +62,8 @@ export const MainNavbar = () => {
       <MaxChatsReachedModal />
 
       <DeleteAccountModal />
+
+      <AccountDeletionSuccessfulModal />
 
       <GenericErrorModal
         modalId={MODALS.PROFILE_UPDATE_ERROR_MODAL.ID}
