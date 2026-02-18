@@ -128,4 +128,16 @@ export const MODALS = {
     TITLE: "Delete your account?",
     DESCRIPTION: `All data associated with your account will be permanently deleted, except for the information we retain as outlined in our Privacy Policy. If you have a Pro tier subscription, it will be automatically canceled when your account is deleted.`,
   },
+
+  ACCOUNT_DELETION_FAILED_MODAL: {
+    ID: "accountDeletionFailedModal",
+    TITLE: "Account deletion failed",
+    DESCRIPTION: `Something went wrong while trying to delete your account. Nothing has been changed. Please try again in a moment.`,
+  },
+
+  ACCOUNT_DELETION_SUCCESS_MODAL: {
+    ID: "accountDeletionSuccessModal",
+    TITLE: "Account deleted",
+    DESCRIPTION: `Your account and associated data have been successfully deleted. We are sorry to see you go.`,
+  },
 };
