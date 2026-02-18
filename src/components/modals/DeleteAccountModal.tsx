@@ -6,6 +6,7 @@ import { DeleteAccount } from "../user/DeleteAccount";
 import { useState, type ChangeEvent } from "react";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../../services/firebaseConfig";
+import { signOut } from "../../services/authentication/authServices";
 
 export const DeleteAccountModal = () => {
   const deleteAccount = httpsCallable(functions, "deleteAccount");
@@ -26,6 +27,7 @@ export const DeleteAccountModal = () => {
     setLoading(true);
     try {
       await deleteAccount();
+      await signOut();
       setLoading(false);
       const successModal = document.getElementById(MODALS.ACCOUNT_DELETION_SUCCESS_MODAL.ID) as HTMLDialogElement;
       successModal.showModal();
