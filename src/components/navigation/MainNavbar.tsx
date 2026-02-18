@@ -127,6 +127,12 @@ export const MainNavbar = () => {
         errorTitle={MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.TITLE}
         errorText={MODALS.ABUSE_REPORT_FAILED_ERROR_MODAL.DESCRIPTION}
       />
+
+      <GenericErrorModal
+        modalId={MODALS.ACCOUNT_DELETION_FAILED_MODAL.ID}
+        errorTitle={MODALS.ACCOUNT_DELETION_FAILED_MODAL.TITLE}
+        errorText={MODALS.ACCOUNT_DELETION_FAILED_MODAL.DESCRIPTION}
+      />
     </div>
   );
 };
