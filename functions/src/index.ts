@@ -172,8 +172,12 @@ const cancelSubscription = async (userId: string) => {
     body: JSON.stringify({ reason: "User requested account deletion." }),
   });
 
-  if (response.status === 204) return true;
-  if (response.status === 422) return true; // Already cancelled or invalid state. Treat as success.
+  if (response.status === 204 || response.status === 422) {
+    // Status 422 indicates user had already cancelled the subscription. Treat as success.
+    // Remove subscription record after subscription is deleted.
+    await db.collection("subscriptions").doc(userId).delete();
+    return true;
+  }
 
   if (!response.ok) {
     console.error(response.text());
