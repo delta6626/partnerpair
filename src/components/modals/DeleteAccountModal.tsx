@@ -26,11 +26,12 @@ export const DeleteAccountModal = () => {
     setLoading(true);
     try {
       await deleteAccount();
+      setLoading(false);
       // TODO: Show success modal.
     } catch (error) {
-      // TODO: Show error modal.
-    } finally {
       setLoading(false);
+      const errorModal = document.getElementById(MODALS.ACCOUNT_DELETION_FAILED_MODAL.ID) as HTMLDialogElement;
+      errorModal.showModal();
     }
   };
 
