@@ -27,7 +27,9 @@ export const DeleteAccountModal = () => {
     try {
       await deleteAccount();
       setLoading(false);
-      // TODO: Show success modal.
+      const successModal = document.getElementById(MODALS.ACCOUNT_DELETION_SUCCESS_MODAL.ID) as HTMLDialogElement;
+      successModal.showModal();
+      closeModal(); // Close current modal
     } catch (error) {
       setLoading(false);
       const errorModal = document.getElementById(MODALS.ACCOUNT_DELETION_FAILED_MODAL.ID) as HTMLDialogElement;
