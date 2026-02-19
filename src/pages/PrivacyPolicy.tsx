@@ -16,7 +16,7 @@ export const PrivacyPolicy = () => {
         <div className="flex flex-col items-center">
           <div className="py-8 w-full max-w-200 mt-4">
             <h1 className="text-3xl font-semibold">Privacy Policy</h1>
-            <p className="text-accent">Last Updated: January 17, 2026</p>
+            <p className="text-accent">Last Updated: February 19, 2026</p>
 
             <section className="mt-8">
               PartnerPair (“PartnerPair”, “we”, “us”, or “our”) is a web-based co-founder matching platform owned and
@@ -268,10 +268,12 @@ export const PrivacyPolicy = () => {
 
               <ul className="list-disc pl-4">
                 <li>Profile view records you created on other users’ profiles</li>
+                <li>Chats and messages you exchanged with other users, which are retained for those other users</li>
               </ul>
 
               <h1 className="pt-2">
-                This exception is necessary to preserve the integrity of other users’ activity histories.
+                These exceptions are necessary to preserve the integrity of other users’ profile view histories and
+                ongoing conversations.
               </h1>
             </section>
 
