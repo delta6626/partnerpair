@@ -154,6 +154,8 @@ export const Browse = () => {
 
           {isOpen && <SearchFiltersMenu />}
 
+          {allUsers.length > 0 && <h1 className="mt-8 text-accent">Results — {allUsers.length} found</h1>}
+
           {!data && !isLoading && !isError && (
             <div className="mt-4 sm:mt-0 text-center flex w-full flex-1 items-center justify-center">
               <h1 className="text-accent">{BROWSE.SEARCH_INSTRUCTION_MESSAGE}</h1>
