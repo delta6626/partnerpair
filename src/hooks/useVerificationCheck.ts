@@ -12,6 +12,7 @@ export const useVerificationCheck = (redirectToDashboard = false) => {
 
       if (!user.emailVerified) {
         navigate("/verify");
+        return;
       }
 
       if (redirectToDashboard) {
