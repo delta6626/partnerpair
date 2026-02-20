@@ -124,7 +124,13 @@ export const AddContact = ({
         {loading ? (
           <Loader />
         ) : (
-          <>{userIsAContact ? <UserRoundMinus size={20} className="text-error/60" /> : <UserRoundPlus size={20} />}</>
+          <>
+            {userIsAContact ? (
+              <UserRoundMinus size={20} className="text-error/60" />
+            ) : (
+              <UserRoundPlus className="text-neutral/80" size={20} />
+            )}
+          </>
         )}
       </button>
     );
