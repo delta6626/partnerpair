@@ -12,9 +12,11 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import { useEffect, useState } from "react";
 import { MODALS } from "../../shared/constants/MODALS";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Upgrade = () => {
   useTheme();
+  useVerificationCheck();
 
   const createSubscription = httpsCallable(functions, "createSubscription");
 

@@ -8,9 +8,12 @@ import { useTheme } from "../hooks/useTheme";
 import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import { getUserId } from "../services/authentication/authServices";
 import { Link } from "react-router-dom";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Dashboard = () => {
   useTheme();
+  useVerificationCheck();
+
   const { user, loading } = useInitializeUser();
   const { isLoading: userIdLoading } = useQuery({
     queryKey: [QUERY_KEYS.USER_ID],

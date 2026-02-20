@@ -10,9 +10,11 @@ import type { DisplayableUserPro } from "../../shared/types/DisplayableUserPro";
 import type { DisplayableUserBasic } from "../../shared/types/DisplayableUserBasic";
 import { RenderProData } from "../components/ProfileViewer/RenderProData";
 import { RenderBasicData } from "../components/ProfileViewer/RenderBasicData";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const ViewUserProfile = () => {
   useTheme();
+  useVerificationCheck();
 
   const { id } = useParams();
   const { loading } = useInitializeUser();

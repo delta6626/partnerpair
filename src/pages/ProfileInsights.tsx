@@ -12,9 +12,12 @@ import { QUERY_KEYS } from "../../shared/constants/QUERY_KEYS";
 import type { ViewerMetaData } from "../../shared/types/ViewerMetaData";
 import { VisitedUserCollection } from "../components/user/VisitedUserCollection";
 import type { ProfileViewFilter } from "../../shared/types/ProfileViewFilter";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const ProfileInsights = () => {
   useTheme();
+  useVerificationCheck();
+
   const { loading } = useInitializeUser();
 
   const getProfileViewData = httpsCallable(functions, "getProfileViewData");

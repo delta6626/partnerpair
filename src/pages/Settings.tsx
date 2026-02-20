@@ -19,9 +19,11 @@ import { ProfileStatusMessage } from "../components/user/ProfileStatusMessage";
 import { basicUserDataValid } from "../../shared/utils/basicUserDataValid";
 import { profileComplete } from "../../shared/utils/profileComplete";
 import type { User } from "../../shared/types/User";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Settings = () => {
   useTheme();
+  useVerificationCheck();
 
   const { user, loading } = useInitializeUser();
   const { tempUser, setTempUser } = useTempUserStore();

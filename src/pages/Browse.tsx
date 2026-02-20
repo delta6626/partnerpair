@@ -16,9 +16,11 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../services/firebaseConfig";
 import { UserProfileCard } from "../components/ProfileViewer/UserProfileCard";
 import { useInView } from "react-intersection-observer";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Browse = () => {
   useTheme();
+  useVerificationCheck();
 
   const arrayKeys = [
     BROWSE.PARAM_SKILLS,

@@ -1,8 +1,10 @@
 import { MainNavbar } from "../components/navigation/MainNavbar";
 import { useTheme } from "../hooks/useTheme";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Forum = () => {
   useTheme();
+  useVerificationCheck();
 
   return (
     <div className="w-full flex flex-col grow min-h-[100vh] font-inter bg-base-300 paddingContainer">

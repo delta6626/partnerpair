@@ -6,9 +6,12 @@ import { MESSAGES } from "../../shared/constants/MESSAGES";
 import { ChatInbox } from "../components/messaging/ChatInbox";
 import { ChatViewer } from "../components/messaging/ChatViewer";
 import { Loader } from "../components/Loader";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const Messages = () => {
   useTheme();
+  useVerificationCheck();
+
   const { loading } = useInitializeUser();
 
   return (

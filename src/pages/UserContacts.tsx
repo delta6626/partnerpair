@@ -11,9 +11,12 @@ import { useTheme } from "../hooks/useTheme";
 import { ContactHolder } from "../components/user/ContactHolder";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
 export const UserContacts = () => {
   useTheme();
+  useVerificationCheck();
+
   const getUserContacts = httpsCallable(functions, "getUserContacts");
 
   const { user, loading } = useInitializeUser();
