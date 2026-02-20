@@ -1,14 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
+import type { ReactElement } from "react";
 
 export const DemoUser = ({
   userName,
   userHeadline,
-  SideIcon,
+  sideIcon,
 }: {
   userName: string;
   userHeadline: string;
-  SideIcon: LucideIcon;
+  sideIcon: ReactElement;
 }) => {
   return (
     <div className="min-w-lg flex items-center justify-between rounded-3xl border border-base-100 bg-base-200 p-4">
@@ -21,7 +22,7 @@ export const DemoUser = ({
         </div>
       </div>
 
-      <SideIcon size={20} />
+      {sideIcon}
     </div>
   );
 };

@@ -142,22 +142,22 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
             <DemoUser
               userName="Margaret Hamilton"
               userHeadline="Saved the moon landing with clean code"
-              SideIcon={UserRoundPlus}
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Tim Berners-Lee"
               userHeadline="You're welcome for the internet"
-              SideIcon={UserRoundPlus}
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Dennis Ritchie"
               userHeadline="Invented C so you could invent everything else"
-              SideIcon={UserRoundPlus}
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Guido van Rossum"
               userHeadline="Made Python so you don’t have to fight your code"
-              SideIcon={UserRoundPlus}
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
           ]}
         />
