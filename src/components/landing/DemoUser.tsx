@@ -1,4 +1,3 @@
-import type { LucideIcon } from "lucide-react";
 import { SETTINGS } from "../../../shared/constants/SETTINGS";
 import type { ReactElement } from "react";
 
