@@ -27,6 +27,7 @@ import {
   MessagesSquare,
   HelpCircle,
   Route,
+  UserRoundPlus,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -38,6 +39,8 @@ import { HOME } from "../../shared/constants/HOME";
 import { GetStartedButton } from "../components/landing/GetStartedButton";
 import { Collapse } from "../components/landing/Collapse";
 import { useVerificationCheck } from "../hooks/useVerificationCheck";
+import { DemoUserCollection } from "../components/landing/DemoUserCollection";
+import { DemoUser } from "../components/landing/DemoUser";
 
 export const Home = ({ redirect }: { redirect: boolean }) => {
   useVerificationCheck(redirect);
@@ -132,8 +135,32 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        {/* Insert image later */}
-        <div></div>
+        <DemoUserCollection
+          title={"Suggested for you"}
+          sideElement={<p className="text-accent">Exceptional match</p>}
+          demoUsers={[
+            <DemoUser
+              userName="Margaret Hamilton"
+              userHeadline="Saved the moon landing with clean code"
+              SideIcon={UserRoundPlus}
+            />,
+            <DemoUser
+              userName="Tim Berners-Lee"
+              userHeadline="You're welcome for the internet"
+              SideIcon={UserRoundPlus}
+            />,
+            <DemoUser
+              userName="Dennis Ritchie"
+              userHeadline="Invented C so you could invent everything else"
+              SideIcon={UserRoundPlus}
+            />,
+            <DemoUser
+              userName="Guido van Rossum"
+              userHeadline="Made Python so you don’t have to fight your code"
+              SideIcon={UserRoundPlus}
+            />,
+          ]}
+        />
       </section>
 
       <div className="border-b border-base-100"></div>
