@@ -1,14 +1,4 @@
-1. Perform all TODOs written in the codebase ✅ Done.
-2. Email notifications with Resend ❌ Cancelled for the time being.
-3. Subscription system ✅
-4. Mobile responsiveness
-5. Implement blogs page ❌ Cancelled for the time being.
-6. Privacy policy, terms of service ✅
-7. Landing page ✅
-9. Create footer ✅
-10. Abuse reporting for chats ✅
-11. Chat message search ❌ Cancelled for the time being.
-12. Account deletion
-13. Prevent access to banned / suspended user accounts
-14. Limit number of created chats possible for basic users ✅
-15. Limit number of created contacts for basic users ✅
+TODO:
+Implement blogs
+Email Notifications
+Chat search
