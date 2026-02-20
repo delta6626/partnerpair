@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getAuthenticatedUser } from "../services/authentication/authServices";
 import { useNavigate } from "react-router-dom";
 
-export const useVerificationCheck = () => {
+export const useVerificationCheck = (redirectToDashboard = false) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -10,13 +10,15 @@ export const useVerificationCheck = () => {
       const user = await getAuthenticatedUser();
       if (typeof user === "string") return;
 
-      if (user.emailVerified) {
-        navigate("/dashboard");
-      } else {
+      if (!user.emailVerified) {
         navigate("/verify");
+      }
+
+      if (redirectToDashboard) {
+        navigate("/dashboard");
       }
     };
 
     checkUser();
-  }, []);
+  }, [navigate, redirectToDashboard]);
 };

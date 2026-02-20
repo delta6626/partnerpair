@@ -6,7 +6,7 @@ import { useTheme } from "../hooks/useTheme";
 
 export const Login = () => {
   useTheme();
-  useVerificationCheck();
+  useVerificationCheck(true);
 
   return (
     <div className="font-inter w-full min-h-[100vh] bg-base-300 paddingContainer flex flex-col">
