@@ -23,7 +23,7 @@ export const MainNavbar = () => {
   return (
     <div className="flex items-center justify-between">
       <div className="">
-        <Logo />
+        <Logo link={"/home"} />
       </div>
 
       <div className="hidden lg:block">
