@@ -1,27 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import { LoginForm } from "../components/forms/Loginform";
 import { Navbar } from "../components/navigation/Navbar";
 import { LOGIN } from "../../shared/constants/LOGIN";
-import { useEffect } from "react";
-import { getAuthenticatedUser } from "../services/authentication/authServices";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
+import { useTheme } from "../hooks/useTheme";
 
 export const Login = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const user = await getAuthenticatedUser();
-      if (typeof user === "string") return;
-
-      if (user.emailVerified) {
-        navigate("/dashboard");
-      } else {
-        navigate("/verify");
-      }
-    };
-
-    checkUser();
-  }, []);
+  useTheme();
+  useVerificationCheck();
 
   return (
     <div className="font-inter w-full min-h-[100vh] bg-base-300 paddingContainer flex flex-col">

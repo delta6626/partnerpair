@@ -1,27 +1,12 @@
-import { useEffect } from "react";
 import { SignupForm } from "../components/forms/SignupForm";
 import { Navbar } from "../components/navigation/Navbar";
 import { SIGNUP } from "../../shared/constants/SIGNUP";
-import { getAuthenticatedUser } from "../services/authentication/authServices";
-import { useNavigate } from "react-router-dom";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
+import { useTheme } from "../hooks/useTheme";
 
 export const Signup = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const user = await getAuthenticatedUser();
-      if (typeof user === "string") return;
-
-      if (user.emailVerified) {
-        navigate("/dashboard");
-      } else {
-        navigate("/verify");
-      }
-    };
-
-    checkUser();
-  }, []);
+  useTheme();
+  useVerificationCheck();
 
   return (
     <div className="font-inter w-full min-h-[100vh] bg-base-300 paddingContainer flex flex-col">
