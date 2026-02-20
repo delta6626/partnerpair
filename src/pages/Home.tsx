@@ -28,6 +28,7 @@ import {
   HelpCircle,
   Route,
   UserRoundPlus,
+  UserRoundMinus,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -308,8 +309,32 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        {/* Insert image later */}
-        <div></div>
+        <DemoUserCollection
+          title={"Saved contacts"}
+          sideElement={<p className="text-accent">4 saved</p>}
+          demoUsers={[
+            <DemoUser
+              userName="Galileo Galilei"
+              userHeadline="Looking at the stars before telescopes were cool"
+              sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
+            />,
+            <DemoUser
+              userName="Richard Feynman"
+              userHeadline="Explaining quantum weirdness"
+              sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
+            />,
+            <DemoUser
+              userName="James Clerk Maxwell"
+              userHeadline="Making electricity and magnetism friends forever"
+              sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
+            />,
+            <DemoUser
+              userName="Dmitri Mendeleev"
+              userHeadline="Predicted elements like a scientific fortune teller"
+              sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
+            />,
+          ]}
+        />
       </section>
 
       <div className="border-b border-base-100"></div>
