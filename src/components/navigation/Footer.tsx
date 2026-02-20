@@ -6,8 +6,8 @@ import { TwitterIcon } from "../../assets/customIcons/TwitterIcon";
 
 export const Footer = () => {
   return (
-    <div className="w-full flex flex-col sm:flex-row sm:flex-wrap justify-between font-inter bg-base-200 paddingContainer py-8">
-      <div className="flex flex-col gap-8 max-w-50 p-4">
+    <div className="w-full flex flex-wrap justify-between font-inter bg-base-200 paddingContainer py-8">
+      <div className="flex flex-col gap-8 max-w-50 min-w-50 p-4">
         <Logo />
 
         <div className="flex flex-col gap-8">
@@ -24,7 +24,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 p-4">
+      <div className="flex flex-col gap-8 p-4 max-w-50 min-w-50">
         <h1 className="text-lg font-semibold">Product</h1>
 
         <div className="text-accent flex flex-col gap-2 font-semibold text-sm">
@@ -53,7 +53,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 font-semibold text-sm p-4">
+      <div className="flex flex-col gap-8 font-semibold text-sm p-4 max-w-50 min-w-50">
         <h1 className="text-lg font-semibold">Legal</h1>
 
         <div className="text-accent flex flex-col gap-2">
@@ -67,7 +67,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 font-semibold text-sm p-4">
+      <div className="flex flex-col gap-8 font-semibold text-sm p-4 max-w-50 min-w-50">
         <h1 className="text-lg font-semibold">Contact</h1>
 
         <div className="text-accent flex flex-col gap-2">
