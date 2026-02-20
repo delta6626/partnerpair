@@ -11,8 +11,8 @@ export const DemoUserCollection = ({
 }) => {
   return (
     <div className="flex flex-col gap-2 border border-base-100 p-8 rounded-3xl select-none">
-      <div className="flex items-center justify-between">
-        <h1 className="text-lg mb-2">{title}</h1>
+      <div className="flex items-center justify-between mb-2">
+        <h1 className="text-lg">{title}</h1>
         {sideElement}
       </div>
 

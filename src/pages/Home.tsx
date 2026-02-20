@@ -137,7 +137,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
         <DemoUserCollection
           title={"Suggested for you"}
-          sideElement={<p className="text-accent">Exceptional match</p>}
+          sideElement={<button className="btn">Browse more</button>}
           demoUsers={[
             <DemoUser
               userName="Margaret Hamilton"
