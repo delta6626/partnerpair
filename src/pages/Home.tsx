@@ -37,8 +37,11 @@ import { PricingCard } from "../components/landing/PricingCard";
 import { HOME } from "../../shared/constants/HOME";
 import { GetStartedButton } from "../components/landing/GetStartedButton";
 import { Collapse } from "../components/landing/Collapse";
+import { useVerificationCheck } from "../hooks/useVerificationCheck";
 
-export const Home = () => {
+export const Home = ({ redirect }: { redirect: boolean }) => {
+  useVerificationCheck(redirect);
+
   return (
     <div className="w-full font-inter min-h-[100vh] bg-base-300">
       <div className="py-4 paddingContainer">
