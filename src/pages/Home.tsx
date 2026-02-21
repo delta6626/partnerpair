@@ -186,7 +186,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        <div className="p-4 w-lg flex flex-col gap-2 select-none">
+        <div className="p-8 border rounded-3xl border-base-100 w-lg flex flex-col gap-2 select-none">
           <div className="border border-base-100 w-full flex gap-2 bg-base-200 px-4 py-2 rounded-box text-accent">
             <Search size={20} />
             <h1>Search by name</h1>
