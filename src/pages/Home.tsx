@@ -29,6 +29,7 @@ import {
   Route,
   UserRoundPlus,
   UserRoundMinus,
+  ChevronDown,
 } from "lucide-react";
 import { Navbar } from "../components/navigation/Navbar";
 import { StepCard } from "../components/landing/StepCard";
@@ -184,8 +185,28 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        {/* Insert image later */}
-        <div></div>
+        <div className="w-lg flex flex-col gap-2">
+          <div className="w-full flex gap-2 bg-base-200 px-4 py-2 rounded-box text-accent">
+            <Search size={20} />
+            <h1>Search by name</h1>
+          </div>
+          <div className="w-full flex gap-2">
+            <div className="dropdown dropdown-open w-full dropdown-bottom dropdown-end">
+              <button tabIndex={0} className="btn font-medium flex justify-between w-full" role="button">
+                Availability they seek
+                <ChevronDown size={20} />
+              </button>
+            </div>
+
+            <div className="dropdown w-full dropdown-open dropdown-bottom dropdown-end">
+              <button tabIndex={0} className="btn font-medium w-full flex justify-between" role="button">
+                Startup Stage
+                <ChevronDown size={20} />
+              </button>
+              <ul className="rounded-box dropdown-content menu border border-base-100 bg-base-200 z-1 mt-2 p-4">hi</ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div className="border-b border-base-100"></div>
