@@ -204,7 +204,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
             </div>
           </div>
 
-          <div className="max-w-md border border-base-100 bg-base-200 p-4 rounded-box">
+          <div className="max-w-sm border border-base-100 bg-base-200 p-4 rounded-box">
             <div className="mb-2 flex items-center justify-between">
               <h1>Show users with startups</h1>
               <input type="radio" className="radio cursor-default radio-primary" checked={true} />
