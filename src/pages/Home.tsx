@@ -45,6 +45,7 @@ import { DemoUserCollection } from "../components/landing/DemoUserCollection";
 import { DemoUser } from "../components/landing/DemoUser";
 import { GenericChip } from "../components/ProfileViewer/GenericChip";
 import { MockBrowseUI } from "../components/landing/MockBrowseUI";
+import { MockChatUI } from "../components/landing/MockChatUI";
 
 export const Home = ({ redirect }: { redirect: boolean }) => {
   useVerificationCheck(redirect);
@@ -263,8 +264,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        {/* Insert image later */}
-        <div></div>
+        <MockChatUI />
       </section>
 
       <div className="border-b border-base-100"></div>
