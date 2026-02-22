@@ -43,7 +43,6 @@ import { Collapse } from "../components/landing/Collapse";
 import { useVerificationCheck } from "../hooks/useVerificationCheck";
 import { DemoUserCollection } from "../components/landing/DemoUserCollection";
 import { DemoUser } from "../components/landing/DemoUser";
-import { GenericChip } from "../components/ProfileViewer/GenericChip";
 import { MockBrowseUI } from "../components/landing/MockBrowseUI";
 import { MockChatUI } from "../components/landing/MockChatUI";
 
