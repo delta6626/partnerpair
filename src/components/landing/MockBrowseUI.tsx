@@ -2,15 +2,20 @@ import { ChevronDown, Search } from "lucide-react";
 
 export const MockBrowseUI = () => {
   return (
-    <div className="p-8 border rounded-3xl border-base-100 w-lg flex flex-col gap-2 select-none">
+    <div className="p-8 border rounded-3xl border-base-100 w-full xl:w-lg flex flex-col gap-2 select-none">
       <div className="border border-base-100 w-full flex gap-2 bg-base-200 px-4 py-2 rounded-box text-accent">
         <Search size={20} />
         <h1>Search by name</h1>
       </div>
 
-      <div className="flex gap-2 flex-row">
+      <div className="flex gap-2 flex-col-reverse sm:flex-row">
         <div className="cursor-default px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-box font-medium flex justify-between flex-1">
           Startup Stage
+          <ChevronDown size={20} />
+        </div>
+
+        <div className="xl:hidden cursor-default px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-box font-medium hidden lg:flex justify-between flex-1">
+          Roles
           <ChevronDown size={20} />
         </div>
 
@@ -18,9 +23,14 @@ export const MockBrowseUI = () => {
           Availability they seek
           <ChevronDown size={20} />
         </div>
+
+        <div className="xl:hidden cursor-default px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-box font-medium hidden lg:flex justify-between flex-1">
+          Commitent they seek
+          <ChevronDown size={20} />
+        </div>
       </div>
 
-      <div className="max-w-sm border border-base-100 bg-base-200 p-4 rounded-box">
+      <div className="w-2xl max-w-full xl:max-w-sm border border-base-100 bg-base-200 p-4 rounded-box">
         <div className="mb-2 flex items-center justify-between">
           <h1>Show users with startups</h1>
           <input type="radio" className="radio cursor-default radio-primary" checked={true} />
