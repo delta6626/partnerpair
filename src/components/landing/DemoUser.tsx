@@ -21,7 +21,7 @@ export const DemoUser = ({
         </div>
       </div>
 
-      {sideIcon}
+      <div className="p-2 border border-base-100 rounded-box">{sideIcon}</div>
     </div>
   );
 };
