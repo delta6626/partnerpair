@@ -345,23 +345,23 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           sideElement={<p className="text-accent">4 saved</p>}
           demoUsers={[
             <DemoUser
-              userName="Galileo Galilei"
-              userHeadline="Looking at the stars before telescopes were cool"
+              userName="Tanner Linsley"
+              userHeadline="Creator of Tanstack"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
-              userName="Richard Feynman"
-              userHeadline="Explaining quantum weirdness"
+              userName="Jeff Delaney"
+              userHeadline="Fireship creator, 100-second dev tutorials"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
-              userName="James Clerk Maxwell"
-              userHeadline="Making electricity and magnetism friends forever"
+              userName="Evan You"
+              userHeadline="Created Vue.js, making reactive web development simple"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
-              userName="Dmitri Mendeleev"
-              userHeadline="Predicted elements like a scientific fortune teller"
+              userName="shadcn"
+              userHeadline="Building modern UI components and design systems"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
           ]}
