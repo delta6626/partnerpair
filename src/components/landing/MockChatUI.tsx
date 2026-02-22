@@ -21,9 +21,9 @@ export const MockChatUI = () => {
   ];
 
   return (
-    <div className="p-8 w-lg">
+    <div className="p-8 w-xl border border-base-100 rounded-3xl">
       <div className="w-full flex flex-col items-center mb-8">
-        <h1 className="px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-3xl mb-4 w-fit">
+        <h1 className="text-accent px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-3xl mb-4 w-fit">
           {formatDate(date, {
             weekday: "long",
             year: "numeric",
@@ -33,7 +33,7 @@ export const MockChatUI = () => {
         </h1>
 
         <img className="w-15 h-15 rounded-full" src={`${SETTINGS.DICEBEAR_API_URL}${dummyName}`}></img>
-        <h1 className="font-medium text-lg">{dummyName}</h1>
+        <h1 className="text-lg">{dummyName}</h1>
       </div>
 
       <div className="flex flex-col gap-4">
