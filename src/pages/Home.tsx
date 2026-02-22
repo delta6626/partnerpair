@@ -299,22 +299,22 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
             <DemoUser
               userName="Elon Musk"
               userHeadline="Viewed today at 12:43 PM"
-              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+              sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Bill Gates"
               userHeadline="Viewed today at 11:15 AM"
-              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+              sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Jeff Bezos"
               userHeadline="Viewed today at 10:52 AM"
-              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+              sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               userName="Mark Zuckerberg"
               userHeadline="Viewed today at 9:38 AM"
-              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+              sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
           ]}
         />
