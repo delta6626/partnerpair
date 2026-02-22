@@ -91,7 +91,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <section className="py-16 flex flex-col items-center gap-16 paddingContainer">
         <div className="max-w-lg flex items-center flex-col gap-8">
-          <IconText icon={Route} text={"Easy Process"} topTag={true} />
+          <IconText icon={Route} text={"Quick and Simple"} topTag={true} />
           <h1 className="text-4xl font-medium">How it Works</h1>
           <h1 className="text-lg text-accent text-center">
             Three easy and simple steps to find the co-founder that best matches your need.
