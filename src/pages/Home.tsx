@@ -204,7 +204,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-3 place-items-center gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-8">
           <FeatureCard
             icon={Sparkles}
             title={"Skills Showcase"}
