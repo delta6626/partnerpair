@@ -449,14 +449,14 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={Hourglass} text={"Coming soon"} topTag={true} />
 
-          <h1 className="text-4xl font-medium">On the Roadmap</h1>
+          <h1 className="text-center text-4xl font-medium">On the Roadmap</h1>
 
           <h1 className="text-accent text-center text-lg max-w-lg">
             New features are on the way, all built to help you connect more easily and grow over time.
           </h1>
         </div>
 
-        <div className="grid grid-cols-2 place-items-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-8">
           <FeatureCard
             icon={MessagesSquare}
             title="Community Forums"
@@ -477,7 +477,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={HelpCircle} text={"FAQ"} topTag={true} />
 
-          <h1 className="text-4xl font-medium">Commonly Asked Questions</h1>
+          <h1 className="text-center text-4xl font-medium">Commonly Asked Questions</h1>
 
           <h1 className="text-accent text-center text-lg max-w-lg">
             We’ve got answers to commonly asked questions to help you get started faster.
@@ -495,7 +495,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <section className="py-16 flex flex-col gap-16 paddingContainer">
         <div className="w-full flex items-center flex-col gap-8">
-          <h1 className="text-4xl font-medium">Ready to Find Your Co-founder?</h1>
+          <h1 className="text-center text-4xl font-medium">Ready to Find Your Co-founder?</h1>
 
           <h1 className="text-accent text-center text-lg max-w-lg">
             Create your profile and start connecting with founders who complement your skills.
