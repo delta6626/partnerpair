@@ -169,8 +169,8 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 flex flex-row-reverse items-center justify-between gap-16 paddingContainer">
-        <div className="max-w-lg flex flex-col gap-8">
+      <section className="py-16 flex flex-col xl:flex-row-reverse items-center justify-between gap-16 paddingContainer">
+        <div className="w-full xl:max-w-lg flex flex-col gap-8">
           <IconText icon={Filter} text={"Advanced Search"} topTag={true} />
 
           <h1 className="text-4xl font-medium">Find Exactly Who You Need</h1>
