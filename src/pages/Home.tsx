@@ -291,7 +291,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           title={"Profile views"}
           sideElement={
             <div className="cursor-default px-4 py-2 text-sm border border-base-100 bg-base-200 text-accent rounded-3xl font-medium flex gap-4">
-              Last 7 Days
+              Today
               <ChevronDown size={20} />
             </div>
           }
