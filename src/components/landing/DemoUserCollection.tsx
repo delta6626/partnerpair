@@ -10,7 +10,7 @@ export const DemoUserCollection = ({
   demoUsers: ReactElement[];
 }) => {
   return (
-    <div className="flex flex-col gap-2 border border-base-100 p-8 rounded-3xl select-none">
+    <div className="w-full xl:w-lg flex flex-col gap-2 border border-base-100 p-8 rounded-3xl select-none">
       <div className="flex items-center justify-between mb-2">
         <h1 className="font-medium text-lg">{title}</h1>
         {sideElement}
