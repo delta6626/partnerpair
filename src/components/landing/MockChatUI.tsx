@@ -21,9 +21,9 @@ export const MockChatUI = () => {
   ];
 
   return (
-    <div className="p-8 w-xl border border-base-100 rounded-3xl">
+    <div className="p-8 w-full xl:w-xl border border-base-100 rounded-3xl">
       <div className="w-full flex flex-col items-center mb-8">
-        <h1 className="text-accent px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-3xl mb-4 w-fit">
+        <h1 className="text-center text-accent px-4 py-2 text-sm border border-base-100 bg-base-200 rounded-3xl mb-4 w-fit">
           {formatDate(date, {
             weekday: "long",
             year: "numeric",
@@ -42,7 +42,7 @@ export const MockChatUI = () => {
           return (
             <div key={index} className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
               <div
-                className={`max-w-[80%] px-4 py-2 rounded-2xl break-words ${
+                className={`max-w-[260px] sm:max-w-[300px] xl:max-w-[400px] px-4 py-2 rounded-2xl break-words ${
                   isUser
                     ? "bg-primary rounded-t-3xl rounded-bl-3xl rounded-br-md"
                     : "bg-base-200 rounded-t-3xl rounded-bl-md rounded-br-3xl"
