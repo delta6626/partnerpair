@@ -421,7 +421,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </h1>
         </div>
 
-        <div className="w-full flex justify-center gap-4">
+        <div className="w-full flex flex-col-reverse lg:flex-row justify-center gap-4">
           <PricingCard
             tierName={"Basic"}
             tierSubtitle={"Free access to core features"}
