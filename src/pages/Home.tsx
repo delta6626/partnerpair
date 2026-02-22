@@ -57,14 +57,14 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 paddingContainer flex items-center justify-between">
-        <div className="flex flex-col gap-8">
-          <h1 className="text-6xl font-semibold">
+      <section className="py-16 paddingContainer flex flex-col gap-16 xl:flex-row xl:gap-0 items-center justify-between">
+        <div className="flex flex-col items-center xl:items-start gap-8">
+          <h1 className="text-6xl xl:text-5xl 2xl:text-6xl font-semibold text-center xl:text-left">
             Great Ideas Deserve<br></br>
             <span className="text-primary">Great Partners</span>
           </h1>
 
-          <h1 className="text-lg text-accent max-w-lg">
+          <h1 className="text-lg text-accent max-w-lg text-center xl:text-left">
             Discover and connect with co-founders who complement your skills and vision. Whether you’re starting up or
             joining one, this is where teams begin.
           </h1>
@@ -75,9 +75,9 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="w-full xl:w-fit">
           <iframe
-            className="w-2xl aspect-video rounded-3xl"
+            className="w-[100%] xl:w-lg 2xl:w-xl aspect-video rounded-3xl"
             src="https://www.youtube.com/embed/LDU_Txk06tM?si=XP-eVunKEDvgdu8x" // Change source later.
             title="PartnerPair Demo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
