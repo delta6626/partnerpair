@@ -373,7 +373,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={Shield} text={"Safety and Trust"} topTag={true} />
 
-          <h1 className="text-4xl font-medium">A Safe Place to Find Co-founders</h1>
+          <h1 className="text-center text-4xl font-medium">A Safe Place to Find Co-founders</h1>
 
           <h1 className="text-accent text-center text-lg max-w-lg">
             Verify your email to protect the community. Report misuse anytime. Our moderation team reviews every report
