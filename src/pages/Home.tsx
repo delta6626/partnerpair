@@ -287,8 +287,37 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </div>
         </div>
 
-        {/* Insert image later */}
-        <div></div>
+        <DemoUserCollection
+          title={"Profile views"}
+          sideElement={
+            <div className="cursor-default px-4 py-2 text-sm border border-base-100 bg-base-200 text-accent rounded-3xl font-medium flex gap-4">
+              Last 7 Days
+              <ChevronDown size={20} />
+            </div>
+          }
+          demoUsers={[
+            <DemoUser
+              userName="Elon Musk"
+              userHeadline="Viewed today at 12:43 PM"
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+            />,
+            <DemoUser
+              userName="Bill Gates"
+              userHeadline="Viewed today at 11:15 AM"
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+            />,
+            <DemoUser
+              userName="Jeff Bezos"
+              userHeadline="Viewed today at 10:52 AM"
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+            />,
+            <DemoUser
+              userName="Mark Zuckerberg"
+              userHeadline="Viewed today at 9:38 AM"
+              sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
+            />,
+          ]}
+        />
       </section>
 
       <div className="border-b border-base-100"></div>
