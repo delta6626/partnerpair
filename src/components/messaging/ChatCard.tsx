@@ -73,9 +73,9 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         )}
 
         <div className="tooltip font-normal" data-tip="Delete Chat">
-          <button className="btn btn-square border border-base-100" onClick={handleChatDeletion}>
-            {chatDeletePending ? <Loader /> : <Trash2 className="text-neutral/80" size={20} />}
-          </button>
+          <div className="btn btn-square border border-base-100" onClick={handleChatDeletion}>
+            {chatDeletePending ? <Loader /> : <Trash2 className="text-error/60" size={20} />}
+          </div>
         </div>
       </div>
     </button>
