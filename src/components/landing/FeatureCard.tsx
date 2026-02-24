@@ -10,7 +10,7 @@ export const FeatureCard = ({
   description: string;
 }) => {
   return (
-    <div className="w-full h-full rounded-3xl flex flex-col gap-2 p-8 border border-base-100">
+    <div className="w-full h-full rounded-3xl flex flex-col gap-2 p-8 bg-base-200">
       <div className="bg-primary/20 text-primary rounded-xl w-fit p-2">
         <Icon size={20} />
       </div>
