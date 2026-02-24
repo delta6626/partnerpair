@@ -29,25 +29,27 @@ export const PricingCard = ({
 }) => {
   return (
     <div
-      className={`w-full lg:w-lg border p-8 rounded-3xl bg-base-200 ${isRecommended ? "border-primary" : "border-base-100"}`}
+      className={`w-full flex flex-col justify-between lg:w-lg border p-8 rounded-3xl bg-base-200 ${isRecommended ? "border-primary" : "border-base-100"}`}
     >
-      <h1 className="text-3xl font-medium">{tierName}</h1>
-      <h1 className="text-lg text-accent">{tierSubtitle}</h1>
-      <h1 className="text-3xl font-medium my-4">
-        {`$${tierPrice}`}
-        <span className="text-accent text-sm">{` /month`}</span>
-      </h1>
+      <div className="">
+        <h1 className="text-3xl font-medium">{tierName}</h1>
+        <h1 className="text-lg text-accent">{tierSubtitle}</h1>
+        <h1 className="text-3xl font-medium my-4">
+          {`$${tierPrice}`}
+          <span className="text-accent text-sm">{` /month`}</span>
+        </h1>
 
-      {tierFeatures.map((tier, index) => {
-        return (
-          <IconText
-            key={index}
-            icon={tier.isLimited ? Minus : Check}
-            text={tier.feature}
-            iconClassName={tier.isLimited ? "text-warning" : ""}
-          ></IconText>
-        );
-      })}
+        {tierFeatures.map((tier, index) => {
+          return (
+            <IconText
+              key={index}
+              icon={tier.isLimited ? Minus : Check}
+              text={tier.feature}
+              iconClassName={tier.isLimited ? "text-warning" : ""}
+            ></IconText>
+          );
+        })}
+      </div>
 
       {showGetStartedButton && (
         <GetStartedButton
