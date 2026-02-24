@@ -35,11 +35,11 @@ export const MockBrowseUI = () => {
       <div className="w-2xl max-w-full xl:max-w-sm border border-base-100 bg-base-200 p-4 rounded-box">
         <div className="mb-2 flex items-center justify-between">
           <h1>Show users with startups</h1>
-          <input type="radio" className="radio cursor-default radio-primary" checked={true} />
+          <input type="radio" className="radio cursor-default radio-primary" checked={true} readOnly={true} />
         </div>
         <div className="flex items-center justify-between">
           <h1>Show users who want to join a startup</h1>
-          <input type="radio" className="radio cursor-default" checked={false} />
+          <input type="radio" className="radio cursor-default" checked={false} readOnly={true} />
         </div>
 
         <div className="mt-4">

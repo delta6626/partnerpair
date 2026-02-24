@@ -144,21 +144,25 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           sideElement={<button className="btn">Browse more</button>}
           demoUsers={[
             <DemoUser
+              key={1}
               userName="Margaret Hamilton"
               userHeadline="Saved the moon landing with clean code"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={2}
               userName="Tim Berners-Lee"
               userHeadline="You're welcome for the internet"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={3}
               userName="Dennis Ritchie"
               userHeadline="Invented C so you could invent everything else"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={4}
               userName="Guido van Rossum"
               userHeadline="Made Python so you don’t have to fight your code"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
@@ -296,21 +300,25 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           }
           demoUsers={[
             <DemoUser
+              key={1}
               userName="Elon Musk"
               userHeadline="Viewed today at 12:43 PM"
               sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={2}
               userName="Bill Gates"
               userHeadline="Viewed today at 11:15 AM"
               sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={3}
               userName="Jeff Bezos"
               userHeadline="Viewed today at 10:52 AM"
               sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
             />,
             <DemoUser
+              key={4}
               userName="Mark Zuckerberg"
               userHeadline="Viewed today at 9:38 AM"
               sideIcon={<MessageCircle className="text-neutral/80" size={20} />}
@@ -344,21 +352,25 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           sideElement={<p className="text-accent">4 saved</p>}
           demoUsers={[
             <DemoUser
+              key={1}
               userName="Tanner Linsley"
               userHeadline="Creator of Tanstack"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
+              key={2}
               userName="Jeff Delaney"
               userHeadline="Fireship creator, 100-second dev tutorials"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
+              key={3}
               userName="Evan You"
               userHeadline="Created Vue.js, making reactive web development simple"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
+              key={4}
               userName="shadcn"
               userHeadline="Building modern UI components and design systems"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
