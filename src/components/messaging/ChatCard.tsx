@@ -50,7 +50,7 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
     >
       <div className="flex items-center gap-4">
         <img
-          className="rounded-full w-10 h-10 xl:h-15 xl:w-15"
+          className="rounded-full w-10 h-10"
           src={chat.participantProfileImageUrls[otherParticipantId]}
           alt="Profile"
         />
@@ -73,8 +73,8 @@ export const ChatCard = ({ chat, currentUserId }: { chat: ChatMetaData; currentU
         )}
 
         <div className="tooltip font-normal" data-tip="Delete Chat">
-          <button className="btn btn-square" onClick={handleChatDeletion}>
-            {chatDeletePending ? <Loader /> : <Trash2 className="text-error/60" size={20} />}
+          <button className="btn btn-square border border-base-100" onClick={handleChatDeletion}>
+            {chatDeletePending ? <Loader /> : <Trash2 className="text-neutral/80" size={20} />}
           </button>
         </div>
       </div>
