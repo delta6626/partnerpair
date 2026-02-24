@@ -44,7 +44,7 @@ export const MockChatUI = () => {
               <div
                 className={`max-w-[260px] sm:max-w-[300px] xl:max-w-[400px] px-4 py-2 rounded-2xl break-words ${
                   isUser
-                    ? "bg-primary rounded-t-3xl rounded-bl-3xl rounded-br-md"
+                    ? "bg-primary rounded-t-3xl rounded-bl-3xl rounded-br-md text-white"
                     : "bg-base-200 rounded-t-3xl rounded-bl-md rounded-br-3xl"
                 }`}
               >
