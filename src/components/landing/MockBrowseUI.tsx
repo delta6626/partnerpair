@@ -3,6 +3,8 @@ import { ChevronDown, Search } from "lucide-react";
 export const MockBrowseUI = () => {
   return (
     <div className="p-8 border rounded-3xl border-base-100 w-full xl:w-lg flex flex-col gap-2 select-none">
+      <h1 className="text-lg">Browse co-founders</h1>
+
       <div className="border border-base-100 w-full flex gap-2 bg-base-200 px-4 py-2 rounded-box text-accent">
         <Search size={20} />
         <h1>Search by name</h1>
