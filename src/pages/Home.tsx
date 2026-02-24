@@ -98,7 +98,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           </h1>
         </div>
 
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex flex-col gap-8 lg:flex-row items-center justify-between">
           <StepCard
             step="01"
             stepTitle="Create your profile"
