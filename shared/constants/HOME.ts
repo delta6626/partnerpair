@@ -1,6 +1,8 @@
 import { SETTINGS } from "./SETTINGS";
 
 export const HOME = {
+  PRICING_SECTION_ID: "pricing",
+  FAQ_SECTION_ID: "faq",
   BASIC_FEATURES: [
     {
       feature: "Create your profile",
