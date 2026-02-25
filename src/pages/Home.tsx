@@ -161,13 +161,13 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
             <DemoUser
               key={3}
               userName="Dennis Ritchie"
-              userHeadline="Invented C so you could invent everything else"
+              userHeadline="Guy below me skipped braces"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
             <DemoUser
               key={4}
               userName="Guido van Rossum"
-              userHeadline="Made Python so you don’t have to fight your code"
+              userHeadline="Guy above me loved segfaults"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
           ]}
