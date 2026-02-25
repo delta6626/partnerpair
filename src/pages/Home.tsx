@@ -121,7 +121,10 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 flex flex-col xl:flex-row items-center justify-between gap-16 paddingContainer">
+      <section
+        id={HOME.FEATURES_SECTION_ID}
+        className="py-16 flex flex-col xl:flex-row items-center justify-between gap-16 paddingContainer"
+      >
         <div className="w-full xl:max-w-lg flex flex-col gap-8">
           <IconText icon={Stars} text={"Smart Matching"} topTag={true} />
 
