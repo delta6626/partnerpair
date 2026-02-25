@@ -422,7 +422,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 flex flex-col gap-16 paddingContainer">
+      <section id={HOME.PRICING_SECTION_ID} className="py-16 flex flex-col gap-16 paddingContainer">
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={Crown} text={"Pricing"} topTag={true} />
 
@@ -485,7 +485,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
 
       <div className="border-b border-base-100"></div>
 
-      <section className="py-16 flex flex-col gap-16 paddingContainer">
+      <section id={HOME.FAQ_SECTION_ID} className="py-16 flex flex-col gap-16 paddingContainer">
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={HelpCircle} text={"FAQ"} topTag={true} />
 
