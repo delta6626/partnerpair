@@ -357,25 +357,25 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
             <DemoUser
               key={1}
               userName="Tanner Linsley"
-              userHeadline="Creator of Tanstack"
+              userHeadline="Master of tables and Tanstack"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
               key={2}
               userName="Jeff Delaney"
-              userHeadline="Fireship creator, 100-second dev tutorials"
+              userHeadline="100-second dev tutorials wizard"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
               key={3}
               userName="Evan You"
-              userHeadline="Created Vue.js, making reactive web development simple"
+              userHeadline="Reactivity made simple, Vue.js"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
             <DemoUser
               key={4}
               userName="shadcn"
-              userHeadline="Building modern UI components and design systems"
+              userHeadline="Crafting sleek UI components"
               sideIcon={<UserRoundMinus className="text-error/60" size={20} />}
             />,
           ]}
