@@ -1,6 +1,7 @@
 import { SETTINGS } from "./SETTINGS";
 
 export const HOME = {
+  FEATURES_SECTION_ID: "features",
   PRICING_SECTION_ID: "pricing",
   FAQ_SECTION_ID: "faq",
   BASIC_FEATURES: [
