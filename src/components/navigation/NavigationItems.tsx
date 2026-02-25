@@ -14,6 +14,15 @@ export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
       <button
         className="btn bg-transparent border-none text-accent hover:text-base-content"
         onClick={() => {
+          scrollToId(HOME.FEATURES_SECTION_ID);
+        }}
+      >
+        Features
+      </button>
+
+      <button
+        className="btn bg-transparent border-none text-accent hover:text-base-content"
+        onClick={() => {
           scrollToId(HOME.PRICING_SECTION_ID);
         }}
       >
