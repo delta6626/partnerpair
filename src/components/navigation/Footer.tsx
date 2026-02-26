@@ -3,6 +3,7 @@ import { FOOTER } from "../../../shared/constants/FOOTER";
 import { Logo } from "../landing/Logo";
 import { GithubIcon } from "../../assets/customIcons/GithubIcon";
 import { TwitterIcon } from "../../assets/customIcons/TwitterIcon";
+import { HOME } from "../../../shared/constants/HOME";
 
 export const Footer = () => {
   return (
@@ -32,13 +33,26 @@ export const Footer = () => {
             Manage Subscription
           </Link>
 
-          <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/#pricing"}>
-            Pricing
-          </Link>
+          <a
+            className="hover:text-base-content transition-all ease-in-out duration-200"
+            href={`#` + HOME.FEATURES_SECTION_ID}
+          >
+            Features
+          </a>
 
-          <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/#faq"}>
+          <a
+            className="hover:text-base-content transition-all ease-in-out duration-200"
+            href={`#` + HOME.PRICING_SECTION_ID}
+          >
+            Pricing
+          </a>
+
+          <a
+            className="hover:text-base-content transition-all ease-in-out duration-200"
+            href={`#` + HOME.FAQ_SECTION_ID}
+          >
             FAQ
-          </Link>
+          </a>
 
           <Link
             className="hover:text-base-content transition-all ease-in-out duration-200"
