@@ -1,10 +1,12 @@
 import { FOOTER } from "../../shared/constants/FOOTER";
 import { Footer } from "../components/navigation/Footer";
 import { Navbar } from "../components/navigation/Navbar";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 import { useTheme } from "../hooks/useTheme";
 
 export const TermsOfService = () => {
   useTheme();
+  useScrollToTop();
 
   return (
     <>
