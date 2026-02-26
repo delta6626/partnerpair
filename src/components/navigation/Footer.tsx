@@ -32,10 +32,6 @@ export const Footer = () => {
             Manage Subscription
           </Link>
 
-          <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/#about"}>
-            About
-          </Link>
-
           <Link className="hover:text-base-content transition-all ease-in-out duration-200" to={"/#pricing"}>
             Pricing
           </Link>
