@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import type { NavigationItemsProps } from "../../../shared/types/navigationItemsProps";
 import { HOME } from "../../../shared/constants/HOME";
+import { scrollToId } from "../../../shared/utils/scrollToId";
 
 export const NavigationItems = ({ forMobile }: NavigationItemsProps) => {
-  const scrollToId = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     // The menu items of the Navbar
 
