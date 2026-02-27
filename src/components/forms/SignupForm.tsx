@@ -42,7 +42,7 @@ export const SignupForm = () => {
     dateOfBirth,
     password,
     confirmedPassword,
-    touched
+    touched,
   );
 
   // Unified change event handler for all inputs
@@ -220,9 +220,6 @@ export const SignupForm = () => {
             <GoogleIcon />
             {SIGNUP.SIGNUP_WITH_GOOGLE_BUTTON_TEXT}
           </button>
-        </div>
-        <div className="mt-4">
-          <p>{SIGNUP.TOS_TEXT}</p>
         </div>
       </div>
     </form>
