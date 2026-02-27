@@ -3,6 +3,7 @@ import { Navbar } from "../components/navigation/Navbar";
 import { LOGIN } from "../../shared/constants/LOGIN";
 import { useVerificationCheck } from "../hooks/useVerificationCheck";
 import { useTheme } from "../hooks/useTheme";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   useTheme();
@@ -20,6 +21,12 @@ export const Login = () => {
             <h1 className="font-semibold text-3xl md:text-4xl text-center">{LOGIN.GREETING_TEXT}</h1>
 
             <LoginForm />
+            <p className="mt-2">
+              Do not have an account?{" "}
+              <Link className="text-primary" to={"/signup"}>
+                Sign up.
+              </Link>
+            </p>
           </div>
         </div>
       </div>
