@@ -4,7 +4,7 @@ import { Logo } from "../landing/Logo";
 import { NavigationItems } from "./NavigationItems";
 import { ThemeChanger } from "../ThemeChanger";
 
-export const Navbar = () => {
+export const Navbar = ({ hideHomePageSpecificLinks }: { hideHomePageSpecificLinks?: boolean }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   function handleMenuButtonClick(): void {
@@ -16,7 +16,7 @@ export const Navbar = () => {
       <Logo />
 
       <div className="hidden md:flex gap-4">
-        <NavigationItems />
+        <NavigationItems hideHomePageSpecificLinks={hideHomePageSpecificLinks} />
         <ThemeChanger forMobile={false} />
       </div>
 
@@ -38,7 +38,7 @@ export const Navbar = () => {
               <X size={20} />
             </button>
           </div>
-          <NavigationItems forMobile={true} />
+          <NavigationItems forMobile={true} hideHomePageSpecificLinks={hideHomePageSpecificLinks} />
           <div className="mt-2">
             <ThemeChanger forMobile={true} />
           </div>
