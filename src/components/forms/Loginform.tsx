@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
 import { SIGNUP } from "../../../shared/constants/SIGNUP";
 import { LOGIN } from "../../../shared/constants/LOGIN";
 import { GoogleIcon } from "../../assets/customIcons/GoogleIcon";
@@ -77,6 +77,10 @@ export const LoginForm = () => {
     navigate("/dashboard");
   };
 
+  const handlePasswordReset = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <form className="w-full mt-8 fieldset">
       <div className="flex flex-col gap-2">
@@ -111,7 +115,10 @@ export const LoginForm = () => {
       </div>
 
       <p className="text-center mt-2">
-        Forgot password? <button className="text-primary">Reset it.</button>
+        Forgot password?{" "}
+        <button className="text-primary" onClick={handlePasswordReset}>
+          Reset it.
+        </button>
       </p>
     </form>
   );
