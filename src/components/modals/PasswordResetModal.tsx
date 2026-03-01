@@ -40,7 +40,7 @@ export const PassswordResetModal = () => {
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <button type="button" className="btn btn-primary flex-grow">
+          <button type="button" disabled={!emailValid} className="btn btn-primary flex-grow">
             {MODAL_ACTIONS.ACTION_SEND}
           </button>
         </div>
