@@ -21,7 +21,7 @@ export const Login = () => {
             <h1 className="font-semibold text-3xl md:text-4xl text-center">{LOGIN.GREETING_TEXT}</h1>
 
             <LoginForm />
-            <p className="mt-2">
+            <p>
               Do not have an account?{" "}
               <Link className="text-primary" to={"/signup"}>
                 Sign up.
