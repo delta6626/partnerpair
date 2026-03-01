@@ -13,6 +13,8 @@ export const PassswordResetModal = () => {
     setEmailValid(isValidEmail(e.target.value));
   };
 
+  const handlePasswordReset = () => {};
+
   const closeModal = () => {
     const modal = document.getElementById(MODALS.PASSWORD_RESET_MODAL.ID) as HTMLDialogElement;
     modal.close();
@@ -40,7 +42,12 @@ export const PassswordResetModal = () => {
             {MODAL_ACTIONS.ACTION_CANCEL}
           </button>
 
-          <button type="button" disabled={!emailValid} className="btn btn-primary flex-grow">
+          <button
+            type="button"
+            disabled={!emailValid}
+            className="btn btn-primary flex-grow"
+            onClick={handlePasswordReset}
+          >
             {MODAL_ACTIONS.ACTION_SEND}
           </button>
         </div>
