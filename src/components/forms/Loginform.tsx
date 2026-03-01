@@ -109,6 +109,10 @@ export const LoginForm = () => {
           {LOGIN.LOGIN_WITH_GOOGLE_BUTTON_TEXT}
         </button>
       </div>
+
+      <p className="text-center mt-2">
+        Forgot password? <button className="text-primary">Reset it.</button>
+      </p>
     </form>
   );
 };
