@@ -10,6 +10,7 @@ import { Loader } from "../Loader";
 import type { UserCredential } from "firebase/auth";
 import { useQueryClient } from "@tanstack/react-query";
 import { clearStores } from "../../store/clearStores";
+import { MODALS } from "../../../shared/constants/MODALS";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -79,6 +80,8 @@ export const LoginForm = () => {
 
   const handlePasswordReset = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    const passwordResetModal = document.getElementById(MODALS.PASSWORD_RESET_MODAL.ID) as HTMLDialogElement;
+    passwordResetModal.showModal();
   };
 
   return (
