@@ -116,7 +116,7 @@ export const LoginForm = () => {
 
       <p className="text-center mt-2">
         Forgot password?{" "}
-        <button className="text-primary" onClick={handlePasswordReset}>
+        <button className="text-primary cursor-pointer" onClick={handlePasswordReset}>
           Reset it.
         </button>
       </p>
