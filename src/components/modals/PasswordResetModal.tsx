@@ -1,7 +1,7 @@
 import { MailIcon } from "lucide-react";
 import { MODAL_ACTIONS } from "../../../shared/constants/MODAL_ACTIONS";
 import { MODALS } from "../../../shared/constants/MODALS";
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import { isValidEmail } from "../../../shared/utils/isValidEmail";
 
 export const PassswordResetModal = () => {
@@ -10,18 +10,13 @@ export const PassswordResetModal = () => {
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    setEmailValid(isValidEmail(e.target.value));
   };
 
   const closeModal = () => {
     const modal = document.getElementById(MODALS.PASSWORD_RESET_MODAL.ID) as HTMLDialogElement;
     modal.close();
   };
-
-  useEffect(() => {
-    if (isValidEmail(email)) {
-      setEmailValid(true);
-    }
-  }, [email]);
 
   return (
     <dialog id={MODALS.PASSWORD_RESET_MODAL.ID} className="modal">
