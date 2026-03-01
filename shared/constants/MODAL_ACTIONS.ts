@@ -3,4 +3,5 @@ export const MODAL_ACTIONS = {
   ACTION_CANCEL: "Cancel",
   ACTION_OK: "Okay",
   ACTION_REPORT: "Report",
+  ACTION_SEND: "Send link",
 };
