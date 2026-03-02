@@ -126,6 +126,8 @@ export const MODALS = {
   PASSWORD_RESET_MODAL: {
     ID: "passwordResetModal",
     TITLE: "Reset your password",
+    TITLE_SUCCESS: "Email sent",
+    TITLE_ERROR: "An error occurred",
     DESCRIPTION: "Enter your email address and we'll send you a link to reset your password.",
     SUCCESS_MESSAGE:
       "Check your inbox! If an account exists for that email, you'll receive a password reset link shortly.",
