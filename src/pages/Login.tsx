@@ -4,7 +4,7 @@ import { LOGIN } from "../../shared/constants/LOGIN";
 import { useVerificationCheck } from "../hooks/useVerificationCheck";
 import { useTheme } from "../hooks/useTheme";
 import { Link } from "react-router-dom";
-import { PassswordResetModal } from "../components/modals/PasswordResetModal";
+import { PasswordResetModal } from "../components/modals/PasswordResetModal";
 
 export const Login = () => {
   useTheme();
@@ -12,7 +12,7 @@ export const Login = () => {
 
   return (
     <div className="font-inter w-full min-h-[100vh] bg-base-300 paddingContainer flex flex-col">
-      <PassswordResetModal />
+      <PasswordResetModal />
 
       <div className="py-4">
         <Navbar hideHomePageSpecificLinks={true} />
