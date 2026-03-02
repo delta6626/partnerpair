@@ -98,7 +98,7 @@ export const ChatViewer = () => {
 
       {(isError || messagesLoadingError) && (
         <div className="flex flex-col flex-1 items-center justify-center text-error/60">
-          <p>An error occured while loading messages.</p>
+          <p>An error occurred while loading messages.</p>
           <br />
           <p>{error instanceof Error ? error.message : messagesLoadingErrorMessage}</p>
         </div>

@@ -4,7 +4,7 @@ export const BROWSE = {
   SKILL_SEARCH_PLACEHOLDER: "Enter skills to filter by",
   USER_TIER_LOADING_ERROR: "An error occured loading user tier. Please try again later.",
   SEARCH_INSTRUCTION_MESSAGE: "Choose your filters and click Search to get started.",
-  SEARCH_ERROR: "Whoops! An error occured.",
+  SEARCH_ERROR: "Whoops! An error occurred.",
   NEXT_PAGE_LOAD_ERROR: "Something went wrong while loading more results.",
   PAGINATION_END: "Looks like you’ve seen everything.",
   SEARCH_RESULTS_EMPTY: "No results found. Try adjusting your search.",

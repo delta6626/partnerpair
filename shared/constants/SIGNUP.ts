@@ -21,13 +21,13 @@ export const SIGNUP = {
   PASSWORDS_DO_NOT_MATCH_ERROR: "The passwords do not match.",
   EMAIL_ALREADY_IN_USE: "This email address is already associated with an account.",
   TOO_MANY_ATTEMPTS: "Too many attempts. Please try again later.",
-  NETWORK_ERROR: "A network error occured. Please check your internet connection and try again.",
+  NETWORK_ERROR: "A network error occurred. Please check your internet connection and try again.",
   ACCOUNT_EXISTS_WITH_DIFFERENT_SIGNIN_METHOD:
     "An account already exists with this email using a different sign-in method.",
   POPUP_BLOCKED: "Your browser blocked the sign-in popup. Please allow popups and try again.",
   POPUP_CLOSED: "Sign-in popup was closed before completing the sign-in.",
   UNAUTHORIZED_DOMAIN: "This app is not authorized for Google sign-in. Contact support.",
   UNAUTHENTICATED: "The user is unauthenticated",
-  UNKNOWN_ERROR: "An unexpected error occured. Please try again later.",
+  UNKNOWN_ERROR: "An unexpected error occurred. Please try again later.",
   SIGNOUT_SUCCESS: "You have been signed out of your account.",
 };

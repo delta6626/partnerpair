@@ -55,7 +55,7 @@ export const UnreadMessageCounter = () => {
 
       {isError && (
         <div className="">
-          <h1 className="text-error font-semibold">An error occured</h1>
+          <h1 className="text-error font-semibold">An error occurred</h1>
           <p className="text-accent">{error.message}</p>
         </div>
       )}

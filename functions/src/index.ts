@@ -181,7 +181,7 @@ const cancelSubscription = async (userId: string) => {
 
   if (!response.ok) {
     console.error(response.text());
-    throw new Error("An error occured cancelling the subscription");
+    throw new Error("An error occurred cancelling the subscription");
   }
 
   return;
@@ -700,7 +700,7 @@ export const initiateChat = onCall(async (request) => {
 
   const chatId = await createChat(userId, otherParticipantId);
 
-  if (!chatId) throw new HttpsError("unknown", "An unknown error occured.");
+  if (!chatId) throw new HttpsError("unknown", "An unknown error occurred.");
 
   return chatId;
 });
@@ -725,7 +725,7 @@ export const deleteChat = onCall(async (request) => {
     await db.recursiveDelete(chatRef);
   } catch (error: unknown) {
     console.error(error);
-    throw new HttpsError("unknown", "An unknown error occured. Please try again later.");
+    throw new HttpsError("unknown", "An unknown error occurred. Please try again later.");
   }
 });
 
@@ -742,6 +742,6 @@ export const deleteAccount = onCall(async (request) => {
     return true;
   } catch (error: unknown) {
     console.error(error);
-    throw new HttpsError("internal", `An error occured: ${error}`);
+    throw new HttpsError("internal", `An error occurred: ${error}`);
   }
 });

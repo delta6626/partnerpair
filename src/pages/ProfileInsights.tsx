@@ -91,7 +91,7 @@ export const ProfileInsights = () => {
                 </div>
               ) : isError ? (
                 <div className="flex flex-col flex-1 items-center justify-center">
-                  <h1 className="text-2xl text-error font-semibold">An error occured</h1>
+                  <h1 className="text-2xl text-error font-semibold">An error occurred</h1>
                   <p className="text text-accent">{error.message}</p>
                 </div>
               ) : (
