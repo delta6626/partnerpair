@@ -4,6 +4,7 @@ import {
   getAdditionalUserInfo,
   onAuthStateChanged,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   type AdditionalUserInfo,
@@ -258,5 +259,15 @@ export const signOut = async () => {
     return SIGNUP.SIGNOUT_SUCCESS;
   } catch (error: any) {
     return handleFirebaseError(error);
+  }
+};
+
+export const sendFirebasePasswordResetEmail = async (email: string) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 };
