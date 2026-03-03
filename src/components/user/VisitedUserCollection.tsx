@@ -44,7 +44,7 @@ export const VisitedUserCollection = ({
     (a, b) =>
       b.viewedAt._seconds * 1000 +
       b.viewedAt._nanoseconds / 1_000_000 -
-      (a.viewedAt._seconds * 1000 + a.viewedAt._nanoseconds / 1_000_000)
+      (a.viewedAt._seconds * 1000 + a.viewedAt._nanoseconds / 1_000_000),
   );
 
   const filteredVisitorsUnique = Array.from(new Map(filteredVisitedUsers.map((v) => [v.viewerId, v])).values());
@@ -58,8 +58,8 @@ export const VisitedUserCollection = ({
   } else if (viewFilter === "allViews" && filteredVisitedUsers.length != 0) {
     return (
       <div className="w-full flex flex-col gap-4 mb-8">
-        {filteredVisitedUsers.map((visitedUser, index) => {
-          return <VisitedUser key={index} viewerData={visitedUser} />;
+        {filteredVisitedUsers.map((visitedUser) => {
+          return <VisitedUser key={visitedUser.viewerId} viewerData={visitedUser} />;
         })}
       </div>
     );
@@ -74,8 +74,8 @@ export const VisitedUserCollection = ({
   } else {
     return (
       <div className="w-full flex flex-col gap-4 mb-8">
-        {filteredVisitorsUnique.map((visitedUser, index) => {
-          return <VisitedUser key={index} viewerData={visitedUser} />;
+        {filteredVisitorsUnique.map((visitedUser) => {
+          return <VisitedUser key={visitedUser.viewerId} viewerData={visitedUser} />;
         })}
       </div>
     );

@@ -247,9 +247,10 @@ export const RenderProData = ({
       <div className="mt-4">
         <p className="text-accent uppercase font-semibold tracking-wide">My Socials</p>
         <div className="mt-2 flex flex-wrap gap-2">
-          {Object.keys(visitedUserData.socialLinks).map((linkItem) => {
+          {Object.keys(visitedUserData.socialLinks).map((linkItem, index) => {
             return (
               <GenericChip
+                key={index}
                 chipText={linkItem[0].toUpperCase() + linkItem.slice(1)}
                 onClick={() => {
                   const url = visitedUserData.socialLinks[linkItem as keyof typeof visitedUserData.socialLinks];
