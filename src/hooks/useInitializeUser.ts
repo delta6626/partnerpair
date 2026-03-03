@@ -15,7 +15,7 @@ export const useInitializeUser = () => {
       const authUser = await getAuthenticatedUser();
 
       if (authUser === SIGNUP.UNAUTHENTICATED) {
-        navigate("/signup");
+        navigate("/login");
         return;
       }
 
