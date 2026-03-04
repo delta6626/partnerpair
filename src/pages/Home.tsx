@@ -149,7 +149,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
           demoUsers={[
             <DemoUser
               key={1}
-              userName="Margaret Hamilton"
+              userName="Maggy Hamilton"
               userHeadline="Saved the moon landing with clean code"
               sideIcon={<UserRoundPlus className="text-neutral/80" size={20} />}
             />,
