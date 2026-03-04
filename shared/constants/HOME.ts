@@ -1,6 +1,7 @@
 import { SETTINGS } from "./SETTINGS";
 
 export const HOME = {
+  PRODUCT_DEMO_EMBED_ID: "https://www.youtube.com/embed/LDU_Txk06tM?si=XP-eVunKEDvgdu8x",
   FEATURES_SECTION_ID: "features",
   PRICING_SECTION_ID: "pricing",
   FAQ_SECTION_ID: "faq",
