@@ -204,7 +204,7 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
         <div className="w-full flex items-center flex-col gap-8">
           <IconText icon={UserCheck} text={"Comprehensive Profiles"} topTag={true} />
 
-          <h1 className="text-4xl font-medium">Show Everything that Matters</h1>
+          <h1 className="text-4xl text-center font-medium">Show Everything that Matters</h1>
 
           <h1 className="text-accent text-center text-lg max-w-lg">
             Your profile displays your skills, roles, experience, availability, social links and more. A completion
