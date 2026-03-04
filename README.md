@@ -95,7 +95,7 @@ Refer to the [Terms of Service](https://partnerpair.vercel.app/terms-of-service)
 
 ## Contributing
 
-This project's source code is publicly available for viewing and learning purposes. However, the developer is not accepting contributions at this time. However, feedback is always welcome. Feel free to reach out to the [developer](mailto:hasan04.asm@gmail.com).
+This project's source code is publicly available for viewing and learning purposes. The developer is not accepting contributions at this time. However, feedback is always welcome. Feel free to reach out to the [developer](mailto:hasan04.asm@gmail.com).
 
 ## Commercial Use
 
