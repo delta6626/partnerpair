@@ -78,7 +78,8 @@ export const Home = ({ redirect }: { redirect: boolean }) => {
         <div className="w-full xl:w-fit">
           <iframe
             className="w-[100%] xl:w-lg 2xl:w-xl aspect-video rounded-3xl"
-            src="https://www.youtube.com/embed/LDU_Txk06tM?si=XP-eVunKEDvgdu8x" // Change source later.
+            src={HOME.PRODUCT_DEMO_EMBED_ID} // Change source later.s
+            rel="0"
             title="PartnerPair Demo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
