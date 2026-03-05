@@ -12,7 +12,7 @@ export const Verify = () => {
   return (
     <div className="font-inter w-full min-h-[100vh] bg-base-300 paddingContainer flex flex-col">
       <div className="py-4">
-        <Navbar />
+        <Navbar hideHomePageSpecificLinks={true} />
       </div>
 
       {loading ? (
