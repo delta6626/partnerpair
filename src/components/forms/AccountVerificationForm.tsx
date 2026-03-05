@@ -82,7 +82,7 @@ export const AccountVerificationForm = () => {
         <h1 className="font-semibold text-3xl md:text-4xl text-center">
           {VERIFY.WELCOME_MESSAGE + ", " + user?.basicInfo.firstName + "."}
         </h1>
-        <h4 className="text-lg mt-8">{VERIFY.VERIFICATON_INSTRUCTIONS}</h4>
+        <h4 className="text-lg text-center mt-8">{VERIFY.VERIFICATON_INSTRUCTIONS}</h4>
         <button className="btn btn-primary w-full mt-6" onClick={handleAccountVerifcation} disabled={emailSent}>
           {loading ? <Loader /> : emailSent ? VERIFY.VERIFICAITON_MAIL_SENT : VERIFY.SEND_VERIFICATION_MAIL}
         </button>
