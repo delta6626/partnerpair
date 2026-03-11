@@ -12,7 +12,7 @@ export const PrivacyPolicy = () => {
     <>
       <div className="w-full min-h-[100vh] flex flex-col font-inter bg-base-300 paddingContainer">
         <div className="py-4">
-          <Navbar />
+          <Navbar hideHomePageSpecificLinks={true} />
         </div>
 
         <div className="flex flex-col items-center">
